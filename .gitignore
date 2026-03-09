@@ -1,0 +1,180 @@
+# ==================== 操作系统文件 ====================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+System Volume Information/
+
+# ==================== IDE - IntelliJ IDEA ====================
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+target/
+build/
+.gradle/
+local.properties
+
+# ==================== IDE - VSCode ====================
+.vscode/
+*.code-workspace
+.history/
+*.log
+
+# ==================== IDE - Claude Code / AI Tools ====================
+.claude/
+*.cursorrules
+.cursor/
+.windsurf/
+*.ai.json
+
+# ==================== TypeScript / JavaScript ====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm
+.yarn
+dist/
+coverage/
+*.tsbuildinfo
+.next/
+.nuxt/
+
+# ==================== Java ====================
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+*.log
+logs/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# ==================== Python ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+*.egg-info/
+.eggs/
+MANIFEST
+build/
+dist/
+*.egg
+*.manifest
+*.spec
+*.ipynb_checkpoints
+.spyderproject
+.spyproject
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# PyCharm
+.idea/
+*.pyc
+__pycache__/
+
+# ==================== 通用配置文件 ====================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.local
+config.local.json
+settings.local.json
+
+# ==================== 日志文件 ====================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==================== 临时文件 ====================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache/
+.temp/
+.tmp/
+
+# ==================== 压缩文件 ====================
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ==================== 敏感信息 ====================
+*.key
+*.pem
+*.crt
+*.secret
+secrets.json
+credentials.json
+*.password
+
+# ==================== 数据库文件 ====================
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+
+# ==================== 其他常见忽略 ====================
+*.bak
+*.backup
+*.old
+*.orig
+.hg/
+.svn/
+CVS/
