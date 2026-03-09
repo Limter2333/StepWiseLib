@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.8</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.github.Sheven</groupId>
+    <artifactId>StepWiseLib</artifactId>
+    <version>>1.0.0</version>
+
+    <properties>
+        <java.version>17</java.version>
+        <spring-ai.version>1.1.2</spring-ai.version>
+        <spring-ai-alibaba.version>1.1.0.0-RC1</spring-ai-alibaba.version>
+        <spring-ai-alibaba-extensions.version>1.1.0.0-RC1</spring-ai-alibaba-extensions.version>
+        <mybatis-plus.version>3.5.9</mybatis-plus.version>
+    </properties>
+
+    <dependencies>
+        <!-- Spring Boot Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring Boot WebFlux (用于流式响应) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <!-- Spring AI Alibaba DashScope Starter (通义千问) -->
+        <dependency>
+            <groupId>com.alibaba.cloud.ai</groupId>
+            <artifactId>spring-ai-alibaba-starter-dashscope</artifactId>
+            <version>${spring-ai-alibaba.version}</version>
+        </dependency>
+
+        <!-- Spring AI Alibaba Agent Framework -->
+        <dependency>
+            <groupId>com.alibaba.cloud.ai</groupId>
+            <artifactId>spring-ai-alibaba-agent-framework</artifactId>
+            <version>${spring-ai-alibaba-extensions.version}</version>
+        </dependency>
+
+        <!-- 可选：对话记忆支持 -->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud.ai</groupId>-->
+<!--            <artifactId>spring-ai-alibaba-starter-memory</artifactId>-->
+<!--            <version>${spring-ai-alibaba.version}</version>-->
+<!--        </dependency>-->
+
+        <!-- 如果使用 Memory 功能，需要显式引入 -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.ai</groupId>-->
+<!--            <artifactId>spring-ai-core</artifactId>-->
+<!--        </dependency>-->
+
+        <!-- Lombok (可选) -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Jackson 依赖（通常不需要手动添加，因为 spring-boot-starter-web 已包含） -->
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-databind</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-core</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-annotations</artifactId>-->
+<!--        </dependency>-->
+
+        <!-- MyBatis-Plus -->
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-spring-boot3-starter</artifactId>-->
+<!--            <version>${mybatis-plus.version}</version>-->
+<!--        </dependency>-->
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>sonatype-snapshots</id>
+            <name>OSS Sonatype</name>
+            <url>https://oss.sonatype.org/content/groups/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+</project>

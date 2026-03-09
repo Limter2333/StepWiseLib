@@ -1,0 +1,30 @@
+server:
+  port: 8688
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: StepWiseLib
+  jackson:
+    default-property-inclusion: non_null
+  # 确保 MVC 使用 UTF-8
+  web:
+    encoding:
+      charset: UTF-8
+      enabled: true
+
+  ai:
+    dashscope:
+      # 从环境变量读取 API Key
+      api-key: ${DASHSCOPE_API_KEY}
+      chat:
+        options:
+          model: ${DASHSCOPE_MODEL}         # 模型：qwen-max, qwen-plus, qwen-turbo 等
+          temperature: ${DASHSCOPE_TEMPERATURE}             # 温度：0.0-1.0，越高越创造性
+          max-tokens: ${DASHSCOPE_MAX_TOKENS}             # 最大输出 token 数
+          top-p: ${DASHSCOPE_TOP_P}                   # 核采样
+          enable-search: ${DASHSCOPE_ENABLE_SEARCH}         # 是否启用联网搜索
