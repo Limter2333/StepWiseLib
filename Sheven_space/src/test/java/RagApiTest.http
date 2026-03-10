@@ -1,0 +1,95 @@
+### RAG API 测试文件
+### 使用 IntelliJ IDEA 或 VS Code 的 REST Client 插件运行
+
+@baseUrl = http://localhost:8688/rag
+
+### 1. 健康检查
+GET {{baseUrl}}/health
+
+
+### 2. 获取所有文档
+GET {{baseUrl}}/documents
+
+
+### 3. RAG 智能问答 - 查询 RAG 技术
+POST {{baseUrl}}/query
+Content-Type: application/json
+
+{
+  "question": "什么是 RAG 技术？",
+  "topK": 3,
+  "similarityThreshold": 0.5
+}
+
+
+### 4. RAG 智能问答 - 查询 MySQL 优化
+POST {{baseUrl}}/query
+Content-Type: application/json
+
+{
+  "question": "MySQL 数据库如何优化性能？",
+  "topK": 3,
+  "similarityThreshold": 0.5
+}
+
+
+### 5. RAG 智能问答 - 查询 MyBatis-Plus
+POST {{baseUrl}}/query
+Content-Type: application/json
+
+{
+  "question": "MyBatis-Plus 有哪些主要功能？",
+  "topK": 2,
+  "similarityThreshold": 0.5
+}
+
+
+### 6. 添加单个文档到知识库
+POST {{baseUrl}}/document
+Content-Type: application/json
+
+{
+  "title": "Java 并发编程要点",
+  "content": "Java 并发编程的核心概念包括：1. 线程池的使用和管理；2. synchronized 和 ReentrantLock 的区别；3. volatile 关键字的作用；4. ConcurrentHashMap 的实现原理；5. CompletableFuture 异步编程；6. ThreadLocal 的使用场景。掌握这些知识点对于编写高效、安全的并发程序至关重要。",
+  "docType": "article",
+  "keywords": "Java，并发，多线程，线程安全",
+  "source": "https://example.com/java-concurrency"
+}
+
+
+### 7. 批量导入文档
+POST {{baseUrl}}/documents/batch
+Content-Type: application/json
+
+[
+  {
+    "title": "Docker 容器化部署指南",
+    "content": "Docker 容器化部署的步骤：1. 编写 Dockerfile 定义镜像；2. 构建 Docker 镜像；3. 运行容器实例；4. 配置网络和存储；5. 使用 docker-compose 编排多容器应用。容器化的优势在于环境一致性、快速部署和资源隔离。",
+    "docType": "manual",
+    "keywords": "Docker，容器化，DevOps，部署",
+    "source": "https://example.com/docker-guide"
+  },
+  {
+    "title": "RESTful API 设计规范",
+    "content": "RESTful API 设计原则：1. 使用资源命名（名词而非动词）；2. 合理使用 HTTP 方法（GET/POST/PUT/DELETE）；3. 使用状态码表达响应结果；4. 版本控制通过 URL 或 Header；5. 提供分页、过滤、排序支持；6. 使用统一的响应格式。良好的 API 设计可以提高开发效率和可维护性。",
+    "docType": "faq",
+    "keywords": "RESTful，API 设计，HTTP，Web 开发",
+    "source": "https://example.com/restful-api-design"
+  }
+]
+
+
+### 8. 删除文档（将 ID 替换为实际的文档 ID）
+DELETE {{baseUrl}}/document/1
+
+
+### 9. 带文档类型过滤的查询
+POST {{baseUrl}}/query
+Content-Type: application/json
+
+{
+  "question": "如何搭建知识库系统？",
+  "topK": 3,
+  "similarityThreshold": 0.5,
+  "docTypes": ["manual", "faq"]
+}

@@ -28,3 +28,18 @@ spring:
           max-tokens: ${DASHSCOPE_MAX_TOKENS}             # 最大输出 token 数
           top-p: ${DASHSCOPE_TOP_P}                   # 核采样
           enable-search: ${DASHSCOPE_ENABLE_SEARCH}         # 是否启用联网搜索
+
+  # MySQL 数据库配置
+  datasource:
+    url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_NAME:rag_db}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.github.Sheven.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

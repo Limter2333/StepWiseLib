@@ -1,20 +1,25 @@
-### Spring AI Alibaba Skills 测试示例
-# 注意：请确保应用已启动，并且端口配置正确（默认 8088）
+### Spring AI Skills 测试文件
+### 使用 IntelliJ IDEA 或 VS Code 的 REST Client 插件运行
 
-#####################################
-# 1. 基础对话测试（不使用 Skills）
-#####################################
+@baseUrl = http://localhost:8688/chat
 
-### 1.1 简单对话
-POST http://localhost:8088/ai/chat
+### 1. 健康检查
+GET {{baseUrl}}/health
+
+
+### 2. 基础对话测试（不使用 Skills）
+
+POST {{baseUrl}}
 Content-Type: application/json
 
 {
   "message": "你好，请介绍一下你自己"
 }
 
-### 1.2 普通问题
-POST http://localhost:8088/ai/chat
+
+### 3. 普通问题测试
+
+POST {{baseUrl}}
 Content-Type: application/json
 
 {
@@ -22,184 +27,49 @@ Content-Type: application/json
 }
 
 
-#####################################
-# 2. Skills 功能测试
-#####################################
+### 4. 天气查询 Skills 测试
 
-### 2.1 天气查询 - 北京
-POST http://localhost:8088/ai/chat/skills
+POST {{baseUrl}}/skills
 Content-Type: application/json
 
 {
   "message": "北京今天天气怎么样？"
 }
 
-### 2.2 天气查询 - 上海
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
 
-{
-  "message": "上海今天天气如何？"
-}
+### 5. 计算器 Skills 测试
 
-### 2.3 天气查询 - 广州
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "广州今天天气怎么样？"
-}
-
-### 2.4 天气查询 - 深圳
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "深圳今天天气如何？"
-}
-
-### 2.5 天气查询 - 其他城市（无数据）
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "成都今天天气怎么样？"
-}
-
-
-#####################################
-# 3. 计算器 Skills 测试
-#####################################
-
-### 3.1 加法计算
-POST http://localhost:8088/ai/chat/skills
+POST {{baseUrl}}/skills
 Content-Type: application/json
 
 {
   "message": "帮我计算一下 123 加 456 等于多少？"
 }
 
-### 3.2 减法计算
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
 
-{
-  "message": "1000 减去 357 等于多少？"
-}
+### 6. 日期时间 Skills 测试
 
-### 3.3 乘法计算
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "帮我计算一下 123 乘以 456 等于多少？"
-}
-
-### 3.4 除法计算
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "1000 除以 8 等于多少？"
-}
-
-### 3.5 除零错误测试
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "100 除以 0 等于多少？"
-}
-
-### 3.6 圆面积计算
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "计算半径为 5 的圆的面积"
-}
-
-### 3.7 圆面积计算 - 错误半径
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "计算半径为 -3 的圆的面积"
-}
-
-
-#####################################
-# 4. 日期时间 Skills 测试
-#####################################
-
-### 4.1 获取当前日期和时间
-POST http://localhost:8088/ai/chat/skills
+POST {{baseUrl}}/skills
 Content-Type: application/json
 
 {
   "message": "现在几点了？"
 }
 
-### 4.2 获取当前日期
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
 
-{
-  "message": "今天是什么日子？"
-}
+### 7. 组合 Skills 测试
 
-### 4.3 计算两个日期之间的天数
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "计算从 2025-01-01 到 2025-12-31 相差多少天？"
-}
-
-### 4.4 日期计算 - 错误格式
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "计算从 2025/01/01 到 2025/12/31 相差多少天？"
-}
-
-
-#####################################
-# 5. 组合 Skills 测试
-#####################################
-
-### 5.1 天气 + 计算组合
-POST http://localhost:8088/ai/chat/skills
+POST {{baseUrl}}/skills
 Content-Type: application/json
 
 {
   "message": "北京今天天气怎么样？另外帮我计算一下 25 加 30 等于多少？"
 }
 
-### 5.2 日期 + 计算组合
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
 
-{
-  "message": "今天是什么日子？然后计算一下从今天到 2025-12-31 还有多少天？"
-}
+### 8. 流式响应测试（SSE）
 
-### 5.3 复杂组合问题
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "我想去北京旅游，那里天气如何？另外我想知道半径为 10 公里的圆形公园面积是多少？"
-}
-
-
-#####################################
-# 6. 流式响应测试（SSE）
-#####################################
-
-### 6.1 流式响应 - 天气查询
-POST http://localhost:8088/ai/chat/skills/stream
+POST {{baseUrl}}/skills/stream
 Content-Type: application/json
 Accept: text/event-stream
 
@@ -207,31 +77,10 @@ Accept: text/event-stream
   "message": "北京今天天气怎么样？"
 }
 
-### 6.2 流式响应 - 计算
-POST http://localhost:8088/ai/chat/skills/stream
-Content-Type: application/json
-Accept: text/event-stream
 
-{
-  "message": "帮我计算一下 999 乘以 888 等于多少？"
-}
+### 9. 带上下文的对话测试
 
-### 6.3 流式响应 - 日期时间
-POST http://localhost:8088/ai/chat/skills/stream
-Content-Type: application/json
-Accept: text/event-stream
-
-{
-  "message": "现在几点了？"
-}
-
-
-#####################################
-# 7. 带上下文的对话测试
-#####################################
-
-### 7.1 多轮对话 - 第一轮
-POST http://localhost:8088/ai/sync
+POST {{baseUrl}}/sync
 Content-Type: application/json
 
 {
@@ -239,8 +88,10 @@ Content-Type: application/json
   "conversationId": "test-conversation-001"
 }
 
-### 7.2 多轮对话 - 第二轮
-POST http://localhost:8088/ai/sync
+
+### 10. 多轮对话 - 第二轮
+
+POST {{baseUrl}}/sync
 Content-Type: application/json
 
 {
@@ -248,82 +99,22 @@ Content-Type: application/json
   "conversationId": "test-conversation-001"
 }
 
-### 7.3 多轮对话 - 使用 Skills
-POST http://localhost:8088/ai/sync
-Content-Type: application/json
 
-{
-  "message": "北京今天天气怎么样？",
-  "conversationId": "test-conversation-002"
-}
+### 11. 清除记忆测试
 
-### 7.4 多轮对话 - 追问
-POST http://localhost:8088/ai/sync
-Content-Type: application/json
-
-{
-  "message": "那上海呢？",
-  "conversationId": "test-conversation-002"
-}
+DELETE {{baseUrl}}/memory/test-conversation-001
 
 
-#####################################
-# 8. 边界和错误测试
-#####################################
+### 12. 错误测试 - 空消息
 
-### 8.1 空消息测试
-POST http://localhost:8088/ai/chat/skills
+POST {{baseUrl}}/skills
 Content-Type: application/json
 
 {
   "message": ""
 }
 
-### 8.2 超长消息测试
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
 
-{
-  "message": "这是一段非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长非常长的消息，请问北京今天天气怎么样？"
-}
+### 13. GET 方式简单对话
 
-### 8.3 特殊字符测试
-POST http://localhost:8088/ai/chat/skills
-Content-Type: application/json
-
-{
-  "message": "请问 <北京> 今天天气怎么样？@#$%^&*()"
-}
-
-
-#####################################
-# 9. 清除记忆测试
-#####################################
-
-### 9.1 清除指定会话的记忆
-DELETE http://localhost:8088/ai/memory/test-conversation-001
-
-
-#####################################
-# 10. 系统日志测试
-#####################################
-
-### 10.1 测试日志输出
-GET http://localhost:8088/ai/test-log
-
-
-#####################################
-# 11. 传统 GET 接口测试
-#####################################
-
-### 11.1 GET 方式简单对话
-GET http://localhost:8088/ai/chat?input=你好
-
-
-#####################################
-# 使用说明：
-# 1. 在 IntelliJ IDEA 中安装 Http Client 插件
-# 2. 确保 Spring Boot 应用已启动（端口 8088）
-# 3. 点击请求左侧的绿色箭头运行测试
-# 4. 可以使用 # 注释来禁用某些请求
-#####################################
+GET {{baseUrl}}?input=你好

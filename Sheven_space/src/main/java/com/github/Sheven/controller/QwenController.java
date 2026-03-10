@@ -13,24 +13,24 @@ import reactor.core.publisher.Flux;
 
 @Slf4j
 @RestController
-@RequestMapping("/ai")
+@RequestMapping("/chat")
 public class QwenController {
 
     @Autowired
     private QwenService qwenService;
 
 
-    @PostMapping("/chat")
+    @PostMapping("/")
     public ChatResponse chat(@RequestBody ChatRequest request) {
         return qwenService.chat(request);
     }
 
-    @PostMapping("/chat/skills")
+    @PostMapping("/skills")
     public ChatResponse chatWithSkills(@RequestBody ChatRequest request) {
         return qwenService.chatWithSkills(request);
     }
 
-    @PostMapping(value = "/chat/skills/stream", produces = "text/event-stream")
+    @PostMapping(value = "/skills/stream", produces = "text/event-stream")
     public Flux<ChatResponse> streamChatWithSkills(@RequestBody ChatRequest request) {
         return qwenService.streamChatWithSkills(request);
     }
