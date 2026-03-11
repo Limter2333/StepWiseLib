@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.Sheven.mapper.RagDocumentMapper">
+
+    <resultMap id="RagDocumentResultMap" type="com.github.Sheven.entity.RagDocument">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="docType" column="doc_type"/>
+        <result property="keywords" column="keywords"/>
+        <result property="source" column="source"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="similarityScore" column="similarity_score"/>
+    </resultMap>
+
+    <select id="searchByKeywords" resultMap="RagDocumentResultMap">
+        SELECT *, 
+               MATCH(title, content) AGAINST(#{keywords} IN NATURAL LANGUAGE MODE) AS similarity_score
+        FROM rag_document
+        WHERE MATCH(title, content) AGAINST(#{keywords} IN NATURAL LANGUAGE MODE) >= #{similarityThreshold}
+        <if test="docTypes != null and docTypes.size() > 0">
+            AND doc_type IN
+            <foreach item="type" collection="docTypes" open="(" separator="," close=")">
+                #{type}
+            </foreach>
+        </if>
+        ORDER BY similarity_score DESC
+        LIMIT #{topK}
+    </select>
+
+    <select id="searchByKeyword" resultMap="RagDocumentResultMap">
+        SELECT * 
+        FROM rag_document
+        WHERE title LIKE CONCAT('%', #{keyword}, '%')
+           OR content LIKE CONCAT('%', #{keyword}, '%')
+        ORDER BY update_time DESC
+        LIMIT #{topK}
+    </select>
+
+</mapper>

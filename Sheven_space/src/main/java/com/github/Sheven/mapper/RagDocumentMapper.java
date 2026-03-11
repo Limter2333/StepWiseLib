@@ -20,19 +20,6 @@ public interface RagDocumentMapper extends BaseMapper<RagDocument> {
      * @param topK 返回数量
      * @return 文档列表
      */
-    @Select("SELECT *, MATCH(title, content) AGAINST(#{keywords} IN NATURAL LANGUAGE MODE) AS similarity_score " +
-            "FROM rag_document " +
-            "WHERE MATCH(title, content) AGAINST(#{keywords} IN NATURAL LANGUAGE MODE) >= #{similarityThreshold} " +
-            "<script>" +
-            "<if test='docTypes != null and docTypes.size() > 0'>" +
-            "AND doc_type IN " +
-            "<foreach item='type' collection='docTypes' open='(' separator=',' close=')'>" +
-            "#{type}" +
-            "</foreach>" +
-            "</if>" +
-            "</script> " +
-            "ORDER BY similarity_score DESC " +
-            "LIMIT #{topK}")
     List<RagDocument> searchByKeywords(@Param("keywords") String keywords,
                                         @Param("topK") Integer topK,
                                         @Param("similarityThreshold") Double similarityThreshold,
@@ -41,11 +28,6 @@ public interface RagDocumentMapper extends BaseMapper<RagDocument> {
     /**
      * 基于标题和内容模糊搜索
      */
-    @Select("SELECT * FROM rag_document " +
-            "WHERE title LIKE CONCAT('%', #{keyword}, '%') " +
-            "OR content LIKE CONCAT('%', #{keyword}, '%') " +
-            "ORDER BY update_time DESC " +
-            "LIMIT #{topK}")
     List<RagDocument> searchByKeyword(@Param("keyword") String keyword,
                                        @Param("topK") Integer topK);
 }
