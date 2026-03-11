@@ -3,7 +3,7 @@ package com.github.Sheven.service.impl;
 
 import com.github.Sheven.dto.ChatRequest;
 import com.github.Sheven.dto.ChatResponse;
-import com.github.Sheven.service.QwenService;
+import com.github.Sheven.service.SkillService;
 import com.github.Sheven.skill.CalculatorSkill;
 import com.github.Sheven.skill.DateTimeSkill;
 import com.github.Sheven.skill.WeatherSkill;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
 @Service
-public class QwenServiceImpl implements QwenService {
+public class SkillServiceImpl implements SkillService {
 
     @Autowired
     private ChatClient chatClient;

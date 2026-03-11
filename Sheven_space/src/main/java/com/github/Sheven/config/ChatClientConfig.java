@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class QwenConfig {
+public class ChatClientConfig {
 
     /**
      * 配置 ChatClient Builder
