@@ -4,6 +4,7 @@ import com.github.Sheven.dto.FieldInfoResponse;
 import com.github.Sheven.dto.FieldQueryRequest;
 import com.github.Sheven.entity.FieldManager;
 import com.github.Sheven.service.FieldManagerService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 /**
  * 字段管理控制器
  */
+@Slf4j
 @RestController
 @RequestMapping("/api/field")
 @CrossOrigin(origins = "*")

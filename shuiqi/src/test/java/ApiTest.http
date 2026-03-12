@@ -1,0 +1,125 @@
+
+NEW_FILE_CODE
+### FieldMappingController API 测试
+### 使用 IntelliJ IDEA 或 VS Code 的 REST Client 插件运行
+
+@baseUrl = http://localhost:8689/api/field-mapping
+
+### 1. 健康检查接口
+GET {{baseUrl}}/health
+
+### 2. 基础字段映射处理 - 单个字段
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "chineseNames": ["姓名"],
+  "exportExcel": true,
+  "generateVoCode": false
+}
+
+### 3. 批量字段映射处理 - 多个字段
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "chineseNames": ["姓名", "年龄", "性别", "手机号码", "邮箱"],
+  "exportExcel": true,
+  "generateVoCode": true,
+  "excelFileName": "用户信息字段映射",
+  "voClassName": "UserFieldVO"
+}
+
+### 4. 字段映射处理 - 不导出 Excel 和生成代码
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "chineseNames": ["地址", "邮编"],
+  "exportExcel": false,
+  "generateVoCode": false
+}
+
+### 5. 查询单个中文字段的映射
+GET {{baseUrl}}/query/姓名
+
+### 6. 查询单个中文字段的映射 - 年龄
+GET {{baseUrl}}/query/年龄
+
+### 7. 批量查询字段映射（逗号分隔）
+GET {{baseUrl}}/query?chineseNames=姓名，年龄，性别
+
+### 8. 批量查询字段映射 - 更多字段
+GET {{baseUrl}}/query?chineseNames=手机号，邮箱，地址，城市
+
+### 9. 错误测试 - 空的中文字段列表
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "chineseNames": []
+}
+
+### 10. 错误测试 - null 的中文字段
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "chineseNames": null
+}
+
+### 11. 复杂场景 - 包含可能重复的字段
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "chineseNames": ["手机号", "手机号码", "电话", "固定电话"],
+  "exportExcel": true,
+  "generateVoCode": true,
+  "excelFileName": "联系方式字段",
+  "voClassName": "ContactVO"
+}
+
+### 12. 性能测试 - 大量字段
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "chineseNames": ["姓名", "年龄", "性别", "民族", "国籍", "身份证号", "护照号", "出生日期", "出生地", "婚姻状况", "学历", "职业", "工作单位", "职位", "收入", "房产", "车辆", "存款", "保险", "社保"],
+  "exportExcel": true,
+  "generateVoCode": true,
+  "excelFileName": "人员详细信息字段"
+}
+
+### 13. 自定义 VO 类名测试
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "chineseNames": ["订单编号", "订单金额", "下单时间", "支付状态", "收货地址"],
+  "exportExcel": false,
+  "generateVoCode": true,
+  "voClassName": "OrderInfoVO"
+}
+
+### 14. 仅导出 Excel 测试
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "chineseNames": ["商品名称", "商品编码", "价格", "库存数量", "供应商"],
+  "exportExcel": true,
+  "generateVoCode": false,
+  "excelFileName": "商品信息字段"
+}
+
+### 15. 仅生成 VO 代码测试
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "chineseNames": ["用户名", "密码", "昵称", "头像", "签名"],
+  "exportExcel": false,
+  "generateVoCode": true,
+  "voClassName": "UserProfileVO"
+}

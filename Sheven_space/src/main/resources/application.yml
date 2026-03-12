@@ -43,3 +43,10 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# MCP Server 配置
+mcp:
+  server:
+    enabled: true
+    name: StepWiseLib-MCP
+    version: 1.0.0

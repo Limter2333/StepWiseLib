@@ -3,6 +3,7 @@ package com.github.Sheven.shuiqi.util;
 import com.github.Sheven.shuiqi.entity.FieldInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -54,10 +55,13 @@ public class ExcelExportUtil {
 
         try (Workbook workbook = new SXSSFWorkbook(100)) {
             // 创建工作表
-            Sheet sheet = workbook.createSheet("字段信息");
+            SXSSFSheet sheet =  (SXSSFSheet)workbook.createSheet("字段信息");
 
             // 创建表头
             createHeader(sheet);
+
+            // 跟踪所有需要自动调整列宽的列（0-13 共 14 列）
+            trackColumnsForAutoResize(sheet, 14);
 
             // 填充数据
             fillData(sheet, fieldInfos);
@@ -94,6 +98,16 @@ public class ExcelExportUtil {
             cell.setCellValue(headers[i]);
             cell.setCellStyle(headerStyle);
         }
+    }
+
+    /**
+     * 跟踪需要自动调整大小的列
+     * @param sheet 工作表
+     * @param columnCount 列数
+     */
+    private void trackColumnsForAutoResize(SXSSFSheet sheet, int columnCount) {
+        // 方法 1：跟踪所有列（推荐）
+        sheet.trackAllColumnsForAutoSizing();
     }
 
     /**

@@ -40,7 +40,7 @@ public class FieldMappingController {
      */
     @GetMapping("/health")
     public ResponseEntity<String> health() {
-        return ResponseEntity.ok("ShuiQi Field Mapping Service is running");
+        return ResponseEntity.ok("ShuiQi Field Mapping Service is running... We Good~");
     }
 
     /**
