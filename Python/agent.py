@@ -11,11 +11,12 @@ from openai import OpenAI
 import platform
 
 from prompt_template import react_system_prompt_template
+from tools import read_file, run_terminal_command, write_to_file
 
 
 class ReActAgent:
     def __init__(self, tools: List[Callable], model: str, project_directory: str):
-        self.tools = { func.__name__: func for func in tools }
+        self.tools = {func.__name__: func for func in tools}
         self.model = model
         self.project_directory = project_directory
         self.client = OpenAI(
@@ -66,7 +67,6 @@ class ReActAgent:
             print(f"\n\n🔍 Observation：{observation}")
             obs_msg = f"<observation>{observation}</observation>"
             messages.append({"role": "user", "content": obs_msg})
-
 
     def get_tool_list(self) -> str:
         """生成工具列表字符串，包含函数签名和简要说明"""
@@ -125,10 +125,10 @@ class ReActAgent:
         string_char = None
         i = 0
         paren_depth = 0
-        
+
         while i < len(args_str):
             char = args_str[i]
-            
+
             if not in_string:
                 if char in ['"', "'"]:
                     in_string = True
@@ -148,25 +148,25 @@ class ReActAgent:
                     current_arg += char
             else:
                 current_arg += char
-                if char == string_char and (i == 0 or args_str[i-1] != '\\'):
+                if char == string_char and (i == 0 or args_str[i - 1] != '\\'):
                     in_string = False
                     string_char = None
-            
+
             i += 1
-        
+
         # 添加最后一个参数
         if current_arg.strip():
             args.append(self._parse_single_arg(current_arg.strip()))
-        
+
         return func_name, args
-    
+
     def _parse_single_arg(self, arg_str: str):
         """解析单个参数"""
         arg_str = arg_str.strip()
-        
+
         # 如果是字符串字面量
         if (arg_str.startswith('"') and arg_str.endswith('"')) or \
-           (arg_str.startswith("'") and arg_str.endswith("'")):
+                (arg_str.startswith("'") and arg_str.endswith("'")):
             # 移除外层引号并处理转义字符
             inner_str = arg_str[1:-1]
             # 处理常见的转义字符
@@ -174,7 +174,7 @@ class ReActAgent:
             inner_str = inner_str.replace('\\n', '\n').replace('\\t', '\t')
             inner_str = inner_str.replace('\\r', '\r').replace('\\\\', '\\')
             return inner_str
-        
+
         # 尝试使用 ast.literal_eval 解析其他类型
         try:
             return ast.literal_eval(arg_str)
@@ -192,23 +192,6 @@ class ReActAgent:
         return os_map.get(platform.system(), "Unknown")
 
 
-def read_file(file_path):
-    """用于读取文件内容"""
-    with open(file_path, "r", encoding="utf-8") as f:
-        return f.read()
-
-def write_to_file(file_path, content):
-    """将指定内容写入指定文件"""
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write(content.replace("\\n", "\n"))
-    return "写入成功"
-
-def run_terminal_command(command):
-    """用于执行终端命令"""
-    import subprocess
-    run_result = subprocess.run(command, shell=True, capture_output=True, text=True)
-    return "执行成功" if run_result.returncode == 0 else run_result.stderr
-
 @click.command()
 @click.argument('project_directory',
                 type=click.Path(exists=True, file_okay=False, dir_okay=True))
@@ -223,6 +206,7 @@ def main(project_directory):
     final_answer = agent.run(task)
 
     print(f"\n\n✅ Final Answer：{final_answer}")
+
 
 if __name__ == "__main__":
     main()
