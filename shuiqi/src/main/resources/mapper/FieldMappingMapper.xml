@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.Sheven.shuiqi.mapper.FieldMappingMapper">
+
+    <resultMap id="FieldMappingResult" type="com.github.Sheven.shuiqi.entity.FieldMapping">
+        <id property="id" column="id"/>
+        <result property="chineseName" column="chinese_name"/>
+        <result property="englishName" column="english_name"/>
+        <result property="fieldType" column="field_type"/>
+        <result property="fieldLength" column="field_length"/>
+        <result property="nullable" column="is_nullable"/>
+        <result property="defaultValue" column="default_value"/>
+        <result property="description" column="description"/>
+        <result property="tableName" column="table_name"/>
+        <result property="databaseName" column="database_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <!-- 根据中文字段名查询 -->
+    <select id="selectByChineseName" resultMap="FieldMappingResult">
+        SELECT * FROM field_mapping
+        WHERE chinese_name = #{chineseName}
+        ORDER BY table_name, english_name
+    </select>
+
+    <!-- 批量根据中文字段名查询 -->
+    <select id="selectByChineseNames" resultMap="FieldMappingResult">
+        SELECT * FROM field_mapping
+        WHERE chinese_name IN
+        <foreach collection="chineseNames" item="name" open="(" separator="," close=")">
+            #{name}
+        </foreach>
+        ORDER BY chinese_name, table_name, english_name
+    </select>
+
+    <!-- 根据表名查询 -->
+    <select id="selectByTableName" resultMap="FieldMappingResult">
+        SELECT * FROM field_mapping
+        WHERE table_name = #{tableName}
+        ORDER BY english_name
+    </select>
+
+    <!-- 根据数据库名和表名查询 -->
+    <select id="selectByDatabaseAndTable" resultMap="FieldMappingResult">
+        SELECT * FROM field_mapping
+        WHERE database_name = #{databaseName}
+          AND table_name = #{tableName}
+        ORDER BY english_name
+    </select>
+
+</mapper>

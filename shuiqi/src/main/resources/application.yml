@@ -1,0 +1,60 @@
+server:
+  port: 8689
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: ShuiQi
+  jackson:
+    default-property-inclusion: non_null
+  web:
+    encoding:
+      charset: UTF-8
+      enabled: true
+
+  ai:
+    dashscope:
+      # 从环境变量读取 API Key
+      api-key: ${DASHSCOPE_API_KEY}
+      chat:
+        options:
+          # 模型：qwen-max, qwen-plus, qwen-turbo, qwen-long 等
+          model: ${DASHSCOPE_MODEL:qwen-plus}
+          # 温度：0.0-1.0，越高越有创造性
+          temperature: ${DASHSCOPE_TEMPERATURE:0.3}
+          # 最大输出 token 数
+          max-tokens: ${DASHSCOPE_MAX_TOKENS:2048}
+          # 核采样参数
+          top-p: ${DASHSCOPE_TOP_P:0.9}
+          # 是否启用联网搜索
+          enable-search: ${DASHSCOPE_ENABLE_SEARCH:false}
+
+  # MySQL 数据库配置
+  datasource:
+    url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_NAME:field_mapping_db}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.github.Sheven.shuiqi.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# MCP 服务配置
+mcp:
+  server:
+    url: ${MCP_SERVER_URL:http://localhost:8080}
+    timeout: ${MCP_TIMEOUT:30000}
+
+# Excel 导出配置
+excel:
+  export:
+    path: ${EXCEL_EXPORT_PATH:./exports}
