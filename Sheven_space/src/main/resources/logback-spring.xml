@@ -89,25 +89,31 @@
         <appender-ref ref="ERROR_FILE"/>
     </root>
 
-    <!-- 2. Spring AI Alibaba 相关包（打印DEBUG到专用文件） -->
+    <!-- 2. Spring AI Alibaba 相关包（打印 DEBUG 到专用文件） -->
     <logger name="com.alibaba.cloud.ai" level="DEBUG" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="HTTP_FILE"/>
         <appender-ref ref="FILE"/>
     </logger>
-
-    <!-- 3. 你自己的项目包 -->
-    <logger name="com.github.Sheven.Sheven_space" level="DEBUG" additivity="true">
-        <!-- 继承 root 的 appender，同时保持DEBUG级别 -->
+    
+    <!-- 3. OkHttp 客户端日志（MCP 调用） -->
+    <logger name="okhttp3.logging.HttpLoggingInterceptor" level="DEBUG" additivity="false">
+        <appender-ref ref="HTTP_FILE"/>
+        <appender-ref ref="CONSOLE"/>
     </logger>
-
-    <!-- 4. HTTP 请求拦截器（专门记录千问API报文） -->
+    
+    <!-- 4. 你自己的项目包 -->
+    <logger name="com.github.Sheven.Sheven_space" level="DEBUG" additivity="true">
+        <!-- 继承 root 的 appender，同时保持 DEBUG 级别 -->
+    </logger>
+    
+    <!-- 5. HTTP 请求拦截器（专门记录千问 API 报文） -->
     <logger name="com.github.Sheven.config.HttpLoggingConfig" level="DEBUG" additivity="false">
         <appender-ref ref="HTTP_FILE"/>
         <appender-ref ref="CONSOLE"/>
     </logger>
-
-    <!-- 5. Spring Web 客户端日志（查看底层HTTP调用） -->
+    
+    <!-- 6. Spring Web 客户端日志（查看底层 HTTP 调用） -->
     <logger name="org.springframework.web.client.RestClient" level="DEBUG"/>
     <logger name="org.springframework.web.reactive.function.client" level="DEBUG"/>
 
