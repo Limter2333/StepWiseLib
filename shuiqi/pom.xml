@@ -119,6 +119,13 @@
             <version>4.12.0</version>
         </dependency>
 
+        <!-- OkHttp Logging Interceptor (用于打印 HTTP 请求/响应报文) -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>logging-interceptor</artifactId>
+            <version>4.12.0</version>
+        </dependency>
+
         <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

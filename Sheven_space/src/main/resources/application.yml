@@ -19,15 +19,15 @@ spring:
 
   ai:
     dashscope:
-      # 从环境变量读取 API Key
-      api-key: ${DASHSCOPE_API_KEY}
+      # 从环境变量读取 API Key (如果使用通义千问模型)
+      api-key: ${DASHSCOPE_API_KEY:}
       chat:
         options:
-          model: ${DASHSCOPE_MODEL}         # 模型：qwen-max, qwen-plus, qwen-turbo 等
-          temperature: ${DASHSCOPE_TEMPERATURE}             # 温度：0.0-1.0，越高越创造性
-          max-tokens: ${DASHSCOPE_MAX_TOKENS}             # 最大输出 token 数
-          top-p: ${DASHSCOPE_TOP_P}                   # 核采样
-          enable-search: ${DASHSCOPE_ENABLE_SEARCH}         # 是否启用联网搜索
+          model: ${DASHSCOPE_MODEL:qwen-max}         # 模型：qwen-max, qwen-plus, qwen-turbo 等
+          temperature: ${DASHSCOPE_TEMPERATURE:0.7}             # 温度：0.0-1.0，越高越创造性
+          max-tokens: ${DASHSCOPE_MAX_TOKENS:2048}             # 最大输出 token 数
+          top-p: ${DASHSCOPE_TOP_P:0.8}                   # 核采样
+          enable-search: ${DASHSCOPE_ENABLE_SEARCH:false}         # 是否启用联网搜索
 
   # MySQL 数据库配置
   datasource:
@@ -50,3 +50,17 @@ mcp:
     enabled: true
     name: StepWiseLib-MCP
     version: 1.0.0
+
+
+
+# Custom Unknown Model Configuration
+custom:
+  model:
+    # Set to true to use custom model, false to use DashScope/Qwen
+    enabled: ${CUSTOM_MODEL_ENABLED:false}
+    # API base URL
+    base-url: ${CUSTOM_MODEL_BASE_URL:http://123.com/api}
+    # API authentication code
+    code: ${CUSTOM_MODEL_CODE:aaaa}
+    # API key
+    api-key: ${CUSTOM_MODEL_API_KEY:your-api-key-here}

@@ -1,0 +1,191 @@
+### Custom Model API 测试文件
+### 使用 IntelliJ IDEA 或 VS Code 的 REST Client 插件运行
+### 测试 CustomModelController 的所有接口
+
+@baseUrl = http://localhost:8688/api/custom-model
+
+### 1. 健康检查
+GET {{baseUrl}}/health
+
+
+### 2. 简单对话测试 - 基础问题
+
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "message": "你好，请介绍一下你自己"
+}
+
+
+### 3. 简单对话测试 - 知识性问题
+
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "message": "什么是人工智能？"
+}
+
+
+### 4. 简单对话测试 - 创意性问题
+
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "message": "请用一句话描述春天"
+}
+
+
+### 5. 流式对话测试（SSE）- 基础
+
+POST {{baseUrl}}/chat/stream
+Content-Type: application/json
+Accept: text/event-stream
+
+{
+  "message": "你好，很高兴认识你"
+}
+
+
+### 6. 流式对话测试（SSE）- 复杂问题
+
+POST {{baseUrl}}/chat/stream
+Content-Type: application/json
+Accept: text/event-stream
+
+{
+  "message": "请简要介绍一下机器学习的基本概念"
+}
+
+
+### 7. 带历史记录的对话 - 第一轮
+
+POST {{baseUrl}}/chat/history
+Content-Type: application/json
+
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "你好，我叫小明"
+    }
+  ]
+}
+
+
+### 8. 带历史记录的对话 - 第二轮（包含上下文）
+
+POST {{baseUrl}}/chat/history
+Content-Type: application/json
+
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "你好，我叫小明"
+    },
+    {
+      "role": "assistant",
+      "content": "你好小明，很高兴认识你！有什么我可以帮助你的吗？"
+    },
+    {
+      "role": "user",
+      "content": "你喜欢做什么？"
+    }
+  ]
+}
+
+
+### 9. 带历史记录的对话 - 多轮专业对话
+
+POST {{baseUrl}}/chat/history
+Content-Type: application/json
+
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "我想学习编程，应该从哪里开始？"
+    },
+    {
+      "role": "assistant",
+      "content": "学习编程是个很棒的选择！建议你先从一门易学的语言开始，比如 Python。你想了解哪方面的编程呢？"
+    },
+    {
+      "role": "user",
+      "content": "我对网站开发感兴趣"
+    }
+  ]
+}
+
+
+### 10. 错误测试 - 空消息
+
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "message": ""
+}
+
+
+### 11. 错误测试 - 缺失消息字段
+
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "otherField": "test"
+}
+
+
+### 12. 错误测试 - 空历史记录
+
+POST {{baseUrl}}/chat/history
+Content-Type: application/json
+
+{
+  "messages": []
+}
+
+
+### 13. 压力测试 - 较长的问题
+
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "message": "请详细解释一下深度学习和机器学习的区别，以及它们各自的应用场景有哪些？希望能举例说明。"
+}
+
+
+### 14. 中文特定场景测试
+
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "message": "你能用中文写一首关于秋天的诗吗？"
+}
+
+
+### 15. 代码生成测试
+
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "message": "请用 Java 写一个计算斐波那契数列的方法"
+}
+
+
+### 16. 翻译测试
+
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "message": "请将'Hello, how are you?'翻译成中文"
+}
