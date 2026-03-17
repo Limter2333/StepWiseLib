@@ -5,11 +5,12 @@ import com.github.Sheven.dto.ChatRequest;
 import com.github.Sheven.dto.ChatResponse;
 import com.github.Sheven.service.SkillService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -33,5 +34,16 @@ public class SkillController {
     @PostMapping(value = "/skills/stream", produces = "text/event-stream")
     public Flux<ChatResponse> streamChatWithSkills(@RequestBody ChatRequest request) {
         return skillService.streamChatWithSkills(request);
+    }
+
+    /**
+     * 健康检查
+     */
+    @GetMapping("/health")
+    public ResponseEntity<Map<String, String>> health() {
+        Map<String, String> result = new HashMap<>();
+        result.put("status", "UP");
+        result.put("service", "Skill Service");
+        return ResponseEntity.ok(result);
     }
 }
