@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.sheven.partner.mapper.GenerationRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.github.sheven.partner.model.GenerationRecord">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_uuid" property="userUuid"/>
+        <result column="image_path" property="imagePath"/>
+        <result column="image_url" property="imageUrl"/>
+        <result column="prompt" property="prompt"/>
+        <result column="description" property="description"/>
+        <result column="request_data" property="requestData"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- 根据用户 ID 查询记录 -->
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT * FROM generation_record WHERE user_id = #{userId} ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据用户 UUID 查询记录 -->
+    <select id="selectByUserUuid" resultMap="BaseResultMap">
+        SELECT * FROM generation_record WHERE user_uuid = #{userUuid} ORDER BY create_time DESC
+    </select>
+
+</mapper>

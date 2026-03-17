@@ -1,0 +1,41 @@
+server:
+  port: 8686
+
+spring:
+  application:
+    name: ai-partner-generator
+  
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ai-partner-generator?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: ${DB_PASSWORD:root}
+  
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  
+  ai:
+    dashscope:
+      # 从环境变量读取 API Key (如果使用通义千问模型)
+      api-key: ${DASHSCOPE_API_KEY:}
+      chat:
+        options:
+          model: ${DASHSCOPE_MODEL:z-image-turbo}         # 模型：qwen-max, qwen-plus, qwen-turbo 等
+          temperature: ${DASHSCOPE_TEMPERATURE:0.7}             # 温度：0.0-1.0，越高越创造性
+          max-tokens: ${DASHSCOPE_MAX_TOKENS:2048}             # 最大输出 token 数
+          top-p: ${DASHSCOPE_TOP_P:0.8}                   # 核采样
+          enable-search: ${DASHSCOPE_ENABLE_SEARCH:false}         # 是否启用联网搜索
+
+# 日志配置
+logging:
+  level:
+    com.github.sheven.partner: DEBUG
+    org.springframework.ai: DEBUG
+
+# CORS 配置（开发环境）
+app:
+  cors:
+    allowed-origins: http://localhost:3000,http://localhost:5173
