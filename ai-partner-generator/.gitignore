@@ -1,0 +1,22 @@
+# 后端
+backend/target/
+backend/uploads/
+*.log
+
+# 前端
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# API 密钥（不要提交到版本控制）
+**/.env
+**/*.key
