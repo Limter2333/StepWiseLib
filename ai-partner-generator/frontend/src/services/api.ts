@@ -10,15 +10,33 @@ export const api = axios.create({
 });
 
 export interface GenerateRequest {
+  userUuid?: string;
+  username?: string;
   gender: string;
+  targetGender?: string;
   mbtiType: string;
   birthDate: string;
   zodiacSign: string;
   birthTime: string;
   birthPlace: string;
   currentResidence: string;
+  interests?: string[];
+  customFeatures?: string;
+}
+
+export interface SaveInterestsRequest {
   interests: string[];
+}
+
+export interface SaveCustomFeaturesRequest {
   customFeatures: string;
+}
+
+export interface SaveUserStepRequest {
+  username: string;
+  step: number;
+  data: any;
+  userUuid?: string;
 }
 
 export interface GenerateResponse {
@@ -64,4 +82,28 @@ export const calculateZodiac = async (date: string): Promise<string> => {
     params: { date },
   });
   return response.data.zodiacSign;
+};
+
+/**
+ * 保存兴趣爱好
+ */
+export const saveInterests = async (request: SaveInterestsRequest): Promise<{ success: boolean }> => {
+  const response = await api.post<{ success: boolean }>('/interests', request);
+  return response.data;
+};
+
+/**
+ * 保存自定义特征
+ */
+export const saveCustomFeatures = async (request: SaveCustomFeaturesRequest): Promise<{ success: boolean }> => {
+  const response = await api.post<{ success: boolean }>('/custom-features', request);
+  return response.data;
+};
+
+/**
+ * 保存用户步骤信息
+ */
+export const saveUserStep = async (request: SaveUserStepRequest): Promise<{ success: boolean; data?: any }> => {
+  const response = await api.post<{ success: boolean; data?: any }>('/user/step', request);
+  return response.data;
 };

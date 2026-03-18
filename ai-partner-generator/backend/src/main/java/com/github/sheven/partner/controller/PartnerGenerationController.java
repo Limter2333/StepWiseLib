@@ -5,6 +5,7 @@ import com.github.sheven.partner.mapper.GenerationRecordMapper;
 import com.github.sheven.partner.model.GenerationRecord;
 import com.github.sheven.partner.model.User;
 import com.github.sheven.partner.service.PartnerGenerationService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 /**
  * AI 伴侣生成控制器
  */
+@Slf4j
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "${app.cors.allowed-origins:http://localhost:3000}")
@@ -147,12 +149,22 @@ public class PartnerGenerationController {
     }
     
     /**
-     * 保存地理位置信息
+     * 保存出生地点
      */
-    @PostMapping("/user/location")
-    public ResponseEntity<ApiResponse<User>> saveLocation(
-            @RequestBody UserLocationRequest request) {
-        ApiResponse<User> response = generationService.saveLocation(request);
+    @PostMapping("/user/birth-place")
+    public ResponseEntity<ApiResponse<User>> saveBirthPlace(
+            @RequestBody UserBirthPlaceRequest request) {
+        ApiResponse<User> response = generationService.saveBirthPlace(request);
+        return ResponseEntity.ok(response);
+    }
+    
+    /**
+     * 保存当前居住地
+     */
+    @PostMapping("/user/current-residence")
+    public ResponseEntity<ApiResponse<User>> saveCurrentResidence(
+            @RequestBody UserCurrentResidenceRequest request) {
+        ApiResponse<User> response = generationService.saveCurrentResidence(request);
         return ResponseEntity.ok(response);
     }
     
@@ -163,6 +175,16 @@ public class PartnerGenerationController {
     public ResponseEntity<ApiResponse<User>> saveInterests(
             @RequestBody UserInterestsRequest request) {
         ApiResponse<User> response = generationService.saveInterests(request);
+        return ResponseEntity.ok(response);
+    }
+    
+    /**
+     * 保存用户步骤信息（包含用户名）
+     */
+    @PostMapping("/user/step")
+    public ResponseEntity<ApiResponse<User>> saveUserStep(
+            @RequestBody UserStepRequest request) {
+        ApiResponse<User> response = generationService.saveUserStep(request);
         return ResponseEntity.ok(response);
     }
 }

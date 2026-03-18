@@ -28,10 +28,22 @@ public class User {
     private String userUuid;
     
     /**
+     * 用户名
+     */
+    @TableField("username")
+    private String username;
+    
+    /**
      * 性别
      */
     @TableField("gender")
     private String gender;
+    
+    /**
+     * 目标性别（希望的对象性别）
+     */
+    @TableField("target_gender")
+    private String targetGender;
     
     /**
      * MBTI 类型

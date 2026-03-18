@@ -13,7 +13,9 @@ DROP TABLE IF EXISTS `user_profile`;
 CREATE TABLE `user_profile` (
     `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键 ID',
     `user_uuid` VARCHAR(64) NOT NULL COMMENT '用户唯一标识',
+    `username` VARCHAR(50) DEFAULT NULL COMMENT '用户名',
     `gender` VARCHAR(10) DEFAULT NULL COMMENT '性别',
+    `target_gender` VARCHAR(10) DEFAULT NULL COMMENT '目标性别（希望的对象性别）',
     `mbti_type` VARCHAR(10) DEFAULT NULL COMMENT 'MBTI 类型',
     `birth_date` VARCHAR(20) DEFAULT NULL COMMENT '出生日期（公历）',
     `zodiac_sign` VARCHAR(20) DEFAULT NULL COMMENT '星座',
@@ -26,6 +28,7 @@ CREATE TABLE `user_profile` (
     `update_time` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     PRIMARY KEY (`id`),
     UNIQUE KEY `uk_user_uuid` (`user_uuid`),
+    KEY `idx_username` (`username`),
     KEY `idx_create_time` (`create_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户信息表';
 

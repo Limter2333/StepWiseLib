@@ -19,9 +19,19 @@ public class GenerateRequest {
     private String userUuid;
     
     /**
+     * 用户名
+     */
+    private String username;
+    
+    /**
      * 性别
      */
     private String gender;
+    
+    /**
+     * 目标性别（希望的对象性别）
+     */
+    private String targetGender;
     
     /**
      * MBTI 类型

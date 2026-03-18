@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PartnerForm } from '@/components/PartnerForm';
+import { MultiStepForm } from '@/components/MultiStepForm';
 import { ResultDisplay } from '@/components/ResultDisplay';
 import { generatePartner, type GenerateRequest } from '@/services/api';
 import { Heart, Sparkles } from 'lucide-react';
@@ -7,15 +7,16 @@ import { Heart, Sparkles } from 'lucide-react';
 function App() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<{ imageUrl: string; description: string } | null>(null);
-  const [formData, setFormData] = useState<any>(null);
 
   const handleSubmit = async (data: any) => {
     setLoading(true);
-    setFormData(data);
     
     try {
       const request: GenerateRequest = {
+        userUuid: data.userUuid,
+        username: data.username,
         gender: data.gender,
+        targetGender: data.targetGender,
         mbtiType: data.mbtiType,
         birthDate: data.birthDate,
         zodiacSign: data.zodiacSign,
@@ -46,7 +47,6 @@ function App() {
 
   const handleRegenerate = () => {
     setResult(null);
-    setFormData(null);
   };
 
   return (
@@ -72,7 +72,7 @@ function App() {
                 根据您的个人信息和偏好，AI 将为您生成可能的理想对象类型
               </p>
             </div>
-            <PartnerForm onSubmit={handleSubmit} loading={loading} />
+            <MultiStepForm onSubmit={handleSubmit} loading={loading} />
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
