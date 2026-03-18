@@ -57,10 +57,18 @@
             <artifactId>spring-ai-alibaba-agent-framework</artifactId>
             <version>${spring-ai-alibaba-extensions.version}</version>
         </dependency>
+
         <!-- MyBatis-Plus -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <!-- MyBatis-Plus 分页插件 (3.5.9+ 需要单独引入) -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-jsqlparser</artifactId>
             <version>${mybatis-plus.version}</version>
         </dependency>
 

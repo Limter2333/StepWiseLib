@@ -20,7 +20,7 @@ spring:
   ai:
     dashscope:
       # 从环境变量读取 API Key (如果使用通义千问模型)
-      api-key: ${DASHSCOPE_API_KEY:}
+      api-key: ${DASHSCOPE_API_KEY}
       chat:
         options:
           model: ${DASHSCOPE_MODEL:z-image-turbo}         # 模型：qwen-max, qwen-plus, qwen-turbo 等
