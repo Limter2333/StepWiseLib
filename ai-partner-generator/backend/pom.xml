@@ -51,6 +51,14 @@
             <version>${spring-ai-alibaba.version}</version>
         </dependency>
 
+        <!-- Google Gemini-->
+        <dependency>
+            <groupId>com.google.genai</groupId>
+            <artifactId>google-genai</artifactId>
+            <version>1.41.0</version>
+            <scope>compile</scope>
+        </dependency>
+
         <!-- Spring AI Alibaba Agent Framework -->
         <dependency>
             <groupId>com.alibaba.cloud.ai</groupId>

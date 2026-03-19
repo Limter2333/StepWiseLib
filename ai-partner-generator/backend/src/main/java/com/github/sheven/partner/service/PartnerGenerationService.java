@@ -6,6 +6,7 @@ import com.github.sheven.partner.mapper.GenerationRecordMapper;
 import com.github.sheven.partner.mapper.UserMapper;
 import com.github.sheven.partner.model.GenerationRecord;
 import com.github.sheven.partner.model.User;
+import com.github.sheven.partner.service.GeminiService;
 import com.github.sheven.partner.util.ZodiacUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.image.ImageModel;
@@ -38,6 +39,8 @@ public class PartnerGenerationService {
     
     private final GenerationRecordMapper generationRecordMapper;
     
+    private final GeminiService geminiService;
+    
     @Value("${spring.application.name:ai-partner-generator}")
     private String applicationName;
     
@@ -53,14 +56,16 @@ public class PartnerGenerationService {
     public PartnerGenerationService(
             @Autowired @Qualifier("dashScopeImageModel") ImageModel imageModel,
             UserMapper userMapper,
-            GenerationRecordMapper generationRecordMapper) {
+            GenerationRecordMapper generationRecordMapper,
+            GeminiService geminiService) {
         this.imageModel = imageModel;
         this.userMapper = userMapper;
         this.generationRecordMapper = generationRecordMapper;
+        this.geminiService = geminiService;
     }
     
     /**
-     * 生成 AI 伴侣图片
+     * 生成 AI 伴侣图片（使用通义万相）
      */
     public GenerateResponse generatePartnerImage(GenerateRequest request) {
         try {
@@ -97,7 +102,89 @@ public class PartnerGenerationService {
     }
     
     /**
-     * 构建 AI 绘画提示词
+     * 生成 AI 伴侣图片（使用 Nano Banana Pro Model - Google Gemini SDK）
+     */
+    public GenerateResponse generateNanoBananaImage(GenerateRequest request) {
+        try {
+            log.info("开始使用 Nano Banana Pro Model (Google Gemini SDK) 生成 AI 伴侣图片");
+            
+            // 1. 保存或更新用户信息
+            User user = saveOrUpdateUser(request);
+            
+            // 2. 构建针对 Gemini 优化的提示词（英文）
+            String prompt = buildGeminiPrompt(request);
+            log.info("Gemini 风格提示词：{}", prompt);
+            
+            // 3. 调用 Gemini SDK 生成图片
+            byte[] imageData;
+            try {
+                imageData = geminiService.generateImageFromText(prompt);
+            } catch (IllegalStateException e) {
+                // Gemini 未配置，降级到 DashScope
+                log.warn("Gemini API 未配置，降级使用 DashScope ImageModel: {}", e.getMessage());
+                return generateWithDashScope(request, prompt, user);
+            }
+            
+            if (imageData != null && imageData.length > 0) {
+                String description = buildDescription(request);
+                
+                // 4. 保存图片到本地
+                String localImagePath = saveImageBytesToLocal(imageData, user.getId());
+                String accessUrl = "/api/images/" + localImagePath.substring(IMAGE_SAVE_DIR.length());
+                
+                // 5. 保存生成记录
+                saveGenerationRecord(user, localImagePath, accessUrl, prompt, description, request);
+                
+                log.info("Nano Banana Pro Model 图片生成成功：{}", accessUrl);
+                return GenerateResponse.success(accessUrl, description);
+            } else {
+                log.warn("Gemini API 返回空数据");
+                return GenerateResponse.error("图片生成失败，请重试");
+            }
+            
+        } catch (Exception e) {
+            log.error("Nano Banana Pro Model 生成失败", e);
+            e.printStackTrace();
+            return GenerateResponse.error("生成失败：" + e.getMessage());
+        }
+    }
+    
+    /**
+     * 降级方案：使用 DashScope 生成图片
+     */
+    private GenerateResponse generateWithDashScope(GenerateRequest request, String prompt, User user) {
+        try {
+            log.info("使用 DashScope ImageModel 作为替代方案生成图片");
+            
+            // 使用中文提示词
+            String zhPrompt = buildPrompt(request);
+            ImagePrompt imagePrompt = new ImagePrompt(zhPrompt);
+            ImageResponse response = imageModel.call(imagePrompt);
+            
+            if (response != null && response.getResults() != null && !response.getResults().isEmpty()) {
+                String imageUrl = response.getResults().get(0).getOutput().getUrl();
+                String description = buildDescription(request);
+                
+                // 下载并保存图片到本地
+                String localImagePath = saveImageToLocal(imageUrl, user.getId());
+                String accessUrl = "/api/images/" + localImagePath.substring(IMAGE_SAVE_DIR.length());
+                
+                // 保存生成记录
+                saveGenerationRecord(user, localImagePath, accessUrl, zhPrompt, description, request);
+                
+                log.info("DashScope 图片生成成功：{}", accessUrl);
+                return GenerateResponse.success(accessUrl, description);
+            } else {
+                return GenerateResponse.error("图片生成失败，请重试");
+            }
+        } catch (Exception e) {
+            log.error("DashScope 降级方案执行失败", e);
+            return GenerateResponse.error("降级方案执行失败：" + e.getMessage());
+        }
+    }
+    
+    /**
+     * 构建 AI 绘画提示词（通用）
      */
     private String buildPrompt(GenerateRequest request) {
         StringBuilder prompt = new StringBuilder();
@@ -139,7 +226,51 @@ public class PartnerGenerationService {
     }
     
     /**
-     * 根据 MBTI 类型获取特征描述
+     * 构建针对 Gemini 优化的提示词
+     * Gemini 对英文提示词理解更好，使用英文提示词
+     */
+    private String buildGeminiPrompt(GenerateRequest request) {
+        StringBuilder prompt = new StringBuilder();
+        
+        prompt.append("A portrait of an ideal romantic partner, ");
+        
+        // 性别
+        if ("male".equals(request.getGender())) {
+            prompt.append("female, ");
+        } else if ("female".equals(request.getGender())) {
+            prompt.append("male, ");
+        } else {
+            prompt.append("person, ");
+        }
+        
+        // 星座特征
+        if (request.getZodiacSign() != null && !request.getZodiacSign().isEmpty() && !"未知".equals(request.getZodiacSign())) {
+            String zodiacEn = getZodiacSignInEnglish(request.getZodiacSign());
+            prompt.append(zodiacEn).append(" zodiac aura, ");
+        }
+        
+        // MBTI 特征
+        if (request.getMbtiType() != null && !request.getMbtiType().isEmpty()) {
+            prompt.append(getMbtiCharacteristicsEn(request.getMbtiType())).append(", ");
+        }
+        
+        // 兴趣爱好
+        if (request.getInterests() != null && !request.getInterests().isEmpty()) {
+            prompt.append("interests include ").append(String.join(", ", request.getInterests())).append(", ");
+        }
+        
+        // 自定义特征
+        if (request.getCustomFeatures() != null && !request.getCustomFeatures().isEmpty()) {
+            prompt.append(request.getCustomFeatures()).append(", ");
+        }
+        
+        prompt.append("high quality portrait photography, professional lighting, soft focus, warm atmosphere, detailed features, cinematic composition");
+        
+        return prompt.toString();
+    }
+    
+    /**
+     * 根据 MBTI 类型获取特征描述（中文）
      */
     private String getMbtiCharacteristics(String mbti) {
         // 简化的 MBTI 特征映射
@@ -161,6 +292,53 @@ public class PartnerGenerationService {
             case "ESTP" -> "冒险精神，活力四射";
             case "ESFP" -> "表演天赋，魅力十足";
             default -> "独特个性";
+        };
+    }
+    
+    /**
+     * 根据 MBTI 类型获取特征描述（英文）
+     */
+    private String getMbtiCharacteristicsEn(String mbti) {
+        // MBTI 特征映射（英文）
+        return switch (mbti.toUpperCase()) {
+            case "INTJ" -> "rational wisdom, deep eyes";
+            case "INTP" -> "thinker's temperament, focused expression";
+            case "ENTJ" -> "leader's demeanor, confident smile";
+            case "ENTP" -> "innovative vitality, vivid expression";
+            case "INFJ" -> "gentle and considerate, understanding";
+            case "INFP" -> "romantic ideal, warm smile";
+            case "ENFJ" -> "enthusiastic and cheerful, strong charisma";
+            case "ENFP" -> "lively and cute, full of curiosity";
+            case "ISTJ" -> "steady and reliable, serious and rigorous";
+            case "ISFJ" -> "careful care, gentle and kind";
+            case "ESTJ" -> "pragmatic and capable, decisive and firm";
+            case "ESFJ" -> "friendly and enthusiastic, helpful";
+            case "ISTP" -> "calm and composed, hands-on ability";
+            case "ISFP" -> "artistic temperament, sensitive and delicate";
+            case "ESTP" -> "adventurous spirit, full of vitality";
+            case "ESFP" -> "performance talent, charming";
+            default -> "unique personality";
+        };
+    }
+    
+    /**
+     * 将中文星座转换为英文
+     */
+    private String getZodiacSignInEnglish(String chineseZodiac) {
+        return switch (chineseZodiac) {
+            case "白羊座" -> "Aries";
+            case "金牛座" -> "Taurus";
+            case "双子座" -> "Gemini";
+            case "巨蟹座" -> "Cancer";
+            case "狮子座" -> "Leo";
+            case "处女座" -> "Virgo";
+            case "天秤座" -> "Libra";
+            case "天蝎座" -> "Scorpio";
+            case "射手座" -> "Sagittarius";
+            case "摩羯座" -> "Capricorn";
+            case "水瓶座" -> "Aquarius";
+            case "双鱼座" -> "Pisces";
+            default -> "Unknown";
         };
     }
     
@@ -276,6 +454,30 @@ public class PartnerGenerationService {
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
         }
         
+        return userDir + fileName;
+    }
+    
+    /**
+     * 保存字节数组格式的图片到本地
+     */
+    private String saveImageBytesToLocal(byte[] imageData, Long userId) throws IOException {
+        // 创建保存目录（按用户 ID 和日期分类）
+        String dateDir = java.time.LocalDate.now().toString().replace("-", "");
+        String userDir = IMAGE_SAVE_DIR + "user_" + userId + "/" + dateDir + "/";
+        
+        Path savePath = Paths.get(userDir);
+        if (!Files.exists(savePath)) {
+            Files.createDirectories(savePath);
+        }
+        
+        // 生成唯一文件名
+        String fileName = UUID.randomUUID().toString() + ".png";
+        Path filePath = savePath.resolve(fileName);
+        
+        // 保存图片数据
+        Files.write(filePath, imageData);
+        
+        log.info("图片已保存到：{}", filePath.toString());
         return userDir + fileName;
     }
     

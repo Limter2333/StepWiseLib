@@ -18,6 +18,23 @@ spring:
       max-request-size: 10MB
   
   ai:
+    # Gemini AI 配置（Nano Banana Pro Model）
+    gemini:
+      # 从环境变量读取 API Key
+      api-key: ${GEMINI_API_KEY:}
+      # 自定义 API 基础地址（可选，使用代理或自定义端点时配置）
+      base-url: ${GEMINI_BASE_URL:https://generativelanguage.googleapis.com}
+      # 超时配置（毫秒）- 图像生成需要更长时间
+      connect-timeout: 30000
+      read-timeout: 600000
+      write-timeout: 600000
+      chat:
+        options:
+          model: ${GEMINI_MODEL:gemini-2.0-flash-exp}         # Nano Banana Pro Model
+          temperature: ${GEMINI_TEMPERATURE:0.7}        # 温度：0.0-1.0，越高越创造性
+          max-tokens: ${GEMINI_MAX_TOKENS:8192}        # 最大输出 token 数
+    
+    # DashScope AI 配置（通义千问/万相）
     dashscope:
       # 从环境变量读取 API Key (如果使用通义千问模型)
       api-key: ${DASHSCOPE_API_KEY}

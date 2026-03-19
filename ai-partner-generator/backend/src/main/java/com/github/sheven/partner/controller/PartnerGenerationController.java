@@ -32,11 +32,20 @@ public class PartnerGenerationController {
     private GenerationRecordMapper generationRecordMapper;
     
     /**
-     * 生成 AI 伴侣图片
+     * 生成 AI 伴侣图片（使用通义万相）
      */
     @PostMapping("/generate")
     public ResponseEntity<GenerateResponse> generate(@RequestBody GenerateRequest request) {
         GenerateResponse response = generationService.generatePartnerImage(request);
+        return ResponseEntity.ok(response);
+    }
+    
+    /**
+     * 生成 AI 伴侣图片（使用 Nano Banana Pro Model - Gemini API）
+     */
+    @PostMapping("/generate/nano-banana")
+    public ResponseEntity<GenerateResponse> generateNanoBanana(@RequestBody GenerateRequest request) {
+        GenerateResponse response = generationService.generateNanoBananaImage(request);
         return ResponseEntity.ok(response);
     }
     
