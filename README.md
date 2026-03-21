@@ -33,13 +33,12 @@
 ## 🛠️ 我们在这里干啥？
 
 ### 📚 学习模式
-```
-python
+```python
 while True:
-learn(AI_concepts)
-practice_with(Agent)
-make_mistakes()  # 错误是进步的阶梯
-laugh_at_bugs()  # Bug 也是朋友
+  learn(AI_concepts)
+  practice_with(Agent)
+  make_mistakes()  # 错误是进步的阶梯
+  laugh_at_bugs()  # Bug 也是朋友
 ```
 ### 🎨 创造模式
 - 脑洞大开的 AI 小项目
