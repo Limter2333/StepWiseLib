@@ -1,0 +1,78 @@
+### Genmini API 测试文件
+### 使用 IntelliJ IDEA 或 VS Code REST Client 插件运行
+
+# 设置基础 URL
+@baseUrl = http://localhost:8687/api
+
+### 1. 聊天接口测试（非流式）
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "message": "你好，请介绍一下你自己",
+  "model": "genmini-chat-v1"
+}
+
+### 2. 聊天接口测试（带历史对话）
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "message": "继续刚才的话题",
+  "model": "genmini-chat-v1",
+  "history": {
+    "systemPrompt": "你是一个友好的 AI 助手",
+    "messages": [
+      {
+        "role": "user",
+        "content": "你好"
+      },
+      {
+        "role": "assistant",
+        "content": "你好！有什么我可以帮助你的吗？"
+      }
+    ]
+  }
+}
+
+### 3. 图片生成接口测试
+POST {{baseUrl}}/image
+Content-Type: application/json
+
+{
+  "prompt": "人物描述：她身形修长、清瘦高挑，约170cm左右，皮肤白皙，黑发微卷自然垂落至肩下，发尾略带慵懒弧度。鼻梁上架着一副复古圆框金属眼镜，镜片后是一双明亮灵动的杏眼，眼神中透着聪慧与温柔。她穿着一件米白色亚麻宽松衬衫，搭配浅卡其高腰阔腿裤，脚踩一双奶油色帆布鞋，整体造型简约文艺又不失随性洒脱。嘴角微微上扬，笑容含蓄却带着一丝俏皮，仿佛刚听完一个有趣的即兴故事。背景可为阳光洒落的开放式厨房或绿意盎然的旅行露营地，呼应她对烹饪、音乐与探索世界的热爱。将上述人物特征生成一个人物的半身图片,2K 分辨率,3:4。",
+  "model": "gemini-3-pro-image-preview",
+  "count": 1
+}
+
+
+### 4. 图片生成接口测试（带参考图片）
+POST {{baseUrl}}/image
+Content-Type: application/json
+
+{
+  "prompt": "将这张图片转换为卡通风格",
+  "model": "genmini-image-v1",
+  "referenceImage": "data:image/jpeg;base64,/9j/4AAQSkZJRg...",
+  "referenceImageType": "image/jpeg"
+}
+
+### 5. 图片生成接口测试（自定义尺寸）
+POST {{baseUrl}}/image
+Content-Type: application/json
+
+{
+  "prompt": "一个未来科技风格的城市",
+  "model": "genmini-image-v1",
+  "width": 1024,
+  "height": 768
+}
+
+### 6. 健康检查 - 聊天服务
+GET {{baseUrl}}/chat/health
+
+### 7. 健康检查 - 图片服务
+GET {{baseUrl}}/image/health
+
+### 8. 获取生成的图片（直接返回图片二进制）
+GET {{baseUrl}}/image/0?prompt=一只可爱的小狗&model=genmini-image-v1
