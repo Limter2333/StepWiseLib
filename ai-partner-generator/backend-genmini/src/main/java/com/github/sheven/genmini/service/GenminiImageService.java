@@ -55,7 +55,8 @@ public class GenminiImageService {
 
             String tarGender = "female";
 
-            String info = "";
+            String info = request.getPrompt();
+
             // 构建 POJO
             GeminiRequest geminiRequest = new GeminiRequest();
             geminiRequest.contents = List.of(new GeminiRequest.Content(buildText(info, tarGender)));
@@ -130,7 +131,7 @@ public class GenminiImageService {
 
     private static String buildText(String info, String targetGender) {
         return String.format(
-                "请通过用户的描述揣测用户可能喜欢的形象，以下是一个用户的描述\\n %s,%s，喜欢$s。中国人，符合中国人审美，尽可能好看。",
+                "请通过用户的描述揣测用户可能喜欢的形象，以下是一个用户的描述\\n %s，喜欢$s。中国人，半身像，符合中国人审美，尽可能好看。",
                 info, targetGender
         );
     }

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 定义日志根目录 -->
+    <property name="LOG_PATH" value="./logs/ai-partner-generator"/>
+
+    <!-- 彩色日志格式 -->
+    <property name="CONSOLE_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss} %highlight(%-5level) [%cyan(%thread)] %yellow(%logger{36}) - %msg%n"/>
+
+    <!-- 文件日志格式（无颜色代码） -->
+    <property name="FILE_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"/>
+
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 主日志文件（按天和大小滚动） -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 当前日志文件 -->
+        <file>${LOG_PATH}/ai-partner-generator.log</file>
+
+        <encoder>
+            <pattern>${FILE_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 日志文件名格式 -->
+            <fileNamePattern>${LOG_PATH}/archive/ai-partner-generator-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <!-- 单个文件最大100MB -->
+            <maxFileSize>100MB</maxFileSize>
+            <!-- 保留30天 -->
+            <maxHistory>30</maxHistory>
+            <!-- 总日志大小不超过10GB -->
+            <totalSizeCap>10GB</totalSizeCap>
+            <!-- 启动时清理旧日志 -->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+
+        <!-- 过滤级别（只记录INFO及以上到主文件） -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+
+    <!-- 错误日志单独文件 -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/error.log</file>
+        <encoder>
+            <pattern>${FILE_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/archive/error-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <!-- 只记录ERROR级别 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- HTTP 请求日志单独文件（方便查看AI API报文） -->
+    <appender name="HTTP_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/http-request.log</file>
+        <encoder>
+            <pattern>${FILE_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/archive/http-request-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!-- 日志分类配置 -->
+
+    <!-- 1. 根日志级别 -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
+    </root>
+
+    <!-- 2. Spring AI Alibaba 相关包（打印 DEBUG 到专用文件） -->
+    <logger name="com.alibaba.cloud.ai" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="HTTP_FILE"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <!-- 3. OkHttp 客户端日志（Gemini 调用） -->
+    <logger name="okhttp3.logging.HttpLoggingInterceptor" level="DEBUG" additivity="false">
+        <appender-ref ref="HTTP_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- 4. 项目包 -->
+    <logger name="com.github.sheven.partner" level="DEBUG" additivity="true">
+        <!-- 继承 root 的 appender，同时保持 DEBUG 级别 -->
+    </logger>
+
+    <!-- 5. Gemini 配置相关包 -->
+    <logger name="com.github.sheven.partner.config.GeminiConfig" level="DEBUG" additivity="false">
+        <appender-ref ref="HTTP_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- 6. Spring Web 客户端日志 -->
+    <logger name="org.springframework.web.client.RestClient" level="DEBUG"/>
+    <logger name="org.springframework.web.reactive.function.client" level="DEBUG"/>
+
+</configuration>
