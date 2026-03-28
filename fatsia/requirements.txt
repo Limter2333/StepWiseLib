@@ -1,0 +1,18 @@
+# LangChain 核心库
+langchain>=0.1.0
+langchain-core>=0.1.0
+
+# OpenAI SDK（用于兼容接口）
+openai>=1.0.0
+
+# HTTP 客户端
+httpx>=0.25.0
+
+# 环境变量管理
+python-dotenv>=1.0.0
+
+# Pydantic 数据验证
+pydantic>=2.0.0
+
+# 异步支持
+aiohttp>=3.9.0
