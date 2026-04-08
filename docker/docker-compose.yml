@@ -1,0 +1,116 @@
+"""
+Docker部署配置
+==============
+
+【学习要点】Docker核心概念
+
+1. 镜像 (Image)
+   - 应用程序的模板
+   - 只读的
+   - 可以理解为"食谱"
+
+2. 容器 (Container)
+   - 镜像的运行实例
+   - 可以创建、启动、停止、删除
+   - 可以理解为"做好的菜"
+
+3. Docker Compose
+   - 多容器编排工具
+   - 用于定义和运行多容器应用
+   - 一个yml文件管理所有服务
+
+4. 常见命令
+   docker build . -t myapp        # 构建镜像
+   docker run myapp               # 运行容器
+   docker-compose up              # 启动所有服务
+   docker-compose down            # 停止所有服务
+"""
+
+version: '3.8'
+
+services:
+  # ========== Milvus向量数据库 ==========
+  # 【学习要点】为什么Milvus需要多个服务？
+  # - Milvus本身只负责向量检索
+  # - etcd: 元数据存储（Milvus的配置、节点信息）
+  # - MinIO: 对象存储（向量数据的持久化）
+  # - 这样设计的好处：各司其职，容易扩展
+
+  etcd:
+    container_name: milvus-etcd
+    image: quay.io/coreos/etcd:v3.5.5
+    environment:
+      - ETCD_AUTO_COMPACTION_MODE=revision
+      - ETCD_AUTO_COMPACTION_RETENTION=1000
+      - ETCD_QUOTA_BACKEND_BYTES=4294967296
+      - ETCD_SNAPSHOT_COUNT=50000
+    volumes:
+      - ./volumes/etcd:/etcd
+    command: etcd -advertise-client-urls=http://127.0.0.1:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
+
+  minio:
+    container_name: milvus-minio
+    image: minio/minio:RELEASE.2023-03-20T20-16-18Z
+    environment:
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    volumes:
+      - ./volumes/minio:/minio_data
+    command: minio server /minio_data --console-address ":9001"
+
+  milvus:
+    container_name: milvus-standalone
+    image: milvusdb/milvus:v2.3.3
+    command: ["milvus", "run", "standalone"]
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: minio:9000
+    volumes:
+      - ./volumes/milvus:/var/lib/milvus
+    ports:
+      - "19530:19530"      # Milvus服务端口
+      - "9091:9091"        # Prometheus监控端口
+
+  # ========== Redis缓存 ==========
+  # 【学习要点】Redis的作用
+  # - 短期记忆存储
+  # - 缓存对话上下文
+  # - 分布式锁
+  redis:
+    container_name: redis-cache
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./volumes/redis:/data
+    command: redis-server --appendonly yes
+
+  # ========== 应用API ==========
+  api:
+    container_name: ai-agent-api
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - MILVUS_HOST=milvus
+      - MILVUS_PORT=19530
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - milvus
+      - redis
+    volumes:
+      - ../logs:/app/logs
+
+# ========== 卷管理 ==========
+# 【学习要点】Docker卷(volume)
+# - 持久化数据，容器删除后数据保留
+# - 容器间共享数据
+# - 比绑定挂载更高效
+volumes:
+  etcd:
+  minio:
+  milvus:
+  redis:

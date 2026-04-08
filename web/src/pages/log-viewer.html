@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><title>Log Viewer - AI Multi-Agent</title>
+<style>
+:root{--bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a25;--c:#00f5ff;--p:#bf00ff;--r:#ff4444;--y:#ffbe2e;--g:#00ff88;--t:#fff;--s:#8888aa;--m:#555}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+.container{padding:100px 50px;max-width:1600px;margin:0 auto}
+h1{font-size:2rem;background:linear-gradient(135deg,var(--c),var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+.subtitle{color:var(--s);margin-bottom:30px}
+.controls{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
+.control-group{display:flex;gap:10px;align-items:center}
+.control-label{font-size:.85rem;color:var(--s)}
+input,select,button{background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 15px;color:var(--t);font-size:.9rem}
+button{cursor:pointer}
+.btn-primary{background:var(--c);color:#0a0a0f;border-color:var(--c)}
+.btn-secondary{background:var(--bg3);color:var(--s)}
+.log-container{background:var(--bg3);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden}
+.log-header{display:flex;justify-content:space-between;padding:15px 20px;background:var(--bg2);border-bottom:1px solid rgba(255,255,255,.08)}
+.log-stats{display:flex;gap:20px;font-size:.85rem}
+.log-stat-value{color:var(--c);font-weight:600}
+.log-content{height:600px;overflow-y:auto;font-family:monospace;font-size:.85rem;line-height:1.6;padding:15px;background:#0d0d12}
+.log-entry{padding:8px 12px;border-radius:4px;margin-bottom:4px;display:flex;gap:15px}
+.log-entry:hover{background:var(--bg3)}
+.log-timestamp{color:var(--m);white-space:nowrap}
+.log-level{padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600;text-transform:uppercase;min-width:60px;text-align:center}
+.log-level-info{background:var(--c);color:#0a0a0f}
+.log-level-debug{background:var(--m);color:#0a0a0f}
+.log-level-warning{background:var(--y);color:#0a0a0f}
+.log-level-error{background:var(--r);color:#fff}
+.log-source{color:var(--p);min-width:80px}
+.log-message{flex:1;word-break:break-all}
+.level-filters{display:flex;gap:10px}
+.level-chip{padding:5px 12px;border-radius:20px;font-size:.8rem;cursor:pointer;border:1px solid rgba(255,255,255,.08)}
+.level-chip.active{border-color:var(--c);background:rgba(0,245,255,.1)}
+.live-dot{width:8px;height:8px;background:var(--g);border-radius:50%;display:inline-block;margin-right:8px;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Log Viewer</h1>
+<p class="subtitle">AI Multi-Agent System Log Monitoring</p>
+<div class="controls">
+<div class="control-group"><span class="control-label">Level:</span>
+<div class="level-filters">
+<span class="level-chip active" onclick="setFilter('all')">All</span>
+<span class="level-chip" onclick="setFilter('debug')">Debug</span>
+<span class="level-chip" onclick="setFilter('info')">Info</span>
+<span class="level-chip" onclick="setFilter('warning')">Warning</span>
+<span class="level-chip" onclick="setFilter('error')">Error</span>
+</div></div>
+<div class="control-group"><span class="live-dot"></span><span style="color:var(--g)">Live</span></div>
+</div>
+<div class="log-container">
+<div class="log-header">
+<div class="log-stats">
+<div class="log-stat"><span class="log-stat-value" id="totalCount">0</span> Total</div>
+<div class="log-stat"><span class="log-stat-value" id="errorCount">0</span> Errors</div>
+<div class="log-stat"><span class="log-stat-value" id="warningCount">0</span> Warnings</div>
+</div>
+<button class="btn btn-secondary" onclick="render()">Refresh</button>
+</div>
+<div class="log-content" id="logContent"></div>
+</div>
+</div>
+<script>
+const demoLogs=[
+{timestamp:"2026-04-05 07:30:01",level:"info",source:"api",message:"Chat request received: session_123"},
+{timestamp:"2026-04-05 07:30:02",level:"debug",source:"rag",message:"RAG query executed successfully"},
+{timestamp:"2026-04-05 07:30:03",level:"warning",source:"memory",message:"Token usage at 78%"},
+{timestamp:"2026-04-05 07:30:04",level:"info",source:"agent",message:"Dev Agent completed task"},
+{timestamp:"2026-04-05 07:30:05",level:"error",source:"orchestrator",message:"Task routing failed"},
+{timestamp:"2026-04-05 07:30:06",level:"info",source:"api",message:"API response 200 OK"}
+];
+let logs=[...demoLogs];
+let filter="all";
+function render(){
+let f=logs.filter(l=>filter==="all"||l.level===filter);
+document.getElementById("totalCount").textContent=f.length;
+document.getElementById("errorCount").textContent=f.filter(l=>l.level==="error").length;
+document.getElementById("warningCount").textContent=f.filter(l=>l.level==="warning").length;
+document.getElementById("logContent").innerHTML=f.length?f.map(l=>'<div class="log-entry"><span class="log-timestamp">'+l.timestamp+'</span><span class="log-level log-level-'+l.level+'">'+l.level+'</span><span class="log-source">['+l.source+']</span><span class="log-message">'+l.message+'</span></div>').join(''):"<div style=text-align:center;padding:100px;color:var(--s)>No logs</div>"}
+function setFilter(f){filter=f;document.querySelectorAll(".level-chip").forEach(c=>c.classList.remove("active"));event.target.classList.add("active");render()}
+setInterval(()=>{const levels=["debug","info","warning","error"];const sources=["api","agent","rag","guardrails"];const msgs=["New request processed","Task completed","Cache updated","Health check passed"];logs.push({timestamp:new Date().toISOString().replace("T"," ").slice(0,19),level:levels[Math.floor(Math.random()*4)],source:sources[Math.floor(Math.random()*4)],message:msgs[Math.floor(Math.random()*4)]});if(logs.length>100)logs.shift();render()},3000);render()
+</script>
+</body>
+</html>

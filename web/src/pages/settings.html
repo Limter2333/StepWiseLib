@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><title>Settings - AI Multi-Agent</title>
+<style>
+:root{--bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a25;--c:#00f5ff;--p:#bf00ff;--t:#fff;--s:#8888aa}
+body{font-family:sans-serif;background:var(--bg);color:var(--t);padding:100px 50px}
+h1{background:linear-gradient(135deg,var(--c),var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.card{background:var(--bg3);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px;margin:20px 0;max-width:600px}
+.label{color:var(--s);font-size:.85rem;margin-bottom:8px}
+input,select{background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 15px;color:var(--t);width:100%;margin-bottom:15px}
+.btn{background:var(--c);color:#0a0a0f;border:none;padding:12px 24px;border-radius:8px;cursor:pointer;font-weight:600}
+</style>
+</head>
+<body>
+<h1>System Settings</h1>
+<div class="card">
+<h2 style="margin-bottom:20px">Configuration</h2>
+<div class="label">RAG Provider</div>
+<select id="ragProvider"><option>ChromaDB</option><option>Milvus</option></select>
+<div class="label">Max Token Limit</div>
+<input type="number" id="maxTokens" value="100000">
+<div class="label">Log Level</div>
+<select id="logLevel"><option>Debug</option><option>Info</option><option>Warning</option><option>Error</option></select>
+<button class="btn" onclick="saveSettings()">Save Settings</button>
+</div>
+<script>
+function saveSettings(){const settings={ragProvider:document.getElementById("ragProvider").value,maxTokens:document.getElementById("maxTokens").value,logLevel:document.getElementById("logLevel").value};localStorage.setItem("aiSettings",JSON.stringify(settings));alert("Settings saved!")}
+function loadSettings(){const saved=localStorage.getItem("aiSettings");if(saved){const s=JSON.parse(saved);document.getElementById("ragProvider").value=s.ragProvider;document.getElementById("maxTokens").value=s.maxTokens;document.getElementById("logLevel").value=s.logLevel}}
+loadSettings()
+</script>
+</body>
+</html>

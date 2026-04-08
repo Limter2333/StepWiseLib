@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Dashboard - AI Multi-Agent</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #222233;
+            --accent-cyan: #00f5ff;
+            --accent-purple: #bf00ff;
+            --accent-pink: #ff006e;
+            --accent-green: #00ff88;
+            --accent-yellow: #ffbe2e;
+            --accent-red: #ff4444;
+            --text-primary: #ffffff;
+            --text-secondary: #8888aa;
+            --text-muted: #555566;
+            --border-subtle: rgba(255,255,255,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            padding: 100px 50px 50px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle { color: var(--text-secondary); margin-bottom: 40px; }
+
+        /* System Health */
+        .health-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .health-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .health-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .health-card.healthy::before { background: var(--accent-green); }
+        .health-card.warning::before { background: var(--accent-yellow); }
+        .health-card.error::before { background: var(--accent-red); }
+
+        .health-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .health-status {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .health-card.healthy .health-status { color: var(--accent-green); }
+        .health-card.warning .health-status { color: var(--accent-yellow); }
+        .health-card.error .health-status { color: var(--accent-red); }
+
+        .health-desc { font-size: 0.85rem; color: var(--text-secondary); }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .metric-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .metric-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            background: rgba(0, 245, 255, 0.15);
+            color: var(--accent-cyan);
+        }
+
+        .metric-chart {
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 4px 4px 0 0;
+            transition: height 0.3s ease;
+            min-height: 10px;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .metric-change {
+            font-size: 0.85rem;
+            margin-left: 10px;
+        }
+
+        .metric-change.up { color: var(--accent-green); }
+        .metric-change.down { color: var(--accent-red); }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .panel-title { font-size: 1.1rem; font-weight: 600; }
+
+        /* Agent Performance */
+        .agent-perf-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .agent-perf-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+        }
+
+        .agent-perf-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .agent-perf-icon.pm { background: linear-gradient(135deg, var(--accent-purple), #ff00ff); }
+        .agent-perf-icon.dev { background: linear-gradient(135deg, var(--accent-green), #00ff88); }
+        .agent-perf-icon.test { background: linear-gradient(135deg, var(--accent-pink), #ff006e); }
+        .agent-perf-icon.doc { background: linear-gradient(135deg, var(--accent-cyan), #00f5ff); }
+        .agent-perf-icon.rag { background: linear-gradient(135deg, var(--accent-yellow), #ffbe2e); }
+
+        .agent-perf-info { flex: 1; }
+        .agent-perf-name { font-weight: 600; margin-bottom: 3px; }
+        .agent-perf-tasks { font-size: 0.8rem; color: var(--text-secondary); }
+
+        .agent-perf-bar {
+            width: 100px;
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .agent-perf-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .agent-perf-fill.high { background: var(--accent-green); }
+        .agent-perf-fill.medium { background: var(--accent-yellow); }
+        .agent-perf-fill.low { background: var(--accent-red); }
+
+        /* Error Log */
+        .error-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .error-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--accent-red);
+        }
+
+        .error-item.warning { border-left-color: var(--accent-yellow); }
+        .error-item.info { border-left-color: var(--accent-cyan); }
+
+        .error-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .error-content { flex: 1; }
+        .error-type { font-weight: 600; margin-bottom: 3px; }
+        .error-msg { font-size: 0.85rem; color: var(--text-secondary); }
+
+        /* Recent Activity */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .activity-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .activity-icon.success { background: rgba(0, 255, 136, 0.15); }
+        .activity-icon.error { background: rgba(255, 0, 110, 0.15); }
+        .activity-icon.info { background: rgba(0, 245, 255, 0.15); }
+
+        .activity-content { flex: 1; }
+        .activity-text { font-size: 0.9rem; }
+        .activity-time { font-size: 0.75rem; color: var(--text-muted); }
+
+        /* API Performance */
+        .api-perf-table {
+            width: 100%;
+        }
+
+        .api-perf-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .api-perf-row:last-child { border-bottom: none; }
+
+        .api-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .api-method {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .api-method.get { background: rgba(0,255,136,0.2); color: var(--accent-green); }
+        .api-method.post { background: rgba(0,245,255,0.2); color: var(--accent-cyan); }
+
+        .api-latency {
+            font-weight: 600;
+        }
+
+        .api-latency.fast { color: var(--accent-green); }
+        .api-latency.medium { color: var(--accent-yellow); }
+        .api-latency.slow { color: var(--accent-red); }
+
+        /* Refresh Button */
+        .refresh-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 8px 15px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .refresh-btn:hover {
+            background: var(--bg-card-hover);
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 1200px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .two-col { grid-template-columns: 1fr; }
+            .health-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+            <div>
+                <h1>Monitoring Dashboard</h1>
+                <p class="subtitle">实时监控系统状态、性能指标和错误日志</p>
+            </div>
+            <button class="refresh-btn" onclick="refreshAll()">🔄 刷新数据</button>
+        </div>
+
+        <!-- System Health -->
+        <div class="health-grid">
+            <div class="health-card healthy">
+                <div class="health-icon">💚</div>
+                <div class="health-status">Healthy</div>
+                <div class="health-desc">API服务正常运行</div>
+            </div>
+            <div class="health-card healthy">
+                <div class="health-icon">🧠</div>
+                <div class="health-status">Active</div>
+                <div class="health-desc">6 Agents 在线</div>
+            </div>
+            <div class="health-card healthy">
+                <div class="health-icon">📚</div>
+                <div class="health-status">Indexed</div>
+                <div class="health-desc">数据库已连接</div>
+            </div>
+            <div class="health-card warning">
+                <div class="health-icon">⚡</div>
+                <div class="health-status">High</div>
+                <div class="health-desc">Token使用率 78%</div>
+            </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-title">API 调用量</div>
+                    <span class="metric-badge">今日</span>
+                </div>
+                <div class="metric-chart" id="apiCallsChart">
+                    <div class="chart-bar" style="height: 40%;"></div>
+                    <div class="chart-bar" style="height: 65%;"></div>
+                    <div class="chart-bar" style="height: 45%;"></div>
+                    <div class="chart-bar" style="height: 80%;"></div>
+                    <div class="chart-bar" style="height: 55%;"></div>
+                    <div class="chart-bar" style="height: 90%;"></div>
+                    <div class="chart-bar" style="height: 70%;"></div>
+                </div>
+                <div>
+                    <span class="metric-value" id="apiCallsCount">1,234</span>
+                    <span class="metric-change up">↑ 12%</span>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-title">响应时间</div>
+                    <span class="metric-badge">平均</span>
+                </div>
+                <div class="metric-chart" id="latencyChart">
+                    <div class="chart-bar" style="height: 60%; background: linear-gradient(180deg, var(--accent-yellow), var(--accent-red));"></div>
+                    <div class="chart-bar" style="height: 45%; background: linear-gradient(180deg, var(--accent-yellow), var(--accent-red));"></div>
+                    <div class="chart-bar" style="height: 70%; background: linear-gradient(180deg, var(--accent-yellow), var(--accent-red));"></div>
+                    <div class="chart-bar" style="height: 55%; background: linear-gradient(180deg, var(--accent-yellow), var(--accent-red));"></div>
+                    <div class="chart-bar" style="height: 40%; background: linear-gradient(180deg, var(--accent-yellow), var(--accent-red));"></div>
+                    <div class="chart-bar" style="height: 85%; background: linear-gradient(180deg, var(--accent-yellow), var(--accent-red));"></div>
+                    <div class="chart-bar" style="height: 50%; background: linear-gradient(180deg, var(--accent-yellow), var(--accent-red));"></div>
+                </div>
+                <div>
+                    <span class="metric-value" id="avgLatency">245</span>
+                    <span class="metric-change" style="color: var(--text-secondary);">ms</span>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-title">Token 使用</div>
+                    <span class="metric-badge">本月</span>
+                </div>
+                <div class="metric-chart" id="tokenChart">
+                    <div class="chart-bar" style="height: 30%; background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));"></div>
+                    <div class="chart-bar" style="height: 45%; background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));"></div>
+                    <div class="chart-bar" style="height: 55%; background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));"></div>
+                    <div class="chart-bar" style="height: 40%; background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));"></div>
+                    <div class="chart-bar" style="height: 65%; background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));"></div>
+                    <div class="chart-bar" style="height: 75%; background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));"></div>
+                    <div class="chart-bar" style="height: 85%; background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));"></div>
+                </div>
+                <div>
+                    <span class="metric-value" id="tokenUsed">78K</span>
+                    <span class="metric-change" style="color: var(--text-secondary);">/ 100K</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="two-col">
+            <!-- Agent Performance -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">🤖 Agent 性能</div>
+                    <button class="refresh-btn" onclick="loadAgentPerf()">刷新</button>
+                </div>
+                <div class="agent-perf-list">
+                    <div class="agent-perf-item">
+                        <div class="agent-perf-icon pm">📋</div>
+                        <div class="agent-perf-info">
+                            <div class="agent-perf-name">PM Agent</div>
+                            <div class="agent-perf-tasks">23 任务完成</div>
+                        </div>
+                        <div class="agent-perf-bar">
+                            <div class="agent-perf-fill high" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                    <div class="agent-perf-item">
+                        <div class="agent-perf-icon dev">💻</div>
+                        <div class="agent-perf-info">
+                            <div class="agent-perf-name">Dev Agent</div>
+                            <div class="agent-perf-tasks">45 代码生成</div>
+                        </div>
+                        <div class="agent-perf-bar">
+                            <div class="agent-perf-fill high" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                    <div class="agent-perf-item">
+                        <div class="agent-perf-icon test">🧪</div>
+                        <div class="agent-perf-info">
+                            <div class="agent-perf-name">Test Agent</div>
+                            <div class="agent-perf-tasks">128 测试用例</div>
+                        </div>
+                        <div class="agent-perf-bar">
+                            <div class="agent-perf-fill high" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="agent-perf-item">
+                        <div class="agent-perf-icon doc">📝</div>
+                        <div class="agent-perf-info">
+                            <div class="agent-perf-name">Doc Agent</div>
+                            <div class="agent-perf-tasks">18 文档生成</div>
+                        </div>
+                        <div class="agent-perf-bar">
+                            <div class="agent-perf-fill medium" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="agent-perf-item">
+                        <div class="agent-perf-icon rag">🔍</div>
+                        <div class="agent-perf-info">
+                            <div class="agent-perf-name">RAG Agent</div>
+                            <div class="agent-perf-tasks">1,234 检索</div>
+                        </div>
+                        <div class="agent-perf-bar">
+                            <div class="agent-perf-fill high" style="width: 98%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Log -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">📋 错误日志</div>
+                    <button class="refresh-btn" onclick="loadErrorLogs()">刷新</button>
+                </div>
+                <div class="error-list">
+                    <div class="error-item warning">
+                        <div class="error-time">06:45:23</div>
+                        <div class="error-content">
+                            <div class="error-type">TokenLimitWarning</div>
+                            <div class="error-msg">Token使用率达到78%，建议清理会话</div>
+                        </div>
+                    </div>
+                    <div class="error-item info">
+                        <div class="error-time">06:30:00</div>
+                        <div class="error-content">
+                            <div class="error-type">SystemStart</div>
+                            <div class="error-msg">AI Multi-Agent System v2.0 启动成功</div>
+                        </div>
+                    </div>
+                    <div class="error-item info">
+                        <div class="error-time">05:22:15</div>
+                        <div class="error-content">
+                            <div class="error-type">DocumentIndexed</div>
+                            <div class="error-msg">成功索引文档: sample.pdf</div>
+                        </div>
+                    </div>
+                    <div class="error-item warning">
+                        <div class="error-time">04:15:33</div>
+                        <div class="error-content">
+                            <div class="error-type">SlowQuery</div>
+                            <div class="error-msg">RAG查询超过2秒: 2345ms</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="two-col">
+            <!-- Recent Activity -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">⚡ 最近活动</div>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon success">✓</div>
+                        <div class="activity-content">
+                            <div class="activity-text">用户 <strong>admin</strong> 创建了新会话</div>
+                            <div class="activity-time">2 分钟前</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon success">✓</div>
+                        <div class="activity-content">
+                            <div class="activity-text">RAG Agent 完成了文档索引</div>
+                            <div class="activity-time">5 分钟前</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon info">ℹ</div>
+                        <div class="activity-content">
+                            <div class="activity-text">Dev Agent 生成了 45 行代码</div>
+                            <div class="activity-time">12 分钟前</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon error">✗</div>
+                        <div class="activity-content">
+                            <div class="activity-text">Test Agent 测试失败: test_user_login</div>
+                            <div class="activity-time">23 分钟前</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon success">✓</div>
+                        <div class="activity-content">
+                            <div class="activity-text">PM Agent 更新了任务进度</div>
+                            <div class="activity-time">1 小时前</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API Performance -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">📊 API 性能</div>
+                </div>
+                <div class="api-perf-table">
+                    <div class="api-perf-row">
+                        <div class="api-name">
+                            <span class="api-method post">POST</span>
+                            <span>/api/chat/chat</span>
+                        </div>
+                        <span class="api-latency fast">45ms</span>
+                    </div>
+                    <div class="api-perf-row">
+                        <div class="api-name">
+                            <span class="api-method post">POST</span>
+                            <span>/api/rag/query</span>
+                        </div>
+                        <span class="api-latency fast">89ms</span>
+                    </div>
+                    <div class="api-perf-row">
+                        <div class="api-name">
+                            <span class="api-method get">GET</span>
+                            <span>/api/agents/status</span>
+                        </div>
+                        <span class="api-latency fast">23ms</span>
+                    </div>
+                    <div class="api-perf-row">
+                        <div class="api-name">
+                            <span class="api-method post">POST</span>
+                            <span>/api/rag/documents</span>
+                        </div>
+                        <span class="api-latency medium">234ms</span>
+                    </div>
+                    <div class="api-perf-row">
+                        <div class="api-name">
+                            <span class="api-method post">POST</span>
+                            <span>/api/agents/dev/generate</span>
+                        </div>
+                        <span class="api-latency slow">1,245ms</span>
+                    </div>
+                    <div class="api-perf-row">
+                        <div class="api-name">
+                            <span class="api-method get">GET</span>
+                            <span>/health</span>
+                        </div>
+                        <span class="api-latency fast">12ms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+
+        async function refreshAll() {
+            await Promise.all([
+                loadAgentPerf(),
+                loadErrorLogs(),
+                loadMetrics()
+            ]);
+            animateCharts();
+        }
+
+        async function loadMetrics() {
+            try {
+                const [chatRes, ragRes, tokenRes] = await Promise.all([
+                    fetch(`${API_BASE}/api/chat/sessions`),
+                    fetch(`${API_BASE}/api/rag/stats`),
+                    fetch(`${API_BASE}/api/chat/token-usage`)
+                ]);
+
+                if (chatRes.ok) {
+                    const data = await chatRes.json();
+                    document.getElementById('apiCallsCount').textContent = (data.active_sessions || 0);
+                }
+            } catch (e) {
+                console.log('Metrics API not available');
+            }
+        }
+
+        async function loadAgentPerf() {
+            try {
+                const response = await fetch(`${API_BASE}/api/agents/status`);
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Agent status:', data);
+                }
+            } catch (e) {
+                console.log('Agent status API not available');
+            }
+        }
+
+        async function loadErrorLogs() {
+            // Error logs would be loaded from a dedicated endpoint
+            console.log('Loading error logs...');
+        }
+
+        function animateCharts() {
+            document.querySelectorAll('.chart-bar').forEach(bar => {
+                const height = bar.style.height;
+                bar.style.height = '0';
+                setTimeout(() => {
+                    bar.style.height = height;
+                }, 100);
+            });
+        }
+
+        // Initial load
+        loadMetrics();
+
+        // Auto refresh every 30 seconds
+        setInterval(refreshAll, 30000);
+    </script>
+</body>
+</html>

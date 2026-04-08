@@ -1,0 +1,46 @@
+[
+  {
+    "description": "Stream beautifier can tokenize markdown into structured tokens",
+    "steps": [
+      "Import MarkdownTokenizer",
+      "Tokenize '## Header\\n\\n**bold** text'",
+      "Verify tokens include header, bold types"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Stream beautifier chunks text by word configuration",
+    "steps": [
+      "Create StreamBeautifier with chunk_by='word'",
+      "Chunk 'Hello World'",
+      "Verify chunks are ['Hello ', 'World'] or similar word splits"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Stream beautifier generates SSE formatted events",
+    "steps": [
+      "Create beautifier and call stream_to_sse",
+      "Verify output format is 'data: {json}\\n\\n'"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Code block buffer collects lines before emitting",
+    "steps": [
+      "Create CodeBlockBuffer with buffer_lines=2",
+      "Process '```python' -> None (buffered)",
+      "Process 'print(1)' -> None (buffered)",
+      "Process '```' -> code_block emitted"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Streaming emits metrics events with speed info",
+    "steps": [
+      "Stream text with emit_speed_metrics=True",
+      "Verify metrics events contain chars_per_second"
+    ],
+    "passes": true
+  }
+]

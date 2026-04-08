@@ -1,0 +1,47 @@
+[
+  {
+    "description": "Query validator rejects empty and whitespace-only queries",
+    "steps": [
+      "Call validator.validate('')",
+      "Verify is_valid is False",
+      "Call validator.validate('   ')",
+      "Verify is_valid is False"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Query validator truncates oversized queries in NORMAL mode",
+    "steps": [
+      "Call validator.validate with 2000 character string",
+      "Verify is_valid is True and cleaned_query has 1000 chars",
+      "Verify warning about truncation is present"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Query validator sanitizes dangerous patterns in STRICT mode",
+    "steps": [
+      "Use STRICT level validator",
+      "Pass HTML script tag",
+      "Verify sanitized removes the dangerous content"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Query validator detects and warns on XSS patterns in NORMAL mode",
+    "steps": [
+      "Pass <script>alert('xss')</script>",
+      "Verify is_valid is True with warning"
+    ],
+    "passes": true
+  },
+  {
+    "description": "RAG pipeline integrates query validation before processing",
+    "steps": [
+      "Import RAGPipeline",
+      "Call query with invalid input",
+      "Verify validation error is returned"
+    ],
+    "passes": true
+  }
+]

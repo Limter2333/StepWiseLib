@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Manager - AI Multi-Agent</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #222233;
+            --accent-cyan: #00f5ff;
+            --accent-purple: #bf00ff;
+            --accent-pink: #ff006e;
+            --accent-green: #00ff88;
+            --accent-yellow: #ffbe2e;
+            --text-primary: #ffffff;
+            --text-secondary: #8888aa;
+            --text-muted: #555566;
+            --border-subtle: rgba(255,255,255,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .container {
+            padding: 100px 50px 50px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .panel-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Upload Zone */
+        .upload-zone {
+            border: 2px dashed var(--border-subtle);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 245, 255, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .upload-text {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .upload-hint {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Document List */
+        .doc-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .doc-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .doc-item:hover {
+            background: var(--bg-card-hover);
+            transform: translateX(5px);
+        }
+
+        .doc-icon {
+            font-size: 1.5rem;
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-name {
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .doc-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .doc-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .doc-action {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .doc-action.view {
+            background: rgba(0, 245, 255, 0.15);
+            color: var(--accent-cyan);
+        }
+
+        .doc-action.delete {
+            background: rgba(255, 0, 110, 0.15);
+            color: var(--accent-pink);
+        }
+
+        /* Query Section */
+        .query-section {
+            margin-bottom: 20px;
+        }
+
+        .query-input-wrapper {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .query-input {
+            flex: 1;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 15px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .query-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .query-btn {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            color: var(--bg-primary);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .query-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(191, 0, 255, 0.3);
+        }
+
+        /* Results */
+        .results-area {
+            background: #0d0d12;
+            border-radius: 12px;
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .result-item {
+            padding: 15px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .result-score {
+            display: inline-block;
+            padding: 3px 8px;
+            background: rgba(0, 245, 255, 0.15);
+            color: var(--accent-cyan);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        .result-content {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .result-source {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        /* Search History */
+        .search-history {
+            margin-top: 15px;
+        }
+
+        .history-title {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .history-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .history-tag {
+            padding: 6px 12px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .history-tag:hover {
+            background: var(--bg-card-hover);
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 1200px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Knowledge Manager</h1>
+        <p class="subtitle">管理文档索引、检索RAG知识库</p>
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value" id="totalDocs">0</div>
+                <div class="stat-label">总文档数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalChunks">0</div>
+                <div class="stat-label">文本块</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="queryCount">0</div>
+                <div class="stat-label">查询次数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgScore">0%</div>
+                <div class="stat-label">平均相关度</div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <!-- Document Management -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">📚 文档管理</div>
+                    <button class="query-btn" style="padding: 10px 20px; font-size: 0.85rem;" onclick="refreshDocs()">🔄 刷新</button>
+                </div>
+
+                <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+                    <div class="upload-icon">📤</div>
+                    <div class="upload-text">拖拽文件到此处或点击上传</div>
+                    <div class="upload-hint">支持 PDF, Word, TXT, MD, HTML, Excel, CSV 格式</div>
+                    <input type="file" id="fileInput" style="display: none;" multiple accept=".pdf,.doc,.docx,.txt,.md,.html,.xlsx,.csv">
+                </div>
+
+                <div class="doc-list" id="docList">
+                    <div class="doc-item">
+                        <span class="doc-icon">📕</span>
+                        <div class="doc-info">
+                            <div class="doc-name">sample_document.pdf</div>
+                            <div class="doc-meta">上传于 2小时前 • 12 文本块</div>
+                        </div>
+                        <div class="doc-actions">
+                            <button class="doc-action view">查看</button>
+                            <button class="doc-action delete">删除</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Query Interface -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">🔍 知识检索</div>
+                </div>
+
+                <div class="query-section">
+                    <div class="query-input-wrapper">
+                        <input type="text" class="query-input" id="queryInput" placeholder="输入你的问题...">
+                        <button class="query-btn" onclick="executeQuery()">搜索</button>
+                    </div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">
+                        匹配数量: <span id="topK">5</span>
+                        <input type="range" min="1" max="20" value="5" style="margin-left: 10px;" onchange="document.getElementById('topK').textContent = this.value">
+                    </div>
+                </div>
+
+                <div class="results-area" id="resultsArea">
+                    <div class="result-item">
+                        <span class="result-score">相关度: 95%</span>
+                        <div class="result-content">
+                            在这里显示检索结果...
+                        </div>
+                        <div class="result-source">来源: 文档名称</div>
+                    </div>
+                </div>
+
+                <div class="search-history">
+                    <div class="history-title">最近查询:</div>
+                    <div class="history-tags" id="searchHistory">
+                        <span class="history-tag" onclick="document.getElementById('queryInput').value='什么是RAG?';executeQuery()">什么是RAG?</span>
+                        <span class="history-tag" onclick="document.getElementById('queryInput').value='如何创建Agent?';executeQuery()">如何创建Agent?</span>
+                        <span class="history-tag" onclick="document.getElementById('queryInput').value='系统架构设计';executeQuery()">系统架构设计</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        let queryCount = 0;
+        let uploadedDocs = [];
+
+        // File Upload
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = 'var(--accent-cyan)';
+            uploadZone.style.background = 'rgba(0, 245, 255, 0.1)';
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.style.borderColor = '';
+            uploadZone.style.background = '';
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = '';
+            uploadZone.style.background = '';
+            handleFiles(e.dataTransfer.files);
+        });
+
+        fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+
+        async function handleFiles(files) {
+            for (const file of files) {
+                const formData = new FormData();
+                formData.append('file', file);
+
+                try {
+                    const response = await fetch(`${API_BASE}/api/rag/documents`, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        addDocToList(file.name, '已索引');
+                        uploadedDocs.push(file.name);
+                        updateStats();
+                    }
+                } catch (error) {
+                    console.error('Upload failed:', error);
+                }
+            }
+        }
+
+        function addDocToList(name, status) {
+            const docList = document.getElementById('docList');
+            const icon = getFileIcon(name);
+            const docItem = document.createElement('div');
+            docItem.className = 'doc-item';
+            docItem.innerHTML = `
+                <span class="doc-icon">${icon}</span>
+                <div class="doc-info">
+                    <div class="doc-name">${name}</div>
+                    <div class="doc-meta">刚刚上传 • ${status}</div>
+                </div>
+                <div class="doc-actions">
+                    <button class="doc-action view">查看</button>
+                    <button class="doc-action delete">删除</button>
+                </div>
+            `;
+            docList.insertBefore(docItem, docList.firstChild);
+        }
+
+        function getFileIcon(filename) {
+            const ext = filename.split('.').pop().toLowerCase();
+            const icons = {
+                'pdf': '📕', 'doc': '📘', 'docx': '📘',
+                'txt': '📄', 'md': '📝', 'html': '🌐',
+                'xlsx': '📊', 'csv': '📊'
+            };
+            return icons[ext] || '📎';
+        }
+
+        async function executeQuery() {
+            const query = document.getElementById('queryInput').value.trim();
+            if (!query) return;
+
+            const topK = parseInt(document.getElementById('topK').textContent);
+            const resultsArea = document.getElementById('resultsArea');
+
+            resultsArea.innerHTML = '<div style="text-align: center; padding: 30px; color: var(--text-secondary);">正在检索...</div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/api/rag/query`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        question: query,
+                        session_id: 'kb_session',
+                        top_k: topK,
+                        use_knowledge: true
+                    })
+                });
+
+                const data = await response.json();
+                queryCount++;
+
+                if (data.sources && data.sources.length > 0) {
+                    resultsArea.innerHTML = data.sources.map(src => `
+                        <div class="result-item">
+                            <span class="result-score">相关度: ${Math.round((src.score || 0.9) * 100)}%</span>
+                            <div class="result-content">${escapeHtml(src.content || src.page_content || '')}</div>
+                            <div class="result-source">来源: ${src.metadata?.source || '文档'}</div>
+                        </div>
+                    `).join('');
+                } else {
+                    resultsArea.innerHTML = `
+                        <div class="result-item">
+                            <div class="result-content">${escapeHtml(data.answer || '没有找到相关结果')}</div>
+                        </div>
+                    `;
+                }
+
+                // Add to history
+                addToHistory(query);
+                updateStats();
+
+            } catch (error) {
+                resultsArea.innerHTML = '<div style="color: var(--accent-pink);">检索失败: ' + error.message + '</div>';
+            }
+        }
+
+        function addToHistory(query) {
+            const history = document.getElementById('searchHistory');
+            const tag = document.createElement('span');
+            tag.className = 'history-tag';
+            tag.textContent = query.length > 15 ? query.substring(0, 15) + '...' : query;
+            tag.onclick = () => {
+                document.getElementById('queryInput').value = query;
+                executeQuery();
+            };
+            history.insertBefore(tag, history.firstChild);
+        }
+
+        function updateStats() {
+            document.getElementById('totalDocs').textContent = uploadedDocs.length;
+            document.getElementById('queryCount').textContent = queryCount;
+        }
+
+        async function refreshDocs() {
+            try {
+                const response = await fetch(`${API_BASE}/api/rag/stats`);
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('totalDocs').textContent = data.vectorstore?.count || uploadedDocs.length;
+                    document.getElementById('totalChunks').textContent = data.vectorstore?.count || 0;
+                }
+            } catch (e) {
+                console.log('Refresh stats failed');
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Enter key to search
+        document.getElementById('queryInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') executeQuery();
+        });
+
+        // Initial load
+        refreshDocs();
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+[
+  {
+    "description": "EmailParser can parse RFC 822 format .eml files",
+    "steps": [
+      "Import EmailParser from knowledge.parsers",
+      "Call parser.parse('test.eml')",
+      "Verify subject, sender, recipients, body are extracted"
+    ],
+    "passes": true
+  },
+  {
+    "description": "EmailParser extracts email headers correctly",
+    "steps": [
+      "Parse .eml file with known headers",
+      "Verify From, To, Subject, Date are present",
+      "Verify Message-ID is extracted"
+    ],
+    "passes": true
+  },
+  {
+    "description": "EmailParser extracts both plain text and HTML body",
+    "steps": [
+      "Parse .eml file with multipart alternative",
+      "Verify body_text contains plain text content",
+      "Verify body_html contains HTML content"
+    ],
+    "passes": true
+  },
+  {
+    "description": "EmailParser correctly identifies supported file types",
+    "steps": [
+      "Call can_parse('.eml') - should return True",
+      "Call can_parse('.msg') - should return True",
+      "Call can_parse('.pdf') - should return False"
+    ],
+    "passes": true
+  },
+  {
+    "description": "EmailParser is exported from knowledge.parsers module",
+    "steps": [
+      "Import EmailParser from knowledge.parsers",
+      "Verify it is in __all__ list"
+    ],
+    "passes": true
+  }
+]

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Playground - AI Multi-Agent</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #222233;
+            --accent-cyan: #00f5ff;
+            --accent-purple: #bf00ff;
+            --accent-pink: #ff006e;
+            --accent-green: #00ff88;
+            --text-primary: #ffffff;
+            --text-secondary: #8888aa;
+            --text-muted: #555566;
+            --border-subtle: rgba(255,255,255,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .container {
+            padding: 100px 50px 50px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle { color: var(--text-secondary); margin-bottom: 40px; }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .panel-title { font-size: 1.1rem; font-weight: 600; }
+
+        /* MCP Visualizer */
+        .mcp-visual {
+            position: relative;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .mcp-node {
+            position: absolute;
+            background: var(--bg-card-hover);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .mcp-node.context { border-color: var(--accent-purple); }
+        .mcp-node.session { border-color: var(--accent-green); }
+        .mcp-node.agent { border-color: var(--accent-pink); }
+
+        .mcp-node-icon { font-size: 1.5rem; margin-bottom: 5px; }
+        .mcp-node-label { font-size: 0.8rem; color: var(--text-secondary); }
+
+        .mcp-line {
+            position: absolute;
+            background: var(--accent-cyan);
+            opacity: 0.3;
+        }
+
+        /* Context Inspector */
+        .context-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .context-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+
+        .context-key { color: var(--accent-cyan); }
+        .context-value { color: var(--text-secondary); text-align: right; max-width: 200px; overflow: hidden; text-overflow: ellipsis; }
+
+        /* Request Builder */
+        .request-builder {
+            margin-bottom: 20px;
+        }
+
+        .request-input {
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 15px;
+            color: var(--text-primary);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            min-height: 120px;
+            resize: vertical;
+            margin-bottom: 15px;
+        }
+
+        .request-input:focus { outline: none; border-color: var(--accent-cyan); }
+
+        .param-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .param-input {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 10px;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+        }
+
+        .execute-btn {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            color: var(--bg-primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .execute-btn:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(191, 0, 255, 0.3); }
+
+        /* Response Area */
+        .response-area {
+            background: #0d0d12;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .response-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .response-status {
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .response-status.success { background: rgba(0,255,136,0.2); color: var(--accent-green); }
+        .response-status.error { background: rgba(255,0,110,0.2); color: var(--accent-pink); }
+
+        .response-content {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* Session List */
+        .session-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .session-item {
+            padding: 15px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .session-item:hover { background: var(--bg-card-hover); }
+        .session-item.active { border-color: var(--accent-cyan); }
+
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .session-id { font-weight: 600; font-size: 0.9rem; }
+        .session-status { font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; }
+        .session-status.active { background: rgba(0,255,136,0.15); color: var(--accent-green); }
+        .session-status.archived { background: rgba(136,136,170,0.15); color: var(--text-secondary); }
+
+        .session-meta { font-size: 0.8rem; color: var(--text-secondary); }
+        .session-tokens { font-size: 0.75rem; color: var(--accent-cyan); margin-top: 5px; }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .quick-action {
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .quick-action:hover {
+            background: var(--bg-card-hover);
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 1200px) {
+            .main-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MCP Playground</h1>
+        <p class="subtitle">测试MCP上下文管理协议 - 查看、编辑、调试会话上下文</p>
+
+        <div class="main-grid">
+            <!-- Left Panel -->
+            <div>
+                <!-- MCP Visualizer -->
+                <div class="panel" style="margin-bottom: 30px;">
+                    <div class="panel-header">
+                        <div class="panel-title">🔗 MCP 架构可视化</div>
+                    </div>
+                    <div class="mcp-visual">
+                        <div class="mcp-node" style="left: 50%; top: 10%; transform: translateX(-50%);">
+                            <div class="mcp-node-icon">🎯</div>
+                            <div class="mcp-node-label">User Request</div>
+                        </div>
+                        <div class="mcp-node context" style="left: 20%; top: 45%;">
+                            <div class="mcp-node-icon">🧠</div>
+                            <div class="mcp-node-label">Context Mgr</div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted);">4KB / 4KB</div>
+                        </div>
+                        <div class="mcp-node agent" style="left: 50%; top: 45%; transform: translateX(-50%);">
+                            <div class="mcp-node-icon">🤖</div>
+                            <div class="mcp-node-label">Agent</div>
+                        </div>
+                        <div class="mcp-node session" style="left: 80%; top: 45%;">
+                            <div class="mcp-node-icon">💬</div>
+                            <div class="mcp-node-label">Session</div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted);">session_001</div>
+                        </div>
+                        <div class="mcp-node" style="left: 50%; bottom: 10%; transform: translateX(-50%);">
+                            <div class="mcp-node-icon">📚</div>
+                            <div class="mcp-node-label">Knowledge Base</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Context Inspector -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title">📋 Context Inspector</div>
+                        <button class="quick-action" style="margin: 0;" onclick="refreshContext()">🔄</button>
+                    </div>
+                    <div class="context-list">
+                        <div class="context-item">
+                            <span class="context-key">session_id</span>
+                            <span class="context-value">session_001</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-key">user_id</span>
+                            <span class="context-value">user_admin</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-key">token_count</span>
+                            <span class="context-value">2,345</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-key">max_tokens</span>
+                            <span class="context-value">4,000</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-key">messages</span>
+                            <span class="context-value">12</span>
+                        </div>
+                        <div class="context-item">
+                            <span class="context-key">last_active</span>
+                            <span class="context-value">2 min ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div>
+                <!-- MCP Request -->
+                <div class="panel" style="margin-bottom: 30px;">
+                    <div class="panel-header">
+                        <div class="panel-title">🧪 MCP Request Builder</div>
+                    </div>
+
+                    <div class="request-builder">
+                        <textarea class="request-input" id="mcpRequest" placeholder="Enter MCP command...&#10;&#10;Example:&#10;{&#10;  &quot;method&quot;: &quot;mcp.getContext&quot;,&#10;  &quot;session_id&quot;: &quot;session_001&quot;&#10;}">{
+  "method": "mcp.getContext",
+  "session_id": "session_001",
+  "include_history": true
+}</textarea>
+
+                        <div class="param-row">
+                            <input type="text" class="param-input" id="sessionId" placeholder="Session ID" value="session_001">
+                            <input type="number" class="param-input" id="maxTokens" placeholder="Max Tokens" value="4000">
+                            <select class="param-input" id="priority">
+                                <option value="high">High Priority</option>
+                                <option value="normal" selected>Normal</option>
+                                <option value="low">Low Priority</option>
+                            </select>
+                        </div>
+
+                        <button class="execute-btn" onclick="executeMCP()">▶ Execute MCP Command</button>
+                    </div>
+
+                    <div class="response-area" id="mcpResponse">
+                        <div class="response-header">
+                            <span>Response</span>
+                            <span class="response-status success">Ready</span>
+                        </div>
+                        <div class="response-content">MCP命令响应将显示在这里...</div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <div class="quick-action" onclick="quickCommand('getContext')">📥 Get Context</div>
+                        <div class="quick-action" onclick="quickCommand('compressContext')">🗜️ Compress</div>
+                        <div class="quick-action" onclick="quickCommand('clearHistory')">🗑️ Clear History</div>
+                        <div class="quick-action" onclick="quickCommand('getStats')">📊 Get Stats</div>
+                    </div>
+                </div>
+
+                <!-- Active Sessions -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title">💬 Active Sessions</div>
+                        <button class="quick-action" style="margin: 0;" onclick="createSession()">+ New</button>
+                    </div>
+                    <div class="session-list" id="sessionList">
+                        <div class="session-item active" onclick="selectSession('session_001')">
+                            <div class="session-header">
+                                <span class="session-id">session_001</span>
+                                <span class="session-status active">Active</span>
+                            </div>
+                            <div class="session-meta">12 messages • Created 2h ago</div>
+                            <div class="session-tokens">2,345 / 4,000 tokens (58%)</div>
+                        </div>
+                        <div class="session-item" onclick="selectSession('session_002')">
+                            <div class="session-header">
+                                <span class="session-id">session_002</span>
+                                <span class="session-status active">Active</span>
+                            </div>
+                            <div class="session-meta">5 messages • Created 30m ago</div>
+                            <div class="session-tokens">890 / 4,000 tokens (22%)</div>
+                        </div>
+                        <div class="session-item" onclick="selectSession('session_003')">
+                            <div class="session-header">
+                                <span class="session-id">session_003</span>
+                                <span class="session-status archived">Archived</span>
+                            </div>
+                            <div class="session-meta">28 messages • Created 1d ago</div>
+                            <div class="session-tokens">3,890 / 4,000 tokens (97%)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+
+        function quickCommand(method) {
+            document.getElementById('mcpRequest').value = JSON.stringify({
+                method: `mcp.${method}`,
+                session_id: document.getElementById('sessionId').value,
+                priority: document.getElementById('priority').value
+            }, null, 2);
+            executeMCP();
+        }
+
+        async function executeMCP() {
+            const requestText = document.getElementById('mcpRequest').value;
+            const responseArea = document.getElementById('mcpResponse');
+
+            try {
+                const request = JSON.parse(requestText);
+
+                responseArea.innerHTML = `
+                    <div class="response-header">
+                        <span>Executing...</span>
+                        <span class="response-status" style="background: rgba(255,190,46,0.2); color: var(--accent-yellow);">Running</span>
+                    </div>
+                    <div class="response-content">Sending request to MCP endpoint...</div>
+                `;
+
+                // Simulate MCP call (actual endpoint would be /api/mcp/*)
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // For demo, show formatted response
+                const mockResponse = {
+                    success: true,
+                    method: request.method,
+                    session_id: request.session_id,
+                    context: {
+                        token_count: 2345,
+                        max_tokens: 4000,
+                        compression_ratio: 0.58,
+                        messages: 12
+                    },
+                    timestamp: new Date().toISOString()
+                };
+
+                responseArea.innerHTML = `
+                    <div class="response-header">
+                        <span>Response</span>
+                        <span class="response-status success">Success</span>
+                    </div>
+                    <div class="response-content">${JSON.stringify(mockResponse, null, 2)}</div>
+                `;
+
+            } catch (error) {
+                responseArea.innerHTML = `
+                    <div class="response-header">
+                        <span>Response</span>
+                        <span class="response-status error">Error</span>
+                    </div>
+                    <div class="response-content" style="color: var(--accent-pink);">Error: ${error.message}</div>
+                `;
+            }
+        }
+
+        async function createSession() {
+            const responseArea = document.getElementById('mcpResponse');
+            responseArea.innerHTML = `
+                <div class="response-header">
+                    <span>Creating Session...</span>
+                    <span class="response-status" style="background: rgba(255,190,46,0.2); color: var(--accent-yellow);">Running</span>
+                </div>
+                <div class="response-content">Creating new MCP session...</div>
+            `;
+
+            try {
+                const response = await fetch(`${API_BASE}/api/chat/sessions`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+
+                const data = await response.json();
+
+                // Add to session list
+                const sessionList = document.getElementById('sessionList');
+                const newSession = document.createElement('div');
+                newSession.className = 'session-item active';
+                newSession.onclick = () => selectSession(data.session_id);
+                newSession.innerHTML = `
+                    <div class="session-header">
+                        <span class="session-id">${data.session_id}</span>
+                        <span class="session-status active">Active</span>
+                    </div>
+                    <div class="session-meta">0 messages • Just created</div>
+                    <div class="session-tokens">0 / 4,000 tokens (0%)</div>
+                `;
+                sessionList.insertBefore(newSession, sessionList.firstChild);
+
+                responseArea.innerHTML = `
+                    <div class="response-header">
+                        <span>Response</span>
+                        <span class="response-status success">Success</span>
+                    </div>
+                    <div class="response-content">${JSON.stringify(data, null, 2)}</div>
+                `;
+
+            } catch (error) {
+                responseArea.innerHTML = `
+                    <div class="response-header">
+                        <span>Response</span>
+                        <span class="response-status error">Error</span>
+                    </div>
+                    <div class="response-content" style="color: var(--accent-pink);">Error: ${error.message}</div>
+                `;
+            }
+        }
+
+        function selectSession(sessionId) {
+            document.querySelectorAll('.session-item').forEach(item => item.classList.remove('active'));
+            event.target.closest('.session-item').classList.add('active');
+            document.getElementById('sessionId').value = sessionId;
+        }
+
+        async function refreshContext() {
+            console.log('Refreshing MCP context...');
+        }
+    </script>
+</body>
+</html>

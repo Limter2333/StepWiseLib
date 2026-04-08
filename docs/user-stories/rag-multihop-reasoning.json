@@ -1,0 +1,46 @@
+[
+  {
+    "description": "API endpoint /rag/multihop decomposes complex questions into sub-questions",
+    "steps": [
+      "POST /api/rag/multihop/decompose with question='Alice的工作地天气如何'",
+      "Verify response contains sub_questions array",
+      "Verify reasoning_type is 'chain' or 'parallel'"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Multi-hop query returns step-by-step reasoning results",
+    "steps": [
+      "POST /api/rag/multihop with question='Alice的工作地天气如何'",
+      "Verify response contains hops > 1",
+      "Verify steps array with each step having question and answer"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Compare questions are decomposed into parallel sub-questions",
+    "steps": [
+      "POST /api/rag/multihop/decompose with question='比较Python和Java的区别'",
+      "Verify reasoning_type is 'parallel'",
+      "Verify sub_questions contains analysis for both languages"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Aggregate questions generate multiple parallel retrieval steps",
+    "steps": [
+      "POST /api/rag/multihop/decompose with question='这个项目有哪些技术栈和工具'",
+      "Verify step_count >= 2"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Single-hop simple questions return directly without multi-step",
+    "steps": [
+      "POST /api/rag/multihop with question='什么是Python'",
+      "Verify hops is 1",
+      "Verify final_answer is present"
+    ],
+    "passes": true
+  }
+]
