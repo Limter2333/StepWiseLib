@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Statistics - AI Multi-Agent</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #222233;
+            --accent-cyan: #00f5ff;
+            --accent-purple: #bf00ff;
+            --accent-pink: #ff006e;
+            --accent-green: #00ff88;
+            --accent-yellow: #ffbe2e;
+            --text-primary: #ffffff;
+            --text-secondary: #8888aa;
+            --text-muted: #555566;
+            --border-subtle: rgba(255,255,255,0.08);
+            --glow-cyan: 0 0 30px rgba(0,245,255,0.3);
+            --glow-purple: 0 0 30px rgba(191,0,255,0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            padding: 100px 50px 50px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle { color: var(--text-secondary); margin-bottom: 40px; }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .summary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .summary-card.total::before { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple)); }
+        .summary-card.usage::before { background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan)); }
+        .summary-card.limit::before { background: linear-gradient(90deg, var(--accent-yellow), var(--accent-pink)); }
+        .summary-card.cost::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink)); }
+
+        .summary-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .summary-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .summary-card.total .summary-value { color: var(--accent-cyan); }
+        .summary-card.usage .summary-value { color: var(--accent-green); }
+        .summary-card.limit .summary-value { color: var(--accent-yellow); }
+        .summary-card.cost .summary-value { color: var(--accent-purple); }
+
+        .summary-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .summary-change {
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+
+        .summary-change.up { color: var(--accent-green); }
+        .summary-change.down { color: var(--accent-pink); }
+
+        /* Progress Bar */
+        .token-progress {
+            margin-top: 15px;
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .token-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .token-progress-fill.safe { background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan)); }
+        .token-progress-fill.warning { background: linear-gradient(90deg, var(--accent-yellow), var(--accent-pink)); }
+        .token-progress-fill.danger { background: linear-gradient(90deg, var(--accent-pink), var(--accent-red)); }
+
+        /* Charts Section */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .chart-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .chart-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            background: rgba(0, 245, 255, 0.15);
+            color: var(--accent-cyan);
+        }
+
+        /* Canvas Chart */
+        .chart-canvas-container {
+            position: relative;
+            height: 250px;
+        }
+
+        #tokenTrendChart {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Pie Chart */
+        .pie-chart-container {
+            position: relative;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #tokenPieChart {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .pie-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+        }
+
+        /* Detail Table */
+        .detail-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .detail-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .detail-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .model-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .model-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+        }
+
+        .model-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .model-icon.gpt { background: linear-gradient(135deg, #10a37f, #1da47e); }
+        .model-icon.claude { background: linear-gradient(135deg, #cc785c, #ff6b35); }
+        .model-icon.gemini { background: linear-gradient(135deg, #8e8e91, #4a4a4d); }
+
+        .model-info { flex: 1; }
+        .model-name { font-weight: 600; margin-bottom: 3px; }
+        .model-tokens { font-size: 0.8rem; color: var(--text-secondary); }
+
+        .model-bar {
+            width: 100px;
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .model-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        /* Session Table */
+        .session-table {
+            width: 100%;
+        }
+
+        .session-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .session-row:last-child { border-bottom: none; }
+
+        .session-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .session-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card-hover);
+        }
+
+        .session-name { font-weight: 500; }
+        .session-time { font-size: 0.75rem; color: var(--text-muted); }
+
+        .session-tokens {
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        /* Time Range Selector */
+        .time-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .time-btn {
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .time-btn:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+        }
+
+        .time-btn.active {
+            background: var(--bg-card-hover);
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Refresh Button */
+        .refresh-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 8px 15px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .refresh-btn:hover {
+            background: var(--bg-card-hover);
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 1200px) {
+            .summary-grid { grid-template-columns: repeat(2, 1fr); }
+            .charts-grid { grid-template-columns: 1fr; }
+            .detail-section { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .summary-grid { grid-template-columns: 1fr; }
+            .dashboard { padding: 80px 20px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+            <div>
+                <h1>Token Statistics</h1>
+                <p class="subtitle">Token使用情况统计与分析</p>
+            </div>
+            <button class="refresh-btn" onclick="refreshData()">刷新数据</button>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary-grid">
+            <div class="summary-card total">
+                <div class="summary-icon">Total Tokens</div>
+                <div class="summary-value" id="totalTokens">0</div>
+                <div class="summary-label">本月总Token</div>
+                <div class="summary-change up" id="totalChange">较上月 +12.5%</div>
+            </div>
+            <div class="summary-card usage">
+                <div class="summary-icon">Daily Average</div>
+                <div class="summary-value" id="dailyAvg">0</div>
+                <div class="summary-label">日均使用</div>
+                <div class="summary-change" style="color: var(--text-secondary);">7天平均</div>
+            </div>
+            <div class="summary-card limit">
+                <div class="summary-icon">Usage Rate</div>
+                <div class="summary-value" id="usageRate">0%</div>
+                <div class="summary-label">配额使用率</div>
+                <div class="token-progress">
+                    <div class="token-progress-fill safe" id="usageProgress" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div class="summary-card cost">
+                <div class="summary-icon">Est. Cost</div>
+                <div class="summary-value" id="totalCost">$0.00</div>
+                <div class="summary-label">预估成本</div>
+                <div class="summary-change" style="color: var(--text-secondary);">基于平均单价</div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-grid">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">Token使用趋势</div>
+                    <div class="chart-badge">7天内</div>
+                </div>
+                <div class="time-selector">
+                    <button class="time-btn" onclick="setTimeRange('24h')">24小时</button>
+                    <button class="time-btn active" onclick="setTimeRange('7d')">7天</button>
+                    <button class="time-btn" onclick="setTimeRange('30d')">30天</button>
+                </div>
+                <div class="chart-canvas-container">
+                    <canvas id="tokenTrendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">Token消耗分布</div>
+                </div>
+                <div class="pie-chart-container">
+                    <canvas id="tokenPieChart" width="200" height="200"></canvas>
+                </div>
+                <div class="pie-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--accent-cyan);"></div>
+                        <span>输入Token (Prompt)</span>
+                        <span id="promptPercent" style="margin-left: auto; color: var(--accent-cyan);">0%</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--accent-purple);"></div>
+                        <span>输出Token (Completion)</span>
+                        <span id="completionPercent" style="margin-left: auto; color: var(--accent-purple);">0%</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--accent-pink);"></div>
+                        <span>缓存Token (Cache)</span>
+                        <span id="cachePercent" style="margin-left: auto; color: var(--accent-pink);">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <!-- Model Breakdown -->
+            <div class="detail-card">
+                <div class="detail-header">
+                    <div class="detail-title">Model使用分布</div>
+                    <button class="refresh-btn" onclick="loadModelBreakdown()">刷新</button>
+                </div>
+                <div class="model-list" id="modelList">
+                    <div class="model-item">
+                        <div class="model-icon gpt">G</div>
+                        <div class="model-info">
+                            <div class="model-name">GPT-4o</div>
+                            <div class="model-tokens">45,230 Tokens</div>
+                        </div>
+                        <div class="model-bar">
+                            <div class="model-bar-fill" style="width: 45%; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));"></div>
+                        </div>
+                    </div>
+                    <div class="model-item">
+                        <div class="model-icon claude">C</div>
+                        <div class="model-info">
+                            <div class="model-name">Claude-3-Opus</div>
+                            <div class="model-tokens">32,890 Tokens</div>
+                        </div>
+                        <div class="model-bar">
+                            <div class="model-bar-fill" style="width: 33%; background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));"></div>
+                        </div>
+                    </div>
+                    <div class="model-item">
+                        <div class="model-icon gemini">G</div>
+                        <div class="model-info">
+                            <div class="model-name">Gemini-Pro</div>
+                            <div class="model-tokens">21,340 Tokens</div>
+                        </div>
+                        <div class="model-bar">
+                            <div class="model-bar-fill" style="width: 21%; background: linear-gradient(90deg, var(--accent-yellow), var(--accent-pink));"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Sessions -->
+            <div class="detail-card">
+                <div class="detail-header">
+                    <div class="detail-title">Token消耗Top会话</div>
+                </div>
+                <div class="session-table" id="sessionTable">
+                    <div class="session-row">
+                        <div class="session-info">
+                            <div class="session-icon">💬</div>
+                            <div>
+                                <div class="session-name">session_abc123</div>
+                                <div class="session-time">活跃中 - 23条消息</div>
+                            </div>
+                        </div>
+                        <div class="session-tokens">12,450</div>
+                    </div>
+                    <div class="session-row">
+                        <div class="session-info">
+                            <div class="session-icon">📚</div>
+                            <div>
+                                <div class="session-name">rag_query_session</div>
+                                <div class="session-time">2小时前 - 15条消息</div>
+                            </div>
+                        </div>
+                        <div class="session-tokens">8,920</div>
+                    </div>
+                    <div class="session-row">
+                        <div class="session-info">
+                            <div class="session-icon">🤖</div>
+                            <div>
+                                <div class="session-name">agent_dev_001</div>
+                                <div class="session-time">5小时前 - 42条消息</div>
+                            </div>
+                        </div>
+                        <div class="session-tokens">7,340</div>
+                    </div>
+                    <div class="session-row">
+                        <div class="session-info">
+                            <div class="session-icon">📝</div>
+                            <div>
+                                <div class="session-name">doc_gen_session</div>
+                                <div class="session-time">昨天 - 28条消息</div>
+                            </div>
+                        </div>
+                        <div class="session-tokens">5,670</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+
+        // Simulated data for demo
+        const simulatedData = {
+            totalTokens: 1250000,
+            dailyAvg: 178571,
+            usageRate: 78,
+            totalCost: 23.45,
+            promptTokens: 780000,
+            completionTokens: 420000,
+            cacheTokens: 50000,
+            dailyTrend: [120000, 145000, 98000, 178000, 210000, 156000, 143000],
+            modelBreakdown: [
+                { name: 'GPT-4o', tokens: 562500, percent: 45 },
+                { name: 'Claude-3-Opus', tokens: 412500, percent: 33 },
+                { name: 'Gemini-Pro', tokens: 275000, percent: 22 }
+            ],
+            topSessions: [
+                { id: 'session_abc123', type: 'chat', messages: 23, tokens: 12450 },
+                { id: 'rag_query_session', type: 'rag', messages: 15, tokens: 8920 },
+                { id: 'agent_dev_001', type: 'agent', messages: 42, tokens: 7340 },
+                { id: 'doc_gen_session', type: 'doc', messages: 28, tokens: 5670 }
+            ]
+        };
+
+        // Real API data (populated by refreshData)
+        let apiData = null;
+
+        // Transform API response to frontend format
+        function transformApiData(apiResponse) {
+            if (!apiResponse || !apiResponse.success) return null;
+
+            const usage = apiResponse.token_usage || 0;
+            const max = apiResponse.max_tokens || 1500;
+            const remaining = apiResponse.remaining || 0;
+            const usageRate = max > 0 ? Math.round((usage / max) * 100) : 0;
+
+            return {
+                totalTokens: usage,
+                dailyAvg: Math.round(usage / 7), // Approximate daily average
+                usageRate: usageRate,
+                totalCost: (usage / 1000) * 0.01, // Rough cost estimate at $0.01/1K tokens
+                promptTokens: Math.round(usage * 0.6), // Estimate
+                completionTokens: Math.round(usage * 0.4), // Estimate
+                cacheTokens: Math.round(usage * 0.1), // Estimate
+                dailyTrend: [usage, Math.round(usage * 0.9), Math.round(usage * 1.1), Math.round(usage * 0.85), Math.round(usage * 0.95), Math.round(usage * 1.05), Math.round(usage * 0.88)],
+                modelBreakdown: [
+                    { name: 'Current Session', tokens: usage, percent: 100 }
+                ],
+                topSessions: [],
+                resetTime: apiResponse.reset_time,
+                remaining: remaining,
+                maxTokens: max
+            };
+        }
+
+        let currentTimeRange = '7d';
+
+        function formatNumber(num) {
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            return num.toString();
+        }
+
+        function animateValue(element, start, end, duration, formatter) {
+            const startTime = performance.now();
+            const update = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                const current = start + (end - start) * easeProgress;
+                element.textContent = formatter(current);
+                if (progress < 1) requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        }
+
+        function drawTokenTrendChart() {
+            const canvas = document.getElementById('tokenTrendChart');
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            const dataSource = apiData || simulatedData;
+
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+
+            const data = dataSource.dailyTrend;
+            const maxVal = Math.max(...data) * 1.1;
+            const barWidth = (canvas.width - 100) / data.length - 10;
+            const startX = 50;
+            const bottomY = canvas.height - 40;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw grid lines
+            ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i < 5; i++) {
+                const y = 40 + (canvas.height - 80) * i / 4;
+                ctx.beginPath();
+                ctx.moveTo(40, y);
+                ctx.lineTo(canvas.width - 10, y);
+                ctx.stroke();
+
+                ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                ctx.font = '10px Space Mono';
+                ctx.textAlign = 'right';
+                ctx.fillText(formatNumber(maxVal * (1 - i / 4)), 42, y + 3);
+            }
+
+            // Draw bars
+            data.forEach((value, index) => {
+                const x = startX + index * (barWidth + 10);
+                const barHeight = ((value / maxVal) * (canvas.height - 80));
+
+                // Create gradient
+                const gradient = ctx.createLinearGradient(x, bottomY - barHeight, x, bottomY);
+                gradient.addColorStop(0, '#00f5ff');
+                gradient.addColorStop(1, '#bf00ff');
+
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.roundRect(x, bottomY - barHeight, barWidth, barHeight, [4, 4, 0, 0]);
+                ctx.fill();
+
+                // Glow effect
+                ctx.shadowColor = '#00f5ff';
+                ctx.shadowBlur = 15;
+                ctx.fillRect(x, bottomY - barHeight, barWidth, 2);
+                ctx.shadowBlur = 0;
+
+                // Value label
+                ctx.fillStyle = '#8888aa';
+                ctx.font = '10px Space Mono';
+                ctx.textAlign = 'center';
+                ctx.fillText(formatNumber(value), x + barWidth / 2, bottomY - barHeight - 8);
+            });
+
+            // X-axis labels
+            const labels = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+            labels.forEach((label, index) => {
+                const x = startX + index * (barWidth + 10) + barWidth / 2;
+                ctx.fillStyle = '#555566';
+                ctx.font = '11px Noto Sans SC';
+                ctx.textAlign = 'center';
+                ctx.fillText(label, x, canvas.height - 15);
+            });
+        }
+
+        function drawPieChart() {
+            const canvas = document.getElementById('tokenPieChart');
+            const ctx = canvas.getContext('2d');
+            const centerX = 100;
+            const centerY = 100;
+            const radius = 80;
+            const dataSource = apiData || simulatedData;
+
+            const prompt = dataSource.promptTokens;
+            const completion = dataSource.completionTokens;
+            const cache = dataSource.cacheTokens;
+            const total = prompt + completion + cache;
+
+            const promptAngle = (prompt / total) * Math.PI * 2;
+            const completionAngle = (completion / total) * Math.PI * 2;
+            const cacheAngle = (cache / total) * Math.PI * 2;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw segments
+            let currentAngle = -Math.PI / 2;
+
+            // Prompt
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + promptAngle);
+            ctx.closePath();
+            ctx.fillStyle = '#00f5ff';
+            ctx.fill();
+            currentAngle += promptAngle;
+
+            // Completion
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + completionAngle);
+            ctx.closePath();
+            ctx.fillStyle = '#bf00ff';
+            ctx.fill();
+            currentAngle += completionAngle;
+
+            // Cache
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + cacheAngle);
+            ctx.closePath();
+            ctx.fillStyle = '#ff006e';
+            ctx.fill();
+
+            // Center hole
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 40, 0, Math.PI * 2);
+            ctx.fillStyle = '#1a1a25';
+            ctx.fill();
+
+            // Center text
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 16px Orbitron';
+            ctx.textAlign = 'center';
+            ctx.fillText(formatNumber(total), centerX, centerY - 3);
+            ctx.font = '10px Noto Sans SC';
+            ctx.fillStyle = '#8888aa';
+            ctx.fillText('总Token', centerX, centerY + 12);
+        }
+
+        function updateUI() {
+            // Use real API data if available, otherwise fallback to simulated data
+            const data = apiData || simulatedData;
+
+            // Animate summary values
+            animateValue(document.getElementById('totalTokens'), 0, data.totalTokens, 1000, formatNumber);
+            animateValue(document.getElementById('dailyAvg'), 0, data.dailyAvg, 800, formatNumber);
+
+            const usageEl = document.getElementById('usageRate');
+            animateValue(usageEl, 0, data.usageRate, 800, v => Math.round(v) + '%');
+
+            animateValue(document.getElementById('totalCost'), 0, data.totalCost, 800, v => '$' + v.toFixed(2));
+
+            // Update progress bar
+            const progressEl = document.getElementById('usageProgress');
+            setTimeout(() => {
+                progressEl.style.width = data.usageRate + '%';
+                if (data.usageRate > 85) {
+                    progressEl.className = 'token-progress-fill danger';
+                } else if (data.usageRate > 65) {
+                    progressEl.className = 'token-progress-fill warning';
+                } else {
+                    progressEl.className = 'token-progress-fill safe';
+                }
+            }, 300);
+
+            // Update percentages
+            const total = data.promptTokens + data.completionTokens + data.cacheTokens;
+            document.getElementById('promptPercent').textContent = Math.round(data.promptTokens / total * 100) + '%';
+            document.getElementById('completionPercent').textContent = Math.round(data.completionTokens / total * 100) + '%';
+            document.getElementById('cachePercent').textContent = Math.round(data.cacheTokens / total * 100) + '%';
+
+            // Draw charts
+            setTimeout(() => {
+                drawTokenTrendChart();
+                drawPieChart();
+            }, 100);
+        }
+
+        function setTimeRange(range) {
+            currentTimeRange = range;
+            document.querySelectorAll('.time-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update chart data based on range
+            if (range === '24h') {
+                simulatedData.dailyTrend = [45000, 52000, 48000, 61000, 55000, 49000, 53000, 58000, 62000, 54000];
+            } else if (range === '7d') {
+                simulatedData.dailyTrend = [120000, 145000, 98000, 178000, 210000, 156000, 143000];
+            } else {
+                simulatedData.dailyTrend = [98000, 112000, 105000, 134000, 145000, 128000, 156000, 178000, 165000, 189000, 201000, 176000, 192000, 178000, 210000, 223000, 198000, 215000, 234000, 212000, 198000, 245000, 267000, 223000, 238000, 256000, 289000, 312000, 276000, 298000];
+            }
+
+            drawTokenTrendChart();
+        }
+
+        async function refreshData() {
+            try {
+                const response = await fetch(`${API_BASE}/api/chat/token-usage`);
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Token data:', data);
+                    // Transform and store API data
+                    apiData = transformApiData(data);
+                    if (apiData) {
+                        console.log('Transformed API data:', apiData);
+                    }
+                }
+            } catch (e) {
+                console.log('Using simulated data');
+            }
+            updateUI();
+        }
+
+        async function loadModelBreakdown() {
+            // In production, this would fetch from API
+            console.log('Loading model breakdown...');
+        }
+
+        // Initial load
+        window.addEventListener('load', () => {
+            updateUI();
+        });
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            drawTokenTrendChart();
+        });
+    </script>
+</body>
+</html>

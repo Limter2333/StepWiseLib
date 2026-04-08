@@ -1,0 +1,48 @@
+[
+  {
+    "description": "Agent can store value to shared context with TASK scope",
+    "steps": [
+      "POST /api/agents/context/set with key='test:value', value={'test': true}, scope='task'",
+      "GET /api/agents/context/get with key='test:value', scope='task'",
+      "Verify response contains value={'test': true}"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Agent can retrieve value stored by another agent (cross-agent context)",
+    "steps": [
+      "Store value with agent_id='dev'",
+      "Retrieve value using agent_id='test'",
+      "Verify retrieved value matches stored value"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Context values expire after TTL",
+    "steps": [
+      "Set value with ttl_seconds=1",
+      "Wait 2 seconds",
+      "Attempt to retrieve value",
+      "Verify value is no longer present (expired)"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Context endpoint returns stats about stored entries",
+    "steps": [
+      "GET /api/agents/context/stats",
+      "Verify response contains global_entries, session_count, task_count, agent_count"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Task router passes shared context to agents during execution",
+    "steps": [
+      "Execute task with store_context=True",
+      "Verify result contains context_stored=true",
+      "Execute same task_id with read_context=True",
+      "Verify result contains context_used=true"
+    ],
+    "passes": true
+  }
+]

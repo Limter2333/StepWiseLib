@@ -1,0 +1,47 @@
+[
+  {
+    "description": "CORS configuration no longer uses wildcard origin",
+    "steps": [
+      "Check api/main.py CORS configuration",
+      "Verify allow_origins is NOT ['*']",
+      "Confirm origins are explicitly configured"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Rate limiter middleware is integrated into FastAPI",
+    "steps": [
+      "Check core/rate_limit_middleware.py exists",
+      "Verify RateLimitMiddleware is added to app",
+      "Test that requests beyond limit receive 429"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Rate limiter middleware skips health check endpoints",
+    "steps": [
+      "Check SKIP_PATHS in RateLimitMiddleware",
+      "Verify /health is in skip list",
+      "Health endpoints should not be rate limited"
+    ],
+    "passes": true
+  },
+  {
+    "description": "Rate limit response includes proper headers",
+    "steps": [
+      "Make request that triggers rate limit",
+      "Check for X-RateLimit-Limit header",
+      "Check for Retry-After header"
+    ],
+    "passes": true
+  },
+  {
+    "description": "CORS_ORIGINS is configurable via environment variable",
+    "steps": [
+      "Check main.py uses os.getenv for CORS",
+      "Verify default includes localhost:3000 and localhost:8080",
+      "CORS_ORIGINS env var can override defaults"
+    ],
+    "passes": true
+  }
+]

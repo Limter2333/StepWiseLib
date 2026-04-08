@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeniorPM 项目视图 - AI Multi-Agent</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #222233;
+            --accent-cyan: #00f5ff;
+            --accent-purple: #bf00ff;
+            --accent-pink: #ff006e;
+            --accent-green: #00ff88;
+            --accent-yellow: #ffbe2e;
+            --text-primary: #ffffff;
+            --text-secondary: #8888aa;
+            --text-muted: #555566;
+            --border-subtle: rgba(255,255,255,0.08);
+            --glow-cyan: 0 0 30px rgba(0,245,255,0.3);
+            --glow-purple: 0 0 30px rgba(191,0,255,0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .container {
+            padding: 100px 50px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            box-shadow: var(--glow-cyan);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-cyan);
+        }
+
+        .btn-danger {
+            background: var(--accent-pink);
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            box-shadow: 0 0 20px rgba(255,0,110,0.4);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 10px;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+
+        .tab.active {
+            color: var(--accent-cyan);
+            background: var(--bg-card);
+            border-bottom: 2px solid var(--accent-cyan);
+        }
+
+        .panel {
+            display: none;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        .form-section {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .form-section h3 {
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(0,245,255,0.2);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .report-container {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid var(--border-subtle);
+            min-height: 500px;
+        }
+
+        .report-container iframe {
+            width: 100%;
+            min-height: 600px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            color: var(--text-secondary);
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-subtle);
+            border-top-color: var(--accent-cyan);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error-msg {
+            background: rgba(255,0,110,0.1);
+            border: 1px solid var(--accent-pink);
+            border-radius: 8px;
+            padding: 20px;
+            color: var(--accent-pink);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-card .label {
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .nav-back a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .nav-back a:hover {
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+        }
+
+        .project-name-input {
+            margin-bottom: 20px;
+        }
+
+        .project-name-input input {
+            font-size: 1.2rem;
+            padding: 15px 20px;
+        }
+
+        .success-msg {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 15px 20px;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .success-msg.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 80px 20px 20px;
+            }
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-back">
+        <a href="index.html">← 返回主页</a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>SENIOR PM 项目视图</h1>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="loadReport('html')">
+                    🔄 刷新报告
+                </button>
+                <button class="btn btn-secondary" onclick="loadReport('markdown')">
+                    📝 Markdown
+                </button>
+            </div>
+        </div>
+
+        <div class="project-name-input">
+            <div class="form-group">
+                <label>项目名称</label>
+                <input type="text" id="projectName" value="AI Multi-Agent System" placeholder="输入项目名称">
+            </div>
+        </div>
+
+        <div class="success-msg" id="successMsg">
+            ✓ 操作成功！
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="report">📊 执行报告</button>
+            <button class="tab" data-tab="sprint">🏃 Sprint管理</button>
+            <button class="tab" data-tab="stakeholder">👥 干系人</button>
+            <button class="tab" data-tab="risk">⚠️ 风险管理</button>
+            <button class="tab" data-tab="strategy">🎯 战略规划</button>
+        </div>
+
+        <!-- 执行报告面板 -->
+        <div class="panel active" id="report-panel">
+            <div class="report-container" id="reportContainer">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <div>正在加载报告...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sprint管理面板 -->
+        <div class="panel" id="sprint-panel">
+            <div class="form-section">
+                <h3>创建新Sprint</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Sprint名称</label>
+                        <input type="text" id="sprintName" placeholder="如: Sprint 1">
+                    </div>
+                    <div class="form-group">
+                        <label>目标</label>
+                        <input type="text" id="sprintGoal" placeholder="Sprint目标">
+                    </div>
+                    <div class="form-group">
+                        <label>开始日期</label>
+                        <input type="date" id="sprintStart">
+                    </div>
+                    <div class="form-group">
+                        <label>结束日期</label>
+                        <input type="date" id="sprintEnd">
+                    </div>
+                    <div class="form-group">
+                        <label>容量 (人天)</label>
+                        <input type="number" id="sprintCapacity" value="20">
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 20px;" onclick="createSprint()">
+                    创建Sprint
+                </button>
+            </div>
+        </div>
+
+        <!-- 干系人管理面板 -->
+        <div class="panel" id="stakeholder-panel">
+            <div class="form-section">
+                <h3>添加干系人</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <input type="text" id="stakeholderName" placeholder="干系人姓名">
+                    </div>
+                    <div class="form-group">
+                        <label>角色</label>
+                        <input type="text" id="stakeholderRole" placeholder="如: CTO, 投资人">
+                    </div>
+                    <div class="form-group">
+                        <label>影响力 (1-5)</label>
+                        <select id="stakeholderInfluence">
+                            <option value="1">1 - 最低</option>
+                            <option value="2">2 - 较低</option>
+                            <option value="3">3 - 中等</option>
+                            <option value="4">4 - 较高</option>
+                            <option value="5" selected>5 - 最高</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>关注度 (1-5)</label>
+                        <select id="stakeholderInterest">
+                            <option value="1">1 - 最低</option>
+                            <option value="2">2 - 较低</option>
+                            <option value="3">3 - 中等</option>
+                            <option value="4">4 - 较高</option>
+                            <option value="5" selected>5 - 最高</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 20px;" onclick="addStakeholder()">
+                    添加干系人
+                </button>
+            </div>
+        </div>
+
+        <!-- 风险管理面板 -->
+        <div class="panel" id="risk-panel">
+            <div class="form-section">
+                <h3>识别风险</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>风险标题</label>
+                        <input type="text" id="riskTitle" placeholder="风险标题">
+                    </div>
+                    <div class="form-group">
+                        <label>描述</label>
+                        <input type="text" id="riskDescription" placeholder="风险描述">
+                    </div>
+                    <div class="form-group">
+                        <label>概率 (0-1)</label>
+                        <input type="number" id="riskProbability" step="0.1" min="0" max="1" value="0.5">
+                    </div>
+                    <div class="form-group">
+                        <label>影响等级</label>
+                        <select id="riskImpact">
+                            <option value="low">低</option>
+                            <option value="medium">中</option>
+                            <option value="high">高</option>
+                            <option value="critical">严重</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>类别</label>
+                        <select id="riskCategory">
+                            <option value="technical">技术风险</option>
+                            <option value="resource">资源风险</option>
+                            <option value="external">外部风险</option>
+                            <option value="schedule">进度风险</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>责任人</label>
+                        <input type="text" id="riskOwner" placeholder="责任人">
+                    </div>
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label>缓解计划</label>
+                        <textarea id="riskMitigation" placeholder="风险缓解措施"></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 20px;" onclick="identifyRisk()">
+                    识别风险
+                </button>
+            </div>
+        </div>
+
+        <!-- 战略规划面板 -->
+        <div class="panel" id="strategy-panel">
+            <div class="form-section">
+                <h3>创建战略</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>战略名称</label>
+                        <input type="text" id="strategyName" placeholder="战略名称">
+                    </div>
+                    <div class="form-group">
+                        <label>战略类型</label>
+                        <select id="strategyType">
+                            <option value="growth">增长战略</option>
+                            <option value="innovation">创新战略</option>
+                            <option value="operational">运营战略</option>
+                            <option value="platform">平台战略</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>愿景</label>
+                        <input type="text" id="strategyVision" placeholder="战略愿景">
+                    </div>
+                    <div class="form-group">
+                        <label>时间线</label>
+                        <input type="text" id="strategyTimeline" placeholder="如: 2024-2026">
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 20px;" onclick="createStrategy()">
+                    创建战略
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+
+                tab.classList.add('active');
+                const panelId = tab.dataset.tab + '-panel';
+                document.getElementById(panelId).classList.add('active');
+            });
+        });
+
+        // Load report
+        async function loadReport(format = 'html') {
+            const container = document.getElementById('reportContainer');
+            container.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <div>正在加载报告...</div>
+                </div>
+            `;
+
+            try {
+                const response = await fetch(`${API_BASE}/api/agents/senior-pm/report?format=${format}`);
+
+                if (!response.ok) {
+                    throw new Error('加载失败');
+                }
+
+                const data = await response.json();
+
+                if (data.format === 'html') {
+                    // Display HTML report in iframe
+                    const iframe = document.createElement('iframe');
+                    iframe.srcdoc = data.report;
+                    iframe.style.width = '100%';
+                    iframe.style.minHeight = '700px';
+                    iframe.style.border = 'none';
+                    iframe.style.borderRadius = '8px';
+                    container.innerHTML = '';
+                    container.appendChild(iframe);
+                } else {
+                    // Display markdown as formatted text
+                    container.innerHTML = `
+                        <pre style="white-space: pre-wrap; font-family: 'Noto Sans SC', sans-serif; line-height: 1.6;">
+${data.report}
+                        </pre>
+                    `;
+                }
+            } catch (error) {
+                container.innerHTML = `
+                    <div class="error-msg">
+                        加载报告失败: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        // Show success message
+        function showSuccess(msg) {
+            const el = document.getElementById('successMsg');
+            el.textContent = msg;
+            el.classList.add('show');
+            setTimeout(() => el.classList.remove('show'), 3000);
+        }
+
+        // Create Sprint
+        async function createSprint() {
+            const name = document.getElementById('sprintName').value;
+            const goal = document.getElementById('sprintGoal').value;
+            const startDate = document.getElementById('sprintStart').value;
+            const endDate = document.getElementById('sprintEnd').value;
+            const capacity = parseInt(document.getElementById('sprintCapacity').value);
+
+            if (!name || !goal || !startDate || !endDate) {
+                alert('请填写所有必填字段');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/api/agents/senior-pm/sprint`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name, goal,
+                        start_date: startDate,
+                        end_date: endDate,
+                        capacity
+                    })
+                });
+
+                if (!response.ok) throw new Error('创建失败');
+
+                showSuccess('Sprint创建成功！');
+                loadReport('html');
+            } catch (error) {
+                alert('错误: ' + error.message);
+            }
+        }
+
+        // Add Stakeholder
+        async function addStakeholder() {
+            const name = document.getElementById('stakeholderName').value;
+            const role = document.getElementById('stakeholderRole').value;
+            const influence = parseInt(document.getElementById('stakeholderInfluence').value);
+            const interest = parseInt(document.getElementById('stakeholderInterest').value);
+
+            if (!name || !role) {
+                alert('请填写所有必填字段');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/api/agents/senior-pm/stakeholder`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name, role, influence, interest
+                    })
+                });
+
+                if (!response.ok) throw new Error('添加失败');
+
+                showSuccess('干系人添加成功！');
+                loadReport('html');
+            } catch (error) {
+                alert('错误: ' + error.message);
+            }
+        }
+
+        // Identify Risk
+        async function identifyRisk() {
+            const title = document.getElementById('riskTitle').value;
+            const description = document.getElementById('riskDescription').value;
+            const probability = parseFloat(document.getElementById('riskProbability').value);
+            const impact = document.getElementById('riskImpact').value;
+            const category = document.getElementById('riskCategory').value;
+            const mitigation_plan = document.getElementById('riskMitigation').value;
+            const owner = document.getElementById('riskOwner').value;
+
+            if (!title || !description || !mitigation_plan) {
+                alert('请填写所有必填字段');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/api/agents/senior-pm/risk`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        title, description, probability, impact, category,
+                        mitigation_plan, owner
+                    })
+                });
+
+                if (!response.ok) throw new Error('添加失败');
+
+                showSuccess('风险识别成功！');
+                loadReport('html');
+            } catch (error) {
+                alert('错误: ' + error.message);
+            }
+        }
+
+        // Create Strategy
+        async function createStrategy() {
+            const name = document.getElementById('strategyName').value;
+            const strategy_type = document.getElementById('strategyType').value;
+            const vision = document.getElementById('strategyVision').value;
+            const timeline = document.getElementById('strategyTimeline').value;
+
+            if (!name || !vision) {
+                alert('请填写所有必填字段');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/api/agents/senior-pm/strategy`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name, strategy_type, vision, timeline
+                    })
+                });
+
+                if (!response.ok) throw new Error('创建失败');
+
+                showSuccess('战略创建成功！');
+                loadReport('html');
+            } catch (error) {
+                alert('错误: ' + error.message);
+            }
+        }
+
+        // Initial load
+        loadReport('html');
+    </script>
+</body>
+</html>

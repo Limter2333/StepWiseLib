@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Generator - AI Multi-Agent</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #222233;
+            --accent-cyan: #00f5ff;
+            --accent-purple: #bf00ff;
+            --accent-pink: #ff006e;
+            --accent-green: #00ff88;
+            --accent-yellow: #ffbe2e;
+            --text-primary: #ffffff;
+            --text-secondary: #8888aa;
+            --text-muted: #555566;
+            --border-subtle: rgba(255,255,255,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .container {
+            padding: 100px 50px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle { color: var(--text-secondary); margin-bottom: 40px; }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+        }
+
+        /* Report Config */
+        .config-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .config-section {
+            margin-bottom: 25px;
+        }
+
+        .config-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--accent-cyan);
+        }
+
+        .config-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .config-option:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .config-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent-cyan);
+        }
+
+        .config-option label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .generate-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: var(--bg-primary);
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+        }
+
+        /* Report Preview */
+        .report-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .report-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: var(--bg-card-hover);
+            color: var(--accent-cyan);
+        }
+
+        .report-content {
+            flex: 1;
+            background: #0d0d12;
+            border-radius: 12px;
+            padding: 30px;
+            max-height: 600px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .report-content h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-cyan);
+        }
+
+        .report-content h2 {
+            font-size: 1.3rem;
+            color: var(--accent-purple);
+            margin: 25px 0 15px;
+        }
+
+        .report-content h3 {
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            margin: 20px 0 10px;
+        }
+
+        .report-content ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .report-content li {
+            margin: 8px 0;
+        }
+
+        .report-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .report-content th, .report-content td {
+            padding: 10px;
+            border: 1px solid var(--border-subtle);
+            text-align: left;
+        }
+
+        .report-content th {
+            background: var(--bg-secondary);
+            color: var(--accent-cyan);
+        }
+
+        .report-meta {
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .report-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-box-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .stat-box-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Section Styles */
+        .section-pass { border-left: 3px solid var(--accent-green); padding-left: 15px; margin: 15px 0; }
+        .section-warning { border-left: 3px solid var(--accent-yellow); padding-left: 15px; margin: 15px 0; }
+        .section-fail { border-left: 3px solid var(--accent-red); padding-left: 15px; margin: 15px 0; }
+
+        @media (max-width: 1024px) {
+            .main-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Report Generator</h1>
+        <p class="subtitle">AI Multi-Agent System 项目报告生成器</p>
+
+        <div class="main-grid">
+            <!-- Config Panel -->
+            <div class="config-panel">
+                <div class="config-section">
+                    <div class="config-title">📋 报告类型</div>
+                    <div class="config-option">
+                        <input type="radio" name="reportType" id="fullReport" value="full" checked>
+                        <label for="fullReport">完整报告</label>
+                    </div>
+                    <div class="config-option">
+                        <input type="radio" name="reportType" id="summaryReport" value="summary">
+                        <label for="summaryReport">摘要报告</label>
+                    </div>
+                    <div class="config-option">
+                        <input type="radio" name="reportType" id="testReport" value="test">
+                        <label for="testReport">测试报告</label>
+                    </div>
+                    <div class="config-option">
+                        <input type="radio" name="reportType" id="apiReport" value="api">
+                        <label for="apiReport">API文档</label>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <div class="config-title">📊 包含内容</div>
+                    <div class="config-option">
+                        <input type="checkbox" id="incOverview" checked>
+                        <label for="incOverview">系统概览</label>
+                    </div>
+                    <div class="config-option">
+                        <input type="checkbox" id="incMetrics" checked>
+                        <label for="incMetrics">性能指标</label>
+                    </div>
+                    <div class="config-option">
+                        <input type="checkbox" id="incAgents" checked>
+                        <label for="incAgents">Agent状态</label>
+                    </div>
+                    <div class="config-option">
+                        <input type="checkbox" id="incApi" checked>
+                        <label for="incApi">API接口</label>
+                    </div>
+                    <div class="config-option">
+                        <input type="checkbox" id="incRag" checked>
+                        <label for="incRag">RAG知识库</label>
+                    </div>
+                    <div class="config-option">
+                        <input type="checkbox" id="incMemory" checked>
+                        <label for="incMemory">记忆系统</label>
+                    </div>
+                    <div class="config-option">
+                        <input type="checkbox" id="incSecurity" checked>
+                        <label for="incSecurity">安全护栏</label>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <div class="config-title">📝 项目信息</div>
+                    <input type="text" class="config-option" style="width: 100%; padding: 12px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: 8px; color: var(--text-primary);" placeholder="项目名称" value="AI Multi-Agent System">
+                    <input type="text" class="config-option" style="width: 100%; padding: 12px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: 8px; color: var(--text-primary); margin-top: 8px;" placeholder="项目版本" value="v2.0">
+                </div>
+
+                <button class="generate-btn" onclick="generateReport()">🔄 生成报告</button>
+            </div>
+
+            <!-- Report Preview -->
+            <div class="report-panel">
+                <div class="report-header">
+                    <div class="panel-title">📄 报告预览</div>
+                    <div class="report-actions">
+                        <button class="action-btn" onclick="copyReport()">📋 复制</button>
+                        <button class="action-btn" onclick="downloadReport()">📥 下载</button>
+                        <button class="action-btn" onclick="printReport()">🖨️ 打印</button>
+                    </div>
+                </div>
+
+                <div class="report-content" id="reportContent">
+                    <h1>AI Multi-Agent System</h1>
+                    <div class="report-meta">
+                        <span>📅 日期: 2026-04-05</span>
+                        <span>📊 版本: v2.0</span>
+                        <span>👤 生成器: PM Agent</span>
+                    </div>
+
+                    <h2>📌 系统概览</h2>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-box-value">6</div>
+                            <div class="stat-box-label">Agent数量</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box-value">23</div>
+                            <div class="stat-box-label">API端点</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box-value">100%</div>
+                            <div class="stat-box-label">安全评分</div>
+                        </div>
+                    </div>
+
+                    <div class="section-pass">
+                        <strong>✅ 系统状态:</strong> 所有服务正常运行
+                    </div>
+
+                    <h2>🤖 Agent团队</h2>
+                    <table>
+                        <tr><th>Agent</th><th>状态</th><th>任务数</th><th>性能</th></tr>
+                        <tr><td>PM Agent</td><td>🟢 在线</td><td>23</td><td>92%</td></tr>
+                        <tr><td>Dev Agent</td><td>🟢 在线</td><td>45</td><td>88%</td></tr>
+                        <tr><td>Test Agent</td><td>🟢 在线</td><td>128</td><td>95%</td></tr>
+                        <tr><td>Doc Agent</td><td>🟢 在线</td><td>18</td><td>75%</td></tr>
+                        <tr><td>RAG Agent</td><td>🟢 在线</td><td>1,234</td><td>98%</td></tr>
+                    </table>
+
+                    <h2>🔌 API接口</h2>
+                    <h3>Chat API (9 endpoints)</h3>
+                    <ul>
+                        <li><code>POST /api/chat/chat</code> - 发送消息</li>
+                        <li><code>POST /api/chat/sessions</code> - 创建会话</li>
+                        <li><code>GET /api/chat/sessions/{id}/history</code> - 会话历史</li>
+                    </ul>
+
+                    <h3>RAG API (6 endpoints)</h3>
+                    <ul>
+                        <li><code>POST /api/rag/documents</code> - 上传文档</li>
+                        <li><code>POST /api/rag/query</code> - 知识检索</li>
+                        <li><code>DELETE /api/rag/documents/{id}</code> - 删除文档</li>
+                    </ul>
+
+                    <h2>📚 RAG知识库</h2>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-box-value">156</div>
+                            <div class="stat-box-label">文档数</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box-value">2,345</div>
+                            <div class="stat-box-label">文本块</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box-value">89%</div>
+                            <div class="stat-box-label">检索准确率</div>
+                        </div>
+                    </div>
+
+                    <h2>🛡️ 安全护栏</h2>
+                    <div class="section-pass">
+                        <strong>Guardrails:</strong> 启用 ✅<br>
+                        输入检查: 通过<br>
+                        输出过滤: 通过<br>
+                        提示词注入防护: 启用
+                    </div>
+
+                    <h2>💾 记忆系统</h2>
+                    <ul>
+                        <li><strong>短期记忆:</strong> 活跃会话 5 | 总条目 234</li>
+                        <li><strong>长期记忆:</strong> 知识条目 1,567 | 经验 89</li>
+                        <li><strong>Token使用:</strong> 78% (78K / 100K)</li>
+                    </ul>
+
+                    <h2>📈 性能指标</h2>
+                    <table>
+                        <tr><th>指标</th><th>当前值</th><th>阈值</th><th>状态</th></tr>
+                        <tr><td>API响应时间</td><td>245ms</td><td>&lt;500ms</td><td>🟢</td></tr>
+                        <tr><td>RAG检索时间</td><td>89ms</td><td>&lt;200ms</td><td>🟢</td></tr>
+                        <tr><td>错误率</td><td>0.5%</td><td>&lt;2%</td><td>🟢</td></tr>
+                        <tr><td>系统可用性</td><td>99.9%</td><td>&gt;99%</td><td>🟢</td></tr>
+                    </table>
+
+                    <h2>⚠️ 建议与改进</h2>
+                    <div class="section-warning">
+                        <strong>⚡ Token使用率偏高 (78%)</strong><br>
+                        建议: 定期清理历史会话，压缩上下文
+                    </div>
+                    <div class="section-pass">
+                        <strong>✅ Doc Agent 性能有提升空间</strong><br>
+                        建议: 增加文档生成模板，优化输出格式
+                    </div>
+
+                    <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border-subtle);">
+                    <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem;">
+                        Generated by AI Multi-Agent System | PM Agent | 2026-04-05
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateReport() {
+            const reportContent = document.getElementById('reportContent');
+            reportContent.innerHTML = '<div style="text-align: center; padding: 50px; color: var(--text-secondary);">正在生成报告...</div>';
+
+            setTimeout(() => {
+                reportContent.innerHTML = `
+                    <h1>AI Multi-Agent System</h1>
+                    <div class="report-meta">
+                        <span>📅 日期: ${new Date().toLocaleDateString('zh-CN')}</span>
+                        <span>📊 版本: v2.0</span>
+                        <span>👤 生成器: PM Agent</span>
+                    </div>
+
+                    <h2>📌 系统概览</h2>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-box-value">6</div>
+                            <div class="stat-box-label">Agent数量</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box-value">23</div>
+                            <div class="stat-box-label">API端点</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box-value">100%</div>
+                            <div class="stat-box-label">安全评分</div>
+                        </div>
+                    </div>
+
+                    <div class="section-pass">
+                        <strong>✅ 系统状态:</strong> 所有服务正常运行
+                    </div>
+
+                    <h2>🤖 Agent团队状态</h2>
+                    <p>所有6个Agent均在线并正常工作...</p>
+
+                    <h2>📈 详细报告已生成</h2>
+                    <p>完整的项目报告包含所有选中模块的详细信息。</p>
+
+                    <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border-subtle);">
+                    <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem;">
+                        Generated by AI Multi-Agent System | PM Agent | ${new Date().toLocaleString('zh-CN')}
+                    </p>
+                `;
+            }, 1000);
+        }
+
+        function copyReport() {
+            const content = document.getElementById('reportContent').innerText;
+            navigator.clipboard.writeText(content).then(() => {
+                alert('报告已复制到剪贴板!');
+            });
+        }
+
+        function downloadReport() {
+            const content = document.getElementById('reportContent').innerHTML;
+            const blob = new Blob([`
+                <!DOCTYPE html>
+                <html><head><meta charset="UTF-8"><title>AI Multi-Agent Report</title></head>
+                <body style="background: #0a0a0f; color: #fff; font-family: sans-serif; padding: 40px;">
+                ${content}
+                </body></html>
+            `], { type: 'text/html' });
+
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `AI_MultiAgent_Report_${Date.now()}.html`;
+            a.click();
+        }
+
+        function printReport() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

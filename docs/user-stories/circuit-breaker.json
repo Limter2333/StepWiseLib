@@ -1,0 +1,151 @@
+{
+  "id": "circuit-breaker",
+  "title": "Circuit Breaker Pattern for Resilience",
+  "category": "resilience",
+  "priority": "high",
+  "story": {
+    "as_a": "system architect and operations engineer",
+    "i_want": "circuit breaker implementations to prevent cascading failures when external AI services (LLM providers, vector databases) experience outages or degradation",
+    "so_that": "the AI Multi-Agent System remains partially operational during external service failures, failing gracefully instead of blocking or crashing"
+  },
+  "acceptance_criteria": [
+    {
+      "criterion": "Circuit breaker states",
+      "description": "Implementation includes three states: CLOSED (normal operation), OPEN (failing fast), and HALF_OPEN (testing recovery)",
+      "priority": "critical"
+    },
+    {
+      "criterion": "Failure tracking",
+      "description": "Circuit breaker tracks failure_count, success_count, last_failure_time, and total_calls with thread-safe operations",
+      "priority": "critical"
+    },
+    {
+      "criterion": "Configurable thresholds",
+      "description": "failure_threshold (default 5), recovery_timeout (default 30s), half_open_max_calls (default 3) are configurable",
+      "priority": "critical"
+    },
+    {
+      "criterion": "Thread-safe implementation",
+      "description": "All state transitions and statistics updates are protected by locks to handle concurrent access",
+      "priority": "critical"
+    },
+    {
+      "criterion": "Sync and async versions",
+      "description": "Both synchronous CircuitBreaker and asynchronous AsyncCircuitBreaker are provided",
+      "priority": "critical"
+    },
+    {
+      "criterion": "LLM call wrapping",
+      "description": "LLMCallWrapper class provided to wrap LLM service calls with circuit breaker protection",
+      "priority": "high"
+    },
+    {
+      "criterion": "ChromaDB query wrapping",
+      "description": "ChromaDBWrapper class provided to wrap vector database queries with circuit breaker protection",
+      "priority": "high"
+    },
+    {
+      "criterion": "Decorator support",
+      "description": "circuit_breaker_decorator and async_circuit_breaker_decorator for easy function wrapping",
+      "priority": "medium"
+    },
+    {
+      "criterion": "Centralized manager",
+      "description": "CircuitBreakerManager provides registry and centralized access to multiple circuit breakers",
+      "priority": "medium"
+    },
+    {
+      "criterion": "Comprehensive tests",
+      "description": "All tests pass verifying state transitions, thread safety, and edge cases",
+      "priority": "high"
+    }
+  ],
+  "technical_details": {
+    "location": "G:/claude_code_project/core/resilience/circuit_breaker.py",
+    "test_location": "G:/claude_code_project/tests/test_circuit_breaker.py",
+    "dependencies": ["threading", "asyncio", "time"],
+    "patterns_used": [
+      "State Machine Pattern",
+      "Decorator Pattern",
+      "Singleton Pattern (for manager)",
+      "Thread-Safe Operations with Locks"
+    ]
+  },
+  "state_machine": {
+    "closed": {
+      "description": "Normal operation, requests pass through",
+      "transitions": {
+        "failure_count >= threshold": "OPEN",
+        "else": "CLOSED"
+      }
+    },
+    "open": {
+      "description": "Failing fast, requests are immediately rejected with CircuitBreakerError",
+      "transitions": {
+        "recovery_timeout elapsed": "HALF_OPEN"
+      }
+    },
+    "half_open": {
+      "description": "Testing recovery, limited requests allowed (half_open_max_calls)",
+      "transitions": {
+        "success_threshold successes": "CLOSED",
+        "any failure": "OPEN",
+        "exceeded max calls": "OPEN"
+      }
+    }
+  },
+  "configuration_options": {
+    "failure_threshold": {
+      "type": "int",
+      "default": 5,
+      "description": "Number of consecutive failures before opening circuit"
+    },
+    "recovery_timeout": {
+      "type": "float",
+      "default": 30.0,
+      "description": "Seconds to wait before attempting recovery (transition to HALF_OPEN)"
+    },
+    "half_open_max_calls": {
+      "type": "int",
+      "default": 3,
+      "description": "Maximum calls allowed in HALF_OPEN state before confirming recovery"
+    },
+    "success_threshold": {
+      "type": "int",
+      "default": 2,
+      "description": "Number of successes needed in HALF_OPEN to close circuit"
+    }
+  },
+  "use_cases": [
+    {
+      "service": "LLM Provider (OpenAI, Anthropic, etc.)",
+      "failure_mode": "API timeout, rate limiting, service unavailable",
+      "protection": "Prevents system from hanging on LLM calls, returns error quickly"
+    },
+    {
+      "service": "ChromaDB (Vector Database)",
+      "failure_mode": "Connection timeout, query timeout, server unavailable",
+      "protection": "Prevents RAG pipeline from blocking, allows fallback to cached results"
+    },
+    {
+      "service": "External APIs",
+      "failure_mode": "Service degradation, network issues",
+      "protection": "Allows graceful degradation while other services continue"
+    }
+  ],
+  "monitoring_integration": {
+    "metrics_to_export": [
+      "total_calls",
+      "total_rejected_calls",
+      "failure_count",
+      "success_count",
+      "state_changes",
+      "last_failure_time"
+    ],
+    "alert_recommendations": [
+      "Alert when circuit transitions to OPEN",
+      "Alert when circuit remains in OPEN state beyond expected recovery",
+      "Track circuit breaker health in system dashboard"
+    ]
+  }
+}

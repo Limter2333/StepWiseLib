@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Multi-Agent System | BREAK THE NOISE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #FF6B35;
+      --cyan: #2EC4B6;
+      --yellow: #FFDD00;
+      --red: #E71D36;
+      --deep-blue: #011627;
+      --white: #FFFFFF;
+
+      --border: 4px solid var(--deep-blue);
+      --shadow: 6px 6px 0 var(--yellow);
+      --shadow-dark: 6px 6px 0 var(--deep-blue);
+      --shadow-hover: 8px 8px 0 var(--deep-blue);
+      --transition: 150ms ease-out;
+
+      --font-primary: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background: var(--white);
+      color: var(--deep-blue);
+      line-height: 1.4;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--deep-blue);
+      border-bottom: var(--border);
+      display: flex;
+      align-items: stretch;
+      height: 64px;
+    }
+
+    .nav-logo {
+      background: var(--orange);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      border-right: var(--border);
+      font-weight: 900;
+      font-size: 20px;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex: 1;
+      align-items: stretch;
+    }
+
+    .nav-link {
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-right: var(--border);
+      transition: background var(--transition), transform var(--transition);
+      cursor: pointer;
+    }
+
+    .nav-link:nth-child(1):hover { background: var(--orange); transform: translate(-2px, -2px); }
+    .nav-link:nth-child(2):hover { background: var(--cyan); transform: translate(-2px, -2px); }
+    .nav-link:nth-child(3):hover { background: var(--yellow); color: var(--deep-blue); transform: translate(-2px, -2px); }
+    .nav-link:nth-child(4):hover { background: var(--red); transform: translate(-2px, -2px); }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      padding: 120px 40px 80px;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--yellow),
+        var(--yellow) 10px,
+        var(--deep-blue) 10px,
+        var(--deep-blue) 20px
+      );
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 900;
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-title .line1 { color: var(--deep-blue); }
+    .hero-title .line2 { color: var(--orange); }
+    .hero-title .line3 { color: var(--cyan); }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 700;
+      color: var(--deep-blue);
+      max-width: 500px;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--deep-blue);
+      padding: 20px 48px;
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: var(--border);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+    }
+
+    .hero-cta:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .hero-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: var(--border);
+      padding: 32px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .hero-card:nth-child(1) { background: var(--orange); color: var(--white); transform: rotate(-2deg); }
+    .hero-card:nth-child(2) { background: var(--cyan); transform: rotate(2deg); margin-top: 40px; }
+    .hero-card:nth-child(3) { background: var(--red); color: var(--white); transform: rotate(1deg); }
+    .hero-card:nth-child(4) { background: var(--deep-blue); color: var(--white); transform: rotate(-1deg); margin-top: -20px; }
+
+    .hero-card:hover {
+      transform: translate(-4px, -4px) rotate(0deg);
+      box-shadow: var(--shadow-dark);
+    }
+
+    .hero-card-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      opacity: 0.8;
+    }
+
+    .hero-card-value {
+      font-size: 32px;
+      font-weight: 900;
+    }
+
+    /* Stats Section */
+    .stats {
+      padding: 80px 40px;
+      background: var(--deep-blue);
+      border-top: var(--border);
+      border-bottom: var(--border);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border: var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: default;
+    }
+
+    .stat-card:nth-child(1) { background: var(--orange); color: var(--white); }
+    .stat-card:nth-child(2) { background: var(--cyan); }
+    .stat-card:nth-child(3) { background: var(--yellow); }
+    .stat-card:nth-child(4) { background: var(--red); color: var(--white); }
+
+    .stat-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-number {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 40px;
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      font-weight: 700;
+      opacity: 0.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: var(--border);
+      padding: 40px 32px;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .feature-card:nth-child(1):hover { box-shadow: 6px 6px 0 var(--orange); }
+    .feature-card:nth-child(2):hover { box-shadow: 6px 6px 0 var(--cyan); }
+    .feature-card:nth-child(3):hover { box-shadow: 6px 6px 0 var(--red); }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--deep-blue);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--white);
+    }
+
+    .feature-title {
+      font-size: 24px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      font-size: 16px;
+      font-weight: 700;
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    /* Agents Section */
+    .agents {
+      padding: 80px 40px;
+      background: var(--yellow);
+      border-top: var(--border);
+      border-bottom: var(--border);
+    }
+
+    .agents .section-title {
+      color: var(--deep-blue);
+    }
+
+    .agents-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      justify-items: center;
+    }
+
+    .agent-node {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--white);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+
+    .agent-node::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px dashed var(--deep-blue);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .agent-node:hover {
+      transform: scale(1.1) translate(-4px, -4px);
+      box-shadow: var(--shadow-dark);
+    }
+
+    .agent-node:hover::before {
+      opacity: 1;
+      animation: spin 10s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .agent-node:nth-child(1) { background: var(--orange); }
+    .agent-node:nth-child(2) { background: var(--cyan); }
+    .agent-node:nth-child(3) { background: var(--red); }
+    .agent-node:nth-child(4) { background: var(--deep-blue); }
+    .agent-node:nth-child(5) { background: var(--orange); }
+    .agent-node:nth-child(6) { background: var(--cyan); }
+
+    .agent-label {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .agent-tooltip {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--deep-blue);
+      color: var(--white);
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      border: var(--border);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+      white-space: nowrap;
+    }
+
+    .agent-node:hover .agent-tooltip {
+      opacity: 1;
+    }
+
+    /* Console Section */
+    .console {
+      padding: 80px 40px;
+      background: var(--deep-blue);
+      border-top: var(--border);
+      border-bottom: var(--border);
+    }
+
+    .console-window {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #0a0f18;
+      border: var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .console-header {
+      background: #1a2436;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: var(--border);
+    }
+
+    .console-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--deep-blue);
+    }
+
+    .console-dot:nth-child(1) { background: var(--red); }
+    .console-dot:nth-child(2) { background: var(--yellow); }
+    .console-dot:nth-child(3) { background: var(--cyan); }
+
+    .console-title {
+      margin-left: 12px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--white);
+      opacity: 0.7;
+    }
+
+    .console-body {
+      padding: 24px;
+      height: 300px;
+      overflow-y: auto;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .console-line {
+      color: var(--cyan);
+      margin-bottom: 4px;
+    }
+
+    .console-line.system { color: var(--yellow); }
+    .console-line.agent { color: var(--orange); }
+    .console-line.success { color: var(--cyan); }
+    .console-line.warning { color: var(--yellow); }
+    .console-line.error { color: var(--red); }
+
+    .console-cursor {
+      display: inline-block;
+      width: 10px;
+      height: 18px;
+      background: var(--cyan);
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Footer */
+    .footer {
+      padding: 100px 40px;
+      background: var(--white);
+      text-align: center;
+      border-top: var(--border);
+    }
+
+    .footer-cta {
+      font-size: clamp(32px, 6vw, 64px);
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      line-height: 1.1;
+    }
+
+    .footer-cta .highlight {
+      color: var(--orange);
+      background: var(--yellow);
+      padding: 0 8px;
+      display: inline-block;
+      transform: rotate(-1deg);
+    }
+
+    .footer-form {
+      display: flex;
+      gap: 0;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    .footer-input {
+      flex: 1;
+      padding: 20px 24px;
+      font-family: var(--font-primary);
+      font-size: 16px;
+      font-weight: 700;
+      border: var(--border);
+      border-right: none;
+      background: var(--white);
+      outline: none;
+    }
+
+    .footer-input:focus {
+      border-color: var(--cyan);
+    }
+
+    .footer-button {
+      padding: 20px 40px;
+      background: var(--deep-blue);
+      color: var(--white);
+      font-family: var(--font-primary);
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      border: var(--border);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+
+    .footer-button:hover {
+      background: var(--orange);
+      transform: translate(-4px, -4px);
+      box-shadow: var(--shadow);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .footer-link {
+      color: var(--deep-blue);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .footer-link:hover {
+      color: var(--orange);
+    }
+
+    .footer-copy {
+      margin-top: 40px;
+      font-size: 14px;
+      font-weight: 700;
+      opacity: 0.5;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 100px 24px 60px;
+      }
+
+      .hero-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .agents-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-logo {
+        padding: 0 16px;
+        font-size: 14px;
+      }
+
+      .nav-link {
+        padding: 0 16px;
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+
+      .hero {
+        padding: 90px 16px 40px;
+      }
+
+      .hero-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .hero-card:nth-child(2) { margin-top: 0; }
+      .hero-card:nth-child(4) { margin-top: 0; }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .agents-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .agent-node {
+        width: 80px;
+        height: 80px;
+        font-size: 24px;
+      }
+
+      .footer-form {
+        flex-direction: column;
+      }
+
+      .footer-input {
+        border-right: var(--border);
+        border-bottom: none;
+      }
+
+      .footer-input:focus {
+        border-color: var(--cyan);
+      }
+
+      .footer-button {
+        border: var(--border);
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .section-title {
+        font-size: clamp(24px, 4vw, 36px);
+      }
+
+      .features, .stats, .agents, .console, .footer {
+        padding: 60px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-logo">NEXUS</div>
+    <div class="nav-links">
+      <a class="nav-link">Work</a>
+      <a class="nav-link">About</a>
+      <a class="nav-link">Contact</a>
+      <a class="nav-link">Join Us</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="line1">Break.</span>
+        <span class="line2">The.</span>
+        <span class="line3">Noise.</span>
+      </h1>
+      <p class="hero-subtitle">We don't follow trends. We set them on fire. Multi-agent AI systems that think, adapt, and revolutionize.</p>
+      <a class="hero-cta">Launch System</a>
+    </div>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-label">Active Agents</div>
+        <div class="hero-card-value">847</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Tasks/Day</div>
+        <div class="hero-card-value">12K+</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Uptime</div>
+        <div class="hero-card-value">99.9%</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Response</div>
+        <div class="hero-card-value">&lt;50ms</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" data-target="847">0</div>
+        <div class="stat-label">Active Agents</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="12600">0</div>
+        <div class="stat-label">Tasks Per Day</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="99">0</div>
+        <div class="stat-label">Uptime %</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="150">0</div>
+        <div class="stat-label">Clients</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="section-header">
+      <h2 class="section-title">Core Capabilities</h2>
+      <p class="section-subtitle">Built for scale. Designed for speed. Ready for anything you throw at it.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="feature-title">Neural Routing</h3>
+        <p class="feature-desc">Intelligent task distribution across agent networks with predictive load balancing and real-time optimization.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="feature-title">Flash Sync</h3>
+        <p class="feature-desc">Sub-50ms inter-agent communication with zero-copy message passing and deterministic ordering.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="feature-title">Armor Shield</h3>
+        <p class="feature-desc">Military-grade isolation with cryptographic verification and fail-safe rollback mechanisms.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agents Section -->
+  <section class="agents">
+    <div class="section-header">
+      <h2 class="section-title">Meet The Agents</h2>
+      <p class="section-subtitle">Six specialized AI agents working in perfect harmony.</p>
+    </div>
+    <div class="agents-container">
+      <div class="agents-grid">
+        <div class="agent-node">
+          <span>NX</span>
+          <span class="agent-tooltip">Nexus Core</span>
+        </div>
+        <div class="agent-node">
+          <span>SY</span>
+          <span class="agent-tooltip">Sync Master</span>
+        </div>
+        <div class="agent-node">
+          <span>AR</span>
+          <span class="agent-tooltip">Architect</span>
+        </div>
+        <div class="agent-node">
+          <span>SC</span>
+          <span class="agent-tooltip">Scanner</span>
+        </div>
+        <div class="agent-node">
+          <span>EX</span>
+          <span class="agent-tooltip">Executor</span>
+        </div>
+        <div class="agent-node">
+          <span>GD</span>
+          <span class="agent-tooltip">Guardian</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Console Section -->
+  <section class="console">
+    <div class="console-window">
+      <div class="console-header">
+        <div class="console-dot"></div>
+        <div class="console-dot"></div>
+        <div class="console-dot"></div>
+        <span class="console-title">nexus@system:~</span>
+      </div>
+      <div class="console-body" id="console-body">
+        <div class="console-line system">[SYSTEM] Nexus Multi-Agent v3.2.1 initialized</div>
+        <div class="console-line system">[SYSTEM] Loading agent pool...</div>
+        <div class="console-line agent">[NX] Nexus Core online - monitoring 6 agents</div>
+        <div class="console-line success">[SY] Sync Master connected - latency: 12ms</div>
+        <div class="console-line success">[AR] Architect connected - latency: 8ms</div>
+        <div class="console-line success">[SC] Scanner connected - latency: 15ms</div>
+        <div class="console-line success">[EX] Executor connected - latency: 9ms</div>
+        <div class="console-line success">[GD] Guardian connected - latency: 11ms</div>
+        <div class="console-line system">[SYSTEM] All agents operational - ready for input</div>
+        <span class="console-cursor"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <h2 class="footer-cta">Join The <span class="highlight">Rebellion</span></h2>
+    <form class="footer-form" onsubmit="handleSubmit(event)">
+      <input type="email" class="footer-input" placeholder="your@email.com" required>
+      <button type="submit" class="footer-button">Get Access</button>
+    </form>
+    <div class="footer-links">
+      <a href="#" class="footer-link">Documentation</a>
+      <a href="#" class="footer-link">API Reference</a>
+      <a href="#" class="footer-link">Status</a>
+      <a href="#" class="footer-link">Discord</a>
+    </div>
+    <p class="footer-copy">2026 Nexus AI Systems. BREAK. THE. NOISE.</p>
+  </footer>
+
+  <script>
+    // Stats Counter Animation
+    function animateStats() {
+      const stats = document.querySelectorAll('.stat-number');
+      stats.forEach(stat => {
+        const target = parseInt(stat.dataset.target);
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            stat.textContent = Math.floor(current).toLocaleString();
+            requestAnimationFrame(updateCounter);
+          } else {
+            stat.textContent = target.toLocaleString();
+          }
+        };
+
+        updateCounter();
+      });
+    }
+
+    // Intersection Observer for stats
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateStats();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statsObserver.observe(document.querySelector('.stats'));
+
+    // Console Animation
+    const consoleMessages = [
+      { type: 'system', text: '[SYSTEM] Processing new task batch...' },
+      { type: 'agent', text: '[NX] Distributing tasks to agent pool' },
+      { type: 'success', text: '[EX] Task #4821 completed in 23ms' },
+      { type: 'agent', text: '[SC] Scanning for anomalies...' },
+      { type: 'success', text: '[GD] Security check passed' },
+      { type: 'warning', text: '[SY] Sync latency: 14ms (optimal)' },
+      { type: 'agent', text: '[AR] Optimizing workflow patterns' },
+      { type: 'success', text: '[EX] Task #4822 completed in 18ms' },
+      { type: 'error', text: '[SC] Minor irregularity detected - quarantined' },
+      { type: 'success', text: '[GD] Threat neutralized' },
+      { type: 'system', text: '[SYSTEM] Batch processing complete' },
+    ];
+
+    let messageIndex = 0;
+    const consoleBody = document.getElementById('console-body');
+
+    function addConsoleMessage() {
+      const messages = document.querySelectorAll('.console-line');
+      if (messages.length > 20) {
+        messages[0].remove();
+      }
+
+      const msg = consoleMessages[messageIndex % consoleMessages.length];
+      const line = document.createElement('div');
+      line.className = 'console-line ' + msg.type;
+      line.textContent = msg.text;
+
+      const cursor = consoleBody.querySelector('.console-cursor');
+      consoleBody.insertBefore(line, cursor);
+
+      messageIndex++;
+      consoleBody.scrollTop = consoleBody.scrollHeight;
+    }
+
+    setInterval(addConsoleMessage, 2500);
+
+    // Form handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      const button = e.target.querySelector('button');
+
+      button.textContent = 'Access Granted!';
+      button.style.background = 'var(--cyan)';
+      input.value = '';
+
+      setTimeout(() => {
+        button.textContent = 'Get Access';
+        button.style.background = '';
+      }, 3000);
+    }
+
+    // Nav link click handlers
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        // Navigation handling
+      });
+    });
+  </script>
+</body>
+</html>
