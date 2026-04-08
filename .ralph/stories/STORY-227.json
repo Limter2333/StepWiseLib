@@ -1,0 +1,42 @@
+{
+  "id": "STORY-227",
+  "title": "UI风格#221 - Minimal Geometric (极简几何)",
+  "description": "创建第221种UI风格：极简几何风格 - 纯几何形状、基本颜色、精确网格。输出到 G:/claude_code_project/web/index_planHN.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Minimal Geometric style When color palette Then features primary colors with black and white",
+      "status": "todo",
+      "evidence": "需要设计：#FF0000 (红), #0000FF (蓝), #FFFF00 (黄), #000000 (黑), #FFFFFF (白)"
+    },
+    {
+      "criterion": "Given Minimal Geometric style When typography Then uses geometric sans: Futura, Circular, Aktiv Grotesk",
+      "status": "todo",
+      "evidence": "字体选择：Futura (几何), Circular (现代), Aktiv Grotesk (无衬线)"
+    },
+    {
+      "criterion": "Given Minimal Geometric style When layout Then pure geometry, grid lines, mathematical precision",
+      "status": "todo",
+      "evidence": "布局特点：纯几何、网格线、数学精度"
+    },
+    {
+      "criterion": "Given Minimal Geometric style When UI elements Then shape animations, grid hover, clean lines",
+      "status": "todo",
+      "evidence": "交互特点：形状动画、网格悬停、干净线条"
+    },
+    {
+      "criterion": "Given Minimal Geometric UI When functional Then includes grid chat, shape agents, math stats",
+      "status": "todo",
+      "evidence": "功能需求：网格聊天、形状代理、数学统计"
+    },
+    {
+      "criterion": "Given Minimal Geometric UI When copy Then uses geometric: 'Grid', 'Shape', 'Form', 'Math'",
+      "status": "todo",
+      "evidence": "创意文案：标题'GRID. SHAPE. FORM.'、按钮'SUBMIT'→'FORM'、'DEPLOY'→'ALIGN'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "STORY-041",
+  "title": "UI风格#35 - Bauhaus Revival (包豪斯复兴)",
+  "description": "创建第35种UI风格：包豪斯复兴风格 - 几何构成、红黄蓝、功能主义现代诠释。输出到 G:/claude_code_project/web/index_planAI.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Bauhaus Revival style When color palette Then features primary red, yellow, blue with white and black",
+      "status": "todo",
+      "evidence": "需要设计：#E63946 (红), #F4D03F (黄), #2A9D8F (蓝), #1A1A1A (黑), #FFFFFF (白)"
+    },
+    {
+      "criterion": "Given Bauhaus Revival style When typography Then uses geometric fonts: Bauhaus 93, Futura, or Montserrat",
+      "status": "todo",
+      "evidence": "字体选择：Bauhaus 93 (标题), Futura (正文), Montserrat (替代)"
+    },
+    {
+      "criterion": "Given Bauhaus Revival style When layout Then geometric grid, primary color blocks, structured composition",
+      "status": "todo",
+      "evidence": "布局特点：几何网格、原色色块、结构化构图、功能主义"
+    },
+    {
+      "criterion": "Given Bauhaus Revival style When UI elements Then geometric shapes, primary color accents, grid borders",
+      "status": "todo",
+      "evidence": "交互特点：几何形状、原色点缀、网格边框、硬边阴影"
+    },
+    {
+      "criterion": "Given Bauhaus Revival UI When functional Then includes geometric chat, primary agents, grid stats",
+      "status": "todo",
+      "evidence": "功能需求：几何聊天、原色代理、网格统计"
+    },
+    {
+      "criterion": "Given Bauhaus Revival UI When copy Then uses functional language: 'Form', 'Function', 'Structure', 'Grid'",
+      "status": "todo",
+      "evidence": "创意文案：标题'FORM. FUNCTION. STRUCTURE.'、按钮'SEND'→'EXECUTE'、'SUBMIT'→'BUILD'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

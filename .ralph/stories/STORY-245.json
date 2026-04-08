@@ -1,0 +1,42 @@
+{
+  "id": "STORY-245",
+  "title": "UI风格#238 - Sakura Storm (樱花风暴)",
+  "description": "创建第238种UI风格：樱花风暴风格 - 日式樱花、粉色浪漫、风暴花瓣。输出到 G:/claude_code_project/web/index_planIF.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Sakura Storm style When color palette Then features sakura pink, ivory, matcha green",
+      "status": "todo",
+      "evidence": "需要设计：#FFB7C5 (樱粉), #FFF8F0 (象牙白), #8DB48E (抹茶), #FF69B4 (深粉)"
+    },
+    {
+      "criterion": "Given Sakura Storm style When typography Then uses elegant: Noto Serif JP, Zen Old Mincho, Kaisei Decol",
+      "status": "todo",
+      "evidence": "字体选择：Noto Serif JP (优雅), Zen Old Mincho (古典), Kaisei Decol (书道)"
+    },
+    {
+      "criterion": "Given Sakura Storm style When layout Then petal scattered, branch silhouette, Japanese balance",
+      "status": "todo",
+      "evidence": "布局特点：花瓣散落、枝剪影、日式留白"
+    },
+    {
+      "criterion": "Given Sakura Storm style When UI elements Then falling petals, wind effects, soft glow",
+      "status": "todo",
+      "evidence": "交互特点：飘落花瓣、风暴效果、柔和光晕"
+    },
+    {
+      "criterion": "Given Sakura Storm UI When functional Then includes bloom chat, petal agents, blossom stats",
+      "status": "todo",
+      "evidence": "功能需求：盛开聊天、花瓣代理、樱花统计"
+    },
+    {
+      "criterion": "Given Sakura Storm UI When copy Then uses sakura: 'Bloom', 'Storm', 'Petals', 'Branch'",
+      "status": "todo",
+      "evidence": "创意文案：标题'BLOOM. STORM. PETALS.'、按钮'SUBMIT'→'SCATTER'、'DEPLOY'→'BLOSSOM'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

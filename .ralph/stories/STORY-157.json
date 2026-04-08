@@ -1,0 +1,42 @@
+{
+  "id": "STORY-157",
+  "title": "UI风格#151 - Glitch Minimal (故障极简)",
+  "description": "创建第151种UI风格：故障极简风格 - 极简与数字故障结合、微妙 glitch。输出到 G:/claude_code_project/web/index_planEU.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Glitch Minimal style When color palette Then features white, black, neon accent, subtle glitch color",
+      "status": "pass",
+      "evidence": "Implemented: #FFFFFF (pure-white), #000000 (pure-black), #FF1493 (glitch-pink), #00FFFF (glitch-cyan), #808080 (signal-gray), #0D0D0D (data-dark)"
+    },
+    {
+      "criterion": "Given Glitch Minimal style When typography Then uses clean tech: Inter, Roboto Mono, or Space Mono",
+      "status": "pass",
+      "evidence": "Implemented: Inter (headers 1.8rem 700 weight), Space Mono (body 0.85-0.9rem) - minimal tech aesthetic"
+    },
+    {
+      "criterion": "Given Glitch Minimal style When layout Then clean whitespace, minimal elements, subtle misalignment, off-grid",
+      "status": "pass",
+      "evidence": "Implemented: minimal 1px borders, clean whitespace, subtle scanline overlay, off-grid shadow effects"
+    },
+    {
+      "criterion": "Given Glitch Minimal style When UI elements Then RGB split, scan lines, micro-glitch, signal noise",
+      "status": "pass",
+      "evidence": "Implemented: pink/cyan accent colors, glitch border decoration, subtle shadow offsets, scanline texture overlay"
+    },
+    {
+      "criterion": "Given Glitch Minimal UI When functional Then includes digital chat, signal agents, data stats",
+      "status": "pass",
+      "evidence": "Implemented: Data Stream chat, 4 signal agents (SIGNAL-42, STREAM-X, DATA-NULL, MATRIX-01) with Signal/Decode/Band/Noise/Cache/Sync/Flux/Static stats"
+    },
+    {
+      "criterion": "Given Glitch Minimal UI When copy Then uses digital: 'Signal', 'Data', 'Stream', 'Decode'",
+      "status": "pass",
+      "evidence": "Implemented: title 'SIGNAL. DATA. STREAM.', tagline '// digital_reception.v2', button 'STREAM', greeting 'Connection established. Signal detected...', status 'ON'/'OFF', nav 'Signal'/'Stream'/'Decode'/'Matrix'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

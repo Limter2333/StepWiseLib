@@ -1,0 +1,42 @@
+{
+  "id": "STORY-114",
+  "title": "UI风格#108 - Holographic Minimal (全息极简)",
+  "description": "创建第108种UI风格：全息极简风格 - 虹彩极简、微妙光泽、未来极简。输出到 G:/claude_code_project/web/index_planDD.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Holographic Minimal style When color palette Then features holographic silver, iridescent white, soft rainbow, transparent layers",
+      "status": "todo",
+      "evidence": "需要设计：#E8E8E8 (银白), #F8F8FF (虹彩), #FFE4E1 (柔光), #F5F5F5 (透明白), #C8C8C8 (灰银)"
+    },
+    {
+      "criterion": "Given Holographic Minimal style When typography Then uses clean fonts: Inter, Satoshi, or Plus Jakarta Sans",
+      "status": "todo",
+      "evidence": "字体选择：Inter (正文), Satoshi (标题), Plus Jakarta Sans (替代)"
+    },
+    {
+      "criterion": "Given Holographic Minimal style When layout Then clean whitespace, subtle iridescence, floating elements, minimal grid",
+      "status": "todo",
+      "evidence": "布局特点：留白空间、微妙虹彩、浮动元素、简约网格"
+    },
+    {
+      "criterion": "Given Holographic Minimal style When UI elements Then rainbow refraction, metallic sheen, transparency shifts, prismatic edges",
+      "status": "todo",
+      "evidence": "交互特点：彩虹折射、金属光泽、透明变化、棱镜边缘"
+    },
+    {
+      "criterion": "Given Holographic Minimal UI When functional Then includes minimal chat, aura agents, essence stats",
+      "status": "todo",
+      "evidence": "功能需求：极简聊天、光环代理、本质统计"
+    },
+    {
+      "criterion": "Given Holographic Minimal UI When copy Then uses essential language: 'Essence', 'Aura', 'Prism', 'Lumin'",
+      "status": "todo",
+      "evidence": "创意文案：标题'ESSENCE. AURA. PRISM.'、按钮'SEND'→'LUMIN'、'SUBMIT'→'REFINE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

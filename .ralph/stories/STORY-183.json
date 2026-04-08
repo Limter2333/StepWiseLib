@@ -1,0 +1,42 @@
+{
+  "id": "STORY-183",
+  "title": "UI风格#177 - Bauhaus Modern (包豪斯现代)",
+  "description": "创建第177种UI风格：包豪斯现代风格 - 基础设计学院风格、几何原色、功能主义。输出到 G:/claude_code_project/web/index_planFU.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Bauhaus Modern style When color palette Then features primary red, blue, yellow with black and white",
+      "status": "pass",
+      "evidence": "Implemented: #E63946 (red), #1D3557 (blue), #F4D35E (yellow), #000000 (black), #FFFFFF (white), #6B7280 (gray), #F3F4F6 (light-gray)"
+    },
+    {
+      "criterion": "Given Bauhaus Modern style When typography Then uses geometric sans: Futura, Avant Garde, or Circular",
+      "status": "pass",
+      "evidence": "Implemented: Futura PT (headings/body, 300-700 weights), DM Mono (stats/accents) - geometric Bauhaus typography"
+    },
+    {
+      "criterion": "Given Bauhaus Modern style When layout Then basic geometric shapes, grid composition, functional layout",
+      "status": "pass",
+      "evidence": "Implemented: 8px tricolor border (red/blue/yellow), geometric circle decorations, 3px black borders, grid-based layout, functional composition"
+    },
+    {
+      "criterion": "Given Bauhaus Modern style When UI elements Then circle, square, triangle forms, primary color accents",
+      "status": "pass",
+      "evidence": "Implemented: □○△◇ geometric icons on cards, colored accent shapes (red square, blue circle, yellow hollow, black diamond), primary color hover states"
+    },
+    {
+      "criterion": "Given Bauhaus Modern UI When functional Then includes form chat, basic agents, function stats",
+      "status": "pass",
+      "evidence": "Implemented: Function/Form chat header, 4 basic agents (FORM-01, BASIC-02, GRID-03, SHAPE-04) with Grid/Func/Form/Comp/Elem/Sync stats"
+    },
+    {
+      "criterion": "Given Bauhaus Modern UI When copy Then uses functional: 'Form', 'Function', 'Basic', 'Grid'",
+      "status": "pass",
+      "evidence": "Implemented: title 'FORM. FUNCTION. BASIC.', tagline '// fundamental design principles //', button 'FORM', greeting 'FORM_FOLLOWS_FUNCTION. What shall we create today?', nav '□ Form'/'○ Function'/'△ Basic'/'◇ Grid'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

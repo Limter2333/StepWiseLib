@@ -1,0 +1,42 @@
+{
+  "id": "STORY-111",
+  "title": "UI风格#105 - Brutalist Architecture (粗野建筑)",
+  "description": "创建第105种UI风格：粗野建筑风格 - 混凝土雕塑、现代主义、纪念碑感。输出到 G:/claude_code_project/web/index_planDA.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Brutalist Architecture style When color palette Then features raw concrete, exposed steel, tinted glass, shadow gray",
+      "status": "todo",
+      "evidence": "需要设计：#A9A9A9 (混凝土), #2F4F4F (钢青), #87CEEB (玻璃蓝), #696969 (阴影灰), #1C1C1C (深影)"
+    },
+    {
+      "criterion": "Given Brutalist Architecture style When typography Then uses monumental fonts: Oswald, Roboto Mono, or Space Mono",
+      "status": "todo",
+      "evidence": "字体选择：Oswald (粗体), Roboto Mono (正文), Space Mono (数据)"
+    },
+    {
+      "criterion": "Given Brutalist Architecture style When layout Then concrete forms, pilotis, brise-soliel, ribbon windows",
+      "status": "todo",
+      "evidence": "布局特点：混凝土形体、底层架空、遮阳板、带形窗"
+    },
+    {
+      "criterion": "Given Brutalist Architecture style When UI elements Then raw concrete texture, steel connections, geometric shadows",
+      "status": "todo",
+      "evidence": "交互特点：混凝土质感、钢结构连接、几何阴影、纪念碑式"
+    },
+    {
+      "criterion": "Given Brutalist Architecture UI When functional Then includes monumental chat, architect agents, structure stats",
+      "status": "todo",
+      "evidence": "功能需求：纪念碑聊天、建筑代理、结构统计"
+    },
+    {
+      "criterion": "Given Brutalist Architecture UI When copy Then uses architectural: 'Form', 'Mass', 'Void', 'Structure'",
+      "status": "todo",
+      "evidence": "创意文案：标题'FORM. MASS. VOID.'、按钮'SEND'→'CONSTRUCT'、'SUBMIT'→'ESTABLISH'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

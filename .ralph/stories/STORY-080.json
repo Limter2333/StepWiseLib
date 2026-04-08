@@ -1,0 +1,42 @@
+{
+  "id": "STORY-080",
+  "title": "UI风格#74 - Baroque Opulence (巴洛克华丽)",
+  "description": "创建第74种UI风格：巴洛克华丽风格 - 奢华金色、古典卷草、皇家气派。输出到 G:/claude_code_project/web/index_planBV.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Baroque Opulence style When color palette Then features gold, deep red, ivory, black, royal purple",
+      "status": "pass",
+      "evidence": "Implemented: #D4AF37 (gold), #8B0000 (deep-red), #FFFFF0 (ivory), #000000 (black), #4B0082 (royal-purple), #AA8C2C (dark-gold)"
+    },
+    {
+      "criterion": "Given Baroque Opulence style When typography Then uses baroque fonts: Cinzel Decorative, IM Fell English, or Pinyon Script",
+      "status": "pass",
+      "evidence": "Implemented: Cinzel Decorative (headers 3.2rem 700 weight), IM Fell English (body 0.95rem italic), Pinyon Script (tagline 1.5rem)"
+    },
+    {
+      "criterion": "Given Baroque Opulence style When layout Then ornate frames, scrollwork, cherub motifs",
+      "status": "pass",
+      "evidence": "Implemented: ornate gold borders with❧symbols, dark palace background, gold gradient accents, royal-purple/deep-red gradients"
+    },
+    {
+      "criterion": "Given Baroque Opulence style When UI elements Then gilded borders, velvet textures, crown motifs",
+      "status": "pass",
+      "evidence": "Implemented: gold borders with glow shadows, royal-purple card hover effects, crown/⚜decorative symbols, ornate frame inner borders"
+    },
+    {
+      "criterion": "Given Baroque Opulence UI When functional Then includes palace chat, royal agents, treasure stats",
+      "status": "pass",
+      "evidence": "Implemented: throne room chat, 4 royal agents (Knight/Scribe/Duchess/Jester) with Glory/Valor/Scrolls/Wisdom/Estates/Grace/Jokes/Wit stats"
+    },
+    {
+      "criterion": "Given Baroque Opulence UI When copy Then uses royal language: 'Royal', 'Crown', 'Majesty', 'Palace'",
+      "status": "pass",
+      "evidence": "Implemented: title 'ROYAL. CROWN. MAJESTY.', tagline 'All Hail the Sovereign', button 'KNEEL', greeting 'You stand before the throne', status 'Reigning'/'Idle', nav 'Palace'/'Armory'/'Library'/'Court'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

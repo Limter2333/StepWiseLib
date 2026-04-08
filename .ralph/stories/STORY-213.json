@@ -1,0 +1,42 @@
+{
+  "id": "STORY-213",
+  "title": "UI风格#207 - Coastal Minimal (海岸极简)",
+  "description": "创建第207种UI风格：海岸极简风格 - 海洋氛围、沙色海绿、清新极简。输出到 G:/claude_code_project/web/index_planGY.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Coastal Minimal style When color palette Then features seafoam, sand, white, driftwood",
+      "status": "todo",
+      "evidence": "需要设计：#87CEEB (海蓝), #F5F5DC (沙色), #FFFFFF (白), #DEB887 (漂流木), #20B2AA (海绿)"
+    },
+    {
+      "criterion": "Given Coastal Minimal style When typography Then uses breezy sans: Montserrat, Lato, Nunito",
+      "status": "todo",
+      "evidence": "字体选择：Montserrat (现代), Lato (清晰), Nunito (柔和)"
+    },
+    {
+      "criterion": "Given Coastal Minimal style When layout Then open airy spaces, wave patterns, natural textures",
+      "status": "todo",
+      "evidence": "布局特点：开阔空间、海浪图案、自然纹理"
+    },
+    {
+      "criterion": "Given Coastal Minimal style When UI elements Then wave motion, salt texture, sea breeze feel",
+      "status": "todo",
+      "evidence": "交互特点：海浪运动、盐纹理、海风感觉"
+    },
+    {
+      "criterion": "Given Coastal Minimal UI When functional Then includes tide chat, wave agents, shore stats",
+      "status": "todo",
+      "evidence": "功能需求：潮汐聊天、海浪代理、岸边统计"
+    },
+    {
+      "criterion": "Given Coastal Minimal UI When copy Then uses coastal: 'Tide', 'Wave', 'Shore', 'Drift'",
+      "status": "todo",
+      "evidence": "创意文案：标题'TIDE. WAVE. SHORE.'、按钮'SUBMIT'→'DRIFT'、'DEPLOY'→'SURGE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

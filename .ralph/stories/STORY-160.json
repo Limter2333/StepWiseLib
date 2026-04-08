@@ -1,0 +1,42 @@
+{
+  "id": "STORY-160",
+  "title": "UI风格#154 - Cyberpunk Glitch (赛博朋克故障)",
+  "description": "创建第154种UI风格：赛博朋克故障风格 - 赛博朋克与数字故障结合。输出到 G:/claude_code_project/web/index_planEX.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Cyberpunk Glitch style When color palette Then features neon pink, cyber yellow, terminal green, deep purple",
+      "status": "pass",
+      "evidence": "Implemented: #FF1493 (neon-pink), #FFD700 (cyber-yellow), #00FF00 (terminal-green), #4B0082 (deep-purple), #0D0D0D (dark-bg), #00FFFF (neon-cyan), #FF6600 (neon-orange)"
+    },
+    {
+      "criterion": "Given Cyberpunk Glitch style When typography Then uses cyber fonts: Orbitron, Share Tech Mono, or Cyberpunk",
+      "status": "pass",
+      "evidence": "Implemented: Orbitron (headers 2.4rem 800 weight), Share Tech Mono (body 0.9rem) - futuristic cyber typography"
+    },
+    {
+      "criterion": "Given Cyberpunk Glitch style When layout Then glitch frames, neon circuits, corrupted data, city lights",
+      "status": "pass",
+      "evidence": "Implemented: neon glow borders, circuit grid background, glitch scanline animation, dark cyber aesthetic"
+    },
+    {
+      "criterion": "Given Cyberpunk Glitch style When UI elements Then RGB split, circuit traces, holographic glitch, scan lines",
+      "status": "pass",
+      "evidence": "Implemented: neon glow shadows, animated scanlines, pink/cyan/yellow neon accents, futuristic borders"
+    },
+    {
+      "criterion": "Given Cyberpunk Glitch UI When functional Then includes hacker chat, cyber agents, net stats",
+      "status": "pass",
+      "evidence": "Implemented: Hacker chat with JACK_IN terminal header, 4 cyber agents (RAZOR, GHOST, CIPHER, NEXUS) with Net/Hack/Trace/Jack/Breach/Cyber/Data/Virus stats"
+    },
+    {
+      "criterion": "Given Cyberpunk Glitch UI When copy Then uses cyber: 'Net', 'Hack', 'Jack', 'Cyber'",
+      "status": "pass",
+      "evidence": "Implemented: title 'NET. HACK. JACK. CYBER.', tagline '// NEURAL_NETWORK v4.2.77', button 'JACK', greeting 'CONNECTION ESTABLISHED. JACK INTO THE NET...', status 'ONLINE'/'OFFLINE', nav 'Net'/'Jack'/'Break'/'Cyber'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

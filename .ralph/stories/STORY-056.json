@@ -1,0 +1,42 @@
+{
+  "id": "STORY-056",
+  "title": "UI风格#50 - Inca Gold (印加黄金)",
+  "description": "创建第50种UI风格：印加黄金风格 - 古代黄金、太阳神庙、神秘图案。输出到 G:/claude_code_project/web/index_planAX.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Inca Gold style When color palette Then features gold, bronze, terracotta, deep earth tones",
+      "status": "pass",
+      "evidence": "Implemented: #D4AF37 (黄金), #CD7F32 (青铜), #8B4513 (陶土), #2F1810 (深土), #F5DEB3 (沙色)"
+    },
+    {
+      "criterion": "Given Inca Gold style When typography Then uses ancient fonts: Cinzel, IM Fell English, or Almendra",
+      "status": "pass",
+      "evidence": "Implemented: Cinzel (标题), Almendra (正文)"
+    },
+    {
+      "criterion": "Given Inca Gold style When layout Then sun motifs, step patterns, golden gradients",
+      "status": "pass",
+      "evidence": "Implemented: sun radial background, rotating sun rays (120s), step pattern divider, gold gradient text"
+    },
+    {
+      "criterion": "Given Inca Gold style When UI elements Then gold borders, sun rays, geometric patterns",
+      "status": "pass",
+      "evidence": "Implemented: gold borders, pulse-glow sun icon animation, gold hover effects on cards"
+    },
+    {
+      "criterion": "Given Inca Gold UI When functional Then includes temple chat, sun agents, gold stats",
+      "status": "pass",
+      "evidence": "Implemented: temple chat, 4 deity cards (Architect/Oracle/Sapa Inca/Alchemist) with devotion stats"
+    },
+    {
+      "criterion": "Given Inca Gold UI When copy Then uses ancient wisdom: 'Sun', 'Temple', 'Gold', 'Mystic'",
+      "status": "pass",
+      "evidence": "Implemented: title 'SUN. TEMPLE. GOLD.', button 'OFFER', status 'Worshipping'/'Resting', nav 'Cusco'/'Library'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T03:10:00.000000"
+}

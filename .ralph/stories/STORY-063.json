@@ -1,0 +1,42 @@
+{
+  "id": "STORY-063",
+  "title": "UI风格#57 - De Stijl (荷兰风格派)",
+  "description": "创建第57种UI风格：荷兰风格派风格 - 红黄蓝白黑、几何纯粹、蒙德里安现代。输出到 G:/claude_code_project/web/index_planBE.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given De Stijl style When color palette Then features primary red yellow blue with black white grid",
+      "status": "pass",
+      "evidence": "Implemented: #FF0000 (primary-red), #FFFF00 (primary-yellow), #0000FF (primary-blue), #000000 (pure-black), #FFFFFF (pure-white)"
+    },
+    {
+      "criterion": "Given De Stijl style When typography Then uses geometric sans-serif: Montserrat, Open Sans, or Helvetica Now",
+      "status": "pass",
+      "evidence": "Implemented: Montserrat (headers 3.5rem 800 weight), Open Sans (body 0.95rem)"
+    },
+    {
+      "criterion": "Given De Stijl style When layout Then primary color blocks, black grid lines, asymmetric composition",
+      "status": "pass",
+      "evidence": "Implemented: Mondrian grid background (12-block asymmetric), thick 4px black borders, offset colored borders on cards, red bar under header"
+    },
+    {
+      "criterion": "Given De Stijl style When UI elements Then thick black borders, primary color fills, grid alignment",
+      "status": "pass",
+      "evidence": "Implemented: thick 4px black borders on all containers, primary color offset backgrounds on cards, uppercase Montserrat text, solid 2-3px borders on elements"
+    },
+    {
+      "criterion": "Given De Stijl UI When functional Then includes geometric chat, primary agents, grid stats",
+      "status": "pass",
+      "evidence": "Implemented: composition chat, 4 De Stijl agents (Mondrian/Rietveld/Van Doesburg/Huszár) with Forms/Balance/Lines/Structure/Sprints/Unity/Tests/Purity stats"
+    },
+    {
+      "criterion": "Given De Stijl UI When copy Then uses de stijl principles: 'Neoplasticism', 'Primary', 'Pure', 'Absolute'",
+      "status": "pass",
+      "evidence": "Implemented: title 'NEOPLASTICISM. PRIMARY. PURE.', tagline 'The absolute beauty of geometric form', button 'PLACE', greeting 'Pure form awaits', status 'Composing'/'Idle', nav 'Studio'/'Workshop'/'Archive'/'Project' with geometric symbols"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

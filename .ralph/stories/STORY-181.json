@@ -1,0 +1,42 @@
+{
+  "id": "STORY-181",
+  "title": "UI风格#175 - Glitch Minimal (故障艺术极简)",
+  "description": "创建第175种UI风格：故障艺术极简风格 - 极简布局+故障效果、数字故障美学。输出到 G:/claude_code_project/web/index_planFS.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Glitch Minimal style When color palette Then features black, white, red accent",
+      "status": "pass",
+      "evidence": "Implemented: #000000 (black), #FFFFFF (white), #FF0000 (glitch-red), #00FFFF (glitch-cyan), #FF00FF (glitch-magenta), #333333 (gray)"
+    },
+    {
+      "criterion": "Given Glitch Minimal style When typography Then uses glitch mono: Share Tech Mono, VT323",
+      "status": "pass",
+      "evidence": "Implemented: Share Tech Mono (title/body), VT323 (monospace accents) - minimal glitch mono typography"
+    },
+    {
+      "criterion": "Given Glitch Minimal style When layout Then minimal structure with occasional glitch disruptions",
+      "status": "pass",
+      "evidence": "Implemented: black background, minimal 1px borders, subtle scanlines, glitch animations on border and title"
+    },
+    {
+      "criterion": "Given Glitch Minimal style When UI elements Then RGB split, scan lines, occasional flicker",
+      "status": "pass",
+      "evidence": "Implemented: RGB text-shadow glitch on title, scanline overlay, border glitch animation, input glitch animation, status blink"
+    },
+    {
+      "criterion": "Given Glitch Minimal UI When functional Then includes signal chat, corrupt agents, error stats",
+      "status": "pass",
+      "evidence": "Implemented: Signal Link chat header, 4 error agents (SIG-01, CORRUPT, GLITCH, SYNC) with ERR/SYNC/STATUS/STATE/LINK stats"
+    },
+    {
+      "criterion": "Given Glitch Minimal UI When copy Then uses minimal glitch: 'Signal', 'Corrupt', 'Error'",
+      "status": "pass",
+      "evidence": "Implemented: title 'SIGNAL. CORRUPT.', tagline '// minimal glitch detected //', button 'SIGNAL', greeting 'SIGNAL_DETECTED. AWAITING_INPUT...', status indicators, nav '> Signal'/'> Sync'/'> Corrupt'/'> Error'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

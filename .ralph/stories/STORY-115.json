@@ -1,0 +1,42 @@
+{
+  "id": "STORY-115",
+  "title": "UI风格#109 - Vaporwave Sunset (蒸汽波日落)",
+  "description": "创建第109种UI风格：蒸汽波日落风格 - 90年代、罗马雕塑、粉色蓝色、网格。输出到 G:/claude_code_project/web/index_planDE.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Vaporwave Sunset style When color palette Then features pastel pink, cyan, sunset purple, grid blue",
+      "status": "todo",
+      "evidence": "需要设计：#FFB6C1 (粉彩粉), #00CED1 (青色), #9370DB (日落紫), #4169E1 (网格蓝), #FF6EB4 (热粉)"
+    },
+    {
+      "criterion": "Given Vaporwave Sunset style When typography Then uses retro fonts: Pacifico, VT323, or Monoton",
+      "status": "todo",
+      "evidence": "字体选择：Pacifico (标题), VT323 (正文), Monoton (装饰)"
+    },
+    {
+      "criterion": "Given Vaporwave Sunset style When layout Then roman statues, grid horizon, sunset gradient, marble textures",
+      "status": "todo",
+      "evidence": "布局特点：罗马雕塑、网格地平线、日落渐变、大理石质感"
+    },
+    {
+      "criterion": "Given Vaporwave Sunset style When UI elements Then glitch effects, chrome gradients, scanlines, colosseum",
+      "status": "todo",
+      "evidence": "交互特点：故障效果、铬渐变、扫描线、古罗马斗兽场"
+    },
+    {
+      "criterion": "Given Vaporwave Sunset UI When functional Then includes retro chat, vapor agents, synth stats",
+      "status": "todo",
+      "evidence": "功能需求：复古聊天、蒸汽代理、合成器统计"
+    },
+    {
+      "criterion": "Given Vaporwave Sunset UI When copy Then uses 90s digital: 'Synth', 'Dream', 'Horizon', 'Aesthetic'",
+      "status": "todo",
+      "evidence": "创意文案：标题'SYNTH. DREAM. HORIZON.'、按钮'SEND'→'VAPORIZE'、'SUBMIT'→'RELOAD'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

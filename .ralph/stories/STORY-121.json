@@ -1,0 +1,42 @@
+{
+  "id": "STORY-121",
+  "title": "UI风格#115 - Bauhaus Color Block (包豪斯色块)",
+  "description": "创建第115种UI风格：包豪斯色块风格 - 几何色块、红黄蓝、现代主义。输出到 G:/claude_code_project/web/index_planDK.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Bauhaus Color Block style When color palette Then features primary red, yellow, blue with black and white",
+      "status": "todo",
+      "evidence": "需要设计：#E63946 (红), #F4D03F (黄), #2A9D8F (蓝), #000000 (黑), #FFFFFF (白)"
+    },
+    {
+      "criterion": "Given Bauhaus Color Block style When typography Then uses geometric sans: Futura, Universal, or Gotham",
+      "status": "todo",
+      "evidence": "字体选择：Futura (几何), Universal (正文), Gotham (替代)"
+    },
+    {
+      "criterion": "Given Bauhaus Color Block style When layout Then color block grid, overlapping shapes, asymmetric balance, bold divisions",
+      "status": "todo",
+      "evidence": "布局特点：色块网格、重叠形状、非对称平衡、大胆分割"
+    },
+    {
+      "criterion": "Given Bauhaus Color Block style When UI elements Then flat color, hard edges, geometric precision",
+      "status": "todo",
+      "evidence": "交互特点：纯色平面、硬边、几何精度、块状动画"
+    },
+    {
+      "criterion": "Given Bauhaus Color Block UI When functional Then includes block chat, grid agents, primary stats",
+      "status": "todo",
+      "evidence": "功能需求：色块聊天、网格代理、原色统计"
+    },
+    {
+      "criterion": "Given Bauhaus Color Block UI When copy Then uses modernist: 'Block', 'Grid', 'Primary', 'Form'",
+      "status": "todo",
+      "evidence": "创意文案：标题'BLOCK. GRID. PRIMARY.'、按钮'SEND'→'SHAPE'、'SUBMIT'→'BALANCE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

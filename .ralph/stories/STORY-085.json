@@ -1,0 +1,42 @@
+{
+  "id": "STORY-085",
+  "title": "UI风格#79 - Parisian Boutique (巴黎精品店)",
+  "description": "创建第79种UI风格：巴黎精品店风格 - 法国时尚、优雅粉色、石材纹理。输出到 G:/claude_code_project/web/index_planCA.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Parisian Boutique style When color palette Then features blush pink, cream, black, gold accents",
+      "status": "pass",
+      "evidence": "Implemented: #FFB6C1 (blush-pink), #FFF8E7 (cream), #000000 (black), #D4AF37 (gold), #E8E0D5 (linen), #F7E7CE (champagne)"
+    },
+    {
+      "criterion": "Given Parisian Boutique style When typography Then uses french elegance: Cormorant, EB Garamond, or Playfair",
+      "status": "pass",
+      "evidence": "Implemented: Cormorant (headers 3.2rem italic 600 weight), EB Garamond (body 0.95rem), Playfair Display (chat header 1.4rem)"
+    },
+    {
+      "criterion": "Given Parisian Boutique style When layout Then elegant displays, soft lighting, luxury spacing",
+      "status": "pass",
+      "evidence": "Implemented: cream/linen/parchment textures, blush-pink/gold/champagne gradients, elegant soft aesthetic"
+    },
+    {
+      "criterion": "Given Parisian Boutique style When UI elements Then velvet textures, gold accents, soft shadows",
+      "status": "pass",
+      "evidence": "Implemented: blush-pink/gold borders, gold top gradient cards, black button with gold border, soft shadow effects, gentle hover transitions"
+    },
+    {
+      "criterion": "Given Parisian Boutique UI When functional Then includes boutique chat, designer agents, collection stats",
+      "status": "pass",
+      "evidence": "Implemented: le salon chat, 4 designer agents (Chanel/Dior/Givenchy/Cartier) with Pieces/Elegance/Gowns/Style/Artistry/Vision/Jewels/Brilliance stats"
+    },
+    {
+      "criterion": "Given Parisian Boutique UI When copy Then uses haute couture: 'Collection', 'Boutique', 'élégance', 'Charme'",
+      "status": "pass",
+      "evidence": "Implemented: title 'COLLECTION. BOUTIQUE. CHARME.', tagline 'L'art de la mode parisienne', button 'CONSULT', greeting 'Bonjour! Welcome to our atelier', status 'Available'/'Idle', nav 'Boutique'/'Atelier'/'Archives'/'Élysée'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

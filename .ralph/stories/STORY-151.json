@@ -1,0 +1,42 @@
+{
+  "id": "STORY-151",
+  "title": "UI风格#145 - Retro Terminal Green (复古终端绿)",
+  "description": "创建第145种UI风格：复古终端绿风格 - 80年代绿色屏幕、CRT显示器、命令行。输出到 G:/claude_code_project/web/index_planEO.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Retro Terminal Green style When color palette Then features phosphor green, deep black, amber glow, scanline gray",
+      "status": "pass",
+      "evidence": "Implemented: #00FF00 (phosphor-green), #0D0D0D (deep-black), #FFBF00 (amber-glow), #333333 (scanline-gray), #009900 (dim-green), #33FF33 (bright-green)"
+    },
+    {
+      "criterion": "Given Retro Terminal Green style When typography Then uses terminal fonts: VT323, Share Tech Mono, or Fira Code",
+      "status": "pass",
+      "evidence": "Implemented: VT323 (headers 2.5rem), Share Tech Mono (body 0.9rem) - authentic terminal monospace"
+    },
+    {
+      "criterion": "Given Retro Terminal Green style When layout Then CRT curves, scanlines, terminal window, command prompt",
+      "status": "pass",
+      "evidence": "Implemented: CRT scanline overlay with flicker animation, terminal window frame with box-drawing characters, phosphor glow effects"
+    },
+    {
+      "criterion": "Given Retro Terminal Green style When UI elements Then phosphor glow, cursor blink, screen flicker, amber highlights",
+      "status": "pass",
+      "evidence": "Implemented: text-shadow glow, blinking cursor animation, screen flicker effect, amber accent highlights"
+    },
+    {
+      "criterion": "Given Retro Terminal Green UI When functional Then includes mainframe chat, sysop agents, bandwidth stats",
+      "status": "pass",
+      "evidence": "Implemented: mainframe chat console, 4 sysop agents (MAINFRAME-42, SYSOP-KERNEL, DEBUG-PROTOCOL, ARCHIVE-DRIVE) with MEMORY/CPU/BANDWIDTH/LATENCY/COMPILE/BOOT/DISK/INTEGRITY stats"
+    },
+    {
+      "criterion": "Given Retro Terminal Green UI When copy Then uses command line: 'Execute', 'Compile', 'System', 'Mainframe'",
+      "status": "pass",
+      "evidence": "Implemented: title 'EXECUTE. COMPILE. SYSTEM.', tagline 'C:\\> MAINFRAME_OS v2.84', button 'EXEC', greeting 'SYSTEM ONLINE. MAINFRAME READY...', status 'ONLINE'/'IDLE', nav 'MAINFRAME'/'EXECUTE'/'COMPILE'/'ARCHIVE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

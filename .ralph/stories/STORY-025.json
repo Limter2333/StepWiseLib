@@ -1,0 +1,42 @@
+{
+  "id": "STORY-025",
+  "title": "UI风格#19 - Memphis Design (孟菲斯设计)",
+  "description": "创建第19种UI风格：孟菲斯设计风格 - 几何图案、撞色组合、80年代后现代。输出到 G:/claude_code_project/web/index_planS.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Memphis Design style When color palette Then features bright primaries with black, pink, electric blue",
+      "status": "pass",
+      "evidence": "Implemented: #FF3B3B red, #2ECC71 green, #3498DB blue, #F39C12 yellow, #E91E8B pink, #000000 black"
+    },
+    {
+      "criterion": "Given Memphis Design style When typography Then uses playful fonts: Bubblegum Sans, Pacifico, or Fredoka One",
+      "status": "pass",
+      "evidence": "Implemented: Fredoka One (headers), Quicksand (body), Pacifico (accents)"
+    },
+    {
+      "criterion": "Given Memphis Design style When layout Then scattered shapes, zigzags, dots, confetti patterns",
+      "status": "pass",
+      "evidence": "Implemented: scattered geometric shapes, zigzag dividers, dot patterns, confetti decorations"
+    },
+    {
+      "criterion": "Given Memphis Design style When UI elements Then playful shapes, striped patterns, terazzo textures",
+      "status": "pass",
+      "evidence": "Implemented: mixed shape buttons, striped borders, terrazzo textures, bounce animations"
+    },
+    {
+      "criterion": "Given Memphis Design UI When functional Then includes playful chat, shape agents, confetti stats",
+      "status": "pass",
+      "evidence": "Implemented: playful chat with shapes, colorful agent cards, confetti-style stats"
+    },
+    {
+      "criterion": "Given Memphis Design UI When copy Then uses playful language: 'Fun', 'Play', 'Joy', 'Sparkle'",
+      "status": "pass",
+      "evidence": "Implemented: title 'PLAY. SPARKLE. JOY.', buttons HOORAY/YAY/OOPS/PARTY, status SPARKLING/BOUNCING"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "STORY-044",
+  "title": "UI风格#38 - Art Nouveau Organic (新艺术有机)",
+  "description": "创建第38种UI风格：新艺术有机风格 - 曲线之美、藤蔓纹样、自然生长。输出到 G:/claude_code_project/web/index_planAL.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Art Nouveau style When color palette Then features sage greens, muted golds, cream, antique bronze",
+      "status": "todo",
+      "evidence": "需要设计：#8FBC8F (灰绿), #D4AF37 (金), #FAF0E6 (米白), #CD853F (古铜), #2F4F4F (深海蓝)"
+    },
+    {
+      "criterion": "Given Art Nouveau style When typography Then uses elegant art fonts: Cormorant, libre baskerville, or EB Garamond",
+      "status": "todo",
+      "evidence": "字体选择：Cormorant (标题), libre baskerville (正文), EB Garamond (装饰)"
+    },
+    {
+      "criterion": "Given Art Nouveau style When layout Then organic curves, vine patterns, nature-inspired composition",
+      "status": "todo",
+      "evidence": "布局特点：有机曲线、藤蔓纹样、自然生长构图、百合装饰"
+    },
+    {
+      "criterion": "Given Art Nouveau style When UI elements Then whiplash curves, floral ornaments, stained glass effects",
+      "status": "todo",
+      "evidence": "交互特点：鞭线曲线、花卉装饰、彩色玻璃效果、自然过渡"
+    },
+    {
+      "criterion": "Given Art Nouveau UI When functional Then includes nature chat, garden agents, bloom stats",
+      "status": "todo",
+      "evidence": "功能需求：自然聊天、花园代理、绽放统计"
+    },
+    {
+      "criterion": "Given Art Nouveau UI When copy Then uses romantic nature: 'Bloom', 'Flourish', 'Nature', 'Grace'",
+      "status": "todo",
+      "evidence": "创意文案：标题'BLOOM. FLOURISH. GRACE.'、按钮'SEND'→'BLOOM'、'SUBMIT'→'FLOURISH'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

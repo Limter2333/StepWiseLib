@@ -1,0 +1,42 @@
+{
+  "id": "STORY-110",
+  "title": "UI风格#104 - Bauhaus Print (包豪斯印刷)",
+  "description": "创建第104种UI风格：包豪斯印刷风格 - 活字印刷、几何构图、红色点缀。输出到 G:/claude_code_project/web/index_planCZ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Bauhaus Print style When color palette Then features printer red, ink black, paper white, rule gray",
+      "status": "todo",
+      "evidence": "需要设计：#E63946 (印刷红), #000000 (墨黑), #FFFFFF (纸白), #808080 (线条灰), #F5F5F5 (新闻灰)"
+    },
+    {
+      "criterion": "Given Bauhaus Print style When typography Then uses geometric type: Futura, Aktiv Grotesk, orDIN",
+      "status": "todo",
+      "evidence": "字体选择：Futura (几何), Aktiv Grotesk (正文), DIN (数字)"
+    },
+    {
+      "criterion": "Given Bauhaus Print style When layout Then column grid, rule lines, type blocks, margin notes",
+      "status": "todo",
+      "evidence": "布局特点：栏格系统、线条分隔、铅字块、边注"
+    },
+    {
+      "criterion": "Given Bauhaus Print style When UI elements Then letterpress texture, ink splatter, print registration",
+      "status": "todo",
+      "evidence": "交互特点：活字质感、墨迹溅洒、套印效果、印刷注册线"
+    },
+    {
+      "criterion": "Given Bauhaus Print UI When functional Then includes editorial chat, typesetter agents, press stats",
+      "status": "todo",
+      "evidence": "功能需求：编辑聊天、排版代理、印刷统计"
+    },
+    {
+      "criterion": "Given Bauhaus Print UI When copy Then uses print language: 'Compose', 'Set', 'Print', 'Press'",
+      "status": "todo",
+      "evidence": "创意文案：标题'COMPOSE. SET. PRINT.'、按钮'SEND'→'SET'、'SUBMIT'→'PRESS'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

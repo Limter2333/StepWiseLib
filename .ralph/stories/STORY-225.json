@@ -1,0 +1,42 @@
+{
+  "id": "STORY-225",
+  "title": "UI风格#219 - Ink Wash Minimal (水墨极简)",
+  "description": "创建第219种UI风格：水墨极简风格 - 中国水墨画、留白、书法笔触。输出到 G:/claude_code_project/web/index_planHL.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Ink Wash Minimal style When color palette Then features sumi ink, washi paper, subtle gray",
+      "status": "todo",
+      "evidence": "需要设计：#1A1A1A (墨黑), #F5F5F0 (和纸白), #6B6B6B (淡墨), #8B8B8B (灰)"
+    },
+    {
+      "criterion": "Given Ink Wash Minimal style When typography Then uses brush: Ma Shan Zheng, Noto Serif SC, ZCOOL XiaoWei",
+      "status": "todo",
+      "evidence": "字体选择：Ma Shan Zheng (书法), Noto Serif SC (中文衬线), ZCOOL (文艺)"
+    },
+    {
+      "criterion": "Given Ink Wash Minimal style When layout Then ink wash strokes, generous ma (space), vertical flow",
+      "status": "todo",
+      "evidence": "布局特点：水墨笔触、大量留白、垂直流动"
+    },
+    {
+      "criterion": "Given Ink Wash Minimal style When UI elements Then brush stroke animation, ink diffusion, paper texture",
+      "status": "todo",
+      "evidence": "交互特点：毛笔动画、墨水扩散、纸张纹理"
+    },
+    {
+      "criterion": "Given Ink Wash Minimal UI When functional Then includes zen chat, ink agents, brush stats",
+      "status": "todo",
+      "evidence": "功能需求：禅意聊天、墨水代理、书法统计"
+    },
+    {
+      "criterion": "Given Ink Wash Minimal UI When copy Then uses zen: 'Ink', 'Brush', 'Ma', 'Space'",
+      "status": "todo",
+      "evidence": "创意文案：标题'墨. 笔. 空间. (INK. BRUSH. SPACE.)'、按钮'SUBMIT'→'渲染'、'DEPLOY'→'泼墨'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

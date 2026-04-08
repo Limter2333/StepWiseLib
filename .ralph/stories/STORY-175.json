@@ -1,0 +1,42 @@
+{
+  "id": "STORY-175",
+  "title": "UI风格#169 - Kawaii Pastel Grunge (可爱粉彩朋克)",
+  "description": "创建第169种UI风格：可爱粉彩朋克风格 - 柔和粉彩+粗犁朋克、矛盾美学，反差萌。输出到 G:/claude_code_project/web/index_planFM.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Kawaii Pastel Grunge style When color palette Then features pastel pink, baby blue, mint with dark accents",
+      "status": "pass",
+      "evidence": "Implemented: #FFB6C1 (kawaii-pink), #87CEEB (kawaii-blue), #98FB98 (kawaii-mint), #2F2F2F (grunge-dark), #FFC0CB (soft-pink), #8B0000 (grunge-red), #FFFFFF (white)"
+    },
+    {
+      "criterion": "Given Kawaii Pastel Grunge style When typography Then uses cute grunge: Comic Neue meets Permanent Marker",
+      "status": "pass",
+      "evidence": "Implemented: Permanent Marker (title/buttons grunge), Comic Neue (body cute), Roboto Mono (stats) - clash typography"
+    },
+    {
+      "criterion": "Given Kawaii Pastel Grunge style When layout Then soft colors clash with rough textures, cute meets dark",
+      "status": "pass",
+      "evidence": "Implemented: gradient pastel backgrounds, grunge texture overlay, asymmetric borders, tilted labels, 4px box shadows"
+    },
+    {
+      "criterion": "Given Kawaii Pastel Grunge style When UI elements Then cute animations with glitch effects, soft-hard contrast",
+      "status": "pass",
+      "evidence": "Implemented: skew transforms on hover, cuteGlitch animation, pastel gradient borders, offset box shadows, star symbols"
+    },
+    {
+      "criterion": "Given Kawaii Pastel Grunge UI When functional Then includes pastel chat, rebel agents, clash stats",
+      "status": "pass",
+      "evidence": "Implemented: Mood Drops chat header, 4 rebel agents (SPARKLE, CHAOS, GLITCH, REBEL) with Cute/Rebel/Mood/Clash/Fluff/Grit/Sweet/Spice stats"
+    },
+    {
+      "criterion": "Given Kawaii Pastel Grunge UI When copy Then uses cute rebellion: 'Rebel', 'Cute', 'Clash', 'Mood'",
+      "status": "pass",
+      "evidence": "Implemented: title 'REBEL CUTE CLASH', tagline '// sweet rebellion hits different //', button 'MOOD', greeting 'heyyy~ ★ whats your vibe today?...', status 'Active'/'Idle', nav '★ Rebel'/'☆ Mood'/'★ Clash'/'☆ Cute'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

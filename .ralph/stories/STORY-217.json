@@ -1,0 +1,42 @@
+{
+  "id": "STORY-217",
+  "title": "UI风格#211 - Frosted Glass Dark (磨砂玻璃暗)",
+  "description": "创建第211种UI风格：磨砂玻璃暗色风格 - 深色磨砂玻璃、蓝色调、模糊发光。输出到 G:/claude_code_project/web/index_planHC.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Frosted Glass Dark style When color palette Then features frosted blue, dark slate, subtle glow",
+      "status": "todo",
+      "evidence": "需要设计：#1A2333 (暗蓝灰), #2D3E50 (板岩), #4A90D9 (蓝色), #0D1421 (深夜)"
+    },
+    {
+      "criterion": "Given Frosted Glass Dark style When typography Then uses tech mono: JetBrains Mono, Fira Code, Space Mono",
+      "status": "todo",
+      "evidence": "字体选择：JetBrains Mono (技术), Fira Code (现代), Space Mono (等宽)"
+    },
+    {
+      "criterion": "Given Frosted Glass Dark style When layout Then frosted glass panels, dark atmosphere, subtle depth",
+      "status": "todo",
+      "evidence": "布局特点：磨砂玻璃面板、深色氛围、微妙深度"
+    },
+    {
+      "criterion": "Given Frosted Glass Dark style When UI elements Then blur backdrop, glass refraction, glow edges",
+      "status": "todo",
+      "evidence": "交互特点：模糊背景、玻璃折射、发光边缘"
+    },
+    {
+      "criterion": "Given Frosted Glass Dark UI When functional Then includes glass chat, depth agents, blur stats",
+      "status": "todo",
+      "evidence": "功能需求：玻璃聊天、深度代理、模糊统计"
+    },
+    {
+      "criterion": "Given Frosted Glass Dark UI When copy Then uses glass: 'Frost', 'Depth', 'Blur', 'Glass'",
+      "status": "todo",
+      "evidence": "创意文案：标题'FROST. DEPTH. BLUR.'、按钮'SUBMIT'→'FROST'、'DEPLOY'→'SHIMMER'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

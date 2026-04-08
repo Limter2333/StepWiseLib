@@ -1,0 +1,42 @@
+{
+  "id": "STORY-102",
+  "title": "UI风格#96 - Venetian Carnival (威尼斯狂欢节)",
+  "description": "创建第96种UI风格：威尼斯狂欢节风格 - 华丽面具、羽毛装饰、拜占庭金色。输出到 G:/claude_code_project/web/index_planCR.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Venetian Carnival style When color palette Then features masquerade gold, deep crimson, midnight blue, pearl white",
+      "status": "todo",
+      "evidence": "需要设计：#DAA520 (面具金), #8B0000 (深红), #191970 (午夜蓝), #FFFAF0 (珍珠白), #4B0082 (靛蓝)"
+    },
+    {
+      "criterion": "Given Venetian Carnival style When typography Then uses ornate fonts: Cinzel Decorative, Uncial Antiqua, or Playfair Display",
+      "status": "todo",
+      "evidence": "字体选择：Cinzel Decorative (标题), Uncial Antiqua (装饰), Playfair Display (正文)"
+    },
+    {
+      "criterion": "Given Venetian Carnival style When layout Then ornate frames, mask motifs, feathered borders, canal gradients",
+      "status": "todo",
+      "evidence": "布局特点：华丽边框、面具图案、羽毛装饰、运河渐变"
+    },
+    {
+      "criterion": "Given Venetian Carnival style When UI elements Then mask animations, feather flourishes, gold leaf textures",
+      "status": "todo",
+      "evidence": "交互特点：面具动画、羽毛华丽、金箔质感、闪烁效果"
+    },
+    {
+      "criterion": "Given Venetian Carnival UI When functional Then includes masquerade chat, performer agents, festival stats",
+      "status": "todo",
+      "evidence": "功能需求：化妆舞会聊天、表演者代理、节日统计"
+    },
+    {
+      "criterion": "Given Venetian Carnival UI When copy Then uses theatrical language: 'Masquerade', 'Feast', 'Mystery', 'Splendor'",
+      "status": "todo",
+      "evidence": "创意文案：标题'MASQUERADE. SPLENDOR. MYSTERY.'、按钮'SEND'→'PERFORM'、'SUBMIT'→'CELEBRATE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "STORY-040",
+  "title": "UI风格#34 - Aurora Borealis (极光流转)",
+  "description": "创建第34种UI风格：极光流转风格 - 北欧极光、流动色彩、冰晶质感。输出到 G:/claude_code_project/web/index_planAH.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Aurora Borealis style When color palette Then features northern lights greens, purples, pinks against dark sky",
+      "status": "todo",
+      "evidence": "需要设计：#00FF87 (极光绿), #8B5CF6 (紫), #FF6B9D (粉), #0EA5E9 (冰蓝), #0F0F23 (夜空黑)"
+    },
+    {
+      "criterion": "Given Aurora Borealis style When typography Then uses elegant fonts: Josefin Sans, Montserrat, or Poppins",
+      "status": "todo",
+      "evidence": "字体选择：Josefin Sans (标题), Montserrat (正文), Poppins (替代)"
+    },
+    {
+      "criterion": "Given Aurora Borealis style When layout Then flowing gradients, aurora waves, ice crystal textures",
+      "status": "todo",
+      "evidence": "布局特点：极光渐变、流动波浪、冰晶纹理、北欧夜空"
+    },
+    {
+      "criterion": "Given Aurora Borealis style When UI elements Then shimmer effects, aurora glow, frost borders, northern lights",
+      "status": "todo",
+      "evidence": "交互特点：微光效果、极光发光、冰霜边框、流动动画"
+    },
+    {
+      "criterion": "Given Aurora Borealis UI When functional Then includes aurora chat, northern agents, shimmer stats",
+      "status": "todo",
+      "evidence": "功能需求：极光聊天、北欧代理、微光统计"
+    },
+    {
+      "criterion": "Given Aurora Borealis UI When copy Then uses nordic nature: 'Aurora', 'Northern', 'Shimmer', 'Frost'",
+      "status": "todo",
+      "evidence": "创意文案：标题'AURORA. SHIMMER. FROST.'、按钮'SEND'→'GLITTER'、'SUBMIT'→'GLOW'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "STORY-154",
+  "title": "UI风格#148 - Vaporwave Minimal (蒸汽波极简)",
+  "description": "创建第148种UI风格：蒸汽波极简风格 - 简化版蒸汽波、粉彩与几何。输出到 G:/claude_code_project/web/index_planER.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Vaporwave Minimal style When color palette Then features pastel pink, cyan, soft purple, white",
+      "status": "pass",
+      "evidence": "Implemented: #FFB6C1 (pastel-pink), #00CED1 (cyan), #DDA0DD (soft-purple), #FFFFFF (pure-white), #FFF5EE (soft-cream), #98FB98 (mint-haze), #FFDAB9 (peach)"
+    },
+    {
+      "criterion": "Given Vaporwave Minimal style When typography Then uses minimal vaporwave: Quicksand, Pacifico, or VT323",
+      "status": "pass",
+      "evidence": "Implemented: Pacifico (headers 2.5rem cursive), Quicksand (body 0.9rem 400-700 weight)"
+    },
+    {
+      "criterion": "Given Vaporwave Minimal style When layout Then clean geometry, soft gradients, minimal grid, subtle shapes",
+      "status": "pass",
+      "evidence": "Implemented: soft gradient background, rounded corners (16-20px), subtle pastel overlays, clean minimal grid"
+    },
+    {
+      "criterion": "Given Vaporwave Minimal style When UI elements Then smooth gradients, soft shadows, gentle transitions",
+      "status": "pass",
+      "evidence": "Implemented: pill-shaped elements (25px radius), soft shadows, gentle hover transforms, pastel gradient buttons"
+    },
+    {
+      "criterion": "Given Vaporwave Minimal UI When functional Then includes vapor chat, dream agents, aesthetic stats",
+      "status": "pass",
+      "evidence": "Implemented: Aesthetic Space chat, 4 dream agents (Dream Loft, Moon Haze, Soft Cloud, Glitter Drift) with Aesthetic/Vapor/Drift/Float/Haze/Calm/Sparkle/Shimmer stats"
+    },
+    {
+      "criterion": "Given Vaporwave Minimal UI When copy Then uses dreamy: 'Dream', 'Vapor', 'Soft', 'Aesthetic'",
+      "status": "pass",
+      "evidence": "Implemented: title 'Dream. Vapor. Soft.', tagline '~ breathe easy ~', button 'DRIFT', greeting 'Hey there~ Welcome to the soft space...', status 'SOFT'/'IDLE', nav 'Dream'/'Drift'/'Float'/'Haze'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

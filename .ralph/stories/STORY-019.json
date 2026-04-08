@@ -1,0 +1,42 @@
+{
+  "id": "STORY-019",
+  "title": "UI风格#13 - Art Deco Glamour (装饰艺术)",
+  "description": "创建第13种UI风格：装饰艺术风格 - 几何金色、黑金搭配、爵士时代。输出到 G:/claude_code_project/web/index_planM.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Art Deco style When color palette Then features black, gold, cream, with emerald accents",
+      "status": "pass",
+      "evidence": "Implemented: #0D0D0D black, #D4AF37 gold, #FFFDD0 cream, #50C878 emerald"
+    },
+    {
+      "criterion": "Given Art Deco style When typography Then uses deco fonts: Poiret One, Josefin Sans, or Art Deco display",
+      "status": "pass",
+      "evidence": "Implemented: Poiret One (display), Josefin Sans (body)"
+    },
+    {
+      "criterion": "Given Art Deco style When layout Then geometric patterns, sunburst motifs, chevron patterns, symmetric balance",
+      "status": "pass",
+      "evidence": "Implemented: geometric grid, animated sunburst rays, diamond dividers, symmetric layout"
+    },
+    {
+      "criterion": "Given Art Deco style When UI elements Then gold borders, geometric frames, stepped silhouettes, fan motifs",
+      "status": "pass",
+      "evidence": "Implemented: gold borders, ornamental corners, fan/sunburst motifs, stepped frames"
+    },
+    {
+      "criterion": "Given Art Deco UI When functional Then includes glamorous chat, geometric agent cards, deco stat display",
+      "status": "pass",
+      "evidence": "Implemented: art deco chat, CONCIERGE/CURATOR agents, commission metrics"
+    },
+    {
+      "criterion": "Given Art Deco UI When copy Then uses elegant deco language: 'Distinguished', 'Exquisite', 'Radiant', 'Gilded'",
+      "status": "pass",
+      "evidence": "Implemented: title 'THE GOLDEN AGE. REFINED.', buttons PRESENT/OFFER/ACQUIRE, status 'Curating...'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "STORY-191",
+  "title": "UI风格#185 - Cyber Luxe (赛博奢华)",
+  "description": "创建第185种UI风格：赛博奢华风格 - 奢华材质+数字元素、精致+科技感。输出到 G:/claude_code_project/web/index_planGC.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Cyber Luxe style When color palette Then features gold, chrome, deep purple, neon accents",
+      "status": "todo",
+      "evidence": "需要设计：#D4AF37 (金), #C0C0C0 (铬), #1A1A2E (深紫), #FF00FF (霓虹紫), #00FFFF (青色)"
+    },
+    {
+      "criterion": "Given Cyber Luxe style When typography Then uses elegant tech: Cormorant, JetBrains Mono",
+      "status": "todo",
+      "evidence": "字体选择：Cormorant (优雅衬线), JetBrains Mono (技术等宽)"
+    },
+    {
+      "criterion": "Given Cyber Luxe style When layout Then luxury materials with digital overlays, glass and chrome",
+      "status": "todo",
+      "evidence": "布局特点：奢华材质+数字叠加、玻璃与铬合金"
+    },
+    {
+      "criterion": "Given Cyber Luxe style When UI elements Then holographic effects, gold borders, subtle glow",
+      "status": "todo",
+      "evidence": "交互特点：全息效果、金色边框、微妙发光"
+    },
+    {
+      "criterion": "Given Cyber Luxe UI When functional Then includes premium chat, elite agents, luxury stats",
+      "status": "todo",
+      "evidence": "功能需求：高端聊天、精英代理、奢华统计"
+    },
+    {
+      "criterion": "Given Cyber Luxe UI When copy Then uses premium: 'Elite', 'Premium', 'Luxury', 'Exclusive'",
+      "status": "todo",
+      "evidence": "创意文案：标题'ELITE. PREMIUM. EXCLUSIVE.'、按钮'SUBMIT'→'ACCESS'、'DEPLOY'→'INITIATE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

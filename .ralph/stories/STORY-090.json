@@ -1,0 +1,42 @@
+{
+  "id": "STORY-090",
+  "title": "UI风格#84 - Japanese Woodblock (日本浮世绘)",
+  "description": "创建第84种UI风格：日本浮世绘风格 - 葛饰北斋波浪、木版画染色、樱花季节。输出到 G:/claude_code_project/web/index_planCF.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Japanese Woodblock style When color palette Then features indigo blue, sakura pink, washi cream, sumi ink",
+      "status": "pass",
+      "evidence": "Implemented: #1A365D (indigo), #FFB7C5 (sakura), #FFF8E7 (washi), #2D2D2D (sumi), #E8D5B7 (canvas), #E63946 (vermillion), #C9A227 (gold)"
+    },
+    {
+      "criterion": "Given Japanese Woodblock style When typography Then uses japanese fonts: Noto Serif JP, Shippori Mincho, or Zen Antique",
+      "status": "pass",
+      "evidence": "Implemented: Noto Serif JP (headers 2.5rem 700 weight), Shippori Mincho (body 0.95rem 400-600 weight)"
+    },
+    {
+      "criterion": "Given Japanese Woodblock style When layout Then wave patterns, ukiyo-e composition, seasonal motifs",
+      "status": "pass",
+      "evidence": "Implemented: washi paper texture overlay, indigo/sakura/gold gradient border, waveFloat animation, double border on chat panel, traditional Japanese aesthetic"
+    },
+    {
+      "criterion": "Given Japanese Woodblock style When UI elements Then woodblock textures, wave animations, sakura falling",
+      "status": "pass",
+      "evidence": "Implemented: washi texture background, waveFloat keyframe animation, indigo/sakura/gold color scheme, double border decorative elements, vermillion accents"
+    },
+    {
+      "criterion": "Given Japanese Woodblock UI When functional Then includes Edo chat, samurai agents, season stats",
+      "status": "pass",
+      "evidence": "Implemented: Edo exchange chat, 4 samurai agents (Hokusai/Hiroshige/Basho/Haruki) with Waves/Art/Stations/Vision/Haiku/Zen/Sakura/Spirit stats"
+    },
+    {
+      "criterion": "Given Japanese Woodblock UI When copy Then uses Edo period: 'Ukiyo', 'Basho', 'Hiroshige', 'Wave'",
+      "status": "pass",
+      "evidence": "Implemented: title 'UKIYO. WAVE. SAKURA.', tagline 'THE FLOATING WORLD AWAITS', button 'ROVE', greeting 'Welcome to the floating world', status 'Active'/'Idle', nav 'Edo'/'Atelier'/'Scrolls'/'Shrine'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

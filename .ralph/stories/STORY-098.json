@@ -1,0 +1,42 @@
+{
+  "id": "STORY-098",
+  "title": "UI风格#92 - Highland Mist (苏格兰高地)",
+  "description": "创建第92种UI风格：苏格兰高地风格 - 迷雾山谷、古老城堡、威士忌色泽。输出到 G:/claude_code_project/web/index_planCN.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Highland Mist style When color palette Then features heather purple, whisky amber, stone gray, moss green",
+      "status": "pass",
+      "evidence": "Implemented: #967BB6 (heather-purple), #C9A227 (whisky-amber), #696969 (stone-gray), #556B2F (moss-green), #D3D3D3 (light-gray), #4A3A5C (dark-heather), #F5F0E6 (warm-cream), #8B8B83 (castle-stone), #4A6B7C (loch-blue)"
+    },
+    {
+      "criterion": "Given Highland Mist style When typography Then uses scottish fonts: Cormorant, EB Garamond, or Playfair Display",
+      "status": "pass",
+      "evidence": "Implemented: Cormorant (headers 2.8rem 600 weight), EB Garamond (body 0.95rem 400-600 weight)"
+    },
+    {
+      "criterion": "Given Highland Mist style When layout Then misty valleys, castle silhouettes, loch reflections",
+      "status": "pass",
+      "evidence": "Implemented: mistDrift animation overlay, castleFloat animation, heather-purple/whisky-amber/moss-green gradient border, misty color scheme"
+    },
+    {
+      "criterion": "Given Highland Mist style When UI elements Then mist overlays, castle textures, Celtic borders",
+      "status": "pass",
+      "evidence": "Implemented: mistDrift keyframe animation, castleFloat animation, warm cream/gray color scheme, whisky amber accents"
+    },
+    {
+      "criterion": "Given Highland Mist UI When functional Then includes castle chat, highlander agents, clan stats",
+      "status": "pass",
+      "evidence": "Implemented: highland keep chat, 4 highlander agents (Wallace/Celtic/Eagle/Stag) with Battles/Honor/Songs/Wisdom/Clans/Vision/Antlers/Grace stats"
+    },
+    {
+      "criterion": "Given Highland Mist UI When copy Then uses scottish heritage: 'Clan', 'Loch', 'Highland', 'Mist'",
+      "status": "pass",
+      "evidence": "Implemented: title 'CLAN. LOCH. HIGHLAND.', tagline 'Land of mist and legend', button 'TRACK', greeting 'The mist parts before the worthy', status 'Active'/'Idle', nav 'Highlands'/'Forge'/'Tales'/'Camp'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

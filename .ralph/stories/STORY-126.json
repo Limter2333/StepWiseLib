@@ -1,0 +1,42 @@
+{
+  "id": "STORY-126",
+  "title": "UI风格#120 - Renaissance Digital (文艺复兴数字)",
+  "description": "创建第120种UI风格：文艺复兴数字风格 - 古典油画、金箔边框、透视法则。输出到 G:/claude_code_project/web/index_planDP.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Renaissance Digital style When color palette Then features classical gold, madder red, ultramarine blue, burnt sienna",
+      "status": "todo",
+      "evidence": "需要设计：#C9A227 (古典金), #8B3A3A (茜红), #1E3A5F (群青), #8B4513 (褐), #F5F5DC (象牙)"
+    },
+    {
+      "criterion": "Given Renaissance Digital style When typography Then uses renaissance fonts: Cinzel, EB Garamond, or Trajan Pro",
+      "status": "todo",
+      "evidence": "字体选择：Cinzel (标题), EB Garamond (正文), Trajan Pro (装饰)"
+    },
+    {
+      "criterion": "Given Renaissance Digital style When layout Then oil painting texture, gold frames, perspective grids, chiaroscuro",
+      "status": "todo",
+      "evidence": "布局特点：油画质感、金箔边框、透视网格、明暗对照"
+    },
+    {
+      "criterion": "Given Renaissance Digital style When UI elements Then oil brush strokes, gold leaf, classical proportions",
+      "status": "todo",
+      "evidence": "交互特点：油画笔触、金箔、古典比例、画框过渡"
+    },
+    {
+      "criterion": "Given Renaissance Digital UI When functional Then includes classical chat, master agents, gallery stats",
+      "status": "todo",
+      "evidence": "功能需求：古典聊天、大师代理、画廊统计"
+    },
+    {
+      "criterion": "Given Renaissance Digital UI When copy Then uses renaissance: 'Master', 'Canvas', 'Chiaroscuro', 'Sfumato'",
+      "status": "todo",
+      "evidence": "创意文案：标题'MASTER. CANVAS. CHIAROSCURO.'、按钮'SEND'→'SKETCH'、'SUBMIT'→'PAINT'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

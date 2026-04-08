@@ -1,0 +1,42 @@
+{
+  "id": "STORY-086",
+  "title": "UI风格#80 - Woodland Craft (森林手工艺)",
+  "description": "创建第80种UI风格：森林手工艺风格 - 手作木艺、森林绿色、温暖光源。输出到 G:/claude_code_project/web/index_planCB.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Woodland Craft style When color palette Then features forest green, bark brown, cream, maple syrup",
+      "status": "pass",
+      "evidence": "Implemented: #228B22 (forest-green), #5C4033 (bark-brown), #FFF8E7 (cream), #D4A574 (maple), #8B8B83 (sage-green), #2D5A27 (pine)"
+    },
+    {
+      "criterion": "Given Woodland Craft style When typography Then uses handcraft fonts: Patrick Hand, Covered By Your Grace, or Nunito",
+      "status": "pass",
+      "evidence": "Implemented: Patrick Hand (headers 3rem), Covered By Your Grace (tagline 1.4rem), Nunito (body 0.95rem)"
+    },
+    {
+      "criterion": "Given Woodland Craft style When layout Then wood grain, leaf patterns, warm lighting",
+      "status": "pass",
+      "evidence": "Implemented: parchment/wood texture, forest green/bark brown/maple color scheme, leaf floating animation"
+    },
+    {
+      "criterion": "Given Woodland Craft style When UI elements Then wood textures, leaf accents, handcrafted borders",
+      "status": "pass",
+      "evidence": "Implemented: bark brown/maple borders, forest-green/maple/honey gradient card tops, rounded 15-25px corners, leaf floating animation, warm handcrafted aesthetic"
+    },
+    {
+      "criterion": "Given Woodland Craft UI When functional Then includes forest chat, woodland agents, craft stats",
+      "status": "pass",
+      "evidence": "Implemented: workshop chat, 4 woodland agents (Carpenter/Woodlander/Sage/Squirrel) with Wood/Skill/Projects/Nature/Wisdom/Guide/Acorns/Energy stats"
+    },
+    {
+      "criterion": "Given Woodland Craft UI When copy Then uses forest craft: 'Forest', 'Craft', 'Woodland', 'Handmade'",
+      "status": "pass",
+      "evidence": "Implemented: title 'FOREST. CRAFT. WOODLAND.', tagline 'Handcrafted with love from the woods', button 'GATHER', greeting 'Welcome to our woodland workshop', status 'Crafting'/'Idle', nav 'Woods'/'Forge'/'Tales'/'Camp'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

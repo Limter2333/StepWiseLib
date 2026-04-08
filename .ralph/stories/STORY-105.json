@@ -1,0 +1,42 @@
+{
+  "id": "STORY-105",
+  "title": "UI风格#99 - Tokyo Underground (东京地下铁)",
+  "description": "创建第99种UI风格：东京地下铁风格 - 霓虹闪烁、简约指引、深夜车站。输出到 G:/claude_code_project/web/index_planCU.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Tokyo Underground style When color palette Then features metro blue, neon pink, platform gray, warning yellow",
+      "status": "todo",
+      "evidence": "需要设计：#00BFFF (地铁蓝), #FF1493 (霓虹粉), #4A4A4A (站台灰), #FFD700 (警示黄), #1A1A2E (深夜黑)"
+    },
+    {
+      "criterion": "Given Tokyo Underground style When typography Then uses japanese transit: Yu Gothic UI, Noto Sans JP, or Helvetica",
+      "status": "todo",
+      "evidence": "字体选择：Yu Gothic UI (标题), Noto Sans JP (正文), Helvetica (数字)"
+    },
+    {
+      "criterion": "Given Tokyo Underground style When layout Then station maps, platform lines, transit signage, route diagrams",
+      "status": "todo",
+      "evidence": "布局特点：线路图、站台指示、导视系统、换乘标识"
+    },
+    {
+      "criterion": "Given Tokyo Underground style When UI elements Then neon glow, platform textures, transit animations",
+      "status": "todo",
+      "evidence": "交互特点：霓虹发光、站台质感、列车动画、报站音效"
+    },
+    {
+      "criterion": "Given Tokyo Underground UI When functional Then includes transit chat, station agents, line stats",
+      "status": "todo",
+      "evidence": "功能需求：交通聊天、车站代理、线路统计"
+    },
+    {
+      "criterion": "Given Tokyo Underground UI When copy Then uses transit language: 'Platform', 'Transfer', 'Express', 'Destination'",
+      "status": "todo",
+      "evidence": "创意文案：标题'PLATFORM. TRANSFER. EXPRESS.'、按钮'SEND'→'BOARD'、'SUBMIT'→'DEPART'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

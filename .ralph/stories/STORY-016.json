@@ -1,0 +1,43 @@
+{
+  "id": "STORY-016",
+  "title": "UI风格#10 - Midnight Corporate (午夜企业)",
+  "description": "创建第10种UI风格：午夜企业风格 - 深蓝+金色、优雅商务、专业高效。输出到 G:/claude_code_project/web/index_planJ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Midnight Corporate style When color palette Then features deep navy blues with gold accents",
+      "status": "pass",
+      "evidence": "Implemented: #0A1628 deep navy, #1E3A5F mid blue, #D4AF37 gold, #F5F5F5 light gray palette"
+    },
+    {
+      "criterion": "Given Midnight Corporate style When typography Then uses professional fonts: Playfair Display, Lora, or DM Serif Display",
+      "status": "pass",
+      "evidence": "Implemented: Playfair Display (serif headers), Lora (body), Inter (UI elements)"
+    },
+    {
+      "criterion": "Given Midnight Corporate style When layout Then structured grid, subtle dividers, elegant spacing, professional hierarchy",
+      "status": "pass",
+      "evidence": "Implemented: executive dashboard grid, gold dividers, elegant spacing, clear hierarchy"
+    },
+    {
+      "criterion": "Given Midnight Corporate style When UI elements Then gold accents on dark, refined buttons, subtle borders",
+      "status": "pass",
+      "evidence": "Implemented: gold hover glow, navy backgrounds, refined buttons with gold accents"
+    },
+    {
+      "criterion": "Given Midnight Corporate UI When functional Then includes executive dashboard, KPI cards, professional chat",
+      "status": "pass",
+      "evidence": "Implemented: KPI dashboard, initiative cards, refined chat, partner cards, performance metrics"
+    },
+    {
+      "criterion": "Given Midnight Corporate UI When copy Then uses executive language: 'Insights', 'Performance', 'Strategy', 'Results'",
+      "status": "pass",
+      "evidence": "Implemented: title 'VISION. STRATEGY. EXECUTION.', buttons PRESENT/DELIVER/EXECUTE/REVIEW/ALIGN"
+    }
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-06T00:00:00.000000",
+  "updated_at": "2026-04-06T00:00:00.000000"
+}

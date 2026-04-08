@@ -1,0 +1,42 @@
+{
+  "id": "STORY-052",
+  "title": "UI风格#46 - Moroccan Mosaic (摩洛哥马赛克)",
+  "description": "创建第46种UI风格：摩洛哥马赛克风格 - 几何图案、彩色瓷砖、伊斯兰花纹。输出到 G:/claude_code_project/web/index_planAT.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Moroccan Mosaic style When color palette Then features terracotta, cobalt blue, saffron gold, sand, emerald",
+      "status": "pass",
+      "evidence": "Implemented: #C67B5C (陶土), #1A4B8C (钴蓝), #D4A017 (藏红金), #F4E4BC (沙), #046307 (翡翠)"
+    },
+    {
+      "criterion": "Given Moroccan Mosaic style When typography Then uses ornamental fonts: Playfair Display, Scheherazade New, or Cormorant",
+      "status": "pass",
+      "evidence": "Implemented: Playfair Display (标题), Cormorant Garamond (正文)"
+    },
+    {
+      "criterion": "Given Moroccan Mosaic style When layout Then geometric tiles, zellige patterns, arch doorways",
+      "status": "pass",
+      "evidence": "Implemented: mosaic background pattern, arch top decoration, lantern glow, double border on chat"
+    },
+    {
+      "criterion": "Given Moroccan Mosaic style When UI elements Then mosaic borders, geometric patterns, lantern glow",
+      "status": "pass",
+      "evidence": "Implemented: lantern with flicker animation, border patterns, hover shadow effects"
+    },
+    {
+      "criterion": "Given Moroccan Mosaic UI When functional Then includes bazaar chat, merchant agents, mosaic stats",
+      "status": "pass",
+      "evidence": "Implemented: bazaar chat, 4 merchant cards (Genie/Weaver/Pottery/Alchemist) with trade stats"
+    },
+    {
+      "criterion": "Given Moroccan Mosaic UI When copy Then uses exotic bazaar: 'Bazaar', 'Souk', 'Mosaic', 'Lantern'",
+      "status": "pass",
+      "evidence": "Implemented: title 'Bazaar. Souk. Mosaic.', button 'BARTER', status 'Open'/'Closed', nav 'Home'/'Stall'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T02:30:00.000000"
+}

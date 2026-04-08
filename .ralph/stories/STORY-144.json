@@ -1,0 +1,42 @@
+{
+  "id": "STORY-144",
+  "title": "UI风格#138 - Nordic Forest (北欧森林)",
+  "description": "创建第138种UI风格：北欧森林风格 - 松树、苔藓、极夜、宁静。输出到 G:/claude_code_project/web/index_planEH.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Nordic Forest style When color palette Then features pine green, moss, bark brown, snow white, midnight blue",
+      "status": "pass",
+      "evidence": "Implemented: #228B22 (pine-green), #8B8B83 (moss), #5C4033 (bark-brown), #FFFAFA (snow-white), #191970 (midnight-blue), #E8E8E0 (fog), #F5F5F0 (birch-white), #0D3D0D (deep-forest), #E0F0E0 (frost)"
+    },
+    {
+      "criterion": "Given Nordic Forest style When typography Then uses nordic fonts: Josefin Sans, Montserrat, or Nunito",
+      "status": "pass",
+      "evidence": "Implemented: Josefin Sans (headers 2.2rem 300 weight), Montserrat (body 0.95rem 400-600 weight)"
+    },
+    {
+      "criterion": "Given Nordic Forest style When layout Then forest canopy, moss carpet, birch trees, frozen streams",
+      "status": "pass",
+      "evidence": "Implemented: forest gradient background (deep green to snow white), fog overlay, forest border with pine emoji, nature-themed layout"
+    },
+    {
+      "criterion": "Given Nordic Forest style When UI elements Then pine needles, fog layers, snow falling, wood grain",
+      "status": "pass",
+      "evidence": "Implemented: fog radial gradients, pine tree emoji accents (🌲🌿🏕🦌🏔❄), forest green color scheme with moss and snow white accents"
+    },
+    {
+      "criterion": "Given Nordic Forest UI When functional Then includes forest chat, ranger agents, nature stats",
+      "status": "pass",
+      "evidence": "Implemented: forest chat (Forest Trail), 4 ranger agents (DEV PINE, RAG DEER, PM PEAK, TEST FROST) with Trail/Wild/Forest/Moss/Summit/Vista/Snow/Frost stats"
+    },
+    {
+      "criterion": "Given Nordic Forest UI When copy Then uses forest nature: 'Forest', 'Ranger', 'Wild', 'Nature'",
+      "status": "pass",
+      "evidence": "Implemented: title 'FOREST. RANGER. WILD.', tagline '~ Where silence speaks ~', button 'HIKE', greeting 'The forest welcomes you, traveler. The path is clear, the air is fresh.', status 'ACTIVE'/'IDLE', nav 'Forest'/'Hike'/'Explore'/'Lodge'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

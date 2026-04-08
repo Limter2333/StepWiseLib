@@ -1,0 +1,42 @@
+{
+  "id": "STORY-215",
+  "title": "UI风格#209 - Retro Space Age (复古太空时代)",
+  "description": "创建第209种UI风格：复古太空时代风格 - 60年代太空竞赛、原子图案、未来复古。输出到 G:/claude_code_project/web/index_planHA.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Retro Space Age style When color palette Then features atomic orange, teal, cream, brown",
+      "status": "todo",
+      "evidence": "需要设计：#FF6B35 (原子橙), #008B8B (青色), #FFFDD0 (奶油), #8B4513 (棕色)"
+    },
+    {
+      "criterion": "Given Retro Space Age style When typography Then uses space age: Space Age, Orbitron, Astro",
+      "status": "todo",
+      "evidence": "字体选择：Space Age (太空), Orbitron (科幻), Astro (太空)"
+    },
+    {
+      "criterion": "Given Retro Space Age style When layout Then atomic patterns, starbursts, mission control aesthetic",
+      "status": "todo",
+      "evidence": "布局特点：原子图案、星爆图案、任务控制美学"
+    },
+    {
+      "criterion": "Given Retro Space Age style When UI elements Then starburst accents, atomic orbits, mission patches",
+      "status": "todo",
+      "evidence": "交互特点：星爆点缀、原子轨道、任务徽章"
+    },
+    {
+      "criterion": "Given Retro Space Age UI When functional Then includes mission chat, astronaut agents, launch stats",
+      "status": "todo",
+      "evidence": "功能需求：任务聊天、宇航员代理、发射统计"
+    },
+    {
+      "criterion": "Given Retro Space Age UI When copy Then uses space: 'Launch', 'Mission', 'Orbit', 'Astro'",
+      "status": "todo",
+      "evidence": "创意文案：标题'LAUNCH. MISSION. ORBIT.'、按钮'SUBMIT'→'TRANSMIT'、'DEPLOY'→'LAUNCH'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

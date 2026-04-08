@@ -1,0 +1,42 @@
+{
+  "id": "STORY-026",
+  "title": "UI风格#20 - Industrial Brutalist (工业粗野)",
+  "description": "创建第20种UI风格：工业粗野风格 - 混凝土质感、金属管道、工厂美学。输出到 G:/claude_code_project/web/index_planT.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Industrial style When color palette Then features concrete grays, rust oranges, steel blues, rust browns",
+      "status": "todo",
+      "evidence": "需要设计：#4A4A4A (混凝土), #8B4513 (锈橙), #2F4F4F (钢青), #D2691E (铁锈), #1C1C1C (炭黑)"
+    },
+    {
+      "criterion": "Given Industrial style When typography Then uses industrial fonts: Oswald, Bebas Neue, or Russo One",
+      "status": "todo",
+      "evidence": "字体选择：Oswald (粗体), Bebas Neue (高标题), Roboto Mono (正文)"
+    },
+    {
+      "criterion": "Given Industrial style When layout Then exposed grid, pipe-like dividers, metal plate frames",
+      "status": "todo",
+      "evidence": "布局特点：可见钢筋网格、管道分隔、金属板框架、铆钉装饰"
+    },
+    {
+      "criterion": "Given Industrial style When UI elements Then riveted borders, concrete textures, warning stripes",
+      "status": "todo",
+      "evidence": "交互特点：铆钉边框、混凝土纹理、警示条纹、机械齿轮"
+    },
+    {
+      "criterion": "Given Industrial UI When functional Then includes industrial chat, pipe agents, gauge stats",
+      "status": "todo",
+      "evidence": "功能需求：工业风聊天、管道代理、仪表盘统计"
+    },
+    {
+      "criterion": "Given Industrial UI When copy Then uses industrial language: 'Forge', 'Smelt', 'Construct', 'Press'",
+      "status": "todo",
+      "evidence": "创意文案：标题'FORGE. SMELT. PRESS.'、按钮'SEND'→'FORGE'、'SUBMIT'→'PRESS'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

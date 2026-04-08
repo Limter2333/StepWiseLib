@@ -1,0 +1,42 @@
+{
+  "id": "STORY-201",
+  "title": "UI风格#195 - Minimalist Luxury (极简奢华)",
+  "description": "创建第195种UI风格：极简奢华风格 - 极简主义+奢华材质、少即是多。输出到 G:/claude_code_project/web/index_planGM.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Minimalist Luxury style When color palette Then features cream, gold, charcoal, white",
+      "status": "todo",
+      "evidence": "需要设计：#FAF8F5 (奶油白), #D4AF37 (金), #2C2C2C (炭灰), #FFFFFF (白)"
+    },
+    {
+      "criterion": "Given Minimalist Luxury style When typography Then uses refined serif: Cormorant, Playfair Display",
+      "status": "todo",
+      "evidence": "字体选择：Cormorant (优雅), Playfair Display (经典)"
+    },
+    {
+      "criterion": "Given Minimalist Luxury style When layout Then generous whitespace, refined details, restrained elegance",
+      "status": "todo",
+      "evidence": "布局特点：大量留白、精致细节、克制优雅"
+    },
+    {
+      "criterion": "Given Minimalist Luxury style When UI elements Then subtle gold accents, smooth transitions, fine lines",
+      "status": "todo",
+      "evidence": "交互特点：微妙金色点缀、流畅过渡、精细线条"
+    },
+    {
+      "criterion": "Given Minimalist Luxury UI When functional Then includes refined chat, luxury agents, elegance stats",
+      "status": "todo",
+      "evidence": "功能需求：精致聊天、奢华代理、优雅统计"
+    },
+    {
+      "criterion": "Given Minimalist Luxury UI When copy Then uses elegant: 'Elegance', 'Refine', 'Luxe', 'Pure'",
+      "status": "todo",
+      "evidence": "创意文案：标题'ELEGANCE. REFINE. PURE.'、按钮'SUBMIT'→'REFINE'、'DEPLOY'→'CURATE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

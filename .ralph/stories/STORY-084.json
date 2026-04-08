@@ -1,0 +1,42 @@
+{
+  "id": "STORY-084",
+  "title": "UI风格#78 - Martian Colony (火星殖民地)",
+  "description": "创建第78种UI风格：火星殖民地风格 - 红色星球、科技农业、未来生存。输出到 G:/claude_code_project/web/index_planBZ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Martian Colony style When color palette Then features mars red, rust orange, dust brown, tech white",
+      "status": "pass",
+      "evidence": "Implemented: #C1440E (mars-red), #D2691E (rust-orange), #8B7355 (dust-brown), #FAFAFA (tech-white), #1C1C1C (carbon), #6B4423 (iron)"
+    },
+    {
+      "criterion": "Given Martian Colony style When typography Then uses sci-fi fonts: Orbitron, Exo 2, or Rajdhani",
+      "status": "pass",
+      "evidence": "Implemented: Orbitron (headers 2.8rem 700 weight), Exo 2 (body 0.95rem), Rajdhani (tagline/stats 1.1rem/0.8rem)"
+    },
+    {
+      "criterion": "Given Martian Colony style When layout Then dome habitats, terraforming zones, dust storms",
+      "status": "pass",
+      "evidence": "Implemented: mars red gradient background, dust storm radial overlays, iron/mars-red/rust-orange color scheme"
+    },
+    {
+      "criterion": "Given Martian Colony style When UI elements Then dust overlays, dome structures, solar panels",
+      "status": "pass",
+      "evidence": "Implemented: mars-red/rust-orange/dust-brown borders, gradient card tops, glow effects, ▲ marker, dark tech aesthetic"
+    },
+    {
+      "criterion": "Given Martian Colony UI When functional Then includes terra chat, colonist agents, oxygen stats",
+      "status": "pass",
+      "evidence": "Implemented: colony comms chat, 4 colonist agents (Pilot/Scientist/Builder/Bot) with O2/Ready/Research/Discovery/Domes/Progress/Tasks/Efficiency stats"
+    },
+    {
+      "criterion": "Given Martian Colony UI When copy Then uses space colonization: 'Terraform', 'Colonize', 'Survive', 'Oxygen'",
+      "status": "pass",
+      "evidence": "Implemented: title 'TERRAFORM. COLONIZE. SURVIVE.', tagline 'MAKING MARS EARTH AGAIN', button 'TRANSMIT', greeting 'Sol 1 of the new colony begins', status 'Active'/'Idle', nav 'Base'/'Workshop'/'Comms'/'Mission Control'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

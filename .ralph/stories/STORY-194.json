@@ -1,0 +1,42 @@
+{
+  "id": "STORY-194",
+  "title": "UI风格#188 - Moss & Stone (苔藓与石头)",
+  "description": "创建第188种UI风格：苔藓与石头风格 - 自然纹理、石材、苔藓覆盖、有机古朴。输出到 G:/claude_code_project/web/index_planGF.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Moss & Stone style When color palette Then features stone gray, moss green, earth brown, lichen",
+      "status": "todo",
+      "evidence": "需要设计：#6B6B6B (石头灰), #4A5D23 (苔藓绿), #8B7355 (泥土棕), #9CAF88 (地衣), #3D3D3D (深灰)"
+    },
+    {
+      "criterion": "Given Moss & Stone style When typography Then uses earthy: EB Garamond, Lora, or Spectral",
+      "status": "todo",
+      "evidence": "字体选择：EB Garamond (大地), Lora (经典), Spectral (文学)"
+    },
+    {
+      "criterion": "Given Moss & Stone style When layout Then stone textures, moss growth patterns, natural cracks",
+      "status": "todo",
+      "evidence": "布局特点：石头纹理、苔藓生长图案、自然裂纹"
+    },
+    {
+      "criterion": "Given Moss & Stone style When UI elements Then organic erosion, moss creep, stone polish",
+      "status": "todo",
+      "evidence": "交互特点：有机侵蚀、苔藓蔓延、石材打磨"
+    },
+    {
+      "criterion": "Given Moss & Stone UI When functional Then includes ancient chat, stone agents, earth stats",
+      "status": "todo",
+      "evidence": "功能需求：古老聊天、石头代理、大地统计"
+    },
+    {
+      "criterion": "Given Moss & Stone UI When copy Then uses ancient: 'Stone', 'Moss', 'Ancient', 'Earth'",
+      "status": "todo",
+      "evidence": "创意文案：标题'STONE. MOSS. ANCIENT.'、按钮'SUBMIT'→'CARVE'、'DEPLOY'→'GROW'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

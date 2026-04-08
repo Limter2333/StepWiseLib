@@ -1,0 +1,42 @@
+{
+  "id": "STORY-200",
+  "title": "UI风格#194 - Holographic Future (全息未来)",
+  "description": "创建第194种UI风格：全息未来风格 - 彩虹全息、金属质感、科幻光效。输出到 G:/claude_code_project/web/index_planGL.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Holographic Future style When color palette Then features holographic rainbow, silver, deep space black",
+      "status": "todo",
+      "evidence": "需要设计：#E8E8E8 (银白), #C0C0C0 (铬), #0A0A0F (深空), #FF6B6B (彩虹红), #4ECDC4 (彩虹青)"
+    },
+    {
+      "criterion": "Given Holographic Future style When typography Then uses futuristic: Orbitron, Exo 2, or Rajdhani",
+      "status": "todo",
+      "evidence": "字体选择：Orbitron (科幻), Exo 2 (未来), Rajdhani (技术)"
+    },
+    {
+      "criterion": "Given Holographic Future style When layout Then holographic panels, iridescent gradients, floating elements",
+      "status": "todo",
+      "evidence": "布局特点：全息面板、彩虹渐变、悬浮元素"
+    },
+    {
+      "criterion": "Given Holographic Future style When UI elements Then iridescent shimmer, light refraction, holographic edges",
+      "status": "todo",
+      "evidence": "交互特点：彩虹闪光、光线折射、全息边缘"
+    },
+    {
+      "criterion": "Given Holographic Future UI When functional Then includes quantum chat, holo agents, data stats",
+      "status": "todo",
+      "evidence": "功能需求：量子聊天、全息代理、数据统计"
+    },
+    {
+      "criterion": "Given Holographic Future UI When copy Then uses quantum: 'Quantum', 'Holo', 'Photon', 'Dimension'",
+      "status": "todo",
+      "evidence": "创意文案：标题'QUANTUM. HOLO. DIMENSION.'、按钮'SUBMIT'→'TRANSMIT'、'DEPLOY'→'MANIFEST'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

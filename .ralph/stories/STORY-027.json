@@ -1,0 +1,42 @@
+{
+  "id": "STORY-027",
+  "title": "UI风格#21 - Kawaii Pastel (可爱粉彩)",
+  "description": "创建第21种UI风格：可爱粉彩风格 - 柔和粉彩、圆润造型、糖果元素。输出到 G:/claude_code_project/web/index_planU.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Kawaii Pastel style When color palette Then features soft pastels with white, pink, mint, lavender",
+      "status": "todo",
+      "evidence": "需要设计：#FFB5C5 (粉), #B5EAD7 (薄荷), #E0BBE4 (薰衣草), #FFDFD3 (蜜桃), #FFFFFF (白)"
+    },
+    {
+      "criterion": "Given Kawaii Pastel style When typography Then uses rounded fonts: Quicksand, Nunito, or Comfortaa",
+      "status": "todo",
+      "evidence": "字体选择：Quicksand (显示), Nunito (正文), Comfortaa (替代)"
+    },
+    {
+      "criterion": "Given Kawaii Pastel style When layout Then soft cards, pastel backgrounds, rounded corners everywhere",
+      "status": "todo",
+      "evidence": "布局特点：柔和卡片、粉彩背景、圆润边角、糖果装饰"
+    },
+    {
+      "criterion": "Given Kawaii Pastel style When UI elements Then kawaii faces, soft shadows, bouncy animations",
+      "status": "todo",
+      "evidence": "交互特点：可爱表情符号、柔和阴影、弹跳动画、hover发光"
+    },
+    {
+      "criterion": "Given Kawaii Pastel UI When functional Then includes cute chat, pastel agents, candy stats",
+      "status": "todo",
+      "evidence": "功能需求：可爱聊天界面、粉彩代理、糖果统计"
+    },
+    {
+      "criterion": "Given Kawaii Pastel UI When copy Then uses kawaii language: 'Cute', 'Sweet', 'Sparkle', 'Dreamy'",
+      "status": "todo",
+      "evidence": "创意文案：标题'SWEET. CUTE. SPARKLE.'、按钮'SEND'→'HEARTS'、'SUBMIT'→'MAGIC'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

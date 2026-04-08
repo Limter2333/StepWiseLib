@@ -1,0 +1,42 @@
+{
+  "id": "STORY-136",
+  "title": "UI风格#130 - Brutalist Corporate (粗野企业)",
+  "description": "创建第130种UI风格：粗野企业风格 - 企业与粗野结合、力量感与专业。输出到 G:/claude_code_project/web/index_planDZ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Brutalist Corporate style When color palette Then features corporate blue, concrete gray, accent red, steel black",
+      "status": "pass",
+      "evidence": "Implemented: #1E3A5F (corporate-blue), #808080 (concrete-gray), #E63946 (accent-red), #2F2F2F (steel-black), #F5F5F5 (light-gray), #0D1B2A (dark-navy), #6B6B6B (medium-gray), #2D6A4F (success-green)"
+    },
+    {
+      "criterion": "Given Brutalist Corporate style When typography Then uses bold corporate: Oswald, Roboto, or Helvetica Neue",
+      "status": "pass",
+      "evidence": "Implemented: Oswald (headers 2.2rem 600 weight), Roboto (body 0.9rem 400-700 weight)"
+    },
+    {
+      "criterion": "Given Brutalist Corporate style When layout Then grid systems, bold dividers, data visualizations, metric blocks",
+      "status": "pass",
+      "evidence": "Implemented: grid-based layout, bold black dividers, corporate card blocks with shadow effects, KPI metric styling"
+    },
+    {
+      "criterion": "Given Brutalist Corporate style When UI elements Then concrete textures, sharp edges, corporate gradients",
+      "status": "pass",
+      "evidence": "Implemented: concrete texture overlay, sharp edge borders, corporate blue/red color scheme, bold box shadows"
+    },
+    {
+      "criterion": "Given Brutalist Corporate UI When functional Then includes boardroom chat, executive agents, KPI stats",
+      "status": "pass",
+      "evidence": "Implemented: boardroom chat, 4 executive agents (DEV SYN, RAG METRICS, PM EXEC, TEST POWER) with ROI/SCALE/KPI/PIPELINE/SYNERGY/LEVERAGE/VELOCITY/CAPACITY stats"
+    },
+    {
+      "criterion": "Given Brutalist Corporate UI When copy Then uses corporate: 'Synergy', 'Scalable', 'Leverage', 'ROI'",
+      "status": "pass",
+      "evidence": "Implemented: title 'SYNERGY. SCALABLE. LEVERAGE.', tagline '— BOARDROOM READY —', button 'PITCH', greeting 'Q4 STRATEGY SESSION ACTIVE. State your proposal for organizational alignment.', status 'ACTIVE'/'IDLE', nav 'BOARDROOM'/'APPROVE'/'METRICS'/'EXECUTIVE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

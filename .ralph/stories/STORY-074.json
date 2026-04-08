@@ -1,0 +1,42 @@
+{
+  "id": "STORY-074",
+  "title": "UI风格#68 - Art Nouveau Floral (新艺术花卉)",
+  "description": "创建第68种UI风格：新艺术花卉风格 - 百合绽放、藤蔓线条、柔和自然。输出到 G:/claude_code_project/web/index_planBP.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Art Nouveau Floral style When color palette Then features sage green, cream, dusty pink, antique gold",
+      "status": "pass",
+      "evidence": "Implemented: #9CAF88 (sage-green), #FFF8E7 (cream), #D4A5A5 (dusty-pink), #C9A227 (antique-gold), #E8E0D5 (linen)"
+    },
+    {
+      "criterion": "Given Art Nouveau Floral style When typography Then uses art nouveau fonts: Cormorant, Pinyon Script, or EB Garamond",
+      "status": "pass",
+      "evidence": "Implemented: Cormorant (headers 3.2rem 600 weight), Pinyon Script (tagline 1.5rem), EB Garamond (body 0.95rem)"
+    },
+    {
+      "criterion": "Given Art Nouveau Floral style When layout Then lily motifs, vine borders, organic curves",
+      "status": "pass",
+      "evidence": "Implemented: parchment texture SVG, radial gradient overlays, lily/flower emoji dividers, vine-line decorative elements, sage-green gradient backgrounds"
+    },
+    {
+      "criterion": "Given Art Nouveau Floral style When UI elements Then floral ornaments, nature frames, soft gradients",
+      "status": "pass",
+      "evidence": "Implemented: vine border with❧symbols, floral gradient top borders on cards, sage-green/gold borders, cream backgrounds, gentle hover lift effects"
+    },
+    {
+      "criterion": "Given Art Nouveau Floral UI When functional Then includes garden chat, lily agents, bloom stats",
+      "status": "pass",
+      "evidence": "Implemented: garden chat, 4 lily agents (Lily/Rose/Orchid/Daisy) with Petals/Verdant/Fronds/Garden/Shoots/Roots/Seeds/Growth stats"
+    },
+    {
+      "criterion": "Given Art Nouveau Floral UI When copy Then uses botanical romance: 'Bloom', 'Flourish', 'Lily', 'Verdant'",
+      "status": "pass",
+      "evidence": "Implemented: title 'BLOOM. FLOURISH. LILY.', tagline 'Where nature meets design', button 'PLANT', greeting 'Welcome to our sacred garden', status 'Blooming'/'Dormant', nav 'Garden'/'Greenhouse'/'Library'/'Pavilion'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

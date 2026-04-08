@@ -1,0 +1,74 @@
+[
+  {
+    "error_id": "ERR-20260403192740006767",
+    "timestamp": "2026-04-03T19:27:40.006767",
+    "error_type": "SessionError",
+    "level": "ERROR",
+    "message": "'NoneType' object has no attribute 'isoformat'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260403192740020478",
+    "timestamp": "2026-04-03T19:27:40.020478",
+    "error_type": "GetSessionError",
+    "level": "ERROR",
+    "message": "'NoneType' object has no attribute 'isoformat'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260403194831718405",
+    "timestamp": "2026-04-03T19:48:31.718405",
+    "error_type": "ChatError",
+    "level": "ERROR",
+    "message": "'str' object has no attribute 'value'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260403194836101444",
+    "timestamp": "2026-04-03T19:48:36.101444",
+    "error_type": "ChatError",
+    "level": "ERROR",
+    "message": "'str' object has no attribute 'value'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260403201724249911",
+    "timestamp": "2026-04-03T20:17:24.249911",
+    "error_type": "ChatError",
+    "level": "ERROR",
+    "message": "'str' object has no attribute 'value'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260403213228414257",
+    "timestamp": "2026-04-03T21:32:28.414257",
+    "error_type": "ChatError",
+    "level": "ERROR",
+    "message": "'str' object has no attribute 'value'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260403213458867506",
+    "timestamp": "2026-04-03T21:34:58.867506",
+    "error_type": "ListError",
+    "level": "ERROR",
+    "message": "An instance of Chroma already exists for ephemeral with different settings",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260403214851362993",
+    "timestamp": "2026-04-03T21:48:51.362993",
+    "error_type": "ChatError",
+    "level": "ERROR",
+    "message": "'str' object has no attribute 'value'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260403215743836354",
+    "timestamp": "2026-04-03T21:57:43.836354",
+    "error_type": "ChatError",
+    "level": "ERROR",
+    "message": "'str' object has no attribute 'value'",
+    "context": {}
+  }
+]

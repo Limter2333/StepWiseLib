@@ -1,0 +1,42 @@
+{
+  "id": "STORY-067",
+  "title": "UI风格#61 - Edwardian Elegance (爱德华典雅)",
+  "description": "创建第61种UI风格：爱德华典雅风格 - 1900年代优雅、蕾丝质感、玫瑰花园。输出到 G:/claude_code_project/web/index_planBI.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Edwardian Elegance style When color palette Then features cream, dusty rose, sage green, champagne gold",
+      "status": "pass",
+      "evidence": "Implemented: #FFF8E7 (cream), #D4A5A5 (dusty-rose), #9CAF88 (sage-green), #D4AF37 (champagne-gold), #E8E0D5 (linen), #F5E1E1 (soft-pink)"
+    },
+    {
+      "criterion": "Given Edwardian Elegance style When typography Then uses elegant period fonts: Cormorant, EB Garamond, or Bodoni",
+      "status": "pass",
+      "evidence": "Implemented: Cormorant (headers 3.5rem italic), EB Garamond (body 0.95rem italic)"
+    },
+    {
+      "criterion": "Given Edwardian Elegance style When layout Then lace patterns, rose borders, garden composition",
+      "status": "pass",
+      "evidence": "Implemented: lace SVG pattern overlay, gradient background (cream to soft-pink), ornate border with flower ornament, rose divider with ❧ ornaments"
+    },
+    {
+      "criterion": "Given Edwardian Elegance style When UI elements Then lace textures, rose motifs, gilded accents",
+      "status": "pass",
+      "evidence": "Implemented: dotted borders, gold inner frame on chat, italic serif text throughout, ornate flower decorations, soft shadows"
+    },
+    {
+      "criterion": "Given Edwardian Elegance UI When functional Then includes parlor chat, lady agents, garden stats",
+      "status": "pass",
+      "evidence": "Implemented: drawing room chat, 4 Edwardian ladies (Victoria/Eleanor/Elizabeth/Charlotte) with Tea Cups/Elegance/Roses/Charm/Sprints/Grace/Tests/Purity stats"
+    },
+    {
+      "criterion": "Given Edwardian Elegance UI When copy Then uses genteel language: 'Grace', ' refinement', 'Dignity', 'Charm'",
+      "status": "pass",
+      "evidence": "Implemented: title 'GRACE. REFINEMENT. CHARM.', tagline 'Where elegance meets conversation', button 'CALL', greeting 'How delightful to receive you', status 'Receiving'/'Resting', nav 'Estate'/'Conservatory'/'Manor'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

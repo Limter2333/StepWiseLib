@@ -1,0 +1,42 @@
+{
+  "id": "STORY-190",
+  "title": "UI风格#184 - Comic Book Pop (漫画书流行)",
+  "description": "创建第184种UI风格：漫画书流行风格 - 漫画书美学、网点效果、对话气泡。输出到 G:/claude_code_project/web/index_planGB.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Comic Book Pop style When color palette Then features bold primary colors, halftone dots, high contrast",
+      "status": "todo",
+      "evidence": "需要设计：#FF0000 (漫画红), #0000FF (漫画蓝), #FFFF00 (漫画黄), #000000 (黑色), #FFFFFF (白色)"
+    },
+    {
+      "criterion": "Given Comic Book Pop style When typography Then uses comic display: Bangers, Comic Neue, or Permanent Marker",
+      "status": "todo",
+      "evidence": "字体选择：Bangers (漫画标题), Comic Neue (漫画正文), Permanent Marker (手写)"
+    },
+    {
+      "criterion": "Given Comic Book Pop style When layout Then panel layout, speech bubbles, action burst, halftone patterns",
+      "status": "todo",
+      "evidence": "布局特点：面板布局、对话气泡、动作爆发、网点图案"
+    },
+    {
+      "criterion": "Given Comic Book Pop style When UI elements Then speech pop, action lines, zoom burst, dot screen",
+      "status": "todo",
+      "evidence": "交互特点：对话弹出、动作线条、缩放爆发、点屏"
+    },
+    {
+      "criterion": "Given Comic Book Pop UI When functional Then includes panel chat, hero agents, power stats",
+      "status": "todo",
+      "evidence": "功能需求：面板聊天、英雄代理、力量统计"
+    },
+    {
+      "criterion": "Given Comic Book Pop UI When copy Then uses comic action: 'POW', 'WHAM', 'ZAP', 'BOOM'",
+      "status": "todo",
+      "evidence": "创意文案：标题'POW! WHAM! ZAP!'、按钮'SUBMIT'→'WHAM'、'DEPLOY'→'POW'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

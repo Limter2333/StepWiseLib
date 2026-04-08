@@ -1,0 +1,42 @@
+{
+  "id": "STORY-065",
+  "title": "UI风格#59 - Moroccan Night (摩洛哥之夜)",
+  "description": "创建第59种UI风格：摩洛哥之夜风格 - 深夜集市、灯笼光晕、神秘紫色。输出到 G:/claude_code_project/web/index_planBG.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Moroccan Night style When color palette Then features deep purple, lantern gold, terracotta, midnight blue",
+      "status": "pass",
+      "evidence": "Implemented: #2D1B4E (deep-purple), #D4A017 (lantern-gold), #8B4513 (terracotta), #1A1A3E (midnight-blue), #FFE4B5 (sand-gold), #FFF8DC (star-white)"
+    },
+    {
+      "criterion": "Given Moroccan Night style When typography Then uses ornate fonts: Playfair Display, Scheherazade New, or Cinzel",
+      "status": "pass",
+      "evidence": "Implemented: Playfair Display (headers 3.5rem italic), Cinzel (body 0.95rem serif)"
+    },
+    {
+      "criterion": "Given Moroccan Night style When layout Then lantern glow, arch doorways, night sky gradients",
+      "status": "pass",
+      "evidence": "Implemented: night gradient background (midnight-blue to deep-purple to terracotta), 50 twinkling stars, 3 radial lantern glow overlays"
+    },
+    {
+      "criterion": "Given Moroccan Night style When UI elements Then glowing lanterns, ornate borders, starry night",
+      "status": "pass",
+      "evidence": "Implemented: lantern icon sway animation, gold glow text-shadows, twinkle star animations, ornate gold borders, lantern-glow gradient backgrounds"
+    },
+    {
+      "criterion": "Given Moroccan Night UI When functional Then includes bazaar chat, merchant agents, night stats",
+      "status": "pass",
+      "evidence": "Implemented: night bazaar chat, 4 merchant agents (Scheherazade/Aladdin/Sultan/Ibn Battuta) with Tales/Mystery/Lamps/Magic/Sprints/Wisdom/Voyages/Discovery stats"
+    },
+    {
+      "criterion": "Given Moroccan Night UI When copy Then uses exotic night: 'Night', 'Lantern', 'Souk', 'Stars'",
+      "status": "pass",
+      "evidence": "Implemented: title 'NIGHT. LANTERN. SOUK.', tagline 'Where shadows tell stories', button 'EXPLORE', greeting 'The lanterns flicker in the night breeze', status 'Exploring'/'Resting', nav 'Medina'/'Palace'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

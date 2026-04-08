@@ -1,0 +1,42 @@
+{
+  "id": "STORY-054",
+  "title": "UI风格#48 - Renaissance Portrait (文艺复兴肖像)",
+  "description": "创建第48种UI风格：文艺复兴肖像风格 - 古典油画、金色画框、博物馆感。输出到 G:/claude_code_project/web/index_planAV.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Renaissance Portrait style When color palette Then features aged canvas, gold leaf, deep burgundy, umber",
+      "status": "pass",
+      "evidence": "Implemented: #F5E6D3 (画布), #D4AF37 (金箔), #722F37 (深酒红), #5C4033 (棕土), #FAF0E6 (亚麻)"
+    },
+    {
+      "criterion": "Given Renaissance Portrait style When typography Then uses classical fonts: Cinzel, IM Fell English, or Cormorant",
+      "status": "pass",
+      "evidence": "Implemented: Cinzel (标题), Cormorant Garamond (正文)"
+    },
+    {
+      "criterion": "Given Renaissance Portrait style When layout Then ornate frames, classical compositions, museum walls",
+      "status": "pass",
+      "evidence": "Implemented: gold frame border with corners, canvas texture SVG, museum dark gradient background"
+    },
+    {
+      "criterion": "Given Renaissance Portrait style When UI elements Then gold frames, canvas textures, oil paint effects",
+      "status": "pass",
+      "evidence": "Implemented: gold border frame, canvas texture overlay, portrait card hover effects"
+    },
+    {
+      "criterion": "Given Renaissance Portrait UI When functional Then includes gallery chat, master agents, portrait stats",
+      "status": "pass",
+      "evidence": "Implemented: grand gallery chat, 4 master cards (Master/Scribe/Patron/Alchemist) with masterwork stats"
+    },
+    {
+      "criterion": "Given Renaissance Portrait UI When copy Then uses classical art: 'Master', 'Portrait', 'Canvas', 'Muse'",
+      "status": "pass",
+      "evidence": "Implemented: title 'MASTER. PORTRAIT. CANVAS.', button 'POSE', status 'Painting'/'Resting', nav 'Atrium'/'Library'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T02:50:00.000000"
+}

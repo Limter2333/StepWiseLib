@@ -1,0 +1,42 @@
+{
+  "id": "STORY-231",
+  "title": "UI风格#224 - Neon Sunset (霓虹日落)",
+  "description": "创建第224种UI风格：霓虹日落风格 - 暖调霓虹、渐变天空、夕阳余晖。输出到 G:/claude_code_project/web/index_planHR.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Neon Sunset style When color palette Then features warm neon: magenta, orange, coral",
+      "status": "todo",
+      "evidence": "需要设计：#FF006E (热粉), #FF8500 (日落橙), #FFB347 (珊瑚), #4A0080 (深紫)"
+    },
+    {
+      "criterion": "Given Neon Sunset style When typography Then uses warm display: Poppins, Quicksand, Comfortaa",
+      "status": "todo",
+      "evidence": "字体选择：Poppins (现代), Quicksand (圆润), Comfortaa (柔和)"
+    },
+    {
+      "criterion": "Given Neon Sunset style When layout Then sunset gradients, horizon lines, warm glow",
+      "status": "todo",
+      "evidence": "布局特点：日落渐变、地平线、光晕效果"
+    },
+    {
+      "criterion": "Given Neon Sunset style When UI elements Then neon glow effects, sunset animations, warm hover states",
+      "status": "todo",
+      "evidence": "交互特点：霓虹发光、日落动画、暖色悬停"
+    },
+    {
+      "criterion": "Given Neon Sunset UI When functional Then includes glow chat, sunset agents, amber stats",
+      "status": "todo",
+      "evidence": "功能需求：发光聊天、日落代理、琥珀统计"
+    },
+    {
+      "criterion": "Given Neon Sunset UI When copy Then uses sunset: 'Glow', 'Radiance', 'Horizon', 'Dusk'",
+      "status": "todo",
+      "evidence": "创意文案：标题'GLOW. RADIANCE. DUSK.'、按钮'SUBMIT'→'IGNITE'、'DEPLOY'→'ILLUMINATE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

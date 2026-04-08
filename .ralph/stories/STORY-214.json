@@ -1,0 +1,42 @@
+{
+  "id": "STORY-214",
+  "title": "UI风格#208 - Mystical Dark (神秘暗色)",
+  "description": "创建第208种UI风格：神秘暗色风格 - 魔法氛围、星光闪烁、古老神秘。输出到 G:/claude_code_project/web/index_planGZ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Mystical Dark style When color palette Then features deep purple, starlight, silver, midnight blue",
+      "status": "todo",
+      "evidence": "需要设计：#1A0A2E (深紫), #FFD700 (星光), #C0C0C0 (银), #191970 (午夜蓝)"
+    },
+    {
+      "criterion": "Given Mystical Dark style When typography Then uses mystical serif: Cinzel, Cormorant, Trajan",
+      "status": "todo",
+      "evidence": "字体选择：Cinzel (神秘), Cormorant (优雅), Trajan (古典)"
+    },
+    {
+      "criterion": "Given Mystical Dark style When layout Then star constellations, magical circles, ancient symbols",
+      "status": "todo",
+      "evidence": "布局特点：星象图、魔法圆、古老符号"
+    },
+    {
+      "criterion": "Given Mystical Dark style When UI elements Then starlight twinkle, magical glow, ethereal mist",
+      "status": "todo",
+      "evidence": "交互特点：星光闪烁、魔法发光、空灵薄雾"
+    },
+    {
+      "criterion": "Given Mystical Dark UI When functional Then includes oracle chat, wizard agents, magic stats",
+      "status": "todo",
+      "evidence": "功能需求：神谕聊天、巫师代理、魔法统计"
+    },
+    {
+      "criterion": "Given Mystical Dark UI When copy Then uses mystical: 'Oracle', 'Mystic', 'Arcane', 'Enchant'",
+      "status": "todo",
+      "evidence": "创意文案：标题'ORACLE. MYSTIC. ARCANE.'、按钮'SUBMIT'→'DIVINE'、'DEPLOY'→'ENCHANT'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

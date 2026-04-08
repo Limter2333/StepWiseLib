@@ -1,0 +1,42 @@
+{
+  "id": "STORY-202",
+  "title": "UI风格#196 - Retro Arcade (复古街机)",
+  "description": "创建第196种UI风格：复古街机风格 - 80年代街机游戏、像素艺术、霓虹灯光。输出到 G:/claude_code_project/web/index_planGN.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Retro Arcade style When color palette Then features arcade neon, black, CRT glow",
+      "status": "todo",
+      "evidence": "需要设计：#FF0055 (街机红), #00FF00 (街机绿), #FFFF00 (街机黄), #000000 (黑), #FF00FF (品红)"
+    },
+    {
+      "criterion": "Given Retro Arcade style When typography Then uses pixel: Press Start 2P, Silkscreen",
+      "status": "todo",
+      "evidence": "字体选择：Press Start 2P (像素), Silkscreen (丝印)"
+    },
+    {
+      "criterion": "Given Retro Arcade style When layout Then pixel art borders, arcade cabinet feel, high score display",
+      "status": "todo",
+      "evidence": "布局特点：像素艺术边框、街机柜感受、高分显示"
+    },
+    {
+      "criterion": "Given Retro Arcade style When UI elements Then pixel animations, joystick feel, 8-bit sounds",
+      "status": "todo",
+      "evidence": "交互特点：像素动画、摇杆感、8位音效"
+    },
+    {
+      "criterion": "Given Retro Arcade UI When functional Then includes game chat, player agents, score stats",
+      "status": "todo",
+      "evidence": "功能需求：游戏聊天、玩家代理、得分统计"
+    },
+    {
+      "criterion": "Given Retro Arcade UI When copy Then uses arcade: 'Insert Coin', 'Game Over', 'High Score'",
+      "status": "todo",
+      "evidence": "创意文案：标题'INSERT COIN TO PLAY'、按钮'SUBMIT'→'PLAY'、'DEPLOY'→'START'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

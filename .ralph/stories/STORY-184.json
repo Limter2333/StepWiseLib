@@ -1,0 +1,42 @@
+{
+  "id": "STORY-184",
+  "title": "UI风格#178 - Synthwave Sunset (合成波日落)",
+  "description": "创建第178种UI风格：合成波日落风格 - 80年代日落渐变、网格透视、霓虹轮廓。输出到 G:/claude_code_project/web/index_planFV.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Synthwave Sunset style When color palette Then features purple, pink, orange sunset gradient",
+      "status": "todo",
+      "evidence": "需要设计：#FF6B6B (日落红), #FFA07A (日落橙), #DA70D6 (紫红), #4B0082 (靛蓝), #000000 (黑色)"
+    },
+    {
+      "criterion": "Given Synthwave Sunset style When typography Then uses retro futurist: Audiowide, Orbitron, or Teko",
+      "status": "todo",
+      "evidence": "字体选择：Audiowide (复古未来), Orbitron (科幻), Teko (技术)"
+    },
+    {
+      "criterion": "Given Synthwave Sunset style When layout Then perspective grid, sun horizon, layered mountains silhouette",
+      "status": "todo",
+      "evidence": "布局特点：透视网格、太阳地平线、分层山脉剪影"
+    },
+    {
+      "criterion": "Given Synthwave Sunset style When UI elements Then neon glow, grid animation, sun rays, chrome text",
+      "status": "todo",
+      "evidence": "交互特点：霓虹发光、网格动画、太阳光线、铬金文字"
+    },
+    {
+      "criterion": "Given Synthwave Sunset UI When functional Then includes neon chat, synth agents, retrowave stats",
+      "status": "todo",
+      "evidence": "功能需求：霓虹聊天、合成代理、复古统计"
+    },
+    {
+      "criterion": "Given Synthwave Sunset UI When copy Then uses synthwave: 'Neon', 'Synth', 'Wave', 'Retro'",
+      "status": "todo",
+      "evidence": "创意文案：标题'NEON. SYNTH. WAVE.'、按钮'SUBMIT'→'SPARK'、'DEPLOY'→'IGNITE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

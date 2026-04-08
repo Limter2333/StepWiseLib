@@ -1,0 +1,42 @@
+{
+  "id": "STORY-072",
+  "title": "UI风格#66 - Victorian Steampunk (维多利亚蒸汽)",
+  "description": "创建第66种UI风格：维多利亚蒸汽风格 - 工业革命、齿轮铜管、绅士冒险。输出到 G:/claude_code_project/web/index_planBN.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Victorian Steampunk style When color palette Then features brass, copper, dark mahogany, steam white",
+      "status": "pass",
+      "evidence": "Implemented: #B87333 (brass), #C9A227 (copper), #3D2314 (mahogany), #F5F5DC (steam-white), #4A3728 (coal-brown), #CD7F32 (bronze)"
+    },
+    {
+      "criterion": "Given Victorian Steampunk style When typography Then uses victorian fonts: Cinzel, IM Fell English, or Playfair Display",
+      "status": "pass",
+      "evidence": "Implemented: Cinzel (headers 3rem 700 weight), IM Fell English (body 0.95rem italic)"
+    },
+    {
+      "criterion": "Given Victorian Steampunk style When layout Then gear mechanisms, pipe networks, leather textures",
+      "status": "pass",
+      "evidence": "Implemented: rotating gear decorations (3 gears), brass border with gear symbol, pipe divider with joints, dark leather-brown gradient background"
+    },
+    {
+      "criterion": "Given Victorian Steampunk style When UI elements Then brass buttons, gear animations, leather panels",
+      "status": "pass",
+      "evidence": "Implemented: brass gradient borders, gear border decorations, dashed inner frame, copper text shadows, pipe-shaped dividers"
+    },
+    {
+      "criterion": "Given Victorian Steampunk UI When functional Then includes workshop chat, inventor agents, steam stats",
+      "status": "pass",
+      "evidence": "Implemented: workshop chat, 4 inventor agents (Tesla/Edison/Darwin/Curie) with Inventions/Pressure/Patents/Innovation/Sprints/Theory/Experiments/Discovery stats"
+    },
+    {
+      "criterion": "Given Victorian Steampunk UI When copy Then uses victorian industrial: 'Engine', 'Boiler', 'Piston', 'Pressure'",
+      "status": "pass",
+      "evidence": "Implemented: title 'ENGINE. BOILER. PRESSURE.', tagline 'For the advancement of mechanical arts', button 'IGNITE', greeting 'The boilers are heated and the engines are primed', status 'Engineering'/'Idle', nav 'Engine Room'/'Forge'/'Office'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

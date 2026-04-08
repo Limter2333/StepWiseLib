@@ -1,0 +1,42 @@
+{
+  "id": "STORY-163",
+  "title": "UI风格#157 - Brutalist Brutalism (粗野粗野)",
+  "description": "创建第157种UI风格：粗野粗野风格 - 极端粗野主义、混凝土之混凝土。输出到 G:/claude_code_project/web/index_planFA.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Brutalist Brutalism style When color palette Then features raw concrete, exposed aggregate, rust, black",
+      "status": "pass",
+      "evidence": "Implemented: #808080 (concrete), #696969 (aggregate), #8B4513 (rust), #0D0D0D (black), #1A1A1A (dark-gray), #4A4A4A (formwork), #B8860B (rebar)"
+    },
+    {
+      "criterion": "Given Brutalist Brutalism style When typography Then uses brutal fonts: Oswald, Roboto Mono, or Anton",
+      "status": "pass",
+      "evidence": "Implemented: Anton (headers 4rem extreme display), Oswald (architect names), Roboto Mono (body 0.9rem) - brutal typography"
+    },
+    {
+      "criterion": "Given Brutalist Brutalism style When layout Then raw concrete blocks, exposed rebar, formwork marks, monumental scale",
+      "status": "pass",
+      "evidence": "Implemented: massive block layout, exposed rebar accents, formwork line borders, monumental 8px borders, formwork pattern backgrounds"
+    },
+    {
+      "criterion": "Given Brutalist Brutalism style When UI elements Then concrete texture, rebar accents, formwork lines, raw edges",
+      "status": "pass",
+      "evidence": "Implemented: SVG noise concrete texture overlay, rust-colored rebar accents, horizontal formwork stripes, raw edge borders, 4px thick brutalist borders"
+    },
+    {
+      "criterion": "Given Brutalist Brutalism UI When functional Then includes concrete chat, architect agents, load stats",
+      "status": "pass",
+      "evidence": "Implemented: Structural chat with 'STRUCTURAL ANALYSIS' header, 4 architect agents (BEAM, SLAB, PIER, FOUNDATION) with Load/Stress/Mass/Density/Height/Depth/Bearing stats"
+    },
+    {
+      "criterion": "Given Brutalist Brutalism UI When copy Then uses brutal architecture: 'Mass', 'Concrete', 'Load', 'Structure'",
+      "status": "pass",
+      "evidence": "Implemented: title 'MASS. CONCRETE. LOAD.', tagline '// STRUCTURAL INTEGRITY ANALYSIS //', button 'POUR', greeting 'THE STRUCTURE STANDS. STATE YOUR LOAD REQUIREMENTS.', status 'ACTIVE'/'IDLE', nav 'Mass'/'Pour'/'Raise'/'Structure'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

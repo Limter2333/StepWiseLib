@@ -1,0 +1,42 @@
+{
+  "id": "STORY-113",
+  "title": "UI风格#107 - Irish Pub (爱尔兰酒吧)",
+  "description": "创建第107种UI风格：爱尔兰酒吧风格 - 精酿啤酒、壁炉火焰、老式木屋。输出到 G:/claude_code_project/web/index_planDC.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Irish Pub style When color palette Then features stout brown, amber ale, cream foam, turf fire",
+      "status": "todo",
+      "evidence": "需要设计：#3C1414 (烈性黑啤), #D4A574 (麦芽), #FFF8DC (泡沫), #8B4513 (泥炭火), #228B22 (爱尔兰绿)"
+    },
+    {
+      "criterion": "Given Irish Pub style When typography Then uses rustic fonts: Lora, Merriweather, or Bitter",
+      "status": "todo",
+      "evidence": "字体选择：Lora (标题), Merriweather (正文), Bitter (装饰)"
+    },
+    {
+      "criterion": "Given Irish Pub style When layout Then wood paneling, beer taps, fireplace glow, shamrock accents",
+      "status": "todo",
+      "evidence": "布局特点：木质镶板、啤酒龙头、壁炉火光、三叶草点缀"
+    },
+    {
+      "criterion": "Given Irish Pub style When UI elements Then beer pour animation, fire flicker, wood grain texture",
+      "status": "todo",
+      "evidence": "交互特点：啤酒倾倒动画、火焰闪烁、木纹质感、泡沫升腾"
+    },
+    {
+      "criterion": "Given Irish Pub UI When functional Then includes pub chat, brewer agents, pint stats",
+      "status": "todo",
+      "evidence": "功能需求：酒吧聊天、酿酒师代理、酒杯统计"
+    },
+    {
+      "criterion": "Given Irish Pub UI When copy Then uses pub language: 'Pint', 'Pour', 'Cask', 'Brew'",
+      "status": "todo",
+      "evidence": "创意文案：标题'PINT. POUR. CASKS.'、按钮'SEND'→'ORDER'、'SUBMIT'→'BREW'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

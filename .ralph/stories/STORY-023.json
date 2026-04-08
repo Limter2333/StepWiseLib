@@ -1,0 +1,42 @@
+{
+  "id": "STORY-023",
+  "title": "UI风格#17 - Synthwave Sunset (合成波日落)",
+  "description": "创建第17种UI风格：合成波风格 - 粉紫橙日落、网格透视、80年代复古未来。输出到 G:/claude_code_project/web/index_planQ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Synthwave style When color palette Then features pink, purple, orange sunset gradients on dark background",
+      "status": "pass",
+      "evidence": "Implemented: #FF6E9C (pink), #C850C0 (purple), #FFCC70 (orange), #1A1A2E (deep blue-black) palette"
+    },
+    {
+      "criterion": "Given Synthwave style When typography Then uses retro-futuristic fonts: Audiowide, Orbitron, or Rajdhani",
+      "status": "pass",
+      "evidence": "Implemented: Audiowide (headers), Orbitron (body), Rajdhani (accents)"
+    },
+    {
+      "criterion": "Given Synthwave style When layout Then perspective grid, sunset gradient, floating geometric shapes",
+      "status": "pass",
+      "evidence": "Implemented: perspective grid floor, sunset gradient sky, floating shapes, retro sun"
+    },
+    {
+      "criterion": "Given Synthwave style When UI elements Then chrome text, glowing borders, neon outlines, grid floors",
+      "status": "pass",
+      "evidence": "Implemented: chrome text effect, neon glow borders, grid floor animation, scanlines"
+    },
+    {
+      "criterion": "Given Synthwave UI When functional Then includes retro chat, glowing agents, sunset stats",
+      "status": "pass",
+      "evidence": "Implemented: terminal chat with glow, neon agent cards, sunset stats panel"
+    },
+    {
+      "criterion": "Given Synthwave UI When copy Then uses retro-futuristic: 'Neon Dreams', 'Chrome Horizon', 'Future Past'",
+      "status": "pass",
+      "evidence": "Implemented: title 'NEON DREAMS. CHROME HORIZON.', buttons TRANSMIT/BOOT/GRID/SCAN, status ONLINE/OVERDRIVE/STANDBY"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

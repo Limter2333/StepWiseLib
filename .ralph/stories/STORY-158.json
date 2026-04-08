@@ -1,0 +1,42 @@
+{
+  "id": "STORY-158",
+  "title": "UI风格#152 - Nordic Paper (北欧纸张)",
+  "description": "创建第152种UI风格：北欧纸张风格 - 北欧设计与纸张质感结合。输出到 G:/claude_code_project/web/index_planEV.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Nordic Paper style When color palette Then features paper white, soft gray, muted blue, black ink",
+      "status": "pass",
+      "evidence": "Implemented: #FAFAFA (paper-white), #E0E0E0 (soft-gray), #6B8BA4 (muted-blue), #1A1A1A (ink-black), #9A9A9A (warm-gray), #F5F5F0 (cream), #8B7B6B (soft-brown)"
+    },
+    {
+      "criterion": "Given Nordic Paper style When typography Then uses nordic sans: Montserrat, Josefin Sans, or Lato",
+      "status": "pass",
+      "evidence": "Implemented: Montserrat (headers 1.6rem 600 weight), Josefin Sans (body 0.9rem 300-500 weight) - nordic minimalist typography"
+    },
+    {
+      "criterion": "Given Nordic Paper style When layout Then clean paper, soft shadows, minimal design, functional grid",
+      "status": "pass",
+      "evidence": "Implemented: paper white cards with soft shadows, minimal 1px borders, functional grid layout, subtle paper texture"
+    },
+    {
+      "criterion": "Given Nordic Paper style When UI elements Then paper texture, soft edges, gentle shadows, clean lines",
+      "status": "pass",
+      "evidence": "Implemented: subtle paper texture overlay, gentle shadows, minimal clean lines, muted blue accents"
+    },
+    {
+      "criterion": "Given Nordic Paper UI When functional Then includes paper chat, nordic agents, craft stats",
+      "status": "pass",
+      "evidence": "Implemented: Nordic Workshop chat, 4 nordic agents (Lars Craft, Ingrid Design, Erik Simple, Sigrid Nordic) with Craft/Fold/Paper/Create/Pure/Clarity/Nordic/Peace stats"
+    },
+    {
+      "criterion": "Given Nordic Paper UI When copy Then uses paper craft: 'Paper', 'Craft', 'Nordic', 'Simple'",
+      "status": "pass",
+      "evidence": "Implemented: title 'PAPER. CRAFT. NORDIC.', tagline '— simple by design —', button 'FOLD', greeting 'Welcome to the workshop. Here we craft with purpose and simplicity...', status 'ACTIVE'/'IDLE', nav 'Paper'/'Fold'/'Create'/'Nordic'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "STORY-207",
+  "title": "UI风格#201 - Corporate Memphis (企业孟菲斯)",
+  "description": "创建第201种UI风格：企业孟菲斯风格 - 扁平人物、夸张形状、明亮色彩。输出到 G:/claude_code_project/web/index_planGS.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Corporate Memphis style When color palette Then features bright flat colors, peachy skin, bold backgrounds",
+      "status": "todo",
+      "evidence": "需要设计：#FF6B6B (珊瑚红), #4ECDC4 (薄荷绿), #FFE66D (阳光黄), #95E1D3 (浅绿)"
+    },
+    {
+      "criterion": "Given Corporate Memphis style When typography Then uses friendly sans: Nunito, Quicksand, Poppins",
+      "status": "todo",
+      "evidence": "字体选择：Nunito (友好), Quicksand (柔和), Poppins (现代)"
+    },
+    {
+      "criterion": "Given Corporate Memphis style When layout Then flat illustration style, abstract human figures, blob shapes",
+      "status": "todo",
+      "evidence": "布局特点：扁平插画风格、抽象人物、不规则形状"
+    },
+    {
+      "criterion": "Given Corporate Memphis style When UI elements Then bouncy animations, blob backgrounds, flat shadows",
+      "status": "todo",
+      "evidence": "交互特点：弹跳动画、不规则背景、扁平阴影"
+    },
+    {
+      "criterion": "Given Corporate Memphis UI When functional Then includes team chat, human agents, teamwork stats",
+      "status": "todo",
+      "evidence": "功能需求：团队聊天、人物代理、协作统计"
+    },
+    {
+      "criterion": "Given Corporate Memphis UI When copy Then uses team: 'Team', 'Collaborate', 'Together', 'Share'",
+      "status": "todo",
+      "evidence": "创意文案：标题'TEAM. COLLABORATE. TOGETHER.'、按钮'SUBMIT'→'SHARE'、'DEPLOY'→'UNITE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

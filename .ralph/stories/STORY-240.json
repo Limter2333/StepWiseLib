@@ -1,0 +1,42 @@
+{
+  "id": "STORY-240",
+  "title": "UI风格#233 - Synthwave Horizon (合成波地平线)",
+  "description": "创建第233种UI风格：合成波地平线风格 - 复古未来、网格地面、霓虹日落。输出到 G:/claude_code_project/web/index_planIA.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Synthwave Horizon style When color palette Then features hot pink, electric blue, purple sunset",
+      "status": "todo",
+      "evidence": "需要设计：#FF00FF (品红), #00FFFF (青色), #8A2BE2 (蓝紫), #191970 (午夜蓝)"
+    },
+    {
+      "criterion": "Given Synthwave Horizon style When typography Then uses retrofuturistic: Orbitron, Rajdhani, Audiowide",
+      "status": "todo",
+      "evidence": "字体选择：Orbitron (科幻), Rajdhani (几何), Audiowide (宽体)"
+    },
+    {
+      "criterion": "Given Synthwave Horizon style When layout Then grid horizon, retro sun, 80s perspective",
+      "status": "todo",
+      "evidence": "布局特点：网格地平线、复古太阳、80年代透视"
+    },
+    {
+      "criterion": "Given Synthwave Horizon style When UI elements Then chrome text, glow effects, grid animation",
+      "status": "todo",
+      "evidence": "交互特点：铬金文字、光晕效果、网格动画"
+    },
+    {
+      "criterion": "Given Synthwave Horizon UI When functional Then includes grid chat, retro agents, neon stats",
+      "status": "todo",
+      "evidence": "功能需求：网格聊天、复古代理、霓虹统计"
+    },
+    {
+      "criterion": "Given Synthwave Horizon UI When copy Then uses retrofuturistic: 'Grid', 'Horizon', 'Retro', 'Wave'",
+      "status": "todo",
+      "evidence": "创意文案：标题'GRID. HORIZON. WAVE.'、按钮'SUBMIT'→'SURGE'、'DEPLOY'→'ACCELERATE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

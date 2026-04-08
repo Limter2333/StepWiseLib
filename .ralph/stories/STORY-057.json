@@ -1,0 +1,42 @@
+{
+  "id": "STORY-057",
+  "title": "UI风格#51 - Abstract Expressionism (抽象表现主义)",
+  "description": "创建第51种UI风格：抽象表现主义风格 - 艺术画廊、粗犷笔触、情感表达。输出到 G:/claude_code_project/web/index_planAY.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Abstract Expressionism style When color palette Then features bold primaries, splatter colors, raw canvas",
+      "status": "pass",
+      "evidence": "Implemented: #FF0000 (红), #0000FF (蓝), #FFFF00 (黄), #F5F5DC (画布), #9B59B6 (紫), #FF6B35 (橙)"
+    },
+    {
+      "criterion": "Given Abstract Expressionism style When typography Then uses expressive fonts: Abstract, Tangerine, or Pinyon Script",
+      "status": "pass",
+      "evidence": "Implemented: Tangerine (标题 5rem), Roboto Mono (正文)"
+    },
+    {
+      "criterion": "Given Abstract Expressionism style When layout Then splatter backgrounds, bold strokes, asymmetric balance",
+      "status": "pass",
+      "evidence": "Implemented: 5 colored splatter divs with blur, brush stroke borders (gradient bars), offset shadows"
+    },
+    {
+      "criterion": "Given Abstract Expressionism style When UI elements Then paint splatters, brush stroke borders, drip effects",
+      "status": "pass",
+      "evidence": "Implemented: splatter background blobs, offset box-shadows, bold 3px borders, rotate transforms on cards"
+    },
+    {
+      "criterion": "Given Abstract Expressionism UI When functional Then includes gallery chat, artist agents, canvas stats",
+      "status": "pass",
+      "evidence": "Implemented: studio chat, 4 artist cards (Pollock/Rothko/Kandinsky/Kahlo) with stroke/color stats"
+    },
+    {
+      "criterion": "Given Abstract Expressionism UI When copy Then uses artistic expression: 'Express', 'Splash', 'Stroke', 'Raw'",
+      "status": "pass",
+      "evidence": "Implemented: title with colored spans 'EXPRESS. SPLASH. RAW.', button 'SPLASH', status 'Painting'/'Resting'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T03:20:00.000000"
+}

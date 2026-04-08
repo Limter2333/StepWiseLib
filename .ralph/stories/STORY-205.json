@@ -1,0 +1,42 @@
+{
+  "id": "STORY-205",
+  "title": "UI风格#199 - Sci-Fi Scanner (科幻扫描)",
+  "description": "创建第199种UI风格：科幻扫描风格 - 全息扫描、蓝色发光、科幻界面。输出到 G:/claude_code_project/web/index_planGQ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Sci-Fi Scanner style When color palette Then features scanner blue, cyan glow, dark space",
+      "status": "todo",
+      "evidence": "需要设计：#00BFFF (扫描蓝), #00FFFF (青色), #0A0A1A (深空), #1A1A3A (暗蓝)"
+    },
+    {
+      "criterion": "Given Sci-Fi Scanner style When typography Then uses sci-fi: Orbitron, Exo 2, Rajdhani",
+      "status": "todo",
+      "evidence": "字体选择：Orbitron (科幻), Exo 2 (未来), Rajdhani (技术)"
+    },
+    {
+      "criterion": "Given Sci-Fi Scanner style When layout Then scanner lines, holographic displays, data readouts",
+      "status": "todo",
+      "evidence": "布局特点：扫描线、全息显示、数据读数"
+    },
+    {
+      "criterion": "Given Sci-Fi Scanner style When UI elements Then scan animation, holographic flicker, data pulse",
+      "status": "todo",
+      "evidence": "交互特点：扫描动画、全息闪烁、数据脉冲"
+    },
+    {
+      "criterion": "Given Sci-Fi Scanner UI When functional Then includes scan chat, sensor agents, scan stats",
+      "status": "todo",
+      "evidence": "功能需求：扫描聊天、传感器代理、扫描统计"
+    },
+    {
+      "criterion": "Given Sci-Fi Scanner UI When copy Then uses scanner: 'Scan', 'Detect', 'Analyze', 'Pulse'",
+      "status": "todo",
+      "evidence": "创意文案：标题'SCAN. DETECT. ANALYZE.'、按钮'SUBMIT'→'SCAN'、'DEPLOY'→'ACTIVATE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

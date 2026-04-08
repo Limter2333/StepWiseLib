@@ -1,0 +1,42 @@
+{
+  "id": "STORY-187",
+  "title": "UI风格#181 - Sticker Art (贴纸艺术)",
+  "description": "创建第181种UI风格：贴纸艺术风格 - 涂鸦贴纸效果、随手绘制、不干胶质感。输出到 G:/claude_code_project/web/index_planFY.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Sticker Art style When color palette Then features vibrant mixed colors, marker tones, paper white",
+      "status": "todo",
+      "evidence": "需要设计：#FF6B6B (涂鸦红), #4ECDC4 (薄荷绿), #FFE66D (荧光黄), #FFFFFF (白色), #2C2C2C (黑色)"
+    },
+    {
+      "criterion": "Given Sticker Art style When typography Then uses hand drawn: Permanent Marker, Architects Daughter, or Comic Sans",
+      "status": "todo",
+      "evidence": "字体选择：Permanent Marker (马克笔), Architects Daughter (手绘), Comic Sans (涂鸦)"
+    },
+    {
+      "criterion": "Given Sticker Art style When layout Then scattered sticker placement, overlapping elements, paper backing visible",
+      "status": "todo",
+      "evidence": "布局特点：散落贴纸放置、重叠元素、可见纸背衬"
+    },
+    {
+      "criterion": "Given Sticker Art style When UI elements Then peel animation, sticker bounce, marker stroke, tape accents",
+      "status": "todo",
+      "evidence": "交互特点：剥离动画、贴纸弹跳、马克笔笔触、胶带点缀"
+    },
+    {
+      "criterion": "Given Sticker Art UI When functional Then includes doodle chat, sticker agents, playful stats",
+      "status": "todo",
+      "evidence": "功能需求：涂鸦聊天、贴纸代理、活泼统计"
+    },
+    {
+      "criterion": "Given Sticker Art UI When copy Then uses playful: 'Sticker', 'Doodle', 'Peel', 'Pop'",
+      "status": "todo",
+      "evidence": "创意文案：标题'STICKER. DOODLE. PEEL.'、按钮'SUBMIT'→'POP'、'DEPLOY'→'STICK'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

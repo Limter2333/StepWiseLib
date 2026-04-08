@@ -1,0 +1,42 @@
+{
+  "id": "STORY-038",
+  "title": "UI风格#32 - Pixel Nostalgia (像素怀旧)",
+  "description": "创建第32种UI风格：像素怀旧风格 - 8-bit游戏、像素艺术、复古电子。输出到 G:/claude_code_project/web/index_planAF.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Pixel Nostalgia style When color palette Then features limited palette, NES colors, CRT glow",
+      "status": "pass",
+      "evidence": "Implemented: #0F0F0F black, #FFFFFF white, #00FF00 NES green, #FFFF00 NES yellow, #FF0000 NES red"
+    },
+    {
+      "criterion": "Given Pixel Nostalgia style When typography Then uses pixel fonts: Press Start 2P, VT323, or Silkscreen",
+      "status": "pass",
+      "evidence": "Implemented: Press Start 2P (headers), VT323 (body), Silkscreen (accents)"
+    },
+    {
+      "criterion": "Given Pixel Nostalgia style When layout Then pixel grid, 8-bit sprites, retro game UI",
+      "status": "pass",
+      "evidence": "Implemented: pixel grid layout, 8-bit sprite elements, retro game UI styling, CRT effects"
+    },
+    {
+      "criterion": "Given Pixel Nostalgia style When UI elements Then pixelated borders, sprite animations, CRT scanlines",
+      "status": "pass",
+      "evidence": "Implemented: pixel borders, sprite animations, CRT scanlines, retro button styles"
+    },
+    {
+      "criterion": "Given Pixel Nostalgia UI When functional Then includes retro chat, sprite agents, score stats",
+      "status": "pass",
+      "evidence": "Implemented: retro chat interface, sprite agent cards, score-style stats display"
+    },
+    {
+      "criterion": "Given Pixel Nostalgia UI When copy Then uses 8-bit language: 'Player', 'Level', 'Score', 'Continue'",
+      "status": "pass",
+      "evidence": "Implemented: title 'PLAYER ONE. READY.', buttons ACTION/START/QUIT/RETRY, status LOADING/COMPLETE"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

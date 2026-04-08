@@ -1,0 +1,42 @@
+{
+  "id": "STORY-099",
+  "title": "UI风格#93 - Miami Vice Sunset (迈阿密风云日落)",
+  "description": "创建第93种UI风格：迈阿密风云日落风格 - 80年代阳光、粉色蓝色、霓虹棕榈。输出到 G:/claude_code_project/web/index_planCO.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Miami Vice Sunset style When color palette Then features pastel pink, teal, sunset orange, neon purple",
+      "status": "pass",
+      "evidence": "Implemented: #FFB6C1 (pastel-pink), #008080 (teal), #FF7F50 (sunset-orange), #9370DB (neon-purple), #1C1C1C (charcoal), #FFF8E7 (cream), #FF69B4 (hot-pink), #00BFFF (electric-blue), #FFD700 (gold)"
+    },
+    {
+      "criterion": "Given Miami Vice Sunset style When typography Then uses miami fonts: Pacifico, Lobster, or Rockabilly",
+      "status": "pass",
+      "evidence": "Implemented: Pacifico (headers 3rem), Lobster (body 1rem), Rock Salt (tagline)"
+    },
+    {
+      "criterion": "Given Miami Vice Sunset style When layout Then pastel skyline, neon palm trees, speedboat",
+      "status": "pass",
+      "evidence": "Implemented: sunset gradient background (orange/pink/blue/black), sunPulse animation, hot-pink/electric-blue sunset gradient border"
+    },
+    {
+      "criterion": "Given Miami Vice Sunset style When UI elements Then neon outlines, pastel gradients, art deco touches",
+      "status": "pass",
+      "evidence": "Implemented: sunPulse animation, sunRise animation, neon glow box-shadows, hot-pink/electric-blue/neon-purple accents, 80s pastel aesthetic"
+    },
+    {
+      "criterion": "Given Miami Vice Sunset UI When functional Then includes miami chat, detective agents, case stats",
+      "status": "pass",
+      "evidence": "Implemented: South Beach office chat, 4 detective agents (Crockett/Tubbs/Rico/Paloma) with Cases/Cool/Style/Swagger/Crimes/Danger/Sun/Vibe stats"
+    },
+    {
+      "criterion": "Given Miami Vice Sunset UI When copy Then uses 80s miami: 'Sunset', 'Vice', 'Palm', 'Neon'",
+      "status": "pass",
+      "evidence": "Implemented: title 'SUNSET. VICE. PALM.', tagline 'Day or night, we'll take your case', button 'CRUISE', greeting 'It's a beautiful day in the neighborhood', status 'On Case'/'Idle', nav 'Beach'/'Garage'/'Files'/'Station'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

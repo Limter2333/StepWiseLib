@@ -1,0 +1,1066 @@
+[
+  {
+    "error_id": "ERR-20260404000616323953",
+    "timestamp": "2026-04-04T00:06:16.323953",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000616827256",
+    "timestamp": "2026-04-04T00:06:16.827256",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000617835790",
+    "timestamp": "2026-04-04T00:06:17.835790",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000705024826",
+    "timestamp": "2026-04-04T00:07:05.024826",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000705541900",
+    "timestamp": "2026-04-04T00:07:05.541900",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000706556172",
+    "timestamp": "2026-04-04T00:07:06.556172",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000706561180",
+    "timestamp": "2026-04-04T00:07:06.561180",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000706562180",
+    "timestamp": "2026-04-04T00:07:06.562180",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000706562180",
+    "timestamp": "2026-04-04T00:07:06.562180",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000707068562",
+    "timestamp": "2026-04-04T00:07:07.068562",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000707070915",
+    "timestamp": "2026-04-04T00:07:07.070915",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000707071962",
+    "timestamp": "2026-04-04T00:07:07.071962",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000708058062",
+    "timestamp": "2026-04-04T00:07:08.058062",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000708084864",
+    "timestamp": "2026-04-04T00:07:08.084864",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000708086151",
+    "timestamp": "2026-04-04T00:07:08.086151",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000708090097",
+    "timestamp": "2026-04-04T00:07:08.090097",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000708602092",
+    "timestamp": "2026-04-04T00:07:08.602092",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000709610456",
+    "timestamp": "2026-04-04T00:07:09.610456",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000709614478",
+    "timestamp": "2026-04-04T00:07:09.614478",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000710125497",
+    "timestamp": "2026-04-04T00:07:10.125497",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000711132936",
+    "timestamp": "2026-04-04T00:07:11.132936",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000843602120",
+    "timestamp": "2026-04-04T00:08:43.602120",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000844108040",
+    "timestamp": "2026-04-04T00:08:44.108040",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404000845113790",
+    "timestamp": "2026-04-04T00:08:45.113790",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent dev error: Template not found: code_generation",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001013204136",
+    "timestamp": "2026-04-04T00:10:13.204136",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001013208125",
+    "timestamp": "2026-04-04T00:10:13.208125",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001013209126",
+    "timestamp": "2026-04-04T00:10:13.209126",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001013209126",
+    "timestamp": "2026-04-04T00:10:13.209126",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001013720396",
+    "timestamp": "2026-04-04T00:10:13.720396",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001013721395",
+    "timestamp": "2026-04-04T00:10:13.721395",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001014723181",
+    "timestamp": "2026-04-04T00:10:14.723181",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001014724186",
+    "timestamp": "2026-04-04T00:10:14.724186",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001014726191",
+    "timestamp": "2026-04-04T00:10:14.727181",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001014728180",
+    "timestamp": "2026-04-04T00:10:14.728180",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001015235618",
+    "timestamp": "2026-04-04T00:10:15.235618",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001016237756",
+    "timestamp": "2026-04-04T00:10:16.237756",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001027831438",
+    "timestamp": "2026-04-04T00:10:27.831438",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001027833437",
+    "timestamp": "2026-04-04T00:10:27.834437",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001027834437",
+    "timestamp": "2026-04-04T00:10:27.834437",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001027835437",
+    "timestamp": "2026-04-04T00:10:27.835437",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001028342321",
+    "timestamp": "2026-04-04T00:10:28.342321",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001028343321",
+    "timestamp": "2026-04-04T00:10:28.343321",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001029344767",
+    "timestamp": "2026-04-04T00:10:29.344767",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001029345767",
+    "timestamp": "2026-04-04T00:10:29.345767",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001029348095",
+    "timestamp": "2026-04-04T00:10:29.348095",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001029360374",
+    "timestamp": "2026-04-04T00:10:29.360374",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001029862182",
+    "timestamp": "2026-04-04T00:10:29.862182",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404001030876325",
+    "timestamp": "2026-04-04T00:10:30.876325",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002130746462",
+    "timestamp": "2026-04-04T00:21:30.746462",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002130749455",
+    "timestamp": "2026-04-04T00:21:30.749455",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002130749455",
+    "timestamp": "2026-04-04T00:21:30.749455",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002130750455",
+    "timestamp": "2026-04-04T00:21:30.750455",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002131259057",
+    "timestamp": "2026-04-04T00:21:31.259389",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002131262629",
+    "timestamp": "2026-04-04T00:21:31.262629",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002132267405",
+    "timestamp": "2026-04-04T00:21:32.267405",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002132270905",
+    "timestamp": "2026-04-04T00:21:32.270905",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002132276442",
+    "timestamp": "2026-04-04T00:21:32.276442",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002132277430",
+    "timestamp": "2026-04-04T00:21:32.277430",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002132792472",
+    "timestamp": "2026-04-04T00:21:32.792472",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404002133806415",
+    "timestamp": "2026-04-04T00:21:33.806415",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003458344353",
+    "timestamp": "2026-04-04T00:34:58.344353",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003458346352",
+    "timestamp": "2026-04-04T00:34:58.346352",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003458347352",
+    "timestamp": "2026-04-04T00:34:58.347352",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003458347352",
+    "timestamp": "2026-04-04T00:34:58.348351",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003458849265",
+    "timestamp": "2026-04-04T00:34:58.849265",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003458852233",
+    "timestamp": "2026-04-04T00:34:58.852233",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003459874301",
+    "timestamp": "2026-04-04T00:34:59.874301",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003459875247",
+    "timestamp": "2026-04-04T00:34:59.875247",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003459877287",
+    "timestamp": "2026-04-04T00:34:59.877287",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003459879287",
+    "timestamp": "2026-04-04T00:34:59.879287",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003500383677",
+    "timestamp": "2026-04-04T00:35:00.383677",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003501394547",
+    "timestamp": "2026-04-04T00:35:01.394547",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003912285631",
+    "timestamp": "2026-04-04T00:39:12.285631",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003912287991",
+    "timestamp": "2026-04-04T00:39:12.287991",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003912287991",
+    "timestamp": "2026-04-04T00:39:12.287991",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003912288999",
+    "timestamp": "2026-04-04T00:39:12.288999",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003912795311",
+    "timestamp": "2026-04-04T00:39:12.795311",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003912798584",
+    "timestamp": "2026-04-04T00:39:12.798584",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003913811246",
+    "timestamp": "2026-04-04T00:39:13.811246",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003913815549",
+    "timestamp": "2026-04-04T00:39:13.815549",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003913837254",
+    "timestamp": "2026-04-04T00:39:13.837254",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003913841253",
+    "timestamp": "2026-04-04T00:39:13.841253",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003914351606",
+    "timestamp": "2026-04-04T00:39:14.351606",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404003915353530",
+    "timestamp": "2026-04-04T00:39:15.353530",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404005948269406",
+    "timestamp": "2026-04-04T00:59:48.269406",
+    "error_type": "ChatError",
+    "level": "ERROR",
+    "message": "Error executing plan: Internal error: Error creating hnsw segment reader: Nothing found on disk",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011819101641",
+    "timestamp": "2026-04-04T01:18:19.101641",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011819104633",
+    "timestamp": "2026-04-04T01:18:19.104633",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011819104633",
+    "timestamp": "2026-04-04T01:18:19.104633",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011819105963",
+    "timestamp": "2026-04-04T01:18:19.105963",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011819614881",
+    "timestamp": "2026-04-04T01:18:19.614881",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011819619219",
+    "timestamp": "2026-04-04T01:18:19.619219",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011820623274",
+    "timestamp": "2026-04-04T01:18:20.623274",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011820627587",
+    "timestamp": "2026-04-04T01:18:20.627587",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011820646963",
+    "timestamp": "2026-04-04T01:18:20.646963",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011820650963",
+    "timestamp": "2026-04-04T01:18:20.650963",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011821156415",
+    "timestamp": "2026-04-04T01:18:21.156415",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404011822181986",
+    "timestamp": "2026-04-04T01:18:22.181986",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020010743610",
+    "timestamp": "2026-04-04T02:00:10.743610",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020010748605",
+    "timestamp": "2026-04-04T02:00:10.748605",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020010750604",
+    "timestamp": "2026-04-04T02:00:10.750604",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020010751604",
+    "timestamp": "2026-04-04T02:00:10.751604",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020011261821",
+    "timestamp": "2026-04-04T02:00:11.261821",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020011270753",
+    "timestamp": "2026-04-04T02:00:11.270753",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020012276551",
+    "timestamp": "2026-04-04T02:00:12.276551",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020012285546",
+    "timestamp": "2026-04-04T02:00:12.285546",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020012301549",
+    "timestamp": "2026-04-04T02:00:12.301549",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020012309546",
+    "timestamp": "2026-04-04T02:00:12.309546",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020012822750",
+    "timestamp": "2026-04-04T02:00:12.822750",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404020013838903",
+    "timestamp": "2026-04-04T02:00:13.838903",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023553221269",
+    "timestamp": "2026-04-04T02:35:53.221269",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023553235732",
+    "timestamp": "2026-04-04T02:35:53.235732",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023553236707",
+    "timestamp": "2026-04-04T02:35:53.236707",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023553237705",
+    "timestamp": "2026-04-04T02:35:53.237705",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023553746662",
+    "timestamp": "2026-04-04T02:35:53.746662",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023553751021",
+    "timestamp": "2026-04-04T02:35:53.751021",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023554752361",
+    "timestamp": "2026-04-04T02:35:54.752361",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023554757571",
+    "timestamp": "2026-04-04T02:35:54.757571",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023554762570",
+    "timestamp": "2026-04-04T02:35:54.762570",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023554764996",
+    "timestamp": "2026-04-04T02:35:54.764996",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023555268182",
+    "timestamp": "2026-04-04T02:35:55.268182",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404023556279991",
+    "timestamp": "2026-04-04T02:35:56.279991",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151227447925",
+    "timestamp": "2026-04-04T15:12:27.447925",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151227447925",
+    "timestamp": "2026-04-04T15:12:27.447925",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151227447925",
+    "timestamp": "2026-04-04T15:12:27.447925",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151227447925",
+    "timestamp": "2026-04-04T15:12:27.447925",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151227961277",
+    "timestamp": "2026-04-04T15:12:27.961277",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151227961277",
+    "timestamp": "2026-04-04T15:12:27.961277",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151228964473",
+    "timestamp": "2026-04-04T15:12:28.964473",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151228996484",
+    "timestamp": "2026-04-04T15:12:28.996484",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151229028586",
+    "timestamp": "2026-04-04T15:12:29.028586",
+    "error_type": "TemplateNotFound",
+    "level": "WARNING",
+    "message": "Template not found: Template not found: code_generation, using fallback",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151229044680",
+    "timestamp": "2026-04-04T15:12:29.044680",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151229551899",
+    "timestamp": "2026-04-04T15:12:29.551899",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260404151230556314",
+    "timestamp": "2026-04-04T15:12:30.556314",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  }
+]

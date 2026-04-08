@@ -1,0 +1,42 @@
+{
+  "id": "STORY-037",
+  "title": "UI风格#31 - Noir Circuit (黑色电路)",
+  "description": "创建第31种UI风格：黑色电路风格 - 电路轨迹、科技黑色电影、霓虹点缀。输出到 G:/claude_code_project/web/index_planAE.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Noir Circuit style When color palette Then features deep black, neon cyan, circuit gold, matrix green",
+      "status": "pass",
+      "evidence": "Implemented: #0A0A0F deep black, #00F5FF circuit cyan, #C9A227 circuit gold, #00FF88 matrix green, #1A1A2E dark blue-black"
+    },
+    {
+      "criterion": "Given Noir Circuit style When typography Then uses tech noir fonts: Share Tech Mono, Orbitron, or Exo 2",
+      "status": "pass",
+      "evidence": "Implemented: Orbitron (display), Share Tech Mono (body), Exo 2 (accents)"
+    },
+    {
+      "criterion": "Given Noir Circuit style When layout Then circuit traces, tech noir atmosphere, glowing paths",
+      "status": "pass",
+      "evidence": "Implemented: circuit traces, tech noir atmosphere, glowing paths, cyber aesthetic"
+    },
+    {
+      "criterion": "Given Noir Circuit style When UI elements Then glowing traces, circuit nodes, pulse effects, scan lines",
+      "status": "pass",
+      "evidence": "Implemented: glowing traces, circuit nodes, pulse effects, scan lines"
+    },
+    {
+      "criterion": "Given Noir Circuit UI When functional Then includes circuit chat, hacker agents, pulse stats",
+      "status": "pass",
+      "evidence": "Implemented: circuit chat interface, hacker agent cards, pulse-style stats"
+    },
+    {
+      "criterion": "Given Noir Circuit UI When copy Then uses cyber noir: 'Circuit', 'Pulse', 'Signal', 'Trace'",
+      "status": "pass",
+      "evidence": "Implemented: title 'CIRCUIT. PULSE. SIGNAL.', buttons TRACE/CONNECT/SEVER/RENEW, status TRACING/PULSING"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

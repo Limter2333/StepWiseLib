@@ -1,0 +1,42 @@
+{
+  "id": "STORY-228",
+  "title": "UI风格#222 - Vintage Modern (复古现代)",
+  "description": "创建第222种UI风格：复古现代风格 - 复古元素+现代简约、旧时光新诠释。输出到 G:/claude_code_project/web/index_planHO.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Vintage Modern style When color palette Then features muted pastels, cream, charcoal",
+      "status": "todo",
+      "evidence": "需要设计：#E8E4E0 (奶油灰), #5D5D5D (炭灰), #D4A574 (焦糖), #F5F5F5 (柔白)"
+    },
+    {
+      "criterion": "Given Vintage Modern style When typography Then uses vintage modern: Playfair Display, Montserrat",
+      "status": "todo",
+      "evidence": "字体选择：Playfair Display (复古衬线), Montserrat (现代)"
+    },
+    {
+      "criterion": "Given Vintage Modern style When layout Then retro proportions, modern grid, balanced asymmetry",
+      "status": "todo",
+      "evidence": "布局特点：复古比例、现代网格、平衡不对称"
+    },
+    {
+      "criterion": "Given Vintage Modern style When UI elements Then subtle textures, refined edges, warm shadows",
+      "status": "todo",
+      "evidence": "交互特点：微妙纹理、精致边缘、暖色阴影"
+    },
+    {
+      "criterion": "Given Vintage Modern UI When functional Then includes timeless chat, classic agents, balance stats",
+      "status": "todo",
+      "evidence": "功能需求：永恒聊天、经典代理、平衡统计"
+    },
+    {
+      "criterion": "Given Vintage Modern UI When copy Then uses timeless: 'Classic', 'Timeless', 'Balance', 'Refined'",
+      "status": "todo",
+      "evidence": "创意文案：标题'CLASSIC. TIMELESS. BALANCE.'、按钮'SUBMIT'→'REFINE'、'DEPLOY'→'BALANCE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

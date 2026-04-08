@@ -1,0 +1,42 @@
+{
+  "id": "STORY-171",
+  "title": "UI风格#165 - Art Deco Luxe (装饰艺术奢华)",
+  "description": "创建第165种UI风格：装饰艺术奢华风格 - 几何奢华、镀金装饰、流线型现代。输出到 G:/claude_code_project/web/index_planFI.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Art Deco Luxe style When color palette Then features gold, black, ivory, emerald",
+      "status": "pass",
+      "evidence": "Implemented: #D4AF37 (gold), #E8C966 (gold-light), #B8962E (gold-dark), #000000 (black), #FFFFF0 (ivory), #50C878 (emerald), #C0C0C0 (silver)"
+    },
+    {
+      "criterion": "Given Art Deco Luxe style When typography Then uses deco display: Poiret One, Josefin Sans, or Art Deco",
+      "status": "pass",
+      "evidence": "Implemented: Poiret One (title/agents 2.6rem cursive), Josefin Sans (body 0.95rem 300 weight) - elegant deco typography"
+    },
+    {
+      "criterion": "Given Art Deco Luxe style When layout Then geometric patterns, gold accents, fan motifs, sunbursts",
+      "status": "pass",
+      "evidence": "Implemented: gold gradient border, sunburst clip-path decoration, diagonal line patterns, corner accent borders, conic gradient star"
+    },
+    {
+      "criterion": "Given Art Deco Luxe style When UI elements Then gold borders, geometric buttons, elegant transitions",
+      "status": "pass",
+      "evidence": "Implemented: gold border accents, geometric diamond icons, gradient gold buttons with hover lift and glow, elegant emerald accents"
+    },
+    {
+      "criterion": "Given Art Deco Luxe UI When functional Then includes luxurious chat, premium agents, wealth stats",
+      "status": "pass",
+      "evidence": "Implemented: Luxe Communique chat header, 4 prestige agents (PRESTIGE, OPULENCE, GRANDEUR, LUXE) with Portfolio/Grandeur/Assets/Status/Legacy/Rank/Holdings/Value stats"
+    },
+    {
+      "criterion": "Given Art Deco Luxe UI When copy Then uses opulent: 'Opulence', 'Grandeur', 'Prestige', 'Luxe'",
+      "status": "pass",
+      "evidence": "Implemented: title 'OPULENCE. GRANDEUR.', tagline '// refined excellence since 1925 //', button 'INDULGE', greeting 'Welcome to the pinnacle of refinement...', status 'Active'/'Idle', nav '◆ Opulence'/'◆ Invest'/'◆ Portfolio'/'◆ Legacy'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

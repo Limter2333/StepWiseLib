@@ -1,0 +1,42 @@
+{
+  "id": "STORY-198",
+  "title": "UI风格#192 - Woodtype Industrial (木版工业)",
+  "description": "创建第192种UI风格：木版工业风格 - 复古木活字、工业质感、金属与木材。输出到 G:/claude_code_project/web/index_planGJ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Woodtype Industrial style When color palette Then features wood brown, rust orange, industrial black",
+      "status": "todo",
+      "evidence": "需要设计：#8B4513 (木棕), #B7410E (铁锈橙), #1A1A1A (工业黑), #D2691E (巧克力), #A0522D (赭石)"
+    },
+    {
+      "criterion": "Given Woodtype Industrial style When typography Then uses woodtype: American Typewriter, Courier, Rockwell",
+      "status": "todo",
+      "evidence": "字体选择：American Typewriter (木版), Courier (等宽), Rockwell (粗衬线)"
+    },
+    {
+      "criterion": "Given Woodtype Industrial style When layout Then woodblock print, industrial machinery, factory floor",
+      "status": "todo",
+      "evidence": "布局特点：木版印刷、工业机械、工厂地板"
+    },
+    {
+      "criterion": "Given Woodtype Industrial style When UI elements Then wood grain, metal rust, letterpress texture",
+      "status": "todo",
+      "evidence": "交互特点：木纹质感、金属锈迹、活字纹理"
+    },
+    {
+      "criterion": "Given Woodtype Industrial UI When functional Then includes press chat, factory agents, industrial stats",
+      "status": "todo",
+      "evidence": "功能需求：印刷聊天、工厂代理、工业统计"
+    },
+    {
+      "criterion": "Given Woodtype Industrial UI When copy Then uses industrial: 'Press', 'Forge', 'Foundry', 'Stamp'",
+      "status": "todo",
+      "evidence": "创意文案：标题'PRESS. FORGE. FOUNDRY.'、按钮'SUBMIT'→'STAMP'、'DEPLOY'→'FORGE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

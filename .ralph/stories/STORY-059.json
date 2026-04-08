@@ -1,0 +1,42 @@
+{
+  "id": "STORY-059",
+  "title": "UI风格#53 - Botanical Illustration (植物学插画)",
+  "description": "创建第53种UI风格：植物学插画风格 - 古典植物学、细腻线条、科学手绘。输出到 G:/claude_code_project/web/index_planBA.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Botanical Illustration style When color palette Then features aged paper, botanical greens, sepia, hand-drawn tones",
+      "status": "pass",
+      "evidence": "Implemented: #F5F0E6 (aged-paper), #4A7C59 (botanical-green), #8B7355 (sepia), #D4C5A9 (light-tan), #2D4A3E (deep-green), #3D2914 (dark-brown)"
+    },
+    {
+      "criterion": "Given Botanical Illustration style When typography Then uses scientific fonts: EB Garamond, Libre Baskerville, or Spectral",
+      "status": "pass",
+      "evidence": "Implemented: EB Garamond (headers 3rem italic), Libre Baskerville (body 0.95rem)"
+    },
+    {
+      "criterion": "Given Botanical Illustration style When layout Then specimen plates, botanical borders, scientific notation",
+      "status": "pass",
+      "evidence": "Implemented: dashed inner borders, botanical borders top/bottom (repeating gradient), aged paper texture overlay, floral divider with ❦ symbol"
+    },
+    {
+      "criterion": "Given Botanical Illustration style When UI elements Then hand-drawn lines, specimen labels, aged textures",
+      "status": "pass",
+      "evidence": "Implemented: dashed borders, dotted stat rows, paper texture SVG filter, hover lift with shadow, italic headers"
+    },
+    {
+      "criterion": "Given Botanical Illustration UI When functional Then includes herbarium chat, botanist agents, specimen stats",
+      "status": "pass",
+      "evidence": "Implemented: herbarium chat, 4 botanist cards (Linnaeus/Darwin/Mendel/Hawthorne) with Specimens/Classification/Species/Evolution/Sprints/Hybrid/Tests/Purity stats"
+    },
+    {
+      "criterion": "Given Botanical Illustration UI When copy Then uses scientific latin: 'Specimen', 'Genus', 'Flora', 'Classis'",
+      "status": "pass",
+      "evidence": "Implemented: title 'SPECIMEN. GENUS. FLORA.', tagline 'A garden of knowledge', button 'CATALOG', greeting 'Welcome to the Royal Botanical Archive', status 'Cataloging'/'Dormant', nav 'Archive'/'Workbench'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

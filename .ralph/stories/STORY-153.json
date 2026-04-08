@@ -1,0 +1,42 @@
+{
+  "id": "STORY-153",
+  "title": "UI风格#147 - Brutalist Neon (粗野霓虹)",
+  "description": "创建第147种UI风格：粗野霓虹风格 - 粗野主义与霓虹灯光结合、重力量感与发光。输出到 G:/claude_code_project/web/index_planEQ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Brutalist Neon style When color palette Then features neon pink, electric blue, concrete gray, deep black",
+      "status": "pass",
+      "evidence": "Implemented: #FF1493 (neon-pink), #00BFFF (electric-blue), #4A4A4A (concrete-gray), #0D0D0D (deep-black), #39FF14 (neon-green), #FF6600 (neon-orange)"
+    },
+    {
+      "criterion": "Given Brutalist Neon style When typography Then uses bold tech: Bebas Neue, Oswald, or Share Tech Mono",
+      "status": "pass",
+      "evidence": "Implemented: Bebas Neue (headers 4rem), Oswald (body 0.95rem 400-600 weight) - bold brutalist typography"
+    },
+    {
+      "criterion": "Given Brutalist Neon style When layout Then harsh blocks, neon borders, industrial grids, monumental type",
+      "status": "pass",
+      "evidence": "Implemented: heavy 4px borders, brutalist card shadows (10-15px offset), monumental uppercase type, industrial grid layout"
+    },
+    {
+      "criterion": "Given Brutalist Neon style When UI elements Then neon glow, concrete texture, sharp edges, industrial shadows",
+      "status": "pass",
+      "evidence": "Implemented: neon glow effects with text-shadow, box-shadow, concrete texture overlay, sharp edges, industrial shadows"
+    },
+    {
+      "criterion": "Given Brutalist Neon UI When functional Then includes neon chat, grid agents, power stats",
+      "status": "pass",
+      "evidence": "Implemented: neon chat with POWER ACTIVE header, 4 power agents (POWER GRID, NEON BLOCK, CIRCUIT HAZARD, VOLTAGE SURGE) with POWER/VOLTAGE/CURRENT/CHARGE/SURGE stats"
+    },
+    {
+      "criterion": "Given Brutalist Neon UI When copy Then uses power language: 'Power', 'Grid', 'Neon', 'Block'",
+      "status": "pass",
+      "evidence": "Implemented: title 'POWER. GRID. NEON. BLOCK.', tagline '— Industrial Strength —', button 'IGNITE', greeting 'SYSTEM INITIALIZED. POWER GRID ONLINE.', status 'ONLINE'/'IDLE', nav 'POWER'/'IGNITE'/'SURGE'/'VOLTAGE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

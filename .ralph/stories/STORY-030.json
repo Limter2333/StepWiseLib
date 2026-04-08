@@ -1,0 +1,42 @@
+{
+  "id": "STORY-030",
+  "title": "UI风格#24 - Space Cosmic (宇宙星空)",
+  "description": "创建第24种UI风格：宇宙星空风格 - 深空蓝黑、星云色彩、粒子星光。输出到 G:/claude_code_project/web/index_planX.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Space Cosmic style When color palette Then features deep space blues, nebula purples, star whites, cosmic dust",
+      "status": "todo",
+      "evidence": "需要设计：#0B0B2B (深空), #1A1A4E (星空蓝), #6B5B95 (星云紫), #FFD700 (星尘金), #FFFFFF (星光白)"
+    },
+    {
+      "criterion": "Given Space Cosmic style When typography Then uses cosmic fonts: Orbitron, Exo 2, or Space Grotesk",
+      "status": "todo",
+      "evidence": "字体选择：Orbitron (显示), Exo 2 (正文), Space Grotesk (替代)"
+    },
+    {
+      "criterion": "Given Space Cosmic style When layout Then star fields, nebula gradients, orbital paths, constellation lines",
+      "status": "todo",
+      "evidence": "布局特点：星场背景、星云渐变、轨道路径、星座连线"
+    },
+    {
+      "criterion": "Given Space Cosmic style When UI elements Then twinkling stars, glowing orbs, nebula borders, orbit animations",
+      "status": "todo",
+      "evidence": "交互特点：闪烁星光、发光球体、星云边框、轨道动画"
+    },
+    {
+      "criterion": "Given Space Cosmic UI When functional Then includes cosmic chat, stellar agents, orbital stats",
+      "status": "todo",
+      "evidence": "功能需求：宇宙聊天、恒星代理、轨道统计"
+    },
+    {
+      "criterion": "Given Space Cosmic UI When copy Then uses cosmic language: 'Nebula', 'Orbit', 'Stellar', 'Cosmos'",
+      "status": "todo",
+      "evidence": "创意文案：标题'NEBULA. ORBIT. STELLAR.'、按钮'SEND'→'TRANSMIT'、'SUBMIT'→'LAUNCH'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

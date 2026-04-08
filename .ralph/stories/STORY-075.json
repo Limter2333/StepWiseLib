@@ -1,0 +1,42 @@
+{
+  "id": "STORY-075",
+  "title": "UI风格#69 - Synthwave Horizon (合成波地平线)",
+  "description": "创建第69种UI风格：合成波地平线风格 - 霓虹地平线、热带粉彩、复古未来。输出到 G:/claude_code_project/web/index_planBQ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Synthwave Horizon style When color palette Then features sunset orange, hot pink, cyan, deep purple",
+      "status": "pass",
+      "evidence": "Implemented: #FF7E5F (sunset-orange), #FF0066 (hot-pink), #00FFFF (cyan-glow), #7B2CBF (deep-purple), #0D0D0D (carbon), #FFE66D (neon-yellow)"
+    },
+    {
+      "criterion": "Given Synthwave Horizon style When typography Then uses retro future fonts: Audiowide, Orbitron, or Rajdhani",
+      "status": "pass",
+      "evidence": "Implemented: Audiowide (headers 3rem), Orbitron (tagline/stats 1rem), Rajdhani (body 0.95rem)"
+    },
+    {
+      "criterion": "Given Synthwave Horizon style When layout Then horizon gradient, palm silhouettes, neon grid",
+      "status": "pass",
+      "evidence": "Implemented: gradient horizon background, animated neon sun with scanlines, perspective neon grid floor, palm silhouette decorations, purple/cyan color gradient"
+    },
+    {
+      "criterion": "Given Synthwave Horizon style When UI elements Then horizon glow, neon outlines, palm animations",
+      "status": "pass",
+      "evidence": "Implemented: neon border with glow shadows, hot-pink/cyan-glow borders, pulsing sun animation, neon text shadows, card hover glow effects"
+    },
+    {
+      "criterion": "Given Synthwave Horizon UI When functional Then includes sunset chat, horizon agents, glow stats",
+      "status": "pass",
+      "evidence": "Implemented: sunset chat, 4 horizon agents (Neon/Coral/Volcano/Falcon) with Watts/Vibes/Pixels/Glow/Lava/Heat/Speed/Boost stats"
+    },
+    {
+      "criterion": "Given Synthwave Horizon UI When copy Then uses tropical retro: 'Horizon', 'Sunset', 'Tropical', 'Neon'",
+      "status": "pass",
+      "evidence": "Implemented: title 'HORIZON. SUNSET. NEON.', tagline 'RIDE THE RETRO WAVE', button 'SURF', greeting 'The neon sun rises on the digital horizon', status 'Surfing'/'Idle', nav 'Home'/'Grid'/'Database'/'Dashboard'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

@@ -1,0 +1,482 @@
+[
+  {
+    "error_id": "ERR-20260408143320504776",
+    "timestamp": "2026-04-08T14:33:20.504776",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408143414164230",
+    "timestamp": "2026-04-08T14:34:14.164230",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408143414164230",
+    "timestamp": "2026-04-08T14:34:14.164230",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408143414674401",
+    "timestamp": "2026-04-08T14:34:14.674401",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408143414674401",
+    "timestamp": "2026-04-08T14:34:14.674401",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408143415690026",
+    "timestamp": "2026-04-08T14:34:15.690026",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408143415701267",
+    "timestamp": "2026-04-08T14:34:15.701267",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408143514185390",
+    "timestamp": "2026-04-08T14:35:14.185390",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408145210067805",
+    "timestamp": "2026-04-08T14:52:10.067805",
+    "error_type": "CollaborateError",
+    "level": "ERROR",
+    "message": "Task execution failed",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151008216706",
+    "timestamp": "2026-04-08T15:10:08.216706",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151008216706",
+    "timestamp": "2026-04-08T15:10:08.216706",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151008718283",
+    "timestamp": "2026-04-08T15:10:08.718283",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151008718283",
+    "timestamp": "2026-04-08T15:10:08.718283",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151009713767",
+    "timestamp": "2026-04-08T15:10:09.713767",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151009727476",
+    "timestamp": "2026-04-08T15:10:09.727476",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151108224447",
+    "timestamp": "2026-04-08T15:11:08.224447",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151208727610",
+    "timestamp": "2026-04-08T15:12:08.727610",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151309739679",
+    "timestamp": "2026-04-08T15:13:09.739679",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151434121409",
+    "timestamp": "2026-04-08T15:14:34.121409",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151511091014",
+    "timestamp": "2026-04-08T15:15:11.091014",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151511596153",
+    "timestamp": "2026-04-08T15:15:11.596153",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151512599208",
+    "timestamp": "2026-04-08T15:15:12.599208",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151512787341",
+    "timestamp": "2026-04-08T15:15:12.787341",
+    "error_type": "CollaborateError",
+    "level": "ERROR",
+    "message": "Task execution failed",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151831541800",
+    "timestamp": "2026-04-08T15:18:31.541800",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151831545312",
+    "timestamp": "2026-04-08T15:18:31.545312",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151832058467",
+    "timestamp": "2026-04-08T15:18:32.058467",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151832058467",
+    "timestamp": "2026-04-08T15:18:32.058467",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151833066926",
+    "timestamp": "2026-04-08T15:18:33.066926",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151833066926",
+    "timestamp": "2026-04-08T15:18:33.066926",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408151931551794",
+    "timestamp": "2026-04-08T15:19:31.551794",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152032075683",
+    "timestamp": "2026-04-08T15:20:32.075683",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152133090531",
+    "timestamp": "2026-04-08T15:21:33.090531",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152156015716",
+    "timestamp": "2026-04-08T15:21:56.015716",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152156520540",
+    "timestamp": "2026-04-08T15:21:56.520540",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152157528325",
+    "timestamp": "2026-04-08T15:21:57.528325",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152157536592",
+    "timestamp": "2026-04-08T15:21:57.536592",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent pm error: 'PMAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152158047245",
+    "timestamp": "2026-04-08T15:21:58.047245",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent pm error: 'PMAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152159062077",
+    "timestamp": "2026-04-08T15:21:59.062077",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent pm error: 'PMAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152159079351",
+    "timestamp": "2026-04-08T15:21:59.079351",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152159582161",
+    "timestamp": "2026-04-08T15:21:59.582161",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152200590453",
+    "timestamp": "2026-04-08T15:22:00.590453",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152200601531",
+    "timestamp": "2026-04-08T15:22:00.601531",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent pm error: 'PMAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152200603539",
+    "timestamp": "2026-04-08T15:22:00.603539",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent pm error: 'PMAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152201112305",
+    "timestamp": "2026-04-08T15:22:01.112305",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent pm error: 'PMAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408152202117319",
+    "timestamp": "2026-04-08T15:22:02.117319",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent pm error: 'PMAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161056251392",
+    "timestamp": "2026-04-08T16:10:56.251392",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161056256418",
+    "timestamp": "2026-04-08T16:10:56.256418",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161056758329",
+    "timestamp": "2026-04-08T16:10:56.758329",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161056761082",
+    "timestamp": "2026-04-08T16:10:56.761082",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161057766984",
+    "timestamp": "2026-04-08T16:10:57.766984",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent doc error: DocAgent.generate_readme() missing 1 required positional argument: 'features'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161057779707",
+    "timestamp": "2026-04-08T16:10:57.779707",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161156242422",
+    "timestamp": "2026-04-08T16:11:56.242422",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161256759325",
+    "timestamp": "2026-04-08T16:12:56.759325",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161357778471",
+    "timestamp": "2026-04-08T16:13:57.778471",
+    "error_type": "AgentTimeout",
+    "level": "WARNING",
+    "message": "Agent dev timeout after 60.0s",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161445601501",
+    "timestamp": "2026-04-08T16:14:45.601501",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161446108193",
+    "timestamp": "2026-04-08T16:14:46.108193",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161447114336",
+    "timestamp": "2026-04-08T16:14:47.114336",
+    "error_type": "AgentExecutionError",
+    "level": "WARNING",
+    "message": "Agent test error: 'TestAgent' object has no attribute 'execute'",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161447350533",
+    "timestamp": "2026-04-08T16:14:47.350533",
+    "error_type": "CollaborateError",
+    "level": "ERROR",
+    "message": "Task execution failed",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408161630809532",
+    "timestamp": "2026-04-08T16:16:30.809532",
+    "error_type": "CollaborateError",
+    "level": "ERROR",
+    "message": "Task execution failed",
+    "context": {}
+  },
+  {
+    "error_id": "ERR-20260408170403513553",
+    "timestamp": "2026-04-08T17:04:03.513553",
+    "error_type": "LLMGenerationError",
+    "level": "ERROR",
+    "message": "LLM generation failed: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'system error (1033)'}, 'request_id': '06254d00228ef5d1ba02e737d879d7a0'}",
+    "context": {}
+  }
+]

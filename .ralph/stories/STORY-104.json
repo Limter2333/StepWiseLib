@@ -1,0 +1,42 @@
+{
+  "id": "STORY-104",
+  "title": "UI风格#98 - Victorian Library (维多利亚图书馆)",
+  "description": "创建第98种UI风格：维多利亚图书馆风格 - 深色木质、皮革装订、黄铜点缀。输出到 G:/claude_code_project/web/index_planCT.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Victorian Library style When color palette Then features mahogany brown, leather tan, aged cream, brass gold",
+      "status": "todo",
+      "evidence": "需要设计：#4A0E0E (红木), #D2B48C (皮革), #FFF8DC (奶油), #B8860B (黄铜), #2F1810 (深褐)"
+    },
+    {
+      "criterion": "Given Victorian Library style When typography Then uses Victorian fonts: Playfair Display, Crimson Text, or EB Garamond",
+      "status": "todo",
+      "evidence": "字体选择：Playfair Display (标题), Crimson Text (正文), EB Garamond (装饰)"
+    },
+    {
+      "criterion": "Given Victorian Library style When layout Then book spines, library ladders, card catalog drawers",
+      "status": "todo",
+      "evidence": "布局特点：书脊阵列、图书馆梯子、卡片目录、橡木书架"
+    },
+    {
+      "criterion": "Given Victorian Library style When UI elements Then leather textures, brass accents, book page edges",
+      "status": "todo",
+      "evidence": "交互特点：皮革质感、黄铜点缀、书页边缘、翻页动画"
+    },
+    {
+      "criterion": "Given Victorian Library UI When functional Then includes scholarly chat, librarian agents, archive stats",
+      "status": "todo",
+      "evidence": "功能需求：学术聊天、图书管理员代理、档案统计"
+    },
+    {
+      "criterion": "Given Victorian Library UI When copy Then uses scholarly language: 'Archive', 'Scholar', 'Volume', 'Knowledge'",
+      "status": "todo",
+      "evidence": "创意文案：标题'ARCHIVE. SCHOLAR. VOLUME.'、按钮'SEND'→'RESEARCH'、'SUBMIT'→'CATALOG'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

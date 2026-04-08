@@ -1,0 +1,42 @@
+{
+  "id": "STORY-120",
+  "title": "UI风格#114 - Art Nouveau Botanical (新艺术植物)",
+  "description": "创建第114种UI风格：新艺术植物风格 - 百合花、葡萄藤、细腻线条、自然之美。输出到 G:/claude_code_project/web/index_planDJ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Art Nouveau Botanical style When color palette Then features sage green, muted gold, ivory cream, burgundy, lavender",
+      "status": "todo",
+      "evidence": "需要设计：#8FBC8F (灰绿), #C5A572 (暗金), #FFFFF0 (象牙), #800020 (酒红), #B76E79 (淡紫)"
+    },
+    {
+      "criterion": "Given Art Nouveau Botanical style When typography Then uses elegant fonts: Cormorant, Lora, or Britannic",
+      "status": "todo",
+      "evidence": "字体选择：Cormorant (标题), Lora (正文), Britannic (装饰)"
+    },
+    {
+      "criterion": "Given Art Nouveau Botanical style When layout Then botanical illustrations, vine borders, lily ponds, garden paths",
+      "status": "todo",
+      "evidence": "布局特点：植物插画、藤蔓边框、百合池塘、花园小径"
+    },
+    {
+      "criterion": "Given Art Nouveau Botanical style When UI elements Then pressed flower texture, watercolor washes, ink illustrations",
+      "status": "todo",
+      "evidence": "交互特点：押花纹理、水彩晕染、墨水插画、藤蔓生长"
+    },
+    {
+      "criterion": "Given Art Nouveau Botanical UI When functional Then includes botanical chat, gardener agents, bloom stats",
+      "status": "todo",
+      "evidence": "功能需求：植物聊天、园丁代理、绽放统计"
+    },
+    {
+      "criterion": "Given Art Nouveau Botanical UI When copy Then uses botanical: 'Bloom', 'Cultivate', 'Verdant', 'Flourish'",
+      "status": "todo",
+      "evidence": "创意文案：标题'BLOOM. CULTIVATE. VERDANT.'、按钮'SEND'→'PLANT'、'SUBMIT'→'NURTURE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

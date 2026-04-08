@@ -1,0 +1,42 @@
+{
+  "id": "STORY-089",
+  "title": "UI风格#83 - Space Station (太空站)",
+  "description": "创建第83种UI风格：太空站风格 - 国际空间站、仪表界面、无重力环境。输出到 G:/claude_code_project/web/index_planCE.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Space Station style When color palette Then features white panels, blue accent lights, warning orange, dark void",
+      "status": "pass",
+      "evidence": "Implemented: #FFFFFF (panel-white), #0077CC (blue-accent), #00BFFF (blue-glow), #FF6B00 (warning-orange), #0D0D0D (void-black), #00FF88 (status-green)"
+    },
+    {
+      "criterion": "Given Space Station style When typography Then uses technical fonts: Share Tech Mono, Roboto Mono, or Fira Mono",
+      "status": "pass",
+      "evidence": "Implemented: Share Tech Mono (headers 2.8rem), Roboto Mono (body 0.9rem 400-700 weight)"
+    },
+    {
+      "criterion": "Given Space Station style When layout Then modular panels, instrument clusters, viewport frames",
+      "status": "pass",
+      "evidence": "Implemented: starfield background with drift animation, blue glow panel borders, module divider with satellite icon, station border with blue accent gradient"
+    },
+    {
+      "criterion": "Given Space Station style When UI elements Then status lights, panel buttons, floating elements",
+      "status": "pass",
+      "evidence": "Implemented: pulse animation on header icon, blue glow hover effects, status indicators (Orbiting/Idle), Share Tech Mono typography, floating star background"
+    },
+    {
+      "criterion": "Given Space Station UI When functional Then includes comm chat, astronaut agents, oxygen stats",
+      "status": "pass",
+      "evidence": "Implemented: communications module chat, 4 astronaut agents (Armstrong/Chen/Johnson/Gagarin) with O2/Missions/EVA/Docking/First stats"
+    },
+    {
+      "criterion": "Given Space Station UI When copy Then uses mission control: 'T-Minus', 'Launch', 'Orbit', 'Dock'",
+      "status": "pass",
+      "evidence": "Implemented: title 'T-MINUS. ORBIT. DOCK.', tagline 'MISSION CONTROL ONLINE', button 'TRANSMIT', greeting 'Comms online. All systems nominal', status 'Orbiting'/'Idle', nav 'Station'/'Engineering'/'Mission Data'/'Command'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

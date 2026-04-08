@@ -1,0 +1,42 @@
+{
+  "id": "STORY-106",
+  "title": "UI风格#100 - Parisian Art Nouveau (巴黎新艺术)",
+  "description": "创建第100种UI风格：巴黎新艺术风格 - 埃菲尔铁塔、美好时代、沙龙氛围。输出到 G:/claude_code_project/web/index_planCV.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Parisian Art Nouveau style When color palette Then features champagne gold, powder pink, slate blue, ivory cream",
+      "status": "todo",
+      "evidence": "需要设计：#F7E7CE (香槟金), #FFB6C1 (粉彩), #6A7B8B (石板蓝), #FFFFF0 (象牙白), #2F2F2F (石墨)"
+    },
+    {
+      "criterion": "Given Parisian Art Nouveau style When typography Then uses elegant parisian: Playfair Display, Cormorant, or Didot",
+      "status": "todo",
+      "evidence": "字体选择：Playfair Display (标题), Cormorant (正文), Didot (装饰)"
+    },
+    {
+      "criterion": "Given Parisian Art Nouveau style When layout Then elegant asymmetry, salon composition, wrought iron patterns",
+      "status": "todo",
+      "evidence": "布局特点：优雅不对称、沙龙构图、铁艺图案、花卉装饰"
+    },
+    {
+      "criterion": "Given Parisian Art Nouveau style When UI elements Then iron scrollwork, floral ornaments, velvet textures",
+      "status": "todo",
+      "evidence": "交互特点：铁艺卷饰、花卉装饰、丝绒质感、优雅过渡"
+    },
+    {
+      "criterion": "Given Parisian Art Nouveau UI When functional Then includes salon chat, artist agents, gallery stats",
+      "status": "todo",
+      "evidence": "功能需求：沙龙聊天、艺术家代理、画廊统计"
+    },
+    {
+      "criterion": "Given Parisian Art Nouveau UI When copy Then uses belle époque: 'Salon', 'Élan', 'Charleston', 'Gentrile'",
+      "status": "todo",
+      "evidence": "创意文案：标题'SALON. ÉLAN. CHARLESTON.'、按钮'SEND'→'DANSER'、'SUBMIT'→'CÉLÉBRER'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

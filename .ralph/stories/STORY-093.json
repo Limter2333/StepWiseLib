@@ -1,0 +1,42 @@
+{
+  "id": "STORY-093",
+  "title": "UI风格#87 - Desert Oasis (沙漠绿洲)",
+  "description": "创建第87种UI风格：沙漠绿洲风格 - 金色沙漠、棕榈树、蔚蓝海水。输出到 G:/claude_code_project/web/index_planCI.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Desert Oasis style When color palette Then features sand gold, oasis blue, palm green, sunset orange",
+      "status": "pass",
+      "evidence": "Implemented: #E8D5B7 (sand-gold), #00CED1 (oasis-blue), #228B22 (palm-green), #FF8C00 (sunset-orange), #F5DEB3 (light-sand), #C9A96E (deep-sand), #006666 (water-dark), #FFF8E7 (cream)"
+    },
+    {
+      "criterion": "Given Desert Oasis style When typography Then uses warm travel fonts: Nunito, Montserrat, or Lato",
+      "status": "pass",
+      "evidence": "Implemented: Nunito (headers 2.8rem 700 weight), Montserrat (body 0.95rem 400-600 weight)"
+    },
+    {
+      "criterion": "Given Desert Oasis style When layout Then sand dunes, palm shadows, water reflections",
+      "status": "pass",
+      "evidence": "Implemented: sand gradient background with oasis blue radial gradient, sand texture overlay, duneShift animation, palm/oasis/sunset gradient border"
+    },
+    {
+      "criterion": "Given Desert Oasis style When UI elements Then sand textures, water ripples, palm fronds",
+      "status": "pass",
+      "evidence": "Implemented: sand texture overlay, duneShift animation, oasis-blue/sand-gold/palm-green color scheme, dashed border decoration"
+    },
+    {
+      "criterion": "Given Desert Oasis UI When functional Then includes caravan chat, explorer agents, water stats",
+      "status": "pass",
+      "evidence": "Implemented: watering hole chat, 4 explorer agents (Nomad/Falcon/Viper/Camel) with Water/Miles/Vision/Oasis/Dunes/Shade/Stored/Endure stats"
+    },
+    {
+      "criterion": "Given Desert Oasis UI When copy Then uses desert journey: 'Oasis', 'Caravan', 'Dune', 'Mirage'",
+      "status": "pass",
+      "evidence": "Implemented: title 'OASIS. CARAVAN. DUNE.', tagline 'THROUGH THE ENDLESS SANDS', button 'ROAM', greeting 'The caravan rests at the oasis', status 'Roaming'/'Idle', nav 'Desert'/'Supplies'/'Maps'/'Camp'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

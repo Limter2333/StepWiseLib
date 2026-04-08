@@ -1,0 +1,27 @@
+{
+  "id": "STORY-005",
+  "title": "增加更多文档格式支持",
+  "description": "支持更多文档格式如PPT、XML、EPUB等",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given .pptx file When parsing Then PowerPoint content extracted",
+      "status": "pass",
+      "evidence": "PowerPointParser implemented, 9 tests passed"
+    },
+    {
+      "criterion": "Given .xml file When parsing Then XML content extracted",
+      "status": "pass",
+      "evidence": "XMLParser implemented - parsing XML files"
+    },
+    {
+      "criterion": "Given .epub file When parsing Then EPUB content extracted",
+      "status": "pass",
+      "evidence": "EPUBParser implemented - parsing EPUB files"
+    }
+  ],
+  "priority": "P2",
+  "agent": "claude",
+  "status": "done",
+  "created_at": "2026-04-04T00:18:08.529556",
+  "updated_at": "2026-04-04T00:36:18.428759"
+}

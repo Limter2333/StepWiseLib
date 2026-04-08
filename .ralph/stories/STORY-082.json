@@ -1,0 +1,42 @@
+{
+  "id": "STORY-082",
+  "title": "UI风格#76 - Retro TV Static (复古电视雪花)",
+  "description": "创建第76种UI风格：复古电视雪花风格 - CRT电视、静态噪声、失真效果。输出到 G:/claude_code_project/web/index_planBX.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Retro TV Static style When color palette Then features gray static, black, white, slight color tint",
+      "status": "pass",
+      "evidence": "Implemented: #808080 (gray-noise), #000000 (black), #FFFFFF (white), #E8E8E8 (gray-light), #2D2D2D (gray-dark)"
+    },
+    {
+      "criterion": "Given Retro TV Static style When typography Then uses pixelated fonts: VT323, Press Start 2P, or Silkscreen",
+      "status": "pass",
+      "evidence": "Implemented: VT323 (body 1.1rem), Press Start 2P (headers 1.8rem/0.8rem), Silkscreen (button/tagline 0.75rem)"
+    },
+    {
+      "criterion": "Given Retro TV Static style When layout Then TV frame, static overlay, rounded corners",
+      "status": "pass",
+      "evidence": "Implemented: TV frame with rounded corners, animated static noise overlay, scanline effects, black CRT background"
+    },
+    {
+      "criterion": "Given Retro TV Static style When UI elements Then static noise, TV glitches, antenna styling",
+      "status": "pass",
+      "evidence": "Implemented: animated static noise layer, text glitch animation, scanline overlays, gray-noise borders, CRT styling throughout"
+    },
+    {
+      "criterion": "Given Retro TV Static UI When functional Then includes static chat, fuzzy agents, signal stats",
+      "status": "pass",
+      "evidence": "Implemented: screen chat (Channel 3), 4 channel agents (CRT/VHS/Film/Radio) with Snow/Clear/Lines/Scan/Frames/Grain/Freq/Tune stats"
+    },
+    {
+      "criterion": "Given Retro TV Static UI When copy Then uses TV language: 'Signal', 'Static', 'Channel', 'Tune'",
+      "status": "pass",
+      "evidence": "Implemented: title 'STATIC. SIGNAL. CHANNEL.', tagline 'TUNING IN FROM THE PAST', button 'TUNE', greeting 'BZZZ... We're on the air', status 'Watching'/'Idle', nav 'Home'/'Repair'/'Archive'/'Controls'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

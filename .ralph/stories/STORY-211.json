@@ -1,0 +1,42 @@
+{
+  "id": "STORY-211",
+  "title": "UI风格#205 - Ethereal Minimal (空灵极简)",
+  "description": "创建第205种UI风格：空灵极简风格 - 透明朦胧、轻盈飘渺、仙女氛围。输出到 G:/claude_code_project/web/index_planGW.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Ethereal Minimal style When color palette Then features pale lavender, soft white, iridescent hints",
+      "status": "todo",
+      "evidence": "需要设计：#E6E6FA (淡紫), #FAFAFA (柔白), #F0F8FF (淡蓝), #FFF5F8 (淡粉)"
+    },
+    {
+      "criterion": "Given Ethereal Minimal style When typography Then uses light ethereal: Lora, Cormorant, Josefin Sans",
+      "status": "todo",
+      "evidence": "字体选择：Lora (轻盈), Cormorant (优雅), Josefin Sans (现代)"
+    },
+    {
+      "criterion": "Given Ethereal Minimal style When layout Then translucent layers, soft gradients, floating elements",
+      "status": "todo",
+      "evidence": "布局特点：透明层叠、柔和渐变、漂浮元素"
+    },
+    {
+      "criterion": "Given Ethereal Minimal style When UI elements Then soft glow, feather touch, misty overlay",
+      "status": "todo",
+      "evidence": "交互特点：柔和发光、羽毛触感、朦胧叠加"
+    },
+    {
+      "criterion": "Given Ethereal Minimal UI When functional Then includes whisper chat, spirit agents, essence stats",
+      "status": "todo",
+      "evidence": "功能需求：低语聊天、灵魂代理、本质统计"
+    },
+    {
+      "criterion": "Given Ethereal Minimal UI When copy Then uses ethereal: 'Whisper', 'Spirit', 'Essence', 'Ethereal'",
+      "status": "todo",
+      "evidence": "创意文案：标题'WHISPER. SPIRIT. ESSENCE.'、按钮'SUBMIT'→'WHISPER'、'DEPLOY'→'EMBODY'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

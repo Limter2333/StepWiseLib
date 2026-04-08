@@ -1,0 +1,42 @@
+{
+  "id": "STORY-233",
+  "title": "UI风格#226 - Paper Craft (纸艺手工)",
+  "description": "创建第226种UI风格：纸艺手工风格 - 纸张纹理、折纸元素、手工质感。输出到 G:/claude_code_project/web/index_planHT.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Paper Craft style When color palette Then features kraft, cream, muted pastels",
+      "status": "todo",
+      "evidence": "需要设计：#C4A35A (牛皮纸), #F5F5DC (米色), #E8D5B7 (蛋壳), #A8D8EA (淡蓝)"
+    },
+    {
+      "criterion": "Given Paper Craft style When typography Then uses handcrafted: Indie Flower, Covered By Your Grace, Rock Salt",
+      "status": "todo",
+      "evidence": "字体选择：Indie Flower (手写), Covered By Your Grace (优雅), Rock Salt (潦草)"
+    },
+    {
+      "criterion": "Given Paper Craft style When layout Then paper layers, fold lines, cut-out effects",
+      "status": "todo",
+      "evidence": "布局特点：纸张层次、折痕效果、剪纸镂空"
+    },
+    {
+      "criterion": "Given Paper Craft style When UI elements Then paper shadows, fold animations, stamp effects",
+      "status": "todo",
+      "evidence": "交互特点：纸张阴影、折叠动画、印章效果"
+    },
+    {
+      "criterion": "Given Paper Craft UI When functional Then includes fold chat, craft agents, paper stats",
+      "status": "todo",
+      "evidence": "功能需求：折叠聊天、手工代理、纸张统计"
+    },
+    {
+      "criterion": "Given Paper Craft UI When copy Then uses craft: 'Fold', 'Create', 'Craft', 'Shape'",
+      "status": "todo",
+      "evidence": "创意文案：标题'FOLD. CREATE. CRAFT.'、按钮'SUBMIT'→'FOLD'、'DEPLOY'→'SHAPE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

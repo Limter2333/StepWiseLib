@@ -1,0 +1,42 @@
+{
+  "id": "STORY-176",
+  "title": "UI风格#170 - Brutalist Neon (粗野霓虹)",
+  "description": "创建第170种UI风格：粗野霓虹风格 - 粗野主义框架+霓虹发光，未来感+原始感。输出到 G:/claude_code_project/web/index_planFN.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Brutalist Neon style When color palette Then features neon cyan, hot pink on raw concrete",
+      "status": "pass",
+      "evidence": "Implemented: #00FFFF (neon-cyan), #FF1493 (hot-pink), #2C2C2C (concrete), #1A1A1A (deep-black), #FFFFFF (white), #3A3A3A (raw-gray)"
+    },
+    {
+      "criterion": "Given Brutalist Neon style When typography Then uses brutal mono: Bebas Neue, JetBrains Mono, or Space Grotesk",
+      "status": "pass",
+      "evidence": "Implemented: Bebas Neue (title 3.5rem), JetBrains Mono (body/UI 0.85rem) - brutal monospace typography with neon glows"
+    },
+    {
+      "criterion": "Given Brutalist Neon style When layout Then raw concrete blocks with neon outlines, exposed structure",
+      "status": "pass",
+      "evidence": "Implemented: concrete texture background, neon cyan border with glow animation, hot pink grid border, exposed grid layout, brutal shadows"
+    },
+    {
+      "criterion": "Given Brutalist Neon style When UI elements Then neon glow on concrete, harsh contrasts, industrial feel",
+      "status": "pass",
+      "evidence": "Implemented: neon glow text-shadows, animated neon border flicker, cyan/pink box-shadows, harsh concrete texture, industrial mono styling"
+    },
+    {
+      "criterion": "Given Brutalist Neon UI When functional Then includes circuit chat, power agents, grid stats",
+      "status": "pass",
+      "evidence": "Implemented: Circuit Link chat header, 4 power agents (POWER-01, GRID-02, CIRCUIT-03, VOLT-04) with Voltage/Grid/Circuit/Load/Flow/Amp/Charge/Status stats"
+    },
+    {
+      "criterion": "Given Brutalist Neon UI When copy Then uses power terms: 'Power', 'Grid', 'Circuit', 'Voltage'",
+      "status": "pass",
+      "evidence": "Implemented: title 'POWER. GRID. CIRCUIT.', tagline '// raw voltage meets neon //', button 'VOLTAGE', greeting 'CIRCUIT ONLINE. VOLTAGE STABLE...', status 'Online'/'Offline', nav '⚡ Power'/'◈ Grid'/'⚡ Circuit'/'◈ Voltage'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

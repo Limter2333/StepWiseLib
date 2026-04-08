@@ -1,0 +1,42 @@
+{
+  "id": "STORY-185",
+  "title": "UI风格#179 - Paper Cutout (纸雕风格)",
+  "description": "创建第179种UI风格：纸雕风格 - 纸张层切效果、阴影深度、纸张质感。输出到 G:/claude_code_project/web/index_planFW.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Paper Cutout style When color palette Then features kraft paper, muted colors, natural tones",
+      "status": "todo",
+      "evidence": "需要设计：#D4A574 (牛皮纸), #A0826D (棕色), #8B9A6B (橄榄绿), #C4A484 (米色), #5D5D5D (灰色)"
+    },
+    {
+      "criterion": "Given Paper Cutout style When typography Then uses handcrafted: Homemade Apple, Shadows Into Light, or Architect",
+      "status": "todo",
+      "evidence": "字体选择：Homemade Apple (手作), Shadows Into Light (手写), Architect (建筑感)"
+    },
+    {
+      "criterion": "Given Paper Cutout style When layout Then layered paper shapes, cut edges, shadow depth between layers",
+      "status": "todo",
+      "evidence": "布局特点：层叠纸形状、切割边缘、层级间阴影深度"
+    },
+    {
+      "criterion": "Given Paper Cutout style When UI elements Then paper fold, cut reveal, shadow lift, texture touch",
+      "status": "todo",
+      "evidence": "交互特点：纸张折叠、切割揭示、阴影抬起、纹理触感"
+    },
+    {
+      "criterion": "Given Paper Cutout UI When functional Then includes layer chat, cut agents, depth stats",
+      "status": "todo",
+      "evidence": "功能需求：分层聊天、切割代理、深度统计"
+    },
+    {
+      "criterion": "Given Paper Cutout UI When copy Then uses paper craft: 'Layer', 'Cut', 'Fold', 'Depth'",
+      "status": "todo",
+      "evidence": "创意文案：标题'LAYER. CUT. DEPTH.'、按钮'SUBMIT'→'FOLD'、'DEPLOY'→'LAYER'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

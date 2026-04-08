@@ -1,0 +1,42 @@
+{
+  "id": "STORY-166",
+  "title": "UI风格#160 - Swiss Brutalist (瑞士粗野)",
+  "description": "创建第160种UI风格：瑞士粗野风格 - 瑞士设计与粗野主义结合、精确与力量。输出到 G:/claude_code_project/web/index_planFD.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Swiss Brutalist style When color palette Then features concrete gray, swiss red, black, white",
+      "status": "pass",
+      "evidence": "Implemented: #808080 (concrete-gray), #E00041 (swiss-red), #000000 (black), #FFFFFF (white), #333333 (dark-gray), #CCCCCC (light-gray)"
+    },
+    {
+      "criterion": "Given Swiss Brutalist style When typography Then uses swiss brutal: Helvetica Neue, Oswald, or Aktiv Grotesk",
+      "status": "pass",
+      "evidence": "Implemented: Oswald (headers 3.5rem 700 weight uppercase), Helvetica Neue (body 0.95rem) - Swiss precision meets brutal weight"
+    },
+    {
+      "criterion": "Given Swiss Brutalist style When layout Then grid meets concrete, bold type, mathematical precision, massive scale",
+      "status": "pass",
+      "evidence": "Implemented: 100px grid pattern overlay, 3px black borders, black header stripe, mathematical grid layout, bold brutal scale"
+    },
+    {
+      "criterion": "Given Swiss Brutalist style When UI elements Then concrete texture, grid lines, bold type, red accents",
+      "status": "pass",
+      "evidence": "Implemented: SVG noise concrete texture, grid line background, bold Oswald typography, swiss-red accents on interactive elements"
+    },
+    {
+      "criterion": "Given Swiss Brutalist UI When functional Then includes systematic chat, module agents, structure stats",
+      "status": "pass",
+      "evidence": "Implemented: Systematic chat with 'SYSTEMATIC ANALYSIS' header, 4 module agents (GRID, MATRIX, NODE, CORE) with Module/System/Structure/Coord/Grid/Status/Sync/Power stats"
+    },
+    {
+      "criterion": "Given Swiss Brutalist UI When copy Then uses systematic: 'Grid', 'Module', 'System', 'Structure'",
+      "status": "pass",
+      "evidence": "Implemented: title 'GRID. MODULE. SYSTEM.', tagline '// PRECISION + STRENGTH //', button 'BUILD', greeting 'THE SYSTEM IS OPERATIONAL. STATE YOUR PARAMETERS.', status 'ACTIVE'/'IDLE', nav '+ Grid'/'+ Build'/'+ Structure'/'+ System'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "STORY-149",
+  "title": "UI风格#143 - Swiss Modern (瑞士现代)",
+  "description": "创建第143种UI风格：瑞士现代风格 - 现代瑞士设计、红蓝点缀、精确网格。输出到 G:/claude_code_project/web/index_planEM.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Swiss Modern style When color palette Then features pure white, jet black, swiss red, cool gray",
+      "status": "pass",
+      "evidence": "Implemented: #FFFFFF (pure-white), #000000 (jet-black), #E00041 (swiss-red), #6B6B6B (cool-gray), #F5F5F5 (light-gray), #999999 (medium-gray), #333333 (dark-gray)"
+    },
+    {
+      "criterion": "Given Swiss Modern style When typography Then uses modern swiss: Helvetica Now, Neue Haas Grotesk, or Aktiv Grotesk",
+      "status": "pass",
+      "evidence": "Implemented: Inter (headers 3rem 800 weight), Inter (body 0.9rem 400-500 weight) - clean Swiss-style sans-serif"
+    },
+    {
+      "criterion": "Given Swiss Modern style When layout Then modular grid, mathematical spacing, asymmetric layout, bold type",
+      "status": "pass",
+      "evidence": "Implemented: 80px modular grid overlay, 1fr/300px asymmetric layout, mathematical spacing, bold typography hierarchy"
+    },
+    {
+      "criterion": "Given Swiss Modern style When UI elements Then precise alignment, clean edges, systematic color blocks",
+      "status": "pass",
+      "evidence": "Implemented: 4px Swiss border, precise 2px borders, clean edges, systematic color blocks, hover transitions with Swiss red"
+    },
+    {
+      "criterion": "Given Swiss Modern UI When functional Then includes systematic chat, module agents, grid stats",
+      "status": "pass",
+      "evidence": "Implemented: SYSTEMATIC chat, 4 module agents (DEV GRID, RAG CELL, PM STRUCTURE, TEST UNIT) with MODULE/ORDER/GRID/ALIGN/SYSTEM/MATRIX/PRECISION/CALIBRATE stats"
+    },
+    {
+      "criterion": "Given Swiss Modern UI When copy Then uses swiss design: 'Grid', 'Module', 'System', 'Order'",
+      "status": "pass",
+      "evidence": "Implemented: title 'GRID. MODULE. SYSTEM.', tagline '— Swiss Precision —', button 'ALIGN', greeting 'SYSTEM READY. MODULES ALIGNED. AWAITING INPUT.', status 'ACTIVE'/'IDLE', nav 'SYSTEM'/'ALIGN'/'ORGANIZE'/'MATRIX'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

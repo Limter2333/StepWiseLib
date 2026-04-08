@@ -1,0 +1,42 @@
+{
+  "id": "STORY-146",
+  "title": "UI风格#140 - Art Nouveau Mystical (新艺术神秘)",
+  "description": "创建第140种UI风格：新艺术神秘风格 - 神秘符号、占星图案、星光。输出到 G:/claude_code_project/web/index_planEJ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Art Nouveau Mystical style When color palette Then features midnight blue, mystical gold, cosmic purple, starlight white",
+      "status": "pass",
+      "evidence": "Implemented: #191970 (midnight-blue), #C9A227 (mystical-gold), #4B0082 (cosmic-purple), #FFFAF0 (starlight-white), #2F2F4F (deep-blue), #6B5B95 (constellation), #E6E6FA (moon-glow), #DDA0DD (nebula-pink)"
+    },
+    {
+      "criterion": "Given Art Nouveau Mystical style When typography Then uses mystical fonts: Cormorant, Playfair Display, or Cinzel",
+      "status": "pass",
+      "evidence": "Implemented: Cormorant (headers 2.2rem 500 weight), Playfair Display (body 0.95rem 400-500 weight)"
+    },
+    {
+      "criterion": "Given Art Nouveau Mystical style When layout Then celestial maps, zodiac patterns, moon phases, constellation lines",
+      "status": "pass",
+      "evidence": "Implemented: stars overlay with radial gradient, celestial gradient background, mystical moon and star symbols (☽✧✦★🌙🔮)"
+    },
+    {
+      "criterion": "Given Art Nouveau Mystical style When UI elements Then star glow, cosmic dust, mystical symbols, ethereal light",
+      "status": "pass",
+      "evidence": "Implemented: star glow text shadows, mystical gold accents, celestial iconography, ethereal light box shadows"
+    },
+    {
+      "criterion": "Given Art Nouveau Mystical UI When functional Then includes mystical chat, oracle agents, destiny stats",
+      "status": "pass",
+      "evidence": "Implemented: oracle chat (The Celestial Temple), 4 oracle agents (Dev Star, RAG Moon, PM Constellation, Test Eclipse) with Cosmos/Fate/Zodiac/Oracle/Destiny/Vision/Eclipse/Shadow stats"
+    },
+    {
+      "criterion": "Given Art Nouveau Mystical UI When copy Then uses celestial: 'Cosmos', 'Destiny', 'Oracle', 'Zodiac'",
+      "status": "pass",
+      "evidence": "Implemented: title 'COSMOS. DESTINY. ORACLE.', tagline '~ The stars whisper secrets ~', button 'DIVINE', greeting 'The cosmic veil parts before you, seeker. What knowledge do the stars hold for your destiny?', status 'DIVINING'/'IDLE', nav 'Cosmos'/'Divine'/'Prophecy'/'Temple'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

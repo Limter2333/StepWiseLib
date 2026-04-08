@@ -1,0 +1,42 @@
+{
+  "id": "STORY-192",
+  "title": "UI风格#186 - Brutalist Paper (粗野纸张)",
+  "description": "创建第186种UI风格：粗野纸张风格 - 粗野主义+纸张质感、原始与现代并置。输出到 G:/claude_code_project/web/index_planGD.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Brutalist Paper style When color palette Then features raw paper, bold black, stark white",
+      "status": "todo",
+      "evidence": "需要设计：#F5E6C8 (原始纸), #000000 (纯黑), #FFFFFF (白), #8B8B8B (灰), #D4A574 (牛皮纸)"
+    },
+    {
+      "criterion": "Given Brutalist Paper style When typography Then uses raw bold: Archivo Black, Work Sans",
+      "status": "todo",
+      "evidence": "字体选择：Archivo Black (粗野), Work Sans (现代), Space Mono (等宽)"
+    },
+    {
+      "criterion": "Given Brutalist Paper style When layout Then paper texture with brutalist typography, raw edges",
+      "status": "todo",
+      "evidence": "布局特点：纸张纹理+粗野排版、原始边缘"
+    },
+    {
+      "criterion": "Given Brutalist Paper style When UI elements Then paper tear, bold stamp, raw cut edges",
+      "status": "todo",
+      "evidence": "交互特点：纸张撕裂、粗体印章、原始切割边缘"
+    },
+    {
+      "criterion": "Given Brutalist Paper UI When functional Then includes raw chat, brutal agents, paper stats",
+      "status": "todo",
+      "evidence": "功能需求：原始聊天、粗野代理、纸张统计"
+    },
+    {
+      "criterion": "Given Brutalist Paper UI When copy Then uses raw: 'Raw', 'Bold', 'Brutal', 'Paper'",
+      "status": "todo",
+      "evidence": "创意文案：标题'RAW. BOLD. BRUTAL.'、按钮'SUBMIT'→'STAMP'、'DEPLOY'→'PRESS'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

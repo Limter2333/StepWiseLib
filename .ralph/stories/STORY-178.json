@@ -1,0 +1,42 @@
+{
+  "id": "STORY-178",
+  "title": "UI风格#172 - Vaporwave Minimal (蒸汽波极简)",
+  "description": "创建第172种UI风格：蒸汽波极简风格 - 简化的蒸汽波、柔和渐变、几何形状。输出到 G:/claude_code_project/web/index_planFP.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Vaporwave Minimal style When color palette Then features pastel pink, cyan, lavender on dark",
+      "status": "pass",
+      "evidence": "Implemented: #FFB6C1 (soft-pink), #87CEEB (soft-cyan), #E6E6FA (lavender), #1A1A2E (deep-purple), #FF71CE (hot-pink), #B8F4D4 (mint), #FFF5F8 (cream)"
+    },
+    {
+      "criterion": "Given Vaporwave Minimal style When typography Then uses soft geometric: Quicksand, Poppins, or Raleway",
+      "status": "pass",
+      "evidence": "Implemented: Quicksand (title/buttons 2.4rem), Poppins (body 0.9rem 300 weight) - soft geometric typography"
+    },
+    {
+      "criterion": "Given Vaporwave Minimal style When layout Then soft gradients, geometric shapes, minimal chrome, 80s shapes",
+      "status": "pass",
+      "evidence": "Implemented: deep purple gradient background, floating orb animations, blur backdrop effects, subtle rounded borders, gradient top accent"
+    },
+    {
+      "criterion": "Given Vaporwave Minimal style When UI elements Then slow fade transitions, gradient shifts, soft glow",
+      "status": "pass",
+      "evidence": "Implemented: gradient border accents, glass-morphism cards, soft glow on focus, gradient buttons with hover lift, floating orb animations"
+    },
+    {
+      "criterion": "Given Vaporwave Minimal UI When functional Then includes wave chat, drift agents, signal stats",
+      "status": "pass",
+      "evidence": "Implemented: Chill Zone chat header, 4 drift agents (WAVE-01, CHILL-02, DRIFT-03, AURA-04) with Signal/Drift/Flow/Vibe/Surge/Mode/Pulse/Sync stats"
+    },
+    {
+      "criterion": "Given Vaporwave Minimal UI When copy Then uses chill terms: 'Chill', 'Drift', 'Wave', 'Flow'",
+      "status": "pass",
+      "evidence": "Implemented: title 'CHILL. DRIFT. WAVE.', tagline '// relax into the digital haze //', button 'FLOW', greeting 'welcome to the chill zone~...', status 'Chill'/'Idle', nav '◇ Chill'/'◇ Flow'/'◇ Drift'/'◇ Wave'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "STORY-061",
+  "title": "UI风格#55 - Terracotta Warrior (兵马俑古典)",
+  "description": "创建第55种UI风格：兵马俑古典风格 - 中国古代、青铜陶土、历史厚重。输出到 G:/claude_code_project/web/index_planBC.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Terracotta Warrior style When color palette Then features terracotta, bronze, earth browns, ancient green",
+      "status": "pass",
+      "evidence": "Implemented: #C67B5C (terracotta), #B87333 (bronze), #5C4033 (earth-brown), #2F4F4F (ancient-green), #F5E6D3 (clay), #3D2914 (dark-earth)"
+    },
+    {
+      "criterion": "Given Terracotta Warrior style When typography Then uses classical Chinese: Ma Shan Zheng, Noto Serif SC, or ZCOOL XiaoWei",
+      "status": "pass",
+      "evidence": "Implemented: Ma Shan Zheng (cursive 1.3rem), ZCOOL XiaoWei (headers 3rem), Noto Serif SC (body 0.95rem)"
+    },
+    {
+      "criterion": "Given Terracotta Warrior style When layout Then ancient patterns, warrior silhouettes, imperial motifs",
+      "status": "pass",
+      "evidence": "Implemented: gradient background (clay to terracotta to earth-brown), terracotta texture SVG, imperial border gradients, diamond seal divider with 秦 character"
+    },
+    {
+      "criterion": "Given Terracotta Warrior style When UI elements Then bronze borders, terracotta textures, imperial seals",
+      "status": "pass",
+      "evidence": "Implemented: bronze borders, dashed inner borders, hover lift shadow, imperial gradient buttons, jade accent on stats"
+    },
+    {
+      "criterion": "Given Terracotta Warrior UI When functional Then includes imperial chat, warrior agents, dynasty stats",
+      "status": "pass",
+      "evidence": "Implemented: imperial chat (Chinese palace theme), 4 warrior cards (Qin Shi Huang/Sima Qian/Empress Wu/Li Bai) with Tributes/Legacy/Records/Wisdom/Sprints/Glory/Tests/Purity stats"
+    },
+    {
+      "criterion": "Given Terracotta Warrior UI When copy Then uses ancient Chinese: 'Dynasty', 'Empire', 'Legacy', 'Eternal'",
+      "status": "pass",
+      "evidence": "Implemented: title 'DYNASTY. EMPIRE. LEGACY.', Chinese tagline '永恒的守护者', button 'REVERE', Chinese greeting '朕乃秦始皇', status 'Guarding'/'Dormant', nav 'Xianyang'/'Forge'/'Throne'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

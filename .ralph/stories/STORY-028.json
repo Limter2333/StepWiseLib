@@ -1,0 +1,42 @@
+{
+  "id": "STORY-028",
+  "title": "UI风格#22 - Noir Mystery (黑色电影)",
+  "description": "创建第22种UI风格：黑色电影风格 - 黑白摄影、阴影戏剧、高对比度。输出到 G:/claude_code_project/web/index_planV.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Noir Mystery style When color palette Then features black, white, grays with dramatic shadows",
+      "status": "todo",
+      "evidence": "需要设计：#000000 (纯黑), #FFFFFF (纯白), #333333 (炭灰), #666666 (银灰), #1A1A1A (影黑)"
+    },
+    {
+      "criterion": "Given Noir Mystery style When typography Then uses cinematic fonts: Playfair Display, Cormorant, or Lora",
+      "status": "todo",
+      "evidence": "字体选择：Playfair Display (标题), Cormorant (正文), 或 Bebas Neue"
+    },
+    {
+      "criterion": "Given Noir Mystery style When layout Then spotlight effects, shadow drama, cinematic framing",
+      "status": "todo",
+      "evidence": "布局特点：聚光灯效果、阴影戏剧、电影构图、宽屏比例"
+    },
+    {
+      "criterion": "Given Noir Mystery style When UI elements Then film grain overlay, vignette shadows, dramatic reveals",
+      "status": "todo",
+      "evidence": "交互特点：胶片颗粒叠加、暗角阴影、戏剧性揭示、黑白转换"
+    },
+    {
+      "criterion": "Given Noir Mystery UI When functional Then includes noir chat, shadowy agents, dramatic stats",
+      "status": "todo",
+      "evidence": "功能需求：黑色电影聊天、阴影代理、戏剧性统计"
+    },
+    {
+      "criterion": "Given Noir Mystery UI When copy Then uses film noir language: 'Shadows', 'Spotlight', 'Mystery', 'Drama'",
+      "status": "todo",
+      "evidence": "创意文案：标题'SHADOWS. SPOTLIGHT. MYSTERY.'、按钮'SEND'→'WHISPER'、'SUBMIT'→'REVEAL'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

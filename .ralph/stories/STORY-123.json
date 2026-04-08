@@ -1,0 +1,42 @@
+{
+  "id": "STORY-123",
+  "title": "UI风格#117 - Brutalist Noir (粗野黑色电影)",
+  "description": "创建第117种UI风格：粗野黑色电影风格 - 黑色电影与粗野主义结合、戏剧性与力量感。输出到 G:/claude_code_project/web/index_planDM.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Brutalist Noir style When color palette Then features deep black, harsh white, blood red, concrete gray",
+      "status": "todo",
+      "evidence": "需要设计：#0D0D0D (深黑), #FFFFFF (白), #8B0000 (血红), #4A4A4A (混凝土), #1C1C1C (炭黑)"
+    },
+    {
+      "criterion": "Given Brutalist Noir style When typography Then uses bold noir: Bebas Neue, Roboto Mono, or Share Tech Mono",
+      "status": "todo",
+      "evidence": "字体选择：Bebas Neue (粗体), Roboto Mono (正文), Share Tech Mono (替代)"
+    },
+    {
+      "criterion": "Given Brutalist Noir style When layout Then harsh contrasts, concrete frames, dramatic shadows, brutal geometry",
+      "status": "todo",
+      "evidence": "布局特点：强烈对比、混凝土框架、戏剧性阴影、粗野几何"
+    },
+    {
+      "criterion": "Given Brutalist Noir style When UI elements Then film noir lighting, concrete textures, blood red accents",
+      "status": "todo",
+      "evidence": "交互特点：黑色电影光照、混凝土质感、血红点缀、硬边过渡"
+    },
+    {
+      "criterion": "Given Brutalist Noir UI When functional Then includes detective chat, noir agents, case stats",
+      "status": "todo",
+      "evidence": "功能需求：侦探聊天、黑色代理、案件统计"
+    },
+    {
+      "criterion": "Given Brutalist Noir UI When copy Then uses detective noir: 'Case', 'Shadow', 'Evidence', 'Witness'",
+      "status": "todo",
+      "evidence": "创意文案：标题'CASE. SHADOW. EVIDENCE.'、按钮'SEND'→'INVESTIGATE'、'SUBMIT'→'PROSECUTE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

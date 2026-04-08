@@ -1,0 +1,43 @@
+{
+  "id": "STORY-012",
+  "title": "UI风格#6 - Organic Futurism (有机未来)",
+  "description": "创建第6种UI风格：有机未来风格 - 流动曲线、自然渐变、生态感。输出到 G:/claude_code_project/web/index_planF.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Organic Futurism style When designing Then color palette features soft gradients (greens, blues, teals), organic shapes, flowing curves",
+      "status": "pass",
+      "evidence": "Implemented: #2D4A3E Deep Moss, #E8A87C Living Coral, #41EAD4 Bioluminescent Cyan, #FAF6F0 Soft Ivory palette with organic gradients"
+    },
+    {
+      "criterion": "Given Organic Futurism style When typography Then fonts are soft/rounded: maybe Quicksand, Poppins, or similar organic feel",
+      "status": "pass",
+      "evidence": "Implemented: Playfair Display (serif headers), Nunito (body text), Caveat (handwritten accents)"
+    },
+    {
+      "criterion": "Given Organic Futurism style When layout Then asymmetric organic shapes, flowing wave dividers, soft shadows, glass-morphism accents",
+      "status": "pass",
+      "evidence": "Implemented: wave SVG dividers, morphing organic shapes, glass-morphism sidebar with blur(20px), soft shadows"
+    },
+    {
+      "criterion": "Given Organic Futurism style When UI elements Then buttons have rounded pill shapes, cards have soft shadows, hover states use subtle scale/glow",
+      "status": "pass",
+      "evidence": "Implemented: pill buttons (border-radius: 50px), glass cards, hover scale(1.02) + glow shadow"
+    },
+    {
+      "criterion": "Given Organic Futurism UI When functional Then includes chat interface, agent status, token stats, sidebar navigation",
+      "status": "pass",
+      "evidence": "Implemented: full chat UI with messages, 4 agent status cards with organic states, token vitality bars, 5-item sidebar"
+    },
+    {
+      "criterion": "Given Organic Futurism UI When copy Then tagline uses nature-inspired language: 'Grow with AI', 'Flourish', 'Bloom', 'Symbiosis'",
+      "status": "pass",
+      "evidence": "Implemented: title 'SYMB. GROW. BLOOM.', buttons BLOOM/CULTIVATE/REST/WILT/REBLOOM/NURTURE, status 'Germinating', 'Photosynthesis', 'Blossomed'"
+    }
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-06T00:00:00.000000",
+  "updated_at": "2026-04-06T00:00:00.000000"
+}

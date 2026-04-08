@@ -1,0 +1,42 @@
+{
+  "id": "STORY-177",
+  "title": "UI风格#171 - Retro Terminal Green (复古终端绿)",
+  "description": "创建第171种UI风格：复古终端绿色风格 - 经典绿色屏幕、phosphor发光、CRT显示。输出到 G:/claude_code_project/web/index_planFO.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Retro Terminal Green style When color palette Then features phosphor green on deep black",
+      "status": "pass",
+      "evidence": "Implemented: #00FF00 (phosphor-green), #003300 (dark-green), #001100 (terminal-black), #00CC00 (mid-green), #33FF33 (bright-green), #009900 (dim-green)"
+    },
+    {
+      "criterion": "Given Retro Terminal Green style When typography Then uses terminal mono: VT323, Fira Code, or Source Code Pro",
+      "status": "pass",
+      "evidence": "Implemented: VT323 (title 2.5rem), Fira Code (body 1rem), JetBrains Mono (monospace stats) - authentic terminal typography"
+    },
+    {
+      "criterion": "Given Retro Terminal Green style When layout Then terminal window, command prompts, scan lines, CRT curvature",
+      "status": "pass",
+      "evidence": "Implemented: CRT scanline overlay animation, terminal window with header dots, radial vignette effect, cursor blink animation, command prompt styling"
+    },
+    {
+      "criterion": "Given Retro Terminal Green style When UI elements Then phosphor glow, cursor blink, scan line flicker",
+      "status": "pass",
+      "evidence": "Implemented: text glow animations, blinking cursor, status pulse animation, CRT scanlines moving, terminal border glow"
+    },
+    {
+      "criterion": "Given Retro Terminal Green UI When functional Then includes command chat, boot agents, memory stats",
+      "status": "pass",
+      "evidence": "Implemented: root@system command chat, 4 boot agents (KERNEL, SHELL, DAEMON, SERVICE) with MEM/PROC/THREADS/STATUS/PID/STATE/UPTIME/LOAD stats"
+    },
+    {
+      "criterion": "Given Retro Terminal Green UI When copy Then uses terminal terms: 'Boot', 'Execute', 'Process', 'System'",
+      "status": "pass",
+      "evidence": "Implemented: title 'SYSTEM BOOT SEQUENCE', tagline '// retro terminal initialized //', button 'EXECUTE', greeting 'SYSTEM READY. AWAITING COMMAND INPUT...', status 'ONLINE'/'OFFLINE', nav 'Boot'/'Execute'/'Process'/'System'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

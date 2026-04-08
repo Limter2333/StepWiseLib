@@ -1,0 +1,42 @@
+{
+  "id": "STORY-101",
+  "title": "UI风格#95 - Sahara Dunes (撒哈拉沙漠)",
+  "description": "创建第95种UI风格：撒哈拉沙漠风格 - 金色沙丘、骆驼商队、海市蜃楼。输出到 G:/claude_code_project/web/index_planCQ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Sahara Dunes style When color palette Then features golden sand, terracotta, oasis blue, sunset orange",
+      "status": "todo",
+      "evidence": "需要设计：#D4A574 (金沙), #C67B4E (赤陶), #87CEEB (绿洲蓝), #E07B39 (日落橙), #F5DEB3 (沙白)"
+    },
+    {
+      "criterion": "Given Sahara Dunes style When typography Then uses arabian fonts: Scheherazade New, Amiri, or Lateef",
+      "status": "todo",
+      "evidence": "字体选择：Scheherazade New (标题), Amiri (正文), Lateef (装饰)"
+    },
+    {
+      "criterion": "Given Sahara Dunes style When layout Then dune gradients, oasis shapes, caravan silhouettes",
+      "status": "todo",
+      "evidence": "布局特点：沙丘渐变、绿洲形状、商队剪影、沙漠天空"
+    },
+    {
+      "criterion": "Given Sahara Dunes style When UI elements Then sand textures, heat shimmer, camel motifs",
+      "status": "todo",
+      "evidence": "交互特点：沙粒纹理、海市蜃楼效果、骆驼图案、热浪波动"
+    },
+    {
+      "criterion": "Given Sahara Dunes UI When functional Then includes caravan chat, nomad agents, oasis stats",
+      "status": "todo",
+      "evidence": "功能需求：商队聊天、游牧代理、绿洲统计"
+    },
+    {
+      "criterion": "Given Sahara Dunes UI When copy Then uses desert wisdom: 'Oasis', 'Caravan', 'Dunes', 'Mirage'",
+      "status": "todo",
+      "evidence": "创意文案：标题'OASIS. CARAVAN. DUNES.'、按钮'SEND'→'JOURNEY'、'SUBMIT'→'EXPLORE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

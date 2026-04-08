@@ -1,0 +1,42 @@
+{
+  "id": "STORY-161",
+  "title": "UI风格#155 - Steampunk Minimal (蒸汽朋克极简)",
+  "description": "创建第155种UI风格：蒸汽朋克极简风格 - 简化版蒸汽朋克、齿轮与蒸汽。输出到 G:/claude_code_project/web/index_planEY.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Steampunk Minimal style When color palette Then features brass gold, copper bronze, steam white, dark brown",
+      "status": "pass",
+      "evidence": "Implemented: #C9A227 (brass-gold), #B87333 (copper-bronze), #F5F5F5 (steam-white), #3C1414 (dark-brown), #A67C00 (aged-brass), #8B4513 (leather), #1A1A1A (oil-black)"
+    },
+    {
+      "criterion": "Given Steampunk Minimal style When typography Then uses industrial: Oswald, Roboto Mono, or Share Tech Mono",
+      "status": "pass",
+      "evidence": "Implemented: Oswald (headers 2.2rem 600 weight), Roboto Mono (body 0.9rem) - industrial Victorian typography"
+    },
+    {
+      "criterion": "Given Steampunk Minimal style When layout Then minimal gears, clean pipes, simple gauges, brass accents",
+      "status": "pass",
+      "evidence": "Implemented: brass/gold borders, gear decorations (⚙), steam-powered aesthetic, industrial layout"
+    },
+    {
+      "criterion": "Given Steampunk Minimal style When UI elements Then gear animations, brass textures, steam wisps",
+      "status": "pass",
+      "evidence": "Implemented: gear icons, brass gradient accents, copper/bronze borders, steam-white text on dark background"
+    },
+    {
+      "criterion": "Given Steampunk Minimal UI When functional Then includes engine chat, inventor agents, pressure stats",
+      "status": "pass",
+      "evidence": "Implemented: Engine chat with ONLINE status, 4 inventor agents (TESLA COIL, GEARWRIGHT, COPPERFIELD, WATT'SON) with Power/Voltage/Steam/Pressure/Boiler/Temp/Efficiency/Fuel stats"
+    },
+    {
+      "criterion": "Given Steampunk Minimal UI When copy Then uses Victorian industrial: 'Engine', 'Pressure', 'Steam', 'Gear'",
+      "status": "pass",
+      "evidence": "Implemented: title 'ENGINE. PRESSURE. GEAR.', tagline '// STEAM_POWERED //', button 'IGNITE', greeting 'THE ENGINE RUNS HOT. WHAT SHALL WE CONSTRUCT TODAY...', status 'ACTIVE'/'IDLE', nav 'Engine'/'Ignite'/'Engage'/'Steam'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

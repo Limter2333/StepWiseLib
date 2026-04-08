@@ -1,0 +1,42 @@
+{
+  "id": "STORY-107",
+  "title": "UI风格#101 - Nordic Winter (北欧冬日)",
+  "description": "创建第101种UI风格：北欧冬日风格 - 冰雪覆盖、木屋温暖、极夜氛围。输出到 G:/claude_code_project/web/index_planCW.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Nordic Winter style When color palette Then features ice blue, snow white, pine green, firelight amber",
+      "status": "todo",
+      "evidence": "需要设计：#E8F4F8 (冰蓝), #FFFAFA (雪白), #228B22 (松绿), #FFB347 (火光琥珀), #2F4F4F (极夜蓝)"
+    },
+    {
+      "criterion": "Given Nordic Winter style When typography Then uses nordic fonts: Montserrat, Josefin Sans, or Lato",
+      "status": "todo",
+      "evidence": "字体选择：Montserrat (标题), Josefin Sans (正文), Lato (替代)"
+    },
+    {
+      "criterion": "Given Nordic Winter style When layout Then snow drifts, cabin windows, aurora gradients, frozen lakes",
+      "status": "todo",
+      "evidence": "布局特点：雪堆、小屋窗户、极光、冻湖、木质纹理"
+    },
+    {
+      "criterion": "Given Nordic Winter style When UI elements Then frost patterns, candle glow, snowflakes, ice crystals",
+      "status": "todo",
+      "evidence": "交互特点：霜花图案、烛光、雪片、冰晶、温暖的炉火"
+    },
+    {
+      "criterion": "Given Nordic Winter UI When functional Then includes hygge chat, settler agents, warmth stats",
+      "status": "todo",
+      "evidence": "功能需求：舒适聊天、居民代理、温暖统计"
+    },
+    {
+      "criterion": "Given Nordic Winter UI When copy Then uses scandinavian: 'Hygge', 'Aurora', 'Fjord', 'Frost'",
+      "status": "todo",
+      "evidence": "创意文案：标题'HYGGE. AURORA. FJORD.'、按钮'SEND'→'SETTLE'、'SUBMIT'→'SHELTER'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

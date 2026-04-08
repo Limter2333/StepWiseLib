@@ -1,0 +1,42 @@
+{
+  "id": "STORY-032",
+  "title": "UI风格#26 - Glitch Core (故障艺术)",
+  "description": "创建第26种UI风格：故障艺术风格 - 数字腐败、错误美学、RGB分离。输出到 G:/claude_code_project/web/index_planZ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Glitch Core style When color palette Then features dark background with RGB splits, neon error colors",
+      "status": "pass",
+      "evidence": "Implemented: #0D0D0D dark, #FF0040 glitch red, #00FF88 glitch green, #0088FF glitch blue, #FF00FF magenta"
+    },
+    {
+      "criterion": "Given Glitch Core style When typography Then uses distorted fonts: Share Tech Mono, VT323, or Rubik Mono One",
+      "status": "pass",
+      "evidence": "Implemented: VT323 (display), Share Tech Mono (body), Rubik Mono One (accents)"
+    },
+    {
+      "criterion": "Given Glitch Core style When layout Then corrupted grids, RGB split layers, scanline distortions",
+      "status": "pass",
+      "evidence": "Implemented: glitch grid, RGB split layers, scanline effects, digital noise"
+    },
+    {
+      "criterion": "Given Glitch Core style When UI elements Then RGB shift, static noise, glitch text effects, corrupted borders",
+      "status": "pass",
+      "evidence": "Implemented: RGB shift on hover, static noise, glitch text animation, corrupted borders"
+    },
+    {
+      "criterion": "Given Glitch Core UI When functional Then includes glitch chat, corrupted agents, error stats",
+      "status": "pass",
+      "evidence": "Implemented: glitch chat interface, error state agents, corrupted stats display"
+    },
+    {
+      "criterion": "Given Glitch Core UI When copy Then uses digital corruption: 'ERROR', 'CORRUPT', '404', 'OFFLINE'",
+      "status": "pass",
+      "evidence": "Implemented: title 'ERROR. CORRUPT. 404.', buttons TRANSMIT/EXEC/ABORT/RESET, status CORRUPTING/GLITCHING"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

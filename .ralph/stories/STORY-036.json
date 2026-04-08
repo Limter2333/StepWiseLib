@@ -1,0 +1,42 @@
+{
+  "id": "STORY-036",
+  "title": "UI风格#30 - Vapor Spirit (蒸汽精神)",
+  "description": "创建第30种UI风格：蒸汽精神风格 - 空灵蒸气波、柔和发光、梦幻粉色。输出到 G:/claude_code_project/web/index_planAD.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Vapor Spirit style When color palette Then features pink vapor, lavender mist, peach glow, cream white",
+      "status": "pass",
+      "evidence": "Implemented: #FFB5C5 pink mist, #E0BBE4 lavender, #FFDFD3 peach, #F5F0E8 cream white, #5C5C5C warm gray"
+    },
+    {
+      "criterion": "Given Vapor Spirit style When typography Then uses dreamy fonts: Quicksand, Comfortaa, or Josefin Sans",
+      "status": "pass",
+      "evidence": "Implemented: Comfortaa (display), Quicksand (body), Josefin Sans (accents)"
+    },
+    {
+      "criterion": "Given Vapor Spirit style When layout Then floating elements, soft gradients, ethereal spaces",
+      "status": "pass",
+      "evidence": "Implemented: floating elements, soft gradients, ethereal spaces, dreamy atmosphere"
+    },
+    {
+      "criterion": "Given Vapor Spirit style When UI elements Then glow effects, soft blur, floating shadows, pastel borders",
+      "status": "pass",
+      "evidence": "Implemented: glow effects, soft blur, floating shadows, pastel borders"
+    },
+    {
+      "criterion": "Given Vapor Spirit UI When functional Then includes spirit chat, ethereal agents, dream stats",
+      "status": "pass",
+      "evidence": "Implemented: spirit chat interface, ethereal agent cards, dream-style stats"
+    },
+    {
+      "criterion": "Given Vapor Spirit UI When copy Then uses ethereal language: 'Dream', 'Ethereal', 'Whisper', 'Float'",
+      "status": "pass",
+      "evidence": "Implemented: title 'DREAM. ETHEREAL. WHISPER.', buttons DRIFT/FLOAT/VANISH/RENEW, status DRIFTING/FLOATING"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

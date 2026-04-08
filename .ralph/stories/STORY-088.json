@@ -1,0 +1,42 @@
+{
+  "id": "STORY-088",
+  "title": "UI风格#82 - Jungle Canopy (丛林树冠)",
+  "description": "创建第82种UI风格：丛林树冠风格 - 热带雨林、光影斑驳、藤蔓悬挂。输出到 G:/claude_code_project/web/index_planCD.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Jungle Canopy style When color palette Then features deep jungle green, sunlight yellow, earth brown, orchid purple",
+      "status": "pass",
+      "evidence": "Implemented: #006400 (jungle-green), #FFD700 (sunlight), #8B4513 (earth-brown), #9932CC (orchid-purple), #228B22 (bright-green), #90EE90 (fern), #2D5A27 (canopy)"
+    },
+    {
+      "criterion": "Given Jungle Canopy style When typography Then uses tropical fonts: Montserrat, Fira Sans, or Tropical",
+      "status": "pass",
+      "evidence": "Implemented: Montserrat (headers 3rem 700 weight), Fira Sans (body 0.95rem 400-500 weight)"
+    },
+    {
+      "criterion": "Given Jungle Canopy style When layout Then dappled light, vine borders, canopy layers",
+      "status": "pass",
+      "evidence": "Implemented: dappled light animation overlay, jungle border with gradient, vine swing animation on header, layered forest green gradients"
+    },
+    {
+      "criterion": "Given Jungle Canopy style When UI elements Then leaf textures, vine animations, light ray effects",
+      "status": "pass",
+      "evidence": "Implemented: dappledLight keyframe animation, vineSwing animation, jungle gradient border with 🌿 emoji, earth-brown/maple borders, fern/canopy color scheme"
+    },
+    {
+      "criterion": "Given Jungle Canopy UI When functional Then includes jungle chat, explorer agents, trail stats",
+      "status": "pass",
+      "evidence": "Implemented: expedition chat, 4 explorer agents (Pathfinder/Naturalist/Tracker/Butterfly) with Trails/Skill/Species/Nature/Signs/Instinct/Beauty/Wings stats"
+    },
+    {
+      "criterion": "Given Jungle Canopy UI When copy Then uses tropical expedition: 'Explorer', 'Canopy', 'Vine', 'Wild'",
+      "status": "pass",
+      "evidence": "Implemented: title 'EXPLORER. CANOPY. WILD.', tagline 'INTO THE UNKNOWN DEPTHS', button 'TREK', greeting 'The canopy awaits exploration', status 'Tracking'/'Idle', nav 'Base Camp'/'Caves'/'Field Notes'/'Outpost'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "STORY-170",
+  "title": "UI风格#164 - Glitch Art (故障艺术)",
+  "description": "创建第164种UI风格：故障艺术风格 - 数字故障作为一种艺术形式、RGB分离与失真。输出到 G:/claude_code_project/web/index_planFH.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Glitch Art style When color palette Then features RGB split, neon on black, white noise, signal loss",
+      "status": "pass",
+      "evidence": "Implemented: #FF0000 (glitch-red), #00FF00 (glitch-green), #0000FF (glitch-blue), #0D0D0D (void-black), #F0F0F0 (signal-white), #00FFFF (corrupt-cyan), #FF00FF (corrupt-magenta)"
+    },
+    {
+      "criterion": "Given Glitch Art style When typography Then uses corrupted text: Share Tech Mono, VT323, or Roboto Mono",
+      "status": "pass",
+      "evidence": "Implemented: Share Tech Mono (title/headers 2.2rem), VT323 (body 1rem), Roboto Mono - corrupted monospace typography"
+    },
+    {
+      "criterion": "Given Glitch Art style When layout Then broken grids, displaced elements, corrupted frames, signal artifacts",
+      "status": "pass",
+      "evidence": "Implemented: animated RGB border, scanline overlay effect, dashed borders, glitch text animations with RGB split shadows"
+    },
+    {
+      "criterion": "Given Glitch Art style When UI elements Then RGB split, scan lines, pixel sorting, datamoshing",
+      "status": "pass",
+      "evidence": "Implemented: animated RGB border hue-rotation, scanline animation, glitch text effect on title, button/input glitch animations, blinking ERR labels"
+    },
+    {
+      "criterion": "Given Glitch Art UI When functional Then includes corrupt chat, glitch agents, signal stats",
+      "status": "pass",
+      "evidence": "Implemented: Signal Comm chat header, 4 glitch agents (SIGNAL, GLITCH, CORRUPT, ARTIFACT) with Corrupt/Artifact/Fragment/Noise/Data/Loss/Glitch/Sync stats"
+    },
+    {
+      "criterion": "Given Glitch Art UI When copy Then uses corrupted: 'Signal', 'Corrupt', 'Glitch', 'Artifact'",
+      "status": "pass",
+      "evidence": "Implemented: title 'SIGNAL. CORRUPT. GLITCH.', tagline '// signal interference detected //', button 'FRAGMENT', greeting '> ESTABLISHING SIGNAL LINK...', status 'ONLINE'/'OFFLINE', nav '> Signal'/'> Fragment'/'> Corrupt'/'> Artifact'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

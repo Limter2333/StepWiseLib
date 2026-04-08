@@ -1,0 +1,42 @@
+{
+  "id": "STORY-094",
+  "title": "UI风格#88 - Bioluminescent Forest (生物荧光森林)",
+  "description": "创建第88种UI风格：生物荧光森林风格 - 夜间森林、发光蘑菇、萤火虫。输出到 G:/claude_code_project/web/index_planCJ.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Bioluminescent Forest style When color palette Then features deep forest green, glow blue, mushroom cyan, firefly yellow",
+      "status": "pass",
+      "evidence": "Implemented: #0D3B2E (deep-forest), #00FFFF (glow-blue), #88FFCC (mushroom-cyan), #FFFF00 (firefly-yellow), #1A2F1A (dark-green), #FAF6F0 (soft-ivory), #95E1D3 (seafoam), #AA96DA (lavender), #E8A87C (coral)"
+    },
+    {
+      "criterion": "Given Bioluminescent Forest style When typography Then uses mystical fonts: Poppins, Nunito, or Montserrat",
+      "status": "pass",
+      "evidence": "Implemented: Poppins (headers 2.6rem 600 weight), Nunito (body 0.9rem 400-600 weight)"
+    },
+    {
+      "criterion": "Given Bioluminescent Forest style When layout Then dark woods, glowing mushrooms, firefly particles",
+      "status": "pass",
+      "evidence": "Implemented: fireflyFloat animation with multiple glowing particles, breathe animation overlay, dark forest gradient background with glow accents"
+    },
+    {
+      "criterion": "Given Bioluminescent Forest style When UI elements Then glow effects, particle fireflies, mushroom lights",
+      "status": "pass",
+      "evidence": "Implemented: fireflyFloat keyframe animation, breathe keyframe animation, sparkle animation, glow-blue/mushroom-cyan/firefly-yellow accents, pill-shaped borders"
+    },
+    {
+      "criterion": "Given Bioluminescent Forest UI When functional Then includes forest chat, woodland agents, glow stats",
+      "status": "pass",
+      "evidence": "Implemented: SYMB exchange chat, 4 creature agents (Lumen/Mycelia/Owl/Sprite) with Synapse/Cultivate/Spores/Network/Wisdom/Watch/Magic/Spark stats"
+    },
+    {
+      "criterion": "Given Bioluminescent Forest UI When copy Then uses forest magic: 'Glow', 'Mushroom', 'Firefly', 'Enchant'",
+      "status": "pass",
+      "evidence": "Implemented: title 'GLOW. ENCHANT. FIREFLY.', tagline 'WHERE INTELLIGENCE BREATHES AND GROWS', button 'WHISPER', greeting 'The forest breathes with bioluminescent life', status 'Glowing'/'Dormant', nav 'Grove'/'Lab'/'Roots'/'Haven'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

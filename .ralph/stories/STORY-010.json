@@ -1,0 +1,42 @@
+{
+  "id": "STORY-010",
+  "title": "Ops Agent - 部署与运维",
+  "description": "运维工程师负责网站部署和监控",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given FastAPI app When starting Then serves on configured host:port",
+      "status": "pass",
+      "evidence": "uvicorn.run with settings.API_HOST, settings.API_PORT"
+    },
+    {
+      "criterion": "Given static files When accessing Then served correctly",
+      "status": "pass",
+      "evidence": "app.mount('/static', StaticFiles(directory=web_path))"
+    },
+    {
+      "criterion": "Given CORS config When browser requests Then allows cross-origin",
+      "status": "pass",
+      "evidence": "CORSMiddleware with allow_origins=['*']"
+    },
+    {
+      "criterion": "Given API docs When accessing Then Swagger UI available at /docs",
+      "status": "pass",
+      "evidence": "FastAPI auto-generates /docs and /openapi.json"
+    },
+    {
+      "criterion": "Given health checks When monitoring Then /health endpoint returns status",
+      "status": "pass",
+      "evidence": "health router with /health endpoint implemented"
+    },
+    {
+      "criterion": "Given Ops Agent verification When completed Then deployment confirmed",
+      "status": "pass",
+      "evidence": "Infrastructure Maintainer verified: static files, CORS, port config, app loading - all PASS"
+    }
+  ],
+  "priority": "P0",
+  "agent": "ops",
+  "status": "approved",
+  "created_at": "2026-04-05T12:15:00.000000",
+  "updated_at": "2026-04-05T12:45:00.000000"
+}

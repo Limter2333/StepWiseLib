@@ -1,0 +1,42 @@
+{
+  "id": "STORY-222",
+  "title": "UI风格#216 - Brutalist Warm (粗野暖色)",
+  "description": "创建第216种UI风格：粗野暖色风格 - 粗野主义+暖色调、混凝土+砖石。输出到 G:/claude_code_project/web/index_planHI.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Brutalist Warm style When color palette Then features terracotta, ochre, raw concrete",
+      "status": "todo",
+      "evidence": "需要设计：#E2725B (陶土红), #CC7722 (赭石), #808080 (混凝土), #5D4E37 (棕色)"
+    },
+    {
+      "criterion": "Given Brutalist Warm style When typography Then uses heavy brutal: Oswald, Anton, Bebas Neue",
+      "status": "todo",
+      "evidence": "字体选择：Oswald (粗野), Anton (重), Bebas Neue (黑)"
+    },
+    {
+      "criterion": "Given Brutalist Warm style When layout Then massive warm blocks, bold contrasts",
+      "status": "todo",
+      "evidence": "布局特点：巨型暖色块、粗野对比"
+    },
+    {
+      "criterion": "Given Brutalist Warm style When UI elements Then concrete texture, warm shadows, heavy elements",
+      "status": "todo",
+      "evidence": "交互特点：混凝土质感、暖色阴影、重型元素"
+    },
+    {
+      "criterion": "Given Brutalist Warm UI When functional Then includes warm chat, brick agents, hearth stats",
+      "status": "todo",
+      "evidence": "功能需求：温暖聊天、砖块代理、炉火统计"
+    },
+    {
+      "criterion": "Given Brutalist Warm UI When copy Then uses hearth: 'Hearth', 'Warm', 'Brick', 'Stone'",
+      "status": "todo",
+      "evidence": "创意文案：标题'HEARTH. WARM. STONE.'、按钮'SUBMIT'→'BUILD'、'DEPLOY'→'FIRE'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "ready",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}

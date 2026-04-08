@@ -1,0 +1,42 @@
+{
+  "id": "STORY-048",
+  "title": "UI风格#42 - Midnight Gothic (午夜哥特)",
+  "description": "创建第42种UI风格：午夜哥特风格 - 暗黑玫瑰、哥特字体、血红色点缀。输出到 G:/claude_code_project/web/index_planAP.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Midnight Gothic style When color palette Then features deep blacks, blood reds, aged parchment, silver accents",
+      "status": "pass",
+      "evidence": "Implemented: #0A0A0A (墨黑), #8B0000 (血红), #F5F5DC (羊皮纸), #C0C0C0 (银), #2D2D2D (炭灰)"
+    },
+    {
+      "criterion": "Given Midnight Gothic style When typography Then uses gothic fonts: Cinzel Decorative, UnifrakturMaguntia, or IM Fell English",
+      "status": "pass",
+      "evidence": "Implemented: Cinzel Decorative (标题), IM Fell English (正文)"
+    },
+    {
+      "criterion": "Given Midnight Gothic style When layout Then ornate borders, dark rose motifs, cathedral windows",
+      "status": "pass",
+      "evidence": "Implemented: gothic frame with corner ornaments, rose window SVG (400px), blood red divider line"
+    },
+    {
+      "criterion": "Given Midnight Gothic style When UI elements Then gothic arches, rose windows, wrought iron patterns",
+      "status": "pass",
+      "evidence": "Implemented: corner ornaments, rose window decoration, blood-red hover effects, bordered inputs"
+    },
+    {
+      "criterion": "Given Midnight Gothic UI When functional Then includes dark chat, raven agents, crypt stats",
+      "status": "pass",
+      "evidence": "Implemented: whisper chat, 4 agent cards (Raven/Specter/Wraith/Banshee) with crypt stats (SPELLS/BOUND/TEXTS)"
+    },
+    {
+      "criterion": "Given Midnight Gothic UI When copy Then uses dark romantic: 'Raven', 'Crypt', 'Midnight', 'Blood'",
+      "status": "pass",
+      "evidence": "Implemented: title 'RAVEN. CRYPT. MIDNIGHT.', button 'WHISPER', status 'Awake'/'Dormant', nav 'Castle'/'Summit'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T01:55:00.000000"
+}

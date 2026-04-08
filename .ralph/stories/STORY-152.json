@@ -1,0 +1,42 @@
+{
+  "id": "STORY-152",
+  "title": "UI风格#146 - Kawaii Pastel Grunge (可爱粉彩垃圾)",
+  "description": "创建第146种UI风格：可爱粉彩垃圾风格 - 柔和粉彩与垃圾摇滚纹理。输出到 G:/claude_code_project/web/index_planEP.html",
+  "acceptance_criteria": [
+    {
+      "criterion": "Given Kawaii Pastel Grunge style When color palette Then features pastel lavender, cotton pink, mint green, charcoal black",
+      "status": "pass",
+      "evidence": "Implemented: #E6E6FA (pastel-lavender), #FFB6C1 (cotton-pink), #98FB98 (mint-green), #36454F (charcoal-black), #FFFAF0 (soft-white), #F5F5DC (grunge-cream), #DCAE96 (dusty-rose), #FDFD96 (pale-yellow)"
+    },
+    {
+      "criterion": "Given Kawaii Pastel Grunge style When typography Then uses contrast fonts: Permanent Marker, Quicksand, or Chunk Five",
+      "status": "pass",
+      "evidence": "Implemented: Permanent Marker (headers 2.4rem), Quicksand (body 0.95rem 400-700 weight) - punk-meets-cute contrast"
+    },
+    {
+      "criterion": "Given Kawaii Pastel Grunge style When layout Then sticker collage, grunge textures, pastel gradients, torn paper",
+      "status": "pass",
+      "evidence": "Implemented: grunge texture overlay, sticker-style cards with rotation transforms, dashed borders, torn paper aesthetic"
+    },
+    {
+      "criterion": "Given Kawaii Pastel Grunge style When UI elements Then sticker animations, xerox marks, pastel glow",
+      "status": "pass",
+      "evidence": "Implemented: sticker-like hover animations, offset box shadows (grunge style), bold borders, pastel color blocks"
+    },
+    {
+      "criterion": "Given Kawaii Pastel Grunge UI When functional Then includes grunge chat, rebel agents, chaos stats",
+      "status": "pass",
+      "evidence": "Implemented: Riot Channel chat, 4 rebel agents (Riot Star, Sticker Bomb, Cutie Mark, Chaos Theory) with Chaos/Sticker/Glitter/Spray/Punk/Flash/Riot/Destruct stats"
+    },
+    {
+      "criterion": "Given Kawaii Pastel Grunge UI When copy Then uses anti-establishment: 'Riot', 'Sticker', 'Cutie', 'Chaos'",
+      "status": "pass",
+      "evidence": "Implemented: title 'RIOT. STICKER. CUTIE.', tagline '~ pastel punk rebellion ~', button 'PEEL', greeting 'Hey hey~! Welcome to the rebellion, cutie!', status 'ACTIVE'/'IDLE', nav 'Riot'/'Peel'/'Slam'/'Chaos'"
+    }
+  ],
+  "priority": "P0",
+  "agent": "multi-agent-ui-team",
+  "status": "done",
+  "created_at": "2026-04-07T00:00:00.000000",
+  "updated_at": "2026-04-07T00:00:00.000000"
+}
