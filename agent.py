@@ -11,6 +11,7 @@ from openai import OpenAI
 import platform
 
 from prompt_template import react_system_prompt_template
+from rag import retrieve
 from tools import read_file, run_terminal_command, write_to_file
 
 
@@ -198,7 +199,7 @@ class ReActAgent:
 def main(project_directory):
     project_dir = os.path.abspath(project_directory)
 
-    tools = [read_file, write_to_file, run_terminal_command]
+    tools = [read_file, write_to_file, run_terminal_command, retrieve]
     agent = ReActAgent(tools=tools, model="xiaomi/mimo-v2.5", project_directory=project_dir)
 
     task = input("请输入任务：")
