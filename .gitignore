@@ -178,3 +178,4 @@ credentials.json
 .hg/
 .svn/
 CVS/
+pyproject.toml

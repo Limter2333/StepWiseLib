@@ -1,9 +1,14 @@
-# 1. 分片：将文档分片
 from typing import List
+from sentence_transformers import SentenceTransformer
+import chromadb
+from sentence_transformers import CrossEncoder
+from dotenv import load_dotenv
+from google import genai
 
 
+# 1. 分片：将文档分片
 def split_into_chunks(doc_file: str) -> List[str]:
-    with open(doc_file, 'r') as file:
+    with open(doc_file, 'r', encoding='utf-8') as file:
         content = file.read()
 
         return [chunk for chunk in content.split("\n\n")]
@@ -14,9 +19,8 @@ chunks = split_into_chunks("doc.md")
 for i, chunk in enumerate(chunks):
     print(f"[{i}] {chunk}\n")
 
-# 2.1 索引：生成向量
-from sentence_transformers import SentenceTransformer
 
+# 2.1 索引：生成向量
 embedding_model = SentenceTransformer("shibing624/text2vec-base-chinese")
 
 
@@ -34,9 +38,9 @@ embeddings = [embed_chunk(chunk) for chunk in chunks]
 print(len(embeddings))
 print(embeddings[0])
 
-# 2.2 索引：将向量存储到向量数据库中
-import chromadb
 
+
+# 2.2 索引：将向量存储到向量数据库中
 chromadb_client = chromadb.EphemeralClient()
 chromadb_collection = chromadb_client.get_or_create_collection(name="default")
 
@@ -70,9 +74,6 @@ for i, chunk in enumerate(retrieved_chunks):
     print(f"[{i}] {chunk}\n")
 
 # 4. 重排
-from sentence_transformers import CrossEncoder
-
-
 def rerank(query: str, retrieved_chunks: List[str], top_k: int) -> List[str]:
     cross_encoder = CrossEncoder('cross-encoder/mmarco-mMiniLMv2-L12-H384-v1')
     pairs = [(query, chunk) for chunk in retrieved_chunks]
@@ -90,9 +91,6 @@ for i, chunk in enumerate(reranked_chunks):
     print(f"[{i}] {chunk}\n")
 
 # 5. 生成
-from dotenv import load_dotenv
-from google import genai
-
 load_dotenv()
 google_client = genai.Client()
 
