@@ -76,10 +76,10 @@ Agent 会通过 `retrieve` 工具检索知识库，再基于检索结果给出�
 
 ## 五、模型配置
 
-Agent 默认使用 OpenRouter 上的模型，可在 `agent.py` 的 `main` 中修改：
+Agent 默认通过 Zen-Gateway（`https://opencode.ai/zen/v1`）调用模型，模型与 API Key 可在 `agent.py` 中修改：
 
 ```python
-agent = ReActAgent(tools=tools, model="xiaomi/mimo-v2.5", project_directory=project_dir)
+agent = ReActAgent(tools=tools, model="deepseek-v4-flash-free", project_directory=project_dir)
 ```
 
 ## 六、更新知识库
