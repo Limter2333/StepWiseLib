@@ -2,6 +2,7 @@ import ast
 import inspect
 import os
 import re
+import time
 from string import Template
 from typing import List, Callable, Tuple
 
@@ -101,15 +102,32 @@ class ReActAgent:
             raise ValueError("未找到 OPENCODE_ZEN_GETWAY 环境变量，请在 .env 文件中设置。")
         return api_key
 
-    def call_model(self, messages):
+    def call_model(self, messages, max_retries: int = 5):
         print("\n\n正在请求模型，请稍等...")
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=messages,
-        )
-        content = response.choices[0].message.content
-        messages.append({"role": "assistant", "content": content})
-        return content
+        for attempt in range(max_retries):
+            try:
+                stream = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=messages,
+                    stream=True,
+                )
+                content_parts = []
+                for chunk in stream:
+                    if chunk.choices and chunk.choices[0].delta.content is not None:
+                        piece = chunk.choices[0].delta.content
+                        content_parts.append(piece)
+                        print(piece, end="", flush=True)
+                content = "".join(content_parts)
+                print()
+                messages.append({"role": "assistant", "content": content})
+                return content
+            except Exception as e:
+                # 仅对限流(429)与临时错误重试，其余错误直接抛出
+                if getattr(e, "status_code", None) != 429 or attempt == max_retries - 1:
+                    raise
+                wait = 2 ** attempt  # 指数退避：1s, 2s, 4s, 8s, ...
+                print(f"\n\n⚠️ 触发限流(429)，{wait} 秒后重试（第 {attempt + 1}/{max_retries} 次）...")
+                time.sleep(wait)
 
     def parse_action(self, code_str: str) -> Tuple[str, List[str]]:
         match = re.match(r'(\w+)\((.*)\)', code_str, re.DOTALL)
