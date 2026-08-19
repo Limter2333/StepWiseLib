@@ -1,0 +1,21 @@
+# StepWiseLib-SoftSpace 全局配置
+# 修改后无需改代码，重新运行即可生效；字段含义见 harness/config.py
+
+llm:
+  model: deepseek-v4-flash-free   # 使用的模型名
+  base_url: https://opencode.ai/zen/v1  # 兼容 OpenAI 协议的网关地址
+  api_key_env: OPENCODE_ZEN_GETWAY      # 从 .env 中读取的 key 环境变量名
+  max_retries: 5                       # 429 限流时的重试次数
+  timeout: 60.0                        # 单次请求超时（秒）
+
+agent:
+  max_steps: 15          # 最大推理-行动步数，防止死循环
+  observe_max_chars: 4000  # 工具返回文本的截断上限，防上下文爆炸
+  working_dir: .         # Agent 的工作目录（相对/绝对路径均可）
+  require_confirm:       # 执行前需要用户确认的工具名单
+    - run_terminal_command
+
+permissions:
+  # 工具名 -> 权限级别（allow/confirm/deny），Phase5 完成权限策略后生效
+  run_terminal_command: confirm
+  write_to_file: confirm
