@@ -13,7 +13,7 @@ import platform
 
 from prompt_template import react_system_prompt_template
 from rag import retrieve
-from tools import read_file, run_terminal_command, write_to_file
+from tools import discover_tools
 
 
 class ReActAgent:
@@ -217,7 +217,10 @@ class ReActAgent:
 def main(project_directory):
     project_dir = os.path.abspath(project_directory)
 
-    tools = [read_file, write_to_file, run_terminal_command, retrieve]
+    # 自动发现所有工具并添加外部工具
+    tools = discover_tools()
+    tools.append(retrieve)
+
     agent = ReActAgent(tools=tools, model="deepseek-v4-flash-free", project_directory=project_dir)
 
     task = input("请输入任务：")
