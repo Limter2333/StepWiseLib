@@ -17,25 +17,33 @@ from tools import discover_tools
 
 
 class ReActAgent:
-    def __init__(self, tools: List[Callable], model: str, project_directory: str):
+    def __init__(self, tools: List[Callable], model: str, project_directory: str, max_steps: int = 15):
         self.tools = {func.__name__: func for func in tools}
         self.model = model
         self.project_directory = project_directory
+        self.max_steps = max_steps
         self.client = OpenAI(
             base_url="https://opencode.ai/zen/v1",
             api_key=ReActAgent.get_api_key(),
         )
+        # 多轮对话历史：跨 run() 调用持久化，只在首次 run 时初始化 system prompt
+        self.messages: List[dict] = []
+        self._system_prompt_added = False
 
-    def run(self, user_input: str):
-        messages = [
-            {"role": "system", "content": self.render_system_prompt(react_system_prompt_template)},
-            {"role": "user", "content": f"<question>{user_input}</question>"}
-        ]
+    def run(self, user_input: str) -> str:
+        # 首次对话时注入系统提示词
+        if not self._system_prompt_added:
+            system_msg = {"role": "system", "content": self.render_system_prompt(react_system_prompt_template)}
+            self.messages.append(system_msg)
+            self._system_prompt_added = True
 
-        while True:
+        self.messages.append({"role": "user", "content": f"<question>{user_input}</question>"})
+
+        for step in range(self.max_steps):
+            print(f"\n{'='*40} 第 {step + 1}/{self.max_steps} 步 {'='*40}")
 
             # 请求模型
-            content = self.call_model(messages)
+            content = self.call_model(self.messages)
 
             # 检测 Thought
             thought_match = re.search(r"<thought>(.*?)</thought>", content, re.DOTALL)
@@ -68,7 +76,9 @@ class ReActAgent:
                 observation = f"工具执行错误：{str(e)}"
             print(f"\n\n🔍 Observation：{observation}")
             obs_msg = f"<observation>{observation}</observation>"
-            messages.append({"role": "user", "content": obs_msg})
+            self.messages.append({"role": "user", "content": obs_msg})
+
+        return f"已达到最大迭代步数 {self.max_steps}，任务未完成"
 
     def get_tool_list(self) -> str:
         """生成工具列表字符串，包含函数签名和简要说明"""
@@ -214,20 +224,32 @@ class ReActAgent:
 @click.command()
 @click.argument('project_directory',
                 type=click.Path(exists=True, file_okay=False, dir_okay=True))
-def main(project_directory):
+@click.option('--max-steps', default=15, type=int, help='Agent 最大迭代步数')
+def main(project_directory, max_steps):
     project_dir = os.path.abspath(project_directory)
 
     # 自动发现所有工具并添加外部工具
     tools = discover_tools()
     tools.append(retrieve)
 
-    agent = ReActAgent(tools=tools, model="mimo-v2.5-free", project_directory=project_dir)
+    agent = ReActAgent(tools=tools, model="mimo-v2.5-free", project_directory=project_dir, max_steps=max_steps)
 
-    task = input("请输入任务：")
+    print("=" * 60)
+    print("  ReAct Agent - 多轮对话模式")
+    print("  输入 quit 或 exit 退出")
+    print("=" * 60)
 
-    final_answer = agent.run(task)
+    while True:
+        print()  # 换行分隔
+        task = input("请输入任务：").strip()
+        if not task:
+            continue
+        if task.lower() in ("quit", "exit"):
+            print("\n再见！")
+            break
 
-    print(f"\n\n✅ Final Answer：{final_answer}")
+        final_answer = agent.run(task)
+        print(f"\n\n✅ Final Answer：{final_answer}")
 
 
 if __name__ == "__main__":
