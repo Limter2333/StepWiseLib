@@ -13,7 +13,7 @@ class TestLLMConfig:
         """测试默认值。"""
         config = LLMConfig()
         assert config.base_url == "https://opencode.ai/zen/v1"
-        assert config.model == "deepseek-v4-flash-free"
+        assert config.model == "mimo-v2.5-free"
         assert config.max_retries == 5
         assert config.timeout == 60.0
 
@@ -64,7 +64,7 @@ class TestHarnessConfig:
         config_file.write_text("", encoding="utf-8")
         
         config = HarnessConfig.from_yaml(str(config_file))
-        assert config.llm.model == "deepseek-v4-flash-free"  # 默认值
+        assert config.llm.model == "mimo-v2.5-free"  # 默认值
     
     def test_resolve_working_dir(self):
         """测试工作目录解析。"""

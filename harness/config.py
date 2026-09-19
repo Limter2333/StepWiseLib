@@ -13,7 +13,7 @@ class LLMConfig:
     """
 
     base_url: str = "https://opencode.ai/zen/v1"
-    model: str = "deepseek-v4-flash-free"
+    model: str = "mimo-v2.5-free"
     api_key_env: str = "OPENCODE_ZEN_GETWAY"  # 从环境变量读取，key 不入库
     max_retries: int = 5  # 限流(429)重试次数，配合指数退避
     timeout: float = 60.0  # 单次请求超时（秒）

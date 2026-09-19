@@ -99,7 +99,7 @@ import yaml
 @dataclass
 class LLMConfig:
     base_url: str = "https://opencode.ai/zen/v1"
-    model: str = "deepseek-v4-flash-free"
+    model: str = "mimo-v2.5-free"
     api_key_env: str = "OPENCODE_ZEN_GETWAY"
     max_retries: int = 5
     timeout: float = 60.0
@@ -427,7 +427,7 @@ def main():
 ### `config.yaml`
 ```yaml
 llm:
-  model: deepseek-v4-flash-free
+  model: mimo-v2.5-free
   base_url: https://opencode.ai/zen/v1
   api_key_env: OPENCODE_ZEN_GETWAY
   max_retries: 5

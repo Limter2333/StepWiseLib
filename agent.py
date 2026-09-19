@@ -221,7 +221,7 @@ def main(project_directory):
     tools = discover_tools()
     tools.append(retrieve)
 
-    agent = ReActAgent(tools=tools, model="deepseek-v4-flash-free", project_directory=project_dir)
+    agent = ReActAgent(tools=tools, model="mimo-v2.5-free", project_directory=project_dir)
 
     task = input("请输入任务：")
 

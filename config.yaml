@@ -2,7 +2,7 @@
 # 修改后无需改代码，重新运行即可生效；字段含义见 harness/config.py
 
 llm:
-  model: deepseek-v4-flash-free   # 使用的模型名
+  model: mimo-v2.5-free   # 使用的模型名
   base_url: https://opencode.ai/zen/v1  # 兼容 OpenAI 协议的网关地址
   api_key_env: OPENCODE_ZEN_GETWAY      # 从 .env 中读取的 key 环境变量名
   max_retries: 5                       # 429 限流时的重试次数
